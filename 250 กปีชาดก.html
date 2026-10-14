@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>กปีชาดก: บทเรียนของลิงผู้โอหัง</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_0_15163759550614425044.jpg" alt="กปีชาดก: บทเรียนของลิงผู้โอหัง" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">กปีชาดก: บทเรียนของลิงผู้โอหัง</h1>
+            <p class="cover-author">By wolf tbmx</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">Page 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_1_3977181020560736947.jpg" alt="Page 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลครั้งหนึ่งนานมาแล้ว ในป่าหิมพานต์อันกว้างใหญ่ ฤดูหนาวมาเยือนพร้อมลมพัดแรงจนยอดไม้สั่นไหว ฝูงลิงต่างพากันนั่งกอดเข่า ตัวสั่นงันงกด้วยความหนาวเหน็บ ชัญชลา ลิงหนุ่มผู้ร่าเริงพยายามหาทางทำให้เพื่อนๆ อุ่นขึ้น แต่ลมหนาวก็ยังคงกัดกินผิวหนังของพวกมันจนแทบจะทนไม่ไหว</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_2_3845924681748064088.jpg" alt="Page 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ชัญชลามองฝ่าความมืดออกไป และสังเกตเห็นแสงสว่างสีส้มเรืองรองออกมาจากถ้ำที่อยู่ไม่ไกลนัก &quot;นั่นต้องเป็นไฟแน่ๆ!&quot; เขาอุทานออกมาด้วยความดีใจ ความอบอุ่นที่เขาโหยหากำลังรออยู่ตรงนั้น ชัญชลาตัดสินใจมุ่งหน้าไปยังถ้ำเพียงลำพังเพื่อขอความช่วยเหลือ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_3_12431611246785679104.jpg" alt="Page 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ภายในถ้ำนั้น ท่านมุนี ผู้ทรงศีลกำลังนั่งบำเพ็ญภาวนาอย่างสงบนิ่ง ข้างกายของท่านมีกองไฟเล็กๆ ที่ส่งเปลวเพลิงสีทองร่ายรำไปมา ความเงียบสงบและเมตตาธรรมแผ่ซ่านออกมาจากตัวท่านมุนี ราวกับว่าความหนาวเหน็บภายนอกไม่สามารถทำอะไรท่านได้เลย</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_4_10610849240000779088.jpg" alt="Page 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ชัญชลาคลานเข้าไปหาท่านมุนีด้วยท่าทางนอบน้อมผิดปกติ เขาพนมมือและทำหน้าตาเศร้าสร้อย &quot;ท่านผู้เจริญ โปรดเมตตาพวกเราด้วยเถิด เพื่อนๆ ของข้าพเจ้ากำลังจะแข็งตายเพราะความหนาว ขอแบ่งปันไฟให้พวกเราสักนิดได้หรือไม่?&quot; ชัญชลาแสร้งทำเป็นลิงที่สุภาพที่สุดในโลก</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_5_17763076710958873044.jpg" alt="Page 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ท่านมุนีลืมตาขึ้นช้าๆ และมองดูลิงน้อยด้วยความเอ็นดู ท่านรับรู้ถึงความหนาวเหน็บที่สัตว์น้อยใหญ่ต้องเผชิญ ท่านยิ้มด้วยความเมตตาและพร้อมที่จะแบ่งปันความอบอุ่นนี้โดยไม่หวังสิ่งตอบแทน เพราะท่านเชื่อว่าการช่วยเหลือผู้อื่นคือบุญกุศลอันยิ่งใหญ่</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_6_14330908059754252891.jpg" alt="Page 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ท่านมุนีใช้ไม้เขี่ยถ่านไฟที่ยังมีไฟลุกโชนยื่นให้แก่ชัญชลา &quot;จงนำไฟนี้ไป และใช้มันอย่างระมัดระวังนะเจ้าลิงน้อย ความอบอุ่นนี้จะช่วยให้เจ้าและเพื่อนๆ ผ่านพ้นคืนที่โหดร้ายไปได้&quot; ท่านมุนีกล่าวด้วยน้ำเสียงนุ่มนวล</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_7_2098084261090143222.jpg" alt="Page 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ชัญชลารีบนำถ่านไฟกลับไปหาฝูงลิง ทันทีที่ไฟถูกก่อขึ้น เพื่อนลิงคนสนิทของเขาก็เข้ามาล้อมวงรับความอบอุ่น &quot;ดูสิ! ข้าไปเอาไฟมาจากนักบวชแก่คนนั้นได้ง่ายๆ เลย&quot; ชัญชลาเริ่มโอ้อวด ท่าทางนอบน้อมเมื่อครู่หายไปสิ้น</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_8_15137233743386203309.jpg" alt="Page 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อร่างกายเริ่มอบอุ่น นิสัยเสียของชัญชลาก็เริ่มปรากฏ เขาเริ่มเต้นระบำรอบกองไฟและทำท่าทางล้อเลียนท่านมุนี &quot;ดูข้าสิ ข้าฉลาดกว่านักบวชคนนั้นตั้งเยอะ แค่ทำหน้าเศร้าเขาก็เชื่อข้าแล้ว!&quot; เขาหัวเราะร่าอย่างลำพองใจโดยไม่นึกถึงพระคุณ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_9_663210702091160957.jpg" alt="Page 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ชัญชลาเกิดความคิดพิเรนทร์ เขาเดินกลับไปที่ถ้ำของท่านมุนีอีกครั้ง แต่คราวนี้เขาไม่ได้ไปเพื่อขอบคุณ เขาเดินส่ายก้นไปมาและกระโดดขึ้นไปบนหินใกล้ๆ ที่ท่านมุนีนั่งอยู่ แล้วเริ่มทำเสียงเจี๊ยกจ๊ากก่อกวนสมาธิของท่าน</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_10_10766868017117112796.jpg" alt="Page 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ไม่เพียงเท่านั้น ชัญชลายังหยิบก้อนหินเล็กๆ ขว้างลงไปใกล้กองไฟของท่านมุนี และถ่มน้ำลายใส่เปลวไฟที่เคยให้ความอบอุ่นแก่เขา เขาแสดงกิริยาหยาบคายและดูหมิ่นถิ่นแคลนความใจดีที่ท่านมุนีมอบให้เพียงเพื่อความสนุกสนานชั่วครั้งชั่วคราว</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_11_13266402293866517157.jpg" alt="Page 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ท่านมุนีลืมตาขึ้นอีกครั้ง แต่คราวนี้ดวงตาของท่านเต็มไปด้วยความเด็ดขาด ท่านเห็นว่าลิงตัวนี้ไม่มีความกตัญญูและไม่รู้จักที่ต่ำที่สูง &quot;เจ้าลิงผู้โง่เขลา ความเมตตาของข้ามีไว้สำหรับผู้ที่รู้จักคุณค่า เมื่อเจ้าไม่เคารพไฟและผู้ให้ เจ้าก็ไม่ควรได้รับมัน&quot; ท่านมุนีใช้ไม้เท้าชี้ไปทางทางออกถ้ำ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./250 กปีชาดก_files/storybook_page_12_5196731822766063665.jpg" alt="Page 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ชัญชลาถูกขับไล่ออกมาจากถ้ำและไม่มีใครยอมให้ไฟแก่เขาอีกเลย ลมหนาวกลับมาพัดแรงอีกครั้ง คราวนี้เขาต้องนั่งตัวสั่นอยู่เพียงลำพังใต้แสงจันทร์ เขาจึงได้รู้ซึ้งว่า ความอบอุ่นที่แท้จริงหายไปพร้อมกับความหยาบคายของเขานั่นเอง</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ในป่าหิมพานต์อันกว้างใหญ่ ฤดูหนาวมาเยือนพร้อมลมพัดแรงจนยอดไม้สั่นไหว ฝูงลิงต่างพากันนั่งกอดเข่า ตัวสั่นงันงกด้วยความหนาวเหน็บ ชัญชลา ลิงหนุ่มผู้ร่าเริงพยายามหาทางทำให้เพื่อนๆ อุ่นขึ้น แต่ลมหนาวก็ยังคงกัดกินผิวหนังของพวกมันจนแทบจะทนไม่ไหว ชัญชลามองฝ่าความมืดออกไป และสังเกตเห็นแสงสว่างสีส้มเรืองรองออกมาจากถ้ำที่อยู่ไม่ไกลนัก \"นั่นต้องเป็นไฟแน่ๆ!\" เขาอุทานออกมาด้วยความดีใจ ความอบอุ่นที่เขาโหยหากำลังรออยู่ตรงนั้น ชัญชลาตัดสินใจมุ่งหน้าไปยังถ้ำเพียงลำพังเพื่อขอความช่วยเหลือ ภายในถ้ำนั้น ท่านมุนี ผู้ทรงศีลกำลังนั่งบำเพ็ญภาวนาอย่างสงบนิ่ง ข้างกายของท่านมีกองไฟเล็กๆ ที่ส่งเปลวเพลิงสีทองร่ายรำไปมา ความเงียบสงบและเมตตาธรรมแผ่ซ่านออกมาจากตัวท่านมุนี ราวกับว่าความหนาวเหน็บภายนอกไม่สามารถทำอะไรท่านได้เลย ชัญชลาคลานเข้าไปหาท่านมุนีด้วยท่าทางนอบน้อมผิดปกติ เขาพนมมือและทำหน้าตาเศร้าสร้อย \"ท่านผู้เจริญ โปรดเมตตาพวกเราด้วยเถิด เพื่อนๆ ของข้าพเจ้ากำลังจะแข็งตายเพราะความหนาว ขอแบ่งปันไฟให้พวกเราสักนิดได้หรือไม่?\" ชัญชลาแสร้งทำเป็นลิงที่สุภาพที่สุดในโลก ท่านมุนีลืมตาขึ้นช้าๆ และมองดูลิงน้อยด้วยความเอ็นดู ท่านรับรู้ถึงความหนาวเหน็บที่สัตว์น้อยใหญ่ต้องเผชิญ ท่านยิ้มด้วยความเมตตาและพร้อมที่จะแบ่งปันความอบอุ่นนี้โดยไม่หวังสิ่งตอบแทน เพราะท่านเชื่อว่าการช่วยเหลือผู้อื่นคือบุญกุศลอันยิ่งใหญ่ ท่านมุนีใช้ไม้เขี่ยถ่านไฟที่ยังมีไฟลุกโชนยื่นให้แก่ชัญชลา \"จงนำไฟนี้ไป และใช้มันอย่างระมัดระวังนะเจ้าลิงน้อย ความอบอุ่นนี้จะช่วยให้เจ้าและเพื่อนๆ ผ่านพ้นคืนที่โหดร้ายไปได้\" ท่านมุนีกล่าวด้วยน้ำเสียงนุ่มนวล ชัญชลารีบนำถ่านไฟกลับไปหาฝูงลิง ทันทีที่ไฟถูกก่อขึ้น เพื่อนลิงคนสนิทของเขาก็เข้ามาล้อมวงรับความอบอุ่น \"ดูสิ! ข้าไปเอาไฟมาจากนักบวชแก่คนนั้นได้ง่ายๆ เลย\" ชัญชลาเริ่มโอ้อวด ท่าทางนอบน้อมเมื่อครู่หายไปสิ้น เมื่อร่างกายเริ่มอบอุ่น นิสัยเสียของชัญชลาก็เริ่มปรากฏ เขาเริ่มเต้นระบำรอบกองไฟและทำท่าทางล้อเลียนท่านมุนี \"ดูข้าสิ ข้าฉลาดกว่านักบวชคนนั้นตั้งเยอะ แค่ทำหน้าเศร้าเขาก็เชื่อข้าแล้ว!\" เขาหัวเราะร่าอย่างลำพองใจโดยไม่นึกถึงพระคุณ ชัญชลาเกิดความคิดพิเรนทร์ เขาเดินกลับไปที่ถ้ำของท่านมุนีอีกครั้ง แต่คราวนี้เขาไม่ได้ไปเพื่อขอบคุณ เขาเดินส่ายก้นไปมาและกระโดดขึ้นไปบนหินใกล้ๆ ที่ท่านมุนีนั่งอยู่ แล้วเริ่มทำเสียงเจี๊ยกจ๊ากก่อกวนสมาธิของท่าน ไม่เพียงเท่านั้น ชัญชลายังหยิบก้อนหินเล็กๆ ขว้างลงไปใกล้กองไฟของท่านมุนี และถ่มน้ำลายใส่เปลวไฟที่เคยให้ความอบอุ่นแก่เขา เขาแสดงกิริยาหยาบคายและดูหมิ่นถิ่นแคลนความใจดีที่ท่านมุนีมอบให้เพียงเพื่อความสนุกสนานชั่วครั้งชั่วคราว ท่านมุนีลืมตาขึ้นอีกครั้ง แต่คราวนี้ดวงตาของท่านเต็มไปด้วยความเด็ดขาด ท่านเห็นว่าลิงตัวนี้ไม่มีความกตัญญูและไม่รู้จักที่ต่ำที่สูง \"เจ้าลิงผู้โง่เขลา ความเมตตาของข้ามีไว้สำหรับผู้ที่รู้จักคุณค่า เมื่อเจ้าไม่เคารพไฟและผู้ให้ เจ้าก็ไม่ควรได้รับมัน\" ท่านมุนีใช้ไม้เท้าชี้ไปทางทางออกถ้ำ ชัญชลาถูกขับไล่ออกมาจากถ้ำและไม่มีใครยอมให้ไฟแก่เขาอีกเลย ลมหนาวกลับมาพัดแรงอีกครั้ง คราวนี้เขาต้องนั่งตัวสั่นอยู่เพียงลำพังใต้แสงจันทร์ เขาจึงได้รู้ซึ้งว่า ความอบอุ่นที่แท้จริงหายไปพร้อมกับความหยาบคายของเขานั่นเอง";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

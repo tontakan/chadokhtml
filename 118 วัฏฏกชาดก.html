@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>ปัญญาของนกคุ่มผู้ยิ่งใหญ่</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_0_7059965741096373338.jpg" alt="ปัญญาของนกคุ่มผู้ยิ่งใหญ่" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">ปัญญาของนกคุ่มผู้ยิ่งใหญ่</h1>
+            <p class="cover-author">โดย music relax</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_1_5356693081720464554.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>นานมาแล้ว ณ ป่าลึกอันอุดมสมบูรณ์ในดินแดนชมพูทวีป มีนกคุ่มตัวหนึ่งชื่อว่า &quot;ธีระ&quot; เขาเป็นนกที่มีปัญญาฉลาดหลักแหลมและมีความอดทนเป็นเลิศ ธีระใช้ชีวิตอย่างสงบสุขท่ามกลางแมกไม้และเสียงเพลงจากธรรมชาติ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_2_4840440475076243592.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วันหนึ่งพรานป่านามว่า &quot;พยัคฆะ&quot; ผู้วางข่ายดักนกไปทั่วทั้งป่า ได้แอบซุ่มซ่อนตัวอยู่หลังพุ่มไม้ เขาหวังจะจับนกตัวอ้วนๆ ไปขายที่ตลาดในเมือง ธีระไม่ทันระวังตัวจึงติดกับดักข่ายของพรานเข้าอย่างจัง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_3_1170877779118413855.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พยัคฆะนำธีระกลับมาที่บ้านและขังไว้ในกรงไม้ไผ่ขนาดเล็ก ในกรงนั้นมีนกตัวอื่นๆ อีกมากมายที่ถูกจับมาด้วยกัน พยัคฆะหวังจะขุนนกเหล่านี้ให้อ้วนท้วนเพื่อที่จะได้ราคาดีเมื่อนำไปขาย</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_4_8653003162748720416.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พยัคฆะนำเมล็ดข้าวและน้ำสะอาดมาให้นกในกรงทุกวัน นกตัวอื่นๆ ต่างพากันรุมกินอาหารด้วยความหิวโหย จนร่างกายเริ่มอ้วนถ้วนและขยับตัวลำบาก แต่ธีระกลับคิดในใจว่า &quot;หากข้าอ้วน ข้าคงต้องถูกนำไปขายและพบจุดจบเป็นแน่&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_5_3929619147340588389.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พยัคฆะเฝ้าสังเกตนกในกรงด้วยความสงสัย เขาเห็นนกตัวอื่นโตวันโตคืน แต่ธีระกลับดูเล็กลงเรื่อยๆ พรานพยายามเอาใจใส่เป็นพิเศษด้วยการหยิบอาหารชั้นดีมาป้อนให้ถึงที่</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_6_12166560727513893175.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ในขณะที่นกตัวอื่นๆ ในกรงเริ่มมีขนมันวาวและตัวกลมมนเพราะกินอาหารไม่หยุด ธีระกลับเลือกที่จะกินเพียงน้ำเพียงเล็กน้อยเพื่อให้มีชีวิตรอด เขาใช้เวลาส่วนใหญ่ไปกับการทำสมาธิและวางแผนเพื่ออิสรภาพ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_7_18213501999054547269.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>หลายวันผ่านไป ร่างกายของธีระเริ่มซูบผอมจนเห็นกระดูก ขนของเขาดูไม่เงางามเหมือนเก่า เขาแสร้งทำเป็นอ่อนแรงจนแทบจะยืนไม่ไหว ธีระรู้ดีว่านี่คือหนทางเดียวที่จะทำให้พรานหมดความสนใจในตัวเขา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_8_4295351599056371532.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พยัคฆะเดินมาตรวจดูนกเพื่อเตรียมตัวไปตลาด เขาชี้ไปที่นกตัวอ้วนๆ ด้วยความดีใจ แต่เมื่อมองมาที่ธีระ เขาก็ขมวดคิ้วด้วยความผิดหวัง &quot;นกตัวนี้ผอมโซเหลือเกิน คงจะป่วยและขายไม่ได้ราคา&quot; พรานบ่นพึมพำ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_9_12469667419190755367.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พยัคฆะตัดสินใจว่าไม่ควรขังนกที่ดูป่วยไว้รวมกับตัวอื่น เพราะอาจทำให้ตัวอื่นป่วยตามไปด้วย เขาจึงเปิดประตูกรงแล้วหยิบธีระออกมา &quot;เจ้ามันนกไร้ค่า ไปเสียเถอะ ข้าไม่ต้องการเจ้าแล้ว&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_10_13347793083023876149.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พยัคฆะวางธีระลงบนฝ่ามือเพื่อจะนำไปปล่อยที่ชายป่า ธีระยังคงแกล้งทำเป็นหายใจรวยรินและนอนนิ่งสนิทบนมือของพราน เพื่อให้พยัคฆะตายใจว่าเขาไม่มีกำลังจะหนีไปไหนได้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_11_10407371921267333189.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ทันทีที่พรานพยัคฆะวางมือลงกับพื้นดิน ธีระที่เฝ้ารอจังหวะอยู่ก็รวบรวมพละกำลังทั้งหมดที่มีกระพือปีกบินทะยานขึ้นสู่ท้องฟ้าอย่างรวดเร็ว พรานป่าตกใจจนอ้าปากค้าง ไม่นึกว่านกที่ดูใกล้ตายจะแข็งแรงได้ขนาดนี้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./118 วัฏฏกชาดก_files/storybook_page_12_8638189112428639092.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ธีระบินกลับสู่ป่ากว้างด้วยความภาคภูมิใจในปัญญาและความอดทนของตน เขาเรียนรู้ว่าความโลภของผู้อื่นสามารถใช้เป็นเครื่องมือสู่ความสำเร็จได้หากเรามีสติและปัญญา ธีระกลับไปใช้ชีวิตอย่างอิสระและมีความสุขตลอดไป</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "นานมาแล้ว ณ ป่าลึกอันอุดมสมบูรณ์ในดินแดนชมพูทวีป มีนกคุ่มตัวหนึ่งชื่อว่า \"ธีระ\" เขาเป็นนกที่มีปัญญาฉลาดหลักแหลมและมีความอดทนเป็นเลิศ ธีระใช้ชีวิตอย่างสงบสุขท่ามกลางแมกไม้และเสียงเพลงจากธรรมชาติ วันหนึ่งพรานป่านามว่า \"พยัคฆะ\" ผู้วางข่ายดักนกไปทั่วทั้งป่า ได้แอบซุ่มซ่อนตัวอยู่หลังพุ่มไม้ เขาหวังจะจับนกตัวอ้วนๆ ไปขายที่ตลาดในเมือง ธีระไม่ทันระวังตัวจึงติดกับดักข่ายของพรานเข้าอย่างจัง พยัคฆะนำธีระกลับมาที่บ้านและขังไว้ในกรงไม้ไผ่ขนาดเล็ก ในกรงนั้นมีนกตัวอื่นๆ อีกมากมายที่ถูกจับมาด้วยกัน พยัคฆะหวังจะขุนนกเหล่านี้ให้อ้วนท้วนเพื่อที่จะได้ราคาดีเมื่อนำไปขาย พยัคฆะนำเมล็ดข้าวและน้ำสะอาดมาให้นกในกรงทุกวัน นกตัวอื่นๆ ต่างพากันรุมกินอาหารด้วยความหิวโหย จนร่างกายเริ่มอ้วนถ้วนและขยับตัวลำบาก แต่ธีระกลับคิดในใจว่า \"หากข้าอ้วน ข้าคงต้องถูกนำไปขายและพบจุดจบเป็นแน่\" พยัคฆะเฝ้าสังเกตนกในกรงด้วยความสงสัย เขาเห็นนกตัวอื่นโตวันโตคืน แต่ธีระกลับดูเล็กลงเรื่อยๆ พรานพยายามเอาใจใส่เป็นพิเศษด้วยการหยิบอาหารชั้นดีมาป้อนให้ถึงที่ ในขณะที่นกตัวอื่นๆ ในกรงเริ่มมีขนมันวาวและตัวกลมมนเพราะกินอาหารไม่หยุด ธีระกลับเลือกที่จะกินเพียงน้ำเพียงเล็กน้อยเพื่อให้มีชีวิตรอด เขาใช้เวลาส่วนใหญ่ไปกับการทำสมาธิและวางแผนเพื่ออิสรภาพ หลายวันผ่านไป ร่างกายของธีระเริ่มซูบผอมจนเห็นกระดูก ขนของเขาดูไม่เงางามเหมือนเก่า เขาแสร้งทำเป็นอ่อนแรงจนแทบจะยืนไม่ไหว ธีระรู้ดีว่านี่คือหนทางเดียวที่จะทำให้พรานหมดความสนใจในตัวเขา พยัคฆะเดินมาตรวจดูนกเพื่อเตรียมตัวไปตลาด เขาชี้ไปที่นกตัวอ้วนๆ ด้วยความดีใจ แต่เมื่อมองมาที่ธีระ เขาก็ขมวดคิ้วด้วยความผิดหวัง \"นกตัวนี้ผอมโซเหลือเกิน คงจะป่วยและขายไม่ได้ราคา\" พรานบ่นพึมพำ พยัคฆะตัดสินใจว่าไม่ควรขังนกที่ดูป่วยไว้รวมกับตัวอื่น เพราะอาจทำให้ตัวอื่นป่วยตามไปด้วย เขาจึงเปิดประตูกรงแล้วหยิบธีระออกมา \"เจ้ามันนกไร้ค่า ไปเสียเถอะ ข้าไม่ต้องการเจ้าแล้ว\" พยัคฆะวางธีระลงบนฝ่ามือเพื่อจะนำไปปล่อยที่ชายป่า ธีระยังคงแกล้งทำเป็นหายใจรวยรินและนอนนิ่งสนิทบนมือของพราน เพื่อให้พยัคฆะตายใจว่าเขาไม่มีกำลังจะหนีไปไหนได้ ทันทีที่พรานพยัคฆะวางมือลงกับพื้นดิน ธีระที่เฝ้ารอจังหวะอยู่ก็รวบรวมพละกำลังทั้งหมดที่มีกระพือปีกบินทะยานขึ้นสู่ท้องฟ้าอย่างรวดเร็ว พรานป่าตกใจจนอ้าปากค้าง ไม่นึกว่านกที่ดูใกล้ตายจะแข็งแรงได้ขนาดนี้ ธีระบินกลับสู่ป่ากว้างด้วยความภาคภูมิใจในปัญญาและความอดทนของตน เขาเรียนรู้ว่าความโลภของผู้อื่นสามารถใช้เป็นเครื่องมือสู่ความสำเร็จได้หากเรามีสติและปัญญา ธีระกลับไปใช้ชีวิตอย่างอิสระและมีความสุขตลอดไป";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

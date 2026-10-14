@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>มิตรภาพแห่งป่าเขียวและเยียวยาด้วยความอบอุ่นใจ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_0_16498837807802274726.jpg" alt="มิตรภาพแห่งป่าเขียวและเยียวยาด้วยความอบอุ่นใจ" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">มิตรภาพแห่งป่าเขียวและเยียวยาด้วยความอบอุ่นใจ</h1>
+            <p class="cover-author">โดย Story Live</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_1_6467429126231900545.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลครั้งหนึ่งนานมาแล้ว ในเมืองพาราณสีที่รุ่งเรือง พระเจ้าแผ่นดินผู้มีนามว่า พระเจ้าพราหมทัต หรือ &quot;ราชัน&quot; ทรงเป็นสหายรักกับพระดาบสนามว่า &quot;กปิล&quot; ผู้บำเพ็ญเพียรอยู่ในป่าหิมพานต์อันสงบเงียบ ทุกๆ ปี ราชันจะเสด็จไปเยี่ยมพระดาบสเพื่อฟังธรรมและพูดคุยถึงความสุขที่แท้จริง ทั้งสองมีความผูกพันกันอย่างลึกซึ้งราวกับพี่น้อง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_2_8852343628058208057.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อฤดูฝนมาถึง ราชันทรงนิมนต์กปิลให้เข้ามาพักในอุทยานหลวง เพื่อจะได้มิต้องลำบากตรากตรำในป่าทึบ กปิลยอมรับคำนิมนต์ด้วยไมตรีจิต ท่านพำนักอยู่ในอาศรมที่ราชันจัดสร้างให้อย่างประณีต พร้อมด้วยอาหารรสเลิศและเครื่องปูลาดที่นุ่มสบายที่สุดในพระราชวัง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_3_3579700335574002410.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>แม้จะได้รับความสะดวกสบายเพียงใด แต่ไม่นานนัก กปิลก็เริ่มมีอาการประชวร ร่างกายที่เคยแข็งแรงกลับซูบผอม ท่านเบื่ออาหารและนอนไม่หลับ เพราะจิตใจเฝ้าโหยหาความเงียบสงบของป่ากว้าง เสียงนกพรรณนา และกลิ่นดินหลังฝนตกที่ท่านคุ้นเคย</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_4_14025705477303346096.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อเห็นอาการไม่ดีขึ้น กปิลจึงขอลาจากเมืองหลวงเพื่อกลับสู่ป่า ท่านได้บอกความในใจกับ &quot;วิธุร&quot; อำมาตย์ผู้ปรีชาและเป็นสหายอีกคนหนึ่ง วิธุรเข้าใจดีว่าหัวใจของนักบวชนั้นผูกพันกับธรรมชาติยิ่งกว่าความมั่งคั่งในเมือง ท่านจึงช่วยอำนวยความสะดวกให้กปิลเดินทางกลับ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_5_12312466716047662118.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>หลังจากกปิลกลับไปได้ไม่นาน ราชันก็ทรงล้มป่วยลงด้วยความเศร้าโศก ทรงคิดถึงการสนทนาอันชาญฉลาดและรอยยิ้มที่สงบของพระดาบส แม้หมอหลวงจะถวายยาดีที่สุดเพียงใด อาการของพระองค์ก็ไม่ทุเลาลงเลย เพราะโรคที่ทรงเป็นอยู่นั้นคือ &quot;โรคคิดถึงเพื่อน&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_6_5773519570975727789.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ราชันทรงเรียกวิธุรมาพบและตรัสว่า &quot;ท่านอำมาตย์ ข้าคิดถึงกปิลสหายรักเหลือเกิน ป่านนี้ท่านจะเป็นอย่างไรบ้าง ท่านคงจะป่วยหนักเหมือนข้าแน่ๆ&quot; ราชันจึงมีรับสั่งให้วิธุรเดินทางไปเยี่ยมกปิลที่ป่าหิมพานต์เพื่อดูอาการและนำข่าวกลับมาบอกพระองค์</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_7_2617225402335431017.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วิธุรเดินทางลัดเลาะผ่านขุนเขาและลำธาร ท่ามกลางสัตว์ป่าน้อยใหญ่ที่ออกมาต้อนรับ ท่านไม่ได้รู้สึกเหนื่อยล้าเลย เพราะหวังจะได้เห็นสหายรักมีสุขภาพที่แข็งแรงขึ้นในบ้านที่แท้จริงของเขา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_8_9128956471452005161.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อมาถึงอาศรมในป่า วิธุรต้องประหลาดใจที่พบว่ากปิลดูสดชื่นและแข็งแรงขึ้นอย่างมาก ผิวพรรณของท่านผ่องใสและมีรอยยิ้มที่เปี่ยมสุข ท่านกำลังนั่งฉันผลไม้ป่าอย่างเอร็ดอร่อยอยู่หน้ากระท่อมหลังเล็ก</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_9_3618879711547781702.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วิธุรสงสัยจึงถามว่า &quot;ท่านฤาษี ในวังมีอาหารรสเลิศและที่นอนแสนสบาย ทำไมท่านถึงป่วย แต่พอมาอยู่ในป่า กินเพียงผลไม้ป่าไม้เปรี้ยวไม้หวาน ท่านกลับดูมีความสุขยิ่งนัก?&quot; กปิลยิ้มและหยิบผลไม้ลูกเล็กๆ ขึ้นมาแสดงให้เพื่อนดู</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_10_17523460728269078259.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กปิลตอบว่า &quot;ท่านวิธุร ความสบายที่แท้จริงไม่ใช่ที่นอนนุ่มหรืออาหารดี แต่มันคือ &#039;วิสาสะ&#039; หรือความคุ้นเคยและความสบายใจ ในป่านี้ข้าเป็นตัวของตัวเอง ข้ามีมิตรภาพกับธรรมชาติ และความสงบคือยาขนานเอกที่เยียวยาทุกอย่าง&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_11_10702564209921377772.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วิธุรลากปิลกลับไปรายงานราชันถึงเรื่องราวที่พบเห็น เมื่อราชันได้ยินว่าสหายรักหายดีแล้วและได้รับฟังข้อธรรมเรื่องความสบายใจ พระองค์ก็ทรงรู้สึกเบิกบานใจจนอาการประชวรหายไปเป็นปลิดทิ้ง พระองค์ทรงเข้าใจแล้วว่า มิตรภาพที่แท้จริงคือการอยากเห็นเพื่อนมีความสุขในที่ที่เขาควรอยู่</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./346 เกสวชาดก_files/storybook_page_12_5239937032110648877.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>สุดท้าย ราชันได้เสด็จไปเยี่ยมกปิลที่อาศรมในป่าอีกครั้ง ทั้งสองได้นั่งคุยกันอย่างมีความสุขท่ามกลางธรรมชาติที่งดงาม มิตรภาพของคนทั้งสองยังคงมั่นคงตลอดไป สอนให้รู้ว่าความสุขไม่ได้อยู่ที่วัตถุ แต่อยู่ที่ความสบายใจและการได้อยู่กับสิ่งที่เรารัก</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ในเมืองพาราณสีที่รุ่งเรือง พระเจ้าแผ่นดินผู้มีนามว่า พระเจ้าพราหมทัต หรือ \"ราชัน\" ทรงเป็นสหายรักกับพระดาบสนามว่า \"กปิล\" ผู้บำเพ็ญเพียรอยู่ในป่าหิมพานต์อันสงบเงียบ ทุกๆ ปี ราชันจะเสด็จไปเยี่ยมพระดาบสเพื่อฟังธรรมและพูดคุยถึงความสุขที่แท้จริง ทั้งสองมีความผูกพันกันอย่างลึกซึ้งราวกับพี่น้อง เมื่อฤดูฝนมาถึง ราชันทรงนิมนต์กปิลให้เข้ามาพักในอุทยานหลวง เพื่อจะได้มิต้องลำบากตรากตรำในป่าทึบ กปิลยอมรับคำนิมนต์ด้วยไมตรีจิต ท่านพำนักอยู่ในอาศรมที่ราชันจัดสร้างให้อย่างประณีต พร้อมด้วยอาหารรสเลิศและเครื่องปูลาดที่นุ่มสบายที่สุดในพระราชวัง แม้จะได้รับความสะดวกสบายเพียงใด แต่ไม่นานนัก กปิลก็เริ่มมีอาการประชวร ร่างกายที่เคยแข็งแรงกลับซูบผอม ท่านเบื่ออาหารและนอนไม่หลับ เพราะจิตใจเฝ้าโหยหาความเงียบสงบของป่ากว้าง เสียงนกพรรณนา และกลิ่นดินหลังฝนตกที่ท่านคุ้นเคย เมื่อเห็นอาการไม่ดีขึ้น กปิลจึงขอลาจากเมืองหลวงเพื่อกลับสู่ป่า ท่านได้บอกความในใจกับ \"วิธุร\" อำมาตย์ผู้ปรีชาและเป็นสหายอีกคนหนึ่ง วิธุรเข้าใจดีว่าหัวใจของนักบวชนั้นผูกพันกับธรรมชาติยิ่งกว่าความมั่งคั่งในเมือง ท่านจึงช่วยอำนวยความสะดวกให้กปิลเดินทางกลับ หลังจากกปิลกลับไปได้ไม่นาน ราชันก็ทรงล้มป่วยลงด้วยความเศร้าโศก ทรงคิดถึงการสนทนาอันชาญฉลาดและรอยยิ้มที่สงบของพระดาบส แม้หมอหลวงจะถวายยาดีที่สุดเพียงใด อาการของพระองค์ก็ไม่ทุเลาลงเลย เพราะโรคที่ทรงเป็นอยู่นั้นคือ \"โรคคิดถึงเพื่อน\" ราชันทรงเรียกวิธุรมาพบและตรัสว่า \"ท่านอำมาตย์ ข้าคิดถึงกปิลสหายรักเหลือเกิน ป่านนี้ท่านจะเป็นอย่างไรบ้าง ท่านคงจะป่วยหนักเหมือนข้าแน่ๆ\" ราชันจึงมีรับสั่งให้วิธุรเดินทางไปเยี่ยมกปิลที่ป่าหิมพานต์เพื่อดูอาการและนำข่าวกลับมาบอกพระองค์ วิธุรเดินทางลัดเลาะผ่านขุนเขาและลำธาร ท่ามกลางสัตว์ป่าน้อยใหญ่ที่ออกมาต้อนรับ ท่านไม่ได้รู้สึกเหนื่อยล้าเลย เพราะหวังจะได้เห็นสหายรักมีสุขภาพที่แข็งแรงขึ้นในบ้านที่แท้จริงของเขา เมื่อมาถึงอาศรมในป่า วิธุรต้องประหลาดใจที่พบว่ากปิลดูสดชื่นและแข็งแรงขึ้นอย่างมาก ผิวพรรณของท่านผ่องใสและมีรอยยิ้มที่เปี่ยมสุข ท่านกำลังนั่งฉันผลไม้ป่าอย่างเอร็ดอร่อยอยู่หน้ากระท่อมหลังเล็ก วิธุรสงสัยจึงถามว่า \"ท่านฤาษี ในวังมีอาหารรสเลิศและที่นอนแสนสบาย ทำไมท่านถึงป่วย แต่พอมาอยู่ในป่า กินเพียงผลไม้ป่าไม้เปรี้ยวไม้หวาน ท่านกลับดูมีความสุขยิ่งนัก?\" กปิลยิ้มและหยิบผลไม้ลูกเล็กๆ ขึ้นมาแสดงให้เพื่อนดู กปิลตอบว่า \"ท่านวิธุร ความสบายที่แท้จริงไม่ใช่ที่นอนนุ่มหรืออาหารดี แต่มันคือ 'วิสาสะ' หรือความคุ้นเคยและความสบายใจ ในป่านี้ข้าเป็นตัวของตัวเอง ข้ามีมิตรภาพกับธรรมชาติ และความสงบคือยาขนานเอกที่เยียวยาทุกอย่าง\" วิธุรลากปิลกลับไปรายงานราชันถึงเรื่องราวที่พบเห็น เมื่อราชันได้ยินว่าสหายรักหายดีแล้วและได้รับฟังข้อธรรมเรื่องความสบายใจ พระองค์ก็ทรงรู้สึกเบิกบานใจจนอาการประชวรหายไปเป็นปลิดทิ้ง พระองค์ทรงเข้าใจแล้วว่า มิตรภาพที่แท้จริงคือการอยากเห็นเพื่อนมีความสุขในที่ที่เขาควรอยู่ สุดท้าย ราชันได้เสด็จไปเยี่ยมกปิลที่อาศรมในป่าอีกครั้ง ทั้งสองได้นั่งคุยกันอย่างมีความสุขท่ามกลางธรรมชาติที่งดงาม มิตรภาพของคนทั้งสองยังคงมั่นคงตลอดไป สอนให้รู้ว่าความสุขไม่ได้อยู่ที่วัตถุ แต่อยู่ที่ความสบายใจและการได้อยู่กับสิ่งที่เรารัก";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>โภลาผู้หวังดีกับแมลงวันจอมกวน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_0_14076215812591442219.jpg" alt="โภลาผู้หวังดีกับแมลงวันจอมกวน" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">โภลาผู้หวังดีกับแมลงวันจอมกวน</h1>
+            <p class="cover-author">โดย Story Live</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_1_12565788183858048724.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลครั้งหนึ่งนานมาแล้ว ในเมืองพาราณสี มีช่างปั้นหม้อผู้ชำนาญชื่อว่า &quot;ดาชะ&quot; เขาเป็นคนใจดีและขยันขันแข็ง ดาชะมีลูกมือคนหนึ่งชื่อว่า &quot;โภลา&quot; โภลาเป็นคนซื่อสัตย์และอยากช่วยงานดาชะเสมอ แต่เขามักจะทำอะไรโดยไม่ยั้งคิด วันนี้ทั้งคู่กำลังช่วยกันปั้นดินเหนียวให้เป็นรูปทรงสวยงามในโรงปั้นที่เต็มไปด้วยภาชนะล้ำค่า</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_2_2642569070589107923.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อแสงแดดเริ่มร้อนระอุ ดาชะก็รู้สึกเหนื่อยล้า เขาจึงบอกโภลาว่า &quot;โภลาข้าขอเอนหลังพักสักครู่ เจ้าช่วยเฝ้าโรงปั้นและดูแลความเรียบร้อยด้วยนะ&quot; ดาชะนอนลงบนตั่งไม้กลางห้องที่มีลวดลายแกะสลักอย่างประณีต และหลับไปอย่างรวดเร็วด้วยความอ่อนเพลีย</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_3_4498106296025642930.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ขณะที่ดาชะกำลังหลับสบาย มีแมลงวันตัวหนึ่งบินว่อนเข้ามาในโรงปั้น มันส่งเสียงหึ่งๆ รบกวนความเงียบ โภลาเห็นดังนั้นก็คิดในใจว่า &quot;เจ้าแมลงวันตัวนี้ช่างบังอาจนัก มันจะมาปลุกเจ้านายของข้าที่กำลังเหนื่อยล้าไม่ได้เด็ดขาด!&quot; เขาจ้องมองแมลงวันด้วยสายตาที่มุ่งมั่น</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_4_9524415885934507805.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>แมลงวันตัวนั้นบินไปเกาะที่จมูกของดาชะ โภลารีบโบกมือไล่มันเบาๆ แมลงวันบินหนีไปได้ทันท่วงที แต่มันก็ยังไม่ยอมจากไปไหน มันกลับบินไปตอมอยู่รอบๆ แจกันใบสวยที่ดาชะเพิ่งปั้นเสร็จและรอการเผา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_5_5692436492856730565.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>แมลงวันบินไปเกาะที่ขอบแจกันทองประดับลวดลาย โภลาโกรธมาก เขาคิดว่าถ้าเขาใช้มือเปล่าคงไล่มันไม่ได้ผล เขาจึงเริ่มมองหาเครื่องมือที่จะมาจัดการกับเจ้าแมลงวันจอมกวนตัวนี้ &quot;ข้าต้องกำจัดมันให้สิ้นซาก เจ้านายจะได้นอนหลับอย่างเป็นสุข&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_6_1682631969276072109.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>โภลาเหลือบไปเห็นไม้พายขนาดใหญ่ที่ใช้สำหรับกวนดิน เขาหยิบมันขึ้นมาด้วยความฮึกเหิม เขาคิดเพียงว่าจะตีแมลงวันให้โดน โดยไม่ได้คำนึงเลยว่าไม้พายนั้นหนักและใหญ่เกินกว่าจะใช้ไล่แมลงวันตัวจิ๋ว</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_7_17062336363203769851.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>&quot;ย้าก! ตายเสียเถอะเจ้าแมลงวัน!&quot; โภลาเหวี่ยงไม้พายลงไปสุดแรงที่แจกันใบสวย แต่อนิจจา แมลงวันตัวน้อยบินหนีไปได้อย่างรวดเร็ว เสียง &quot;เพล้ง!&quot; ดังสนั่นไปทั่วห้อง แจกันใบงามแตกกระจายเป็นเสี่ยงๆ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_8_7602357360621204939.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>แมลงวันยังคงบินเย้ยหยัน มันบินไปเกาะที่ชั้นวางหม้อแถวบนสุด โภลาไม่ยอมแพ้ ความโกรธบังตาจนเขาไม่มองซากแจกันที่เท้า เขาคว้าสากหินขนาดใหญ่ที่ใช้บดสีดินเทศขึ้นมาแทน &quot;ครั้งนี้เจ้าไม่รอดแน่!&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_9_871225102357449765.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>โภลาเหวี่ยงสากหินเข้าใส่แมลงวันที่เกาะอยู่บนชั้นวางอย่างบ้าคลั่ง สากหินพุ่งเข้าชนชั้นไม้จนหักโค่นลงมา หม้อและไหนับสิบใบตกลงมาแตกกระจายเกลื่อนพื้น เสียงโครมครามดังสนั่นหวั่นไหวไปทั้งโรงปั้น</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_10_13413120081155510097.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เสียงดังโครมครามทำให้ดาชะสะดุ้งตื่นขึ้นมาด้วยความตกใจ เขาขยี้ตาและมองไปรอบๆ โรงปั้นที่เคยเป็นระเบียบสวยงาม บัดนี้เหลือเพียงซากปรักหักพังและเศษดินเผาที่แตกละเอียดไปทั่วบริเวณ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_11_10825009217501873634.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ดาชะมองเห็นโภลายืนถือสากหินอยู่ท่ามกลางกองเศษกระเบื้อง โภลารีบบอกด้วยความซื่อว่า &quot;เจ้านายครับ! ข้าช่วยไล่แมลงวันที่มารบกวนท่านดูสิครับ ตอนนี้มันหนีไปแล้ว!&quot; ดาชะได้แต่ถอนหายใจและส่ายหน้าด้วยความเศร้าใจ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./280 ปุฏทูสกชาดก_files/storybook_page_12_10017864242194762416.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ดาชะสอนโภลาอย่างใจเย็นว่า &quot;โภลาเอ๋ย ความหวังดีที่ขาดปัญญา กลับจะสร้างความเสียหายยิ่งกว่าศัตรูเสียอีก เจ้าพยายามฆ่าแมลงวันตัวเดียว แต่กลับทำลายงานที่พวกเราทำมาทั้งปีจนหมดสิ้น&quot; ทั้งคู่จึงเริ่มช่วยกันเก็บกวาดเศษซาก โดยมีแมลงวันตัวเดิมบินออกไปทางหน้าต่างอย่างสบายใจ</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ในเมืองพาราณสี มีช่างปั้นหม้อผู้ชำนาญชื่อว่า \"ดาชะ\" เขาเป็นคนใจดีและขยันขันแข็ง ดาชะมีลูกมือคนหนึ่งชื่อว่า \"โภลา\" โภลาเป็นคนซื่อสัตย์และอยากช่วยงานดาชะเสมอ แต่เขามักจะทำอะไรโดยไม่ยั้งคิด วันนี้ทั้งคู่กำลังช่วยกันปั้นดินเหนียวให้เป็นรูปทรงสวยงามในโรงปั้นที่เต็มไปด้วยภาชนะล้ำค่า เมื่อแสงแดดเริ่มร้อนระอุ ดาชะก็รู้สึกเหนื่อยล้า เขาจึงบอกโภลาว่า \"โภลาข้าขอเอนหลังพักสักครู่ เจ้าช่วยเฝ้าโรงปั้นและดูแลความเรียบร้อยด้วยนะ\" ดาชะนอนลงบนตั่งไม้กลางห้องที่มีลวดลายแกะสลักอย่างประณีต และหลับไปอย่างรวดเร็วด้วยความอ่อนเพลีย ขณะที่ดาชะกำลังหลับสบาย มีแมลงวันตัวหนึ่งบินว่อนเข้ามาในโรงปั้น มันส่งเสียงหึ่งๆ รบกวนความเงียบ โภลาเห็นดังนั้นก็คิดในใจว่า \"เจ้าแมลงวันตัวนี้ช่างบังอาจนัก มันจะมาปลุกเจ้านายของข้าที่กำลังเหนื่อยล้าไม่ได้เด็ดขาด!\" เขาจ้องมองแมลงวันด้วยสายตาที่มุ่งมั่น แมลงวันตัวนั้นบินไปเกาะที่จมูกของดาชะ โภลารีบโบกมือไล่มันเบาๆ แมลงวันบินหนีไปได้ทันท่วงที แต่มันก็ยังไม่ยอมจากไปไหน มันกลับบินไปตอมอยู่รอบๆ แจกันใบสวยที่ดาชะเพิ่งปั้นเสร็จและรอการเผา แมลงวันบินไปเกาะที่ขอบแจกันทองประดับลวดลาย โภลาโกรธมาก เขาคิดว่าถ้าเขาใช้มือเปล่าคงไล่มันไม่ได้ผล เขาจึงเริ่มมองหาเครื่องมือที่จะมาจัดการกับเจ้าแมลงวันจอมกวนตัวนี้ \"ข้าต้องกำจัดมันให้สิ้นซาก เจ้านายจะได้นอนหลับอย่างเป็นสุข\" โภลาเหลือบไปเห็นไม้พายขนาดใหญ่ที่ใช้สำหรับกวนดิน เขาหยิบมันขึ้นมาด้วยความฮึกเหิม เขาคิดเพียงว่าจะตีแมลงวันให้โดน โดยไม่ได้คำนึงเลยว่าไม้พายนั้นหนักและใหญ่เกินกว่าจะใช้ไล่แมลงวันตัวจิ๋ว \"ย้าก! ตายเสียเถอะเจ้าแมลงวัน!\" โภลาเหวี่ยงไม้พายลงไปสุดแรงที่แจกันใบสวย แต่อนิจจา แมลงวันตัวน้อยบินหนีไปได้อย่างรวดเร็ว เสียง \"เพล้ง!\" ดังสนั่นไปทั่วห้อง แจกันใบงามแตกกระจายเป็นเสี่ยงๆ แมลงวันยังคงบินเย้ยหยัน มันบินไปเกาะที่ชั้นวางหม้อแถวบนสุด โภลาไม่ยอมแพ้ ความโกรธบังตาจนเขาไม่มองซากแจกันที่เท้า เขาคว้าสากหินขนาดใหญ่ที่ใช้บดสีดินเทศขึ้นมาแทน \"ครั้งนี้เจ้าไม่รอดแน่!\" โภลาเหวี่ยงสากหินเข้าใส่แมลงวันที่เกาะอยู่บนชั้นวางอย่างบ้าคลั่ง สากหินพุ่งเข้าชนชั้นไม้จนหักโค่นลงมา หม้อและไหนับสิบใบตกลงมาแตกกระจายเกลื่อนพื้น เสียงโครมครามดังสนั่นหวั่นไหวไปทั้งโรงปั้น เสียงดังโครมครามทำให้ดาชะสะดุ้งตื่นขึ้นมาด้วยความตกใจ เขาขยี้ตาและมองไปรอบๆ โรงปั้นที่เคยเป็นระเบียบสวยงาม บัดนี้เหลือเพียงซากปรักหักพังและเศษดินเผาที่แตกละเอียดไปทั่วบริเวณ ดาชะมองเห็นโภลายืนถือสากหินอยู่ท่ามกลางกองเศษกระเบื้อง โภลารีบบอกด้วยความซื่อว่า \"เจ้านายครับ! ข้าช่วยไล่แมลงวันที่มารบกวนท่านดูสิครับ ตอนนี้มันหนีไปแล้ว!\" ดาชะได้แต่ถอนหายใจและส่ายหน้าด้วยความเศร้าใจ ดาชะสอนโภลาอย่างใจเย็นว่า \"โภลาเอ๋ย ความหวังดีที่ขาดปัญญา กลับจะสร้างความเสียหายยิ่งกว่าศัตรูเสียอีก เจ้าพยายามฆ่าแมลงวันตัวเดียว แต่กลับทำลายงานที่พวกเราทำมาทั้งปีจนหมดสิ้น\" ทั้งคู่จึงเริ่มช่วยกันเก็บกวาดเศษซาก โดยมีแมลงวันตัวเดิมบินออกไปทางหน้าต่างอย่างสบายใจ";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

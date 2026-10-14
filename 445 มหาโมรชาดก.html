@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>ตำนานพญานกยูงทองแห่งเขาทันดะกะ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_0_10452700366504877580.jpg" alt="ตำนานพญานกยูงทองแห่งเขาทันดะกะ" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">ตำนานพญานกยูงทองแห่งเขาทันดะกะ</h1>
+            <p class="cover-author">โดย music relax</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_1_868125206544112261.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลครั้งหนึ่งนานมาแล้ว ท่ามกลางเทือกเขาสีทองอันสลับซับซ้อน มีพญานกยูงนามว่า &quot;สุวรรณโมร&quot; อาศัยอยู่เพียงลำพัง ขนของท่านเปล่งประกายระยิบระยับราวกับทองคำบริสุทธิ์ ดวงตาคมกริบดั่งนิลกาฬ ท่านมิใช่เพียงนกที่มีรูปงาม แต่ยังเป็นผู้มีปัญญาและเปี่ยมด้วยศีลธรรม สุวรรณโมรใช้ชีวิตอย่างสงบสุขท่ามกลางธรรมชาติที่งดงามและเงียบสงบ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_2_8255204829126359360.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ในทุกๆ เช้า เมื่อดวงอาทิตย์เริ่มทอแสงเหนือขอบฟ้า สุวรรณโมรจะหันหน้าไปทางทิศตะวันออก แล้วร่ายพระพุทธมนต์อันศักดิ์สิทธิ์เพื่อสรรเสริญพระอาทิตย์และขอความคุ้มครอง &quot;ขอความสวัสดีจงมีแก่ข้าพเจ้าในวันนี้นะ&quot; เสียงสวดมนต์ของท่านกังวานไปทั่วป่า ทำให้เหล่าสัตว์น้อยใหญ่ต่างได้รับความร่มเย็นเป็นสุขไปด้วย</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_3_12978643805304656935.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ณ เมืองพาราณสี พระนาง &quot;เขมาเทวี&quot; มเหสีของพระเจ้าพรหมทัต ทรงพระสุบินเห็นนกยูงสีทองอร่ามกำลังแสดงธรรมให้พระนางฟัง เมื่อตื่นขึ้น พระนางทรงปรารถนาจะเห็นนกยูงตัวจริงเป็นอย่างยิ่ง จึงกราบทูลพระสวามี &quot;หม่อมฉันอยากพบพญานกยูงทองตัวนั้นเหลือเกินเพคะ&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_4_2984237470289031986.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พระเจ้าพรหมทัตทรงเรียกนายพราน &quot;เนสาท&quot; ผู้เชี่ยวชาญการดักจับสัตว์มาเข้าเฝ้า พระองค์ทรงมอบหมายภารกิจสำคัญ &quot;เจ้าจงไปที่เขาทันดะกะ และนำพญานกยูงทองกลับมาให้ได้&quot; นายพรานเนสาทรับคำสั่งด้วยความมั่นใจ พร้อมเตรียมบ่วงและตาข่ายเพื่อออกเดินทาง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_5_3838437841860093912.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>นายพรานเนสาทเดินทางรอนแรมผ่านป่าลึกจนถึงเขาทันดะกะ เขาพยายามวางกับดักรอบที่พักของสุวรรณโมรวันแล้ววันเล่า แต่ทว่า ไม่ว่าเขาจะใช้กลอุบายใด บ่วงที่เขาวางไว้กลับไม่เคยรัดเท้าของพญานกยูงได้เลยแม้แต่ครั้งเดียว เพราะอำนาจแห่งพระพุทธมนต์ที่สุวรรณโมรสวดทุกวันได้คุ้มครองท่านไว้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_6_1745574268273426046.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อตะวันชิงพลบ สุวรรณโมรจะกลับมาที่พำนักและร่ายพระพุทธมนต์อีกครั้งเพื่อขอความคุ้มครองในช่วงราตรี &quot;ขอความสวัสดีจงมีแก่ข้าพเจ้าในคืนนี้นะ&quot; ด้วยความเพียรในการรักษาศีลและสวดมนต์ ทำให้สุวรรณโมรรอดพ้นจากอันตรายมาได้ยาวนานถึงเจ็ดปี จนพรานเนสาทผู้พ่อต้องสิ้นใจลงโดยที่จับท่านไม่ได้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_7_18291771938746291695.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เวลาผ่านไป ลูกชายของพรานเนสาทได้มารับหน้าที่แทน เขาเป็นพรานที่ฉลาดและช่างสังเกต เขาเฝ้าดูสุวรรณโมรอยู่หลายปีจนพบว่า นกยูงทองจะปลอดภัยเสมอเพราะการสวดมนต์ &quot;ถ้าข้าทำให้เขาลืมสวดมนต์ได้ ข้าคงจะจับเขาสำเร็จ&quot; พรานหนุ่มวางแผนการอันแยบยล</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_8_11908664295735413470.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>นายพรานไปจับ &quot;นางนกยูง&quot; ตัวหนึ่งมา แล้วฝึกให้นางร้องเรียกด้วยเสียงที่หวานจับใจ เมื่อถึงเวลาเช้าตรู่ ขณะที่สุวรรณโมรกำลังจะเริ่มสวดมนต์ นายพรานก็ปล่อยให้นางนกยูงส่งเสียงร้องออกมา เสียงนั้นช่างไพเราะจนสุวรรณโมรที่ถือตนเป็นผู้สันโดษกลับเกิดความหวั่นไหว</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_9_12953209016309693568.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ด้วยความลุ่มหลงในเสียงเรียก สุวรรณโมรจึงลืมสวดพระพุทธมนต์ที่เคยปฏิบัติมาตลอด ท่านโผบินลงจากยอดเขาเพื่อไปหานางนกยูงตัวนั้น ทันทีที่เท้าของท่านสัมผัสพื้น บ่วงที่นายพรานซ่อนไว้ก็รัดเข้าที่ข้อเท้าของท่านอย่างแน่นหนา พญานกยูงทองผู้ยิ่งใหญ่ต้องติดกับดักเสียแล้ว</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_10_9193949207284401207.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>นายพรานเนสาทรีบวิ่งออกมาจากที่ซ่อนเพื่อจะจับนกยูงทอง แต่เมื่อเขาเห็นน้ำตาของสุวรรณโมรและความสง่างามที่ยังคงอยู่แม้จะถูกจับ เขากลับรู้สึกละอายใจ สุวรรณโมรมองพรานด้วยสายตาที่เปี่ยมด้วยความเมตตาและเริ่มเอ่ยถามถึงเหตุผลของการล่า</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_11_4574623517578370472.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>สุวรรณโมรไม่ได้โกรธแค้น แต่กลับแสดงธรรมให้พรานเนสาทฟังเกี่ยวกับบาปบุญคุณโทษและการเบียดเบียนชีวิตผู้อื่น &quot;การทำร้ายผู้ที่ไม่ได้ทำผิด มีแต่จะนำความทุกข์มาสู่ตน&quot; คำสอนนั้นกินใจนายพรานมาก จนเขาตัดสินใจแก้บ่วงออกและปล่อยให้พญานกยูงเป็นอิสระ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./445 มหาโมรชาดก_files/storybook_page_12_11066060019399370430.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>สุวรรณโมรบินกลับขึ้นสู่ยอดเขาทันดะกะด้วยความสุข ท่านไม่เพียงแต่รอดพ้นจากความตาย แต่ยังได้ช่วยให้นายพรานหลุดพ้นจากความมืดบอดในใจ นายพรานเลิกอาชีพล่าสัตว์และหันไปใช้ชีวิตอย่างสงบ ตั้งแต่นั้นมา เสียงสวดมนต์ของนกยูงทองก็ยังคงกังวานสืบต่อไปชั่วนิรันดร์</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ท่ามกลางเทือกเขาสีทองอันสลับซับซ้อน มีพญานกยูงนามว่า \"สุวรรณโมร\" อาศัยอยู่เพียงลำพัง ขนของท่านเปล่งประกายระยิบระยับราวกับทองคำบริสุทธิ์ ดวงตาคมกริบดั่งนิลกาฬ ท่านมิใช่เพียงนกที่มีรูปงาม แต่ยังเป็นผู้มีปัญญาและเปี่ยมด้วยศีลธรรม สุวรรณโมรใช้ชีวิตอย่างสงบสุขท่ามกลางธรรมชาติที่งดงามและเงียบสงบ ในทุกๆ เช้า เมื่อดวงอาทิตย์เริ่มทอแสงเหนือขอบฟ้า สุวรรณโมรจะหันหน้าไปทางทิศตะวันออก แล้วร่ายพระพุทธมนต์อันศักดิ์สิทธิ์เพื่อสรรเสริญพระอาทิตย์และขอความคุ้มครอง \"ขอความสวัสดีจงมีแก่ข้าพเจ้าในวันนี้นะ\" เสียงสวดมนต์ของท่านกังวานไปทั่วป่า ทำให้เหล่าสัตว์น้อยใหญ่ต่างได้รับความร่มเย็นเป็นสุขไปด้วย ณ เมืองพาราณสี พระนาง \"เขมาเทวี\" มเหสีของพระเจ้าพรหมทัต ทรงพระสุบินเห็นนกยูงสีทองอร่ามกำลังแสดงธรรมให้พระนางฟัง เมื่อตื่นขึ้น พระนางทรงปรารถนาจะเห็นนกยูงตัวจริงเป็นอย่างยิ่ง จึงกราบทูลพระสวามี \"หม่อมฉันอยากพบพญานกยูงทองตัวนั้นเหลือเกินเพคะ\" พระเจ้าพรหมทัตทรงเรียกนายพราน \"เนสาท\" ผู้เชี่ยวชาญการดักจับสัตว์มาเข้าเฝ้า พระองค์ทรงมอบหมายภารกิจสำคัญ \"เจ้าจงไปที่เขาทันดะกะ และนำพญานกยูงทองกลับมาให้ได้\" นายพรานเนสาทรับคำสั่งด้วยความมั่นใจ พร้อมเตรียมบ่วงและตาข่ายเพื่อออกเดินทาง นายพรานเนสาทเดินทางรอนแรมผ่านป่าลึกจนถึงเขาทันดะกะ เขาพยายามวางกับดักรอบที่พักของสุวรรณโมรวันแล้ววันเล่า แต่ทว่า ไม่ว่าเขาจะใช้กลอุบายใด บ่วงที่เขาวางไว้กลับไม่เคยรัดเท้าของพญานกยูงได้เลยแม้แต่ครั้งเดียว เพราะอำนาจแห่งพระพุทธมนต์ที่สุวรรณโมรสวดทุกวันได้คุ้มครองท่านไว้ เมื่อตะวันชิงพลบ สุวรรณโมรจะกลับมาที่พำนักและร่ายพระพุทธมนต์อีกครั้งเพื่อขอความคุ้มครองในช่วงราตรี \"ขอความสวัสดีจงมีแก่ข้าพเจ้าในคืนนี้นะ\" ด้วยความเพียรในการรักษาศีลและสวดมนต์ ทำให้สุวรรณโมรรอดพ้นจากอันตรายมาได้ยาวนานถึงเจ็ดปี จนพรานเนสาทผู้พ่อต้องสิ้นใจลงโดยที่จับท่านไม่ได้ เวลาผ่านไป ลูกชายของพรานเนสาทได้มารับหน้าที่แทน เขาเป็นพรานที่ฉลาดและช่างสังเกต เขาเฝ้าดูสุวรรณโมรอยู่หลายปีจนพบว่า นกยูงทองจะปลอดภัยเสมอเพราะการสวดมนต์ \"ถ้าข้าทำให้เขาลืมสวดมนต์ได้ ข้าคงจะจับเขาสำเร็จ\" พรานหนุ่มวางแผนการอันแยบยล นายพรานไปจับ \"นางนกยูง\" ตัวหนึ่งมา แล้วฝึกให้นางร้องเรียกด้วยเสียงที่หวานจับใจ เมื่อถึงเวลาเช้าตรู่ ขณะที่สุวรรณโมรกำลังจะเริ่มสวดมนต์ นายพรานก็ปล่อยให้นางนกยูงส่งเสียงร้องออกมา เสียงนั้นช่างไพเราะจนสุวรรณโมรที่ถือตนเป็นผู้สันโดษกลับเกิดความหวั่นไหว ด้วยความลุ่มหลงในเสียงเรียก สุวรรณโมรจึงลืมสวดพระพุทธมนต์ที่เคยปฏิบัติมาตลอด ท่านโผบินลงจากยอดเขาเพื่อไปหานางนกยูงตัวนั้น ทันทีที่เท้าของท่านสัมผัสพื้น บ่วงที่นายพรานซ่อนไว้ก็รัดเข้าที่ข้อเท้าของท่านอย่างแน่นหนา พญานกยูงทองผู้ยิ่งใหญ่ต้องติดกับดักเสียแล้ว นายพรานเนสาทรีบวิ่งออกมาจากที่ซ่อนเพื่อจะจับนกยูงทอง แต่เมื่อเขาเห็นน้ำตาของสุวรรณโมรและความสง่างามที่ยังคงอยู่แม้จะถูกจับ เขากลับรู้สึกละอายใจ สุวรรณโมรมองพรานด้วยสายตาที่เปี่ยมด้วยความเมตตาและเริ่มเอ่ยถามถึงเหตุผลของการล่า สุวรรณโมรไม่ได้โกรธแค้น แต่กลับแสดงธรรมให้พรานเนสาทฟังเกี่ยวกับบาปบุญคุณโทษและการเบียดเบียนชีวิตผู้อื่น \"การทำร้ายผู้ที่ไม่ได้ทำผิด มีแต่จะนำความทุกข์มาสู่ตน\" คำสอนนั้นกินใจนายพรานมาก จนเขาตัดสินใจแก้บ่วงออกและปล่อยให้พญานกยูงเป็นอิสระ สุวรรณโมรบินกลับขึ้นสู่ยอดเขาทันดะกะด้วยความสุข ท่านไม่เพียงแต่รอดพ้นจากความตาย แต่ยังได้ช่วยให้นายพรานหลุดพ้นจากความมืดบอดในใจ นายพรานเลิกอาชีพล่าสัตว์และหันไปใช้ชีวิตอย่างสงบ ตั้งแต่นั้นมา เสียงสวดมนต์ของนกยูงทองก็ยังคงกังวานสืบต่อไปชั่วนิรันดร์";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

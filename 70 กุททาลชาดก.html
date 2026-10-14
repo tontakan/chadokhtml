@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>กุททาลบัณฑิต กับชัยชนะที่แท้จริง</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_0_4310054797331732464.jpg" alt="กุททาลบัณฑิต กับชัยชนะที่แท้จริง" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">กุททาลบัณฑิต กับชัยชนะที่แท้จริง</h1>
+            <p class="cover-author">โดย music relax</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_1_17801565766031791051.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลครั้งหนึ่งนานมาแล้ว มีชายคนหนึ่งนามว่า &#039;กุททาลบัณฑิต&#039; เขาเป็นคนใจดีที่ขยันหมั่นเพียร ในมือของเขามักจะมีจอบบิ่นๆ อยู่เล่มหนึ่งเสมอ เขาใช้มันขุดดินปลูกผักเพื่อเลี้ยงชีพด้วยความซื่อสัตย์ ชีวิตของเขาเรียบง่ายและดูเหมือนจะมีความสุขดีในสวนผักเล็กๆ ของตน</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_2_8580590555355398943.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>แม้จะรักสันโดษ แต่ในใจของกุททาลบัณฑิตนั้นปรารถนาจะออกบวชเพื่อแสวงหาความสงบทางธรรม เขาตัดสินใจทิ้งทางโลกไปบวชถึง 6 ครั้ง แต่ทว่าทุกครั้งที่ออกบวช ใจเขาก็ยังพะวงถึง &#039;จอบบิ่น&#039; เล่มนั้น เขาห่วงว่าไม่มีใครดูแลสวน ห่วงว่าจอบจะหาย จนต้องสึกกลับมาครองเรือนครั้งแล้วครั้งเล่า</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_3_4239748721968664356.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กุททาลบัณฑิตเริ่มตระหนักว่า สิ่งที่ฉุดรั้งเขาไว้ไม่ใช่สวนผักที่กว้างใหญ่ ไม่ใช่สมบัติมหาศาล แต่คือความยึดติดในจอบบิ่นเล่มเดียวนี้เอง ความตระหนี่และความเสียดายในของนอกกายเพียงชิ้นเดียว กลับเป็นโซ่ตรวนที่ล่ามเขาไว้ไม่ให้ก้าวไปสู่ความหลุดพ้นได้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_4_11177561380032892877.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ในการตัดสินใจครั้งที่ 7 กุททาลบัณฑิตเดินตรงไปยังริมแม่น้ำคงคาที่ลึกและกว้างใหญ่ เขาถือจอบบิ่นเล่มนั้นไปด้วยหัวใจที่เด็ดเดี่ยว &quot;ครั้งนี้แหละ ข้าจะเอาชนะใจตนเองให้ได้ ข้าจะไม่ยอมให้สิ่งใดมาขวางกั้นทางธรรมของข้าอีกต่อไป&quot; เขาตั้งมั่นในใจ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_5_6777902152229966648.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เพื่อไม่ให้ความเสียดายกลับมาทำร้ายเขาได้อีก กุททาลบัณฑิตจึงนำผ้ามาผูกตาตนเองไว้จนมืดสนิท เขาไม่อยากเห็นว่าจอบของเขาจะตกลงตรงไหน เพราะหากเขารู้ที่ตก ใจที่ยังละกิเลสไม่ได้อาจสั่งให้เขาดำน้ำลงไปงมมันขึ้นมาอีกครั้ง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_6_11574700097105344955.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กุททาลบัณฑิตเหวี่ยงจอบบิ่นสุดแรงเกิด จอบลอยละลิ่วข้ามอากาศก่อนจะจมดิ่งลงสู่ก้นแม่น้ำที่ลึกที่สุด เมื่อเขามั่นใจว่าจอบนั้นหายลับไปจากสายตาและความรู้สึกแล้ว เขาก็เปล่งเสียงร้องออกมาด้วยความดีใจอย่างที่สุดว่า &quot;ชนะแล้ว! ชนะแล้ว! ชนะแล้ว!&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_7_1115130667082627747.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ในขณะนั้นเอง &#039;พระเจ้าพรหมทัต&#039; พร้อมด้วยข้าราชบริพารกำลังเสด็จกลับจากการทำศึกสงคราม ทรงผ่านมาชนะศัตรูมาได้อย่างราบคาบ เมื่อได้ยินเสียงตะโกนว่า &quot;ชนะแล้ว&quot; พระองค์จึงหยุดม้าและเข้าไปไต่ถามด้วยความสงสัย เพราะคิดว่ามีใครกล้าอ้างตัวว่าชนะยิ่งกว่าพระองค์</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_8_12897742526391079935.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>&quot;เจ้าเป็นใครกัน? เหตุใดจึงตะโกนว่าชนะแล้ว?&quot; พระราชาตรัสถาม &quot;ข้าชนะสงครามปราบข้าศึกได้ทั้งแว่นแคว้น แต่เจ้าเพียงแค่เหวี่ยงจอบลงแม่น้ำ กลับบอกว่าชนะแล้ว ชัยชนะของเจ้านั้นยิ่งใหญ่เพียงใดกัน?&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_9_17107971154097801439.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กุททาลบัณฑิตตอบด้วยรอยยิ้มว่า &quot;ขอเดชะ พระองค์ชนะศัตรูภายนอก แต่นั่นเป็นชัยชนะที่อาจกลับเป็นแพ้ได้ในวันข้างหน้า ส่วนข้านั้นชนะศัตรูภายใน คือความโลภและความยึดติดในใจตน ชัยชนะเหนือใจตนเองนี้ไม่มีวันกลับมาแพ้ และจะนำไปสู่ความสุขที่แท้จริงพะยะค่ะ&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_10_17201906884289550203.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อพระราชาและเหล่าบริพารได้ฟังธรรมนั้น ต่างก็เกิดความเลื่อมใสศรัทธาอย่างแรงกล้า ทรงมองเห็นความสัตย์จริงว่าสมบัติพัสถานล้วนเป็นของนอกกาย ทุกคนจึงพร้อมใจกันสละราชสมบัติและตำแหน่งลาภยศ เพื่อออกบวชตามกุททาลบัณฑิตไปสู่ป่าใหญ่เพื่อบำเพ็ญเพียรจนบรรลุธรรม</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_11_9121890880068504819.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลเวลาผ่านไป พระพุทธเจ้าทรงนำเรื่องนี้มาแสดงแก่พุทธบริษัท เพื่อให้เห็นถึงความสำคัญของการเอาชนะใจตนเอง พระองค์ทรงเฉลยว่า พระเจ้าพรหมทัตในครั้งนั้นกลับชาติมาเกิดเป็นพระอานนท์ ส่วนกุททาลบัณฑิตผู้เอาชนะความโลภได้สำเร็จ ก็คือองค์พระสัมมาสัมพุทธเจ้าในชาตินี้นั่นเอง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./70 กุททาลชาดก_files/storybook_page_12_8528133457735145139.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พระพุทธองค์ทรงสรุปพุทธพจน์บทหนึ่งว่า &#039;ชยํ เวรํ ปสวติ&#039; ชัยชนะเหนือผู้อื่นนั้นมักจะก่อให้เกิดเวรและศัตรูไม่สิ้นสุด แต่การเอาชนะกิเลสและความโลภภายในใจตนเองนั้น ถือเป็นชัยชนะที่ประเสริฐที่สุดและนำมาซึ่งความสันติสุขชั่วนิรันดร์</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว มีชายคนหนึ่งนามว่า 'กุททาลบัณฑิต' เขาเป็นคนใจดีที่ขยันหมั่นเพียร ในมือของเขามักจะมีจอบบิ่นๆ อยู่เล่มหนึ่งเสมอ เขาใช้มันขุดดินปลูกผักเพื่อเลี้ยงชีพด้วยความซื่อสัตย์ ชีวิตของเขาเรียบง่ายและดูเหมือนจะมีความสุขดีในสวนผักเล็กๆ ของตน แม้จะรักสันโดษ แต่ในใจของกุททาลบัณฑิตนั้นปรารถนาจะออกบวชเพื่อแสวงหาความสงบทางธรรม เขาตัดสินใจทิ้งทางโลกไปบวชถึง 6 ครั้ง แต่ทว่าทุกครั้งที่ออกบวช ใจเขาก็ยังพะวงถึง 'จอบบิ่น' เล่มนั้น เขาห่วงว่าไม่มีใครดูแลสวน ห่วงว่าจอบจะหาย จนต้องสึกกลับมาครองเรือนครั้งแล้วครั้งเล่า กุททาลบัณฑิตเริ่มตระหนักว่า สิ่งที่ฉุดรั้งเขาไว้ไม่ใช่สวนผักที่กว้างใหญ่ ไม่ใช่สมบัติมหาศาล แต่คือความยึดติดในจอบบิ่นเล่มเดียวนี้เอง ความตระหนี่และความเสียดายในของนอกกายเพียงชิ้นเดียว กลับเป็นโซ่ตรวนที่ล่ามเขาไว้ไม่ให้ก้าวไปสู่ความหลุดพ้นได้ ในการตัดสินใจครั้งที่ 7 กุททาลบัณฑิตเดินตรงไปยังริมแม่น้ำคงคาที่ลึกและกว้างใหญ่ เขาถือจอบบิ่นเล่มนั้นไปด้วยหัวใจที่เด็ดเดี่ยว \"ครั้งนี้แหละ ข้าจะเอาชนะใจตนเองให้ได้ ข้าจะไม่ยอมให้สิ่งใดมาขวางกั้นทางธรรมของข้าอีกต่อไป\" เขาตั้งมั่นในใจ เพื่อไม่ให้ความเสียดายกลับมาทำร้ายเขาได้อีก กุททาลบัณฑิตจึงนำผ้ามาผูกตาตนเองไว้จนมืดสนิท เขาไม่อยากเห็นว่าจอบของเขาจะตกลงตรงไหน เพราะหากเขารู้ที่ตก ใจที่ยังละกิเลสไม่ได้อาจสั่งให้เขาดำน้ำลงไปงมมันขึ้นมาอีกครั้ง กุททาลบัณฑิตเหวี่ยงจอบบิ่นสุดแรงเกิด จอบลอยละลิ่วข้ามอากาศก่อนจะจมดิ่งลงสู่ก้นแม่น้ำที่ลึกที่สุด เมื่อเขามั่นใจว่าจอบนั้นหายลับไปจากสายตาและความรู้สึกแล้ว เขาก็เปล่งเสียงร้องออกมาด้วยความดีใจอย่างที่สุดว่า \"ชนะแล้ว! ชนะแล้ว! ชนะแล้ว!\" ในขณะนั้นเอง 'พระเจ้าพรหมทัต' พร้อมด้วยข้าราชบริพารกำลังเสด็จกลับจากการทำศึกสงคราม ทรงผ่านมาชนะศัตรูมาได้อย่างราบคาบ เมื่อได้ยินเสียงตะโกนว่า \"ชนะแล้ว\" พระองค์จึงหยุดม้าและเข้าไปไต่ถามด้วยความสงสัย เพราะคิดว่ามีใครกล้าอ้างตัวว่าชนะยิ่งกว่าพระองค์ \"เจ้าเป็นใครกัน? เหตุใดจึงตะโกนว่าชนะแล้ว?\" พระราชาตรัสถาม \"ข้าชนะสงครามปราบข้าศึกได้ทั้งแว่นแคว้น แต่เจ้าเพียงแค่เหวี่ยงจอบลงแม่น้ำ กลับบอกว่าชนะแล้ว ชัยชนะของเจ้านั้นยิ่งใหญ่เพียงใดกัน?\" กุททาลบัณฑิตตอบด้วยรอยยิ้มว่า \"ขอเดชะ พระองค์ชนะศัตรูภายนอก แต่นั่นเป็นชัยชนะที่อาจกลับเป็นแพ้ได้ในวันข้างหน้า ส่วนข้านั้นชนะศัตรูภายใน คือความโลภและความยึดติดในใจตน ชัยชนะเหนือใจตนเองนี้ไม่มีวันกลับมาแพ้ และจะนำไปสู่ความสุขที่แท้จริงพะยะค่ะ\" เมื่อพระราชาและเหล่าบริพารได้ฟังธรรมนั้น ต่างก็เกิดความเลื่อมใสศรัทธาอย่างแรงกล้า ทรงมองเห็นความสัตย์จริงว่าสมบัติพัสถานล้วนเป็นของนอกกาย ทุกคนจึงพร้อมใจกันสละราชสมบัติและตำแหน่งลาภยศ เพื่อออกบวชตามกุททาลบัณฑิตไปสู่ป่าใหญ่เพื่อบำเพ็ญเพียรจนบรรลุธรรม กาลเวลาผ่านไป พระพุทธเจ้าทรงนำเรื่องนี้มาแสดงแก่พุทธบริษัท เพื่อให้เห็นถึงความสำคัญของการเอาชนะใจตนเอง พระองค์ทรงเฉลยว่า พระเจ้าพรหมทัตในครั้งนั้นกลับชาติมาเกิดเป็นพระอานนท์ ส่วนกุททาลบัณฑิตผู้เอาชนะความโลภได้สำเร็จ ก็คือองค์พระสัมมาสัมพุทธเจ้าในชาตินี้นั่นเอง พระพุทธองค์ทรงสรุปพุทธพจน์บทหนึ่งว่า 'ชยํ เวรํ ปสวติ' ชัยชนะเหนือผู้อื่นนั้นมักจะก่อให้เกิดเวรและศัตรูไม่สิ้นสุด แต่การเอาชนะกิเลสและความโลภภายในใจตนเองนั้น ถือเป็นชัยชนะที่ประเสริฐที่สุดและนำมาซึ่งความสันติสุขชั่วนิรันดร์";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

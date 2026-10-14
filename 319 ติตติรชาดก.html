@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>วิมลนกกระทาผู้ใฝ่ธรรม: บทเรียนเรื่องเจตนา</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_0_7585750864500577837.jpg" alt="วิมลนกกระทาผู้ใฝ่ธรรม: บทเรียนเรื่องเจตนา" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">วิมลนกกระทาผู้ใฝ่ธรรม: บทเรียนเรื่องเจตนา</h1>
+            <p class="cover-author">By wolf tbmx</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">Page 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_1_3884898991772892290.jpg" alt="Page 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลครั้งหนึ่งนานมาแล้ว ในป่าหิมพานต์อันกว้างใหญ่ มีนกกระทาตัวหนึ่งชื่อว่า &quot;วิมล&quot; เขามีขนที่สวยงามเป็นลวดลายประณีตและมีจิตใจที่ใฝ่ในธรรม วิมลใช้ชีวิตอย่างสงบสุข ท่ามกลางแมกไม้ที่เขียวขจีและสายน้ำที่ไหลเย็น เขาหมั่นสำรวมระวังระกายวาจาใจอยู่เสมอเพื่อไม่ให้เบียดเบียนผู้ใด</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_2_4924062201162014692.jpg" alt="Page 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>อยู่มาวันหนึ่ง วิมลถูกพรานป่าใจร้ายที่ชื่อ &quot;ลุททะ&quot; จับตัวไป ลุททะไม่ได้จับวิมลไปเพื่อเป็นอาหาร แต่เขานำวิมลไปขังไว้ในกรงเพื่อใช้เป็น &quot;นกต่อ&quot; สำหรับล่อให้นกกระทาตัวอื่นๆ บินเข้ามาหา เพื่อที่ลุททะจะได้ทอดแหจับนกเหล่านั้นไปขายและฆ่ากิน</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_3_8574976725548792853.jpg" alt="Page 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ทุกครั้งที่ลุททะพาวิมลเข้าป่า เขาจะกระตุ้นให้วิมลส่งเสียงร้อง เมื่อเพื่อนนกกระทาตัวอื่นๆ ได้ยินเสียงร้องของวิมล พวกมันก็คิดว่าเป็นเสียงเรียกของเพื่อนจึงพากันบินเข้ามาหา ทันใดนั้น ลุททะก็จะทอดแหจับนกเหล่านั้นไปต่อหน้าต่อตาวิมล</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_4_17204861922525491832.jpg" alt="Page 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วิมลรู้สึกทุกข์ระทมใจเป็นอย่างยิ่ง เขามีความกังวลว่าการที่เขาส่งเสียงร้องจนทำให้นกตัวอื่นๆ ถูกจับนั้น จะถือว่าเป็นบาปหรือไม่ &quot;เราไม่ได้อยากให้เพื่อนๆ ถูกจับเลย แต่เพราะเสียงของเรา พวกเขาจึงต้องเดือดร้อน&quot; วิมลเฝ้าถามตัวเองด้วยความรู้สึกผิด</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_5_12451842777466453180.jpg" alt="Page 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วันเวลาผ่านไป วิมลตัดสินใจว่าเขาจะต้องหาคำตอบให้ได้ว่าสิ่งที่เกิดขึ้นนั้นเป็นบาปสำหรับเขาหรือไม่ เขาเฝ้ารอโอกาสที่จะได้พบกับผู้ทรงความรู้ จนกระทั่งวันหนึ่ง ลุททะพาวิมลไปวางไว้ใกล้กับอาศรมของดาบสผู้บำเพ็ญตบะในป่า</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_6_3909517738442692695.jpg" alt="Page 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ที่อาศรมนั้นมีพระดาบสนามว่า &quot;อิสิละ&quot; ท่านเป็นบัณฑิตผู้มีความเมตตาและรอบรู้ในข้อธรรมอย่างลึกซึ้ง วิมลเห็นว่าเป็นโอกาสดี จึงตัดสินใจเอ่ยปากถามพระดาบสเมื่อลุททะเผลอหลับไปใต้ต้นไม้ใกล้ๆ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_7_7891587133339619671.jpg" alt="Page 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วิมลถามด้วยความนอบน้อมว่า &quot;ข้าแต่ท่านผู้เจริญ ข้าพเจ้าต้องส่งเสียงร้องตามหน้าที่ แต่เสียงนั้นทำให้เพื่อนนกของข้าพเจ้าต้องพินาศ การกระทำของข้าพเจ้านี้ถือเป็นบาปหรือไม่? จิตของข้าพเจ้าเร่าร้อนเหลือเกิน&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_8_3067509294750522446.jpg" alt="Page 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>อิสิละนิ่งฟังด้วยความเมตตาแล้วจึงกล่าวตอบว่า &quot;ดูก่อนนกกระทาผู้มีใจบริสุทธิ์ บาปและบุญนั้นสำคัญอยู่ที่ &#039;เจตนา&#039; หากใจของท่านไม่ได้มีความปรารถนาจะให้ผู้อื่นเดือดร้อน บาปย่อมไม่แปดเปื้อนถึงท่าน&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_9_14217206017478994488.jpg" alt="Page 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>&quot;เหมือนกับน้ำที่กลิ้งอยู่บนใบบัว ย่อมไม่ติดใบบัวฉันใด&quot; อิสิละอธิบายต่อ &quot;หากใจของท่านไม่ยินดีในการจับนกของพราน และท่านไม่ได้มีจิตมุ่งร้ายต่อเพื่อนของท่าน การกระทำนั้นก็เป็นเพียงกิริยาที่เกิดจากความจำเป็น ไม่ใช่บาปกรรมที่จะติดตามท่านไป&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_10_3114369586600462976.jpg" alt="Page 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วิมลถามต่อด้วยความสงสัยว่า &quot;แล้วพรานลุททะล่ะท่าน? เขาจับนกเพื่อเลี้ยงชีพ เขาจะบาปหรือไม่?&quot; อิสิละตอบว่า &quot;พรานมีเจตนาเบียดเบียนชีวิตผู้อื่นเพื่อประโยชน์ส่วนตน จิตของเขามีความละโมบและมุ่งร้าย บาปนั้นย่อมตกอยู่กับเขาผู้มีเจตนา&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_11_1160170338525634461.jpg" alt="Page 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>&quot;จำไว้เถิดวิมล&quot; อิสิละย้ำ &quot;เมื่อใดที่ใจสะอาด เจตนาก็จะบริสุทธิ์ เมื่อเจตนาบริสุทธิ์ การกระทำนั้นก็ไม่นำมาซึ่งความทุกข์ใจ จงรักษาจิตของท่านให้มั่นคงในเมตตา และอย่าได้กังวลในสิ่งที่ท่านไม่ได้ตั้งใจให้เกิดขึ้นเลย&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./319 ติตติรชาดก_files/storybook_page_12_9602621683882088041.jpg" alt="Page 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อวิมลได้ฟังคำสอนของอิสิละ ใจที่เคยเร่าร้อนก็กลับสงบเย็นเหมือนได้อาบน้ำทิพย์ เขาขอบคุณพระดาบสและใช้ชีวิตนกต่ออย่างสำรวมระวัง โดยมีเจตนาที่บริสุทธิ์และแผ่เมตตาให้แก่ทุกชีวิตเสมอมา</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ในป่าหิมพานต์อันกว้างใหญ่ มีนกกระทาตัวหนึ่งชื่อว่า \"วิมล\" เขามีขนที่สวยงามเป็นลวดลายประณีตและมีจิตใจที่ใฝ่ในธรรม วิมลใช้ชีวิตอย่างสงบสุข ท่ามกลางแมกไม้ที่เขียวขจีและสายน้ำที่ไหลเย็น เขาหมั่นสำรวมระวังระกายวาจาใจอยู่เสมอเพื่อไม่ให้เบียดเบียนผู้ใด อยู่มาวันหนึ่ง วิมลถูกพรานป่าใจร้ายที่ชื่อ \"ลุททะ\" จับตัวไป ลุททะไม่ได้จับวิมลไปเพื่อเป็นอาหาร แต่เขานำวิมลไปขังไว้ในกรงเพื่อใช้เป็น \"นกต่อ\" สำหรับล่อให้นกกระทาตัวอื่นๆ บินเข้ามาหา เพื่อที่ลุททะจะได้ทอดแหจับนกเหล่านั้นไปขายและฆ่ากิน ทุกครั้งที่ลุททะพาวิมลเข้าป่า เขาจะกระตุ้นให้วิมลส่งเสียงร้อง เมื่อเพื่อนนกกระทาตัวอื่นๆ ได้ยินเสียงร้องของวิมล พวกมันก็คิดว่าเป็นเสียงเรียกของเพื่อนจึงพากันบินเข้ามาหา ทันใดนั้น ลุททะก็จะทอดแหจับนกเหล่านั้นไปต่อหน้าต่อตาวิมล วิมลรู้สึกทุกข์ระทมใจเป็นอย่างยิ่ง เขามีความกังวลว่าการที่เขาส่งเสียงร้องจนทำให้นกตัวอื่นๆ ถูกจับนั้น จะถือว่าเป็นบาปหรือไม่ \"เราไม่ได้อยากให้เพื่อนๆ ถูกจับเลย แต่เพราะเสียงของเรา พวกเขาจึงต้องเดือดร้อน\" วิมลเฝ้าถามตัวเองด้วยความรู้สึกผิด วันเวลาผ่านไป วิมลตัดสินใจว่าเขาจะต้องหาคำตอบให้ได้ว่าสิ่งที่เกิดขึ้นนั้นเป็นบาปสำหรับเขาหรือไม่ เขาเฝ้ารอโอกาสที่จะได้พบกับผู้ทรงความรู้ จนกระทั่งวันหนึ่ง ลุททะพาวิมลไปวางไว้ใกล้กับอาศรมของดาบสผู้บำเพ็ญตบะในป่า ที่อาศรมนั้นมีพระดาบสนามว่า \"อิสิละ\" ท่านเป็นบัณฑิตผู้มีความเมตตาและรอบรู้ในข้อธรรมอย่างลึกซึ้ง วิมลเห็นว่าเป็นโอกาสดี จึงตัดสินใจเอ่ยปากถามพระดาบสเมื่อลุททะเผลอหลับไปใต้ต้นไม้ใกล้ๆ วิมลถามด้วยความนอบน้อมว่า \"ข้าแต่ท่านผู้เจริญ ข้าพเจ้าต้องส่งเสียงร้องตามหน้าที่ แต่เสียงนั้นทำให้เพื่อนนกของข้าพเจ้าต้องพินาศ การกระทำของข้าพเจ้านี้ถือเป็นบาปหรือไม่? จิตของข้าพเจ้าเร่าร้อนเหลือเกิน\" อิสิละนิ่งฟังด้วยความเมตตาแล้วจึงกล่าวตอบว่า \"ดูก่อนนกกระทาผู้มีใจบริสุทธิ์ บาปและบุญนั้นสำคัญอยู่ที่ 'เจตนา' หากใจของท่านไม่ได้มีความปรารถนาจะให้ผู้อื่นเดือดร้อน บาปย่อมไม่แปดเปื้อนถึงท่าน\" \"เหมือนกับน้ำที่กลิ้งอยู่บนใบบัว ย่อมไม่ติดใบบัวฉันใด\" อิสิละอธิบายต่อ \"หากใจของท่านไม่ยินดีในการจับนกของพราน และท่านไม่ได้มีจิตมุ่งร้ายต่อเพื่อนของท่าน การกระทำนั้นก็เป็นเพียงกิริยาที่เกิดจากความจำเป็น ไม่ใช่บาปกรรมที่จะติดตามท่านไป\" วิมลถามต่อด้วยความสงสัยว่า \"แล้วพรานลุททะล่ะท่าน? เขาจับนกเพื่อเลี้ยงชีพ เขาจะบาปหรือไม่?\" อิสิละตอบว่า \"พรานมีเจตนาเบียดเบียนชีวิตผู้อื่นเพื่อประโยชน์ส่วนตน จิตของเขามีความละโมบและมุ่งร้าย บาปนั้นย่อมตกอยู่กับเขาผู้มีเจตนา\" \"จำไว้เถิดวิมล\" อิสิละย้ำ \"เมื่อใดที่ใจสะอาด เจตนาก็จะบริสุทธิ์ เมื่อเจตนาบริสุทธิ์ การกระทำนั้นก็ไม่นำมาซึ่งความทุกข์ใจ จงรักษาจิตของท่านให้มั่นคงในเมตตา และอย่าได้กังวลในสิ่งที่ท่านไม่ได้ตั้งใจให้เกิดขึ้นเลย\" เมื่อวิมลได้ฟังคำสอนของอิสิละ ใจที่เคยเร่าร้อนก็กลับสงบเย็นเหมือนได้อาบน้ำทิพย์ เขาขอบคุณพระดาบสและใช้ชีวิตนกต่ออย่างสำรวมระวัง โดยมีเจตนาที่บริสุทธิ์และแผ่เมตตาให้แก่ทุกชีวิตเสมอมา";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

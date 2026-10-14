@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>ปีกที่ผลิบานในกาลที่ไม่เที่ยง: บทเรียนจากขุรปุตตชาดก</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_0_2606504918574419794.jpg" alt="ปีกที่ผลิบานในกาลที่ไม่เที่ยง: บทเรียนจากขุรปุตตชาดก" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">ปีกที่ผลิบานในกาลที่ไม่เที่ยง: บทเรียนจากขุรปุตตชาดก</h1>
+            <p class="cover-author">By wolf tbmx</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">Page 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_1_174824936331179183.jpg" alt="Page 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ในป่าหิมพานต์อันกว้างใหญ่ที่เต็มไปด้วยพรรณไม้แปลกตา มีนกเขาคู่หนึ่งอาศัยอยู่ด้วยกันอย่างมีความสุข นกตัวผู้ชื่อ &quot;กาลิน&quot; และนกตัวเมียชื่อ &quot;มายา&quot; ทั้งสองใช้เวลาทั้งวันบินเคียงคู่กันไปตามแมกไม้ เสียงร้องของพวกเขาสอดประสานเป็นเพลงแห่งความรักที่ทำให้ป่าทั้งป่าดูมีชีวิตชีวา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_2_14145430611744321304.jpg" alt="Page 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลินและมายาช่วยกันสร้างรังที่มั่นคงด้วยกิ่งไม้และปุยหญ้า พวกเขาเชื่อมั่นว่าความรักของพวกเขาจะคงอยู่ชั่วนิรันดร์ &quot;เราจะไม่มีวันจากกัน&quot; กาลินเอ่ยคำสัญญาขณะที่มองดูดวงตาที่สดใสของมายา มายาพยักหน้าตอบรับด้วยความไว้วางใจ โดยหารู้ไม่ว่าพายุแห่งโชคชะตากำลังคืบคลานเข้ามา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_3_15888429629461395409.jpg" alt="Page 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>บ่ายวันหนึ่ง ท้องฟ้าที่เคยแจ่มใสกลับมืดครึ้มด้วยเมฆฝน พายุหมุนลูกใหญ่พัดถล่มผืนป่าอย่างรุนแรง ลมกระโชกแรงกระชากมายาให้หลุดลอยไปในอากาศอันบ้าคลั่ง เธอพยายามกระพือปีกสู้แรงลมแต่ก็ไม่อาจต้านทานได้ มายาถูกพัดหายไปในกลุ่มเมฆสีเทาทะมึน ทิ้งไว้เพียงเสียงร้องเรียกที่ขาดช่วง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_4_10914783228803884013.jpg" alt="Page 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อพายุสงบลง กาลินออกบินตามหามายาไปทั่วป่า เขาเรียกชื่อเธอจนเสียงแหบแห้ง แต่มีเพียงเสียงสะท้อนจากหุบเขากลับมาเท่านั้น ท้องฟ้าที่เคยสวยงามกลับดูอ้างว้างและเหน็บหนาว ความสุขที่เคยมีมลายหายไปในพริบตา เหลือเพียงความเจ็บปวดที่ทิ่มแทงอยู่ในอก</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_5_9395332391902025742.jpg" alt="Page 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลินรอนแรมมาจนถึงริมสระโบกขรณีที่สงบนิ่ง เขาจ้องมองเงาของตัวเองในน้ำและเริ่มตระหนักว่า แม้แต่เงาก็ยังเปลี่ยนแปลงไปตามระลอกคลื่น &quot;ความรักของเราที่คิดว่ามั่นคง ไยจึงพังทลายลงง่ายดายเช่นนี้?&quot; เขาคร่ำครวญอยู่ตามลำพัง ความเศร้าโศกทำให้เขามองไม่เห็นความงามของดอกบัวที่เบ่งบานอยู่เบื้องหน้า</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_6_11278203591919959866.jpg" alt="Page 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ในขณะนั้น พระเจ้าพรหมทัต ผู้ครองเมืองพาราณสี เสด็จประพาสอุทยานและทรงได้ยินเสียงคร่ำครวญของกาลิน พระองค์ทรงเป็นผู้มีความรู้ในภาษาศาสตร์และทรงเข้าใจสิ่งที่นกเขากำลังสื่อสาร พระองค์ทรงดำเนินเข้าไปใกล้กาลินด้วยความเมตตา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_7_3595574289506148806.jpg" alt="Page 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>&quot;เจ้านกน้อย เหตุใดเจ้าจึงเอาแต่ร้องไห้ถึงสิ่งที่ผ่านไปแล้ว?&quot; พระเจ้าพรหมทัตทรงตรัสถาม กาลินจึงทูลตอบถึงความรักที่สูญหายและความเจ็บปวดจากการพลัดพราก พระองค์ทรงยิ้มอย่างอ่อนโยนและเริ่มสอนบทเรียนสำคัญเรื่องความไม่เที่ยง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_8_3095698285930644300.jpg" alt="Page 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>&quot;กาลินเ๋ย... สรรพสิ่งในโลกนี้เปรียบเสมือนน้ำค้างบนยอดหญ้า&quot; พระเจ้าพรหมทัตทรงชี้ให้ดูใบไม้ที่ร่วงหล่น &quot;มีการพบย่อมมีการพราก มีการเกิดขึ้นย่อมมีการดับไป ความเศร้าของเจ้าเกิดจากการยึดมั่นว่า &#039;มายา&#039; คือของเจ้า แต่ในความเป็นจริง ไม่มีสิ่งใดเป็นของเราอย่างแท้จริงแม้แต่ลมหายใจ&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_9_9744356351906979197.jpg" alt="Page 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>คำสอนของพระเจ้าพรหมทัตเปรียบเสมือนแสงสว่างที่ส่องเข้ามาในใจที่มืดมิดของกาลิน เขาเริ่มเข้าใจว่าความทุกข์ไม่ได้มาจากพายุ แต่มาจากใจที่ยึดติดกับอดีต กาลินหลับตาลงและเริ่มทำสมาธิ ความโกรธแค้นต่อโชคชะตาเริ่มจางหายไปแทนที่ด้วยความสงบ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_10_14574315138037110531.jpg" alt="Page 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ในอีกด้านหนึ่งของป่า มายาซึ่งรอดชีวิตจากพายุได้เช่นกัน เธอกำลังเรียนรู้ที่จะอยู่กับปัจจุบัน เธอเฝ้ามองดวงอาทิตย์ที่ลับขอบฟ้าและตระหนักว่า วันใหม่จะมาถึงเสมอ เธอไม่ได้โหยหากาลินด้วยความทุกข์อีกต่อไป แต่ระลึกถึงเขาด้วยความเมตตาและปรารถนาดี</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_11_11424925960105214672.jpg" alt="Page 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลินและมายาได้กลับมาพบกันอีกครั้งโดยบังเอิญที่ต้นศรีมหาโพธิ์ แต่การพบกันครั้งนี้ต่างไปจากเดิม ทั้งคู่ไม่ได้โผเข้าหากันด้วยความหลงใหล แต่กลับมองตากันด้วยความเข้าใจในสัจธรรม &quot;ขอบคุณพายุลูกนั้น&quot; มายากล่าว &quot;ที่ทำให้เรารู้จักคุณค่าของความปล่อยวาง&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./265 ขุรปุตตชาดก_files/storybook_page_12_15007489410515313309.jpg" alt="Page 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลินและมายาออกบินไปด้วยกันอีกครั้ง ไม่ใช่ในฐานะผู้ครอบครองกันและกัน แต่ในฐานะเพื่อนร่วมทางในสังสารวัฏ นิทานเรื่องนี้สอนให้รู้ว่า &quot;ความไม่เที่ยงคือนิรันดร์&quot; และการยอมรับการเปลี่ยนแปลงคือหนทางสู่ความสุขที่แท้จริง</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "ในป่าหิมพานต์อันกว้างใหญ่ที่เต็มไปด้วยพรรณไม้แปลกตา มีนกเขาคู่หนึ่งอาศัยอยู่ด้วยกันอย่างมีความสุข นกตัวผู้ชื่อ \"กาลิน\" และนกตัวเมียชื่อ \"มายา\" ทั้งสองใช้เวลาทั้งวันบินเคียงคู่กันไปตามแมกไม้ เสียงร้องของพวกเขาสอดประสานเป็นเพลงแห่งความรักที่ทำให้ป่าทั้งป่าดูมีชีวิตชีวา กาลินและมายาช่วยกันสร้างรังที่มั่นคงด้วยกิ่งไม้และปุยหญ้า พวกเขาเชื่อมั่นว่าความรักของพวกเขาจะคงอยู่ชั่วนิรันดร์ \"เราจะไม่มีวันจากกัน\" กาลินเอ่ยคำสัญญาขณะที่มองดูดวงตาที่สดใสของมายา มายาพยักหน้าตอบรับด้วยความไว้วางใจ โดยหารู้ไม่ว่าพายุแห่งโชคชะตากำลังคืบคลานเข้ามา บ่ายวันหนึ่ง ท้องฟ้าที่เคยแจ่มใสกลับมืดครึ้มด้วยเมฆฝน พายุหมุนลูกใหญ่พัดถล่มผืนป่าอย่างรุนแรง ลมกระโชกแรงกระชากมายาให้หลุดลอยไปในอากาศอันบ้าคลั่ง เธอพยายามกระพือปีกสู้แรงลมแต่ก็ไม่อาจต้านทานได้ มายาถูกพัดหายไปในกลุ่มเมฆสีเทาทะมึน ทิ้งไว้เพียงเสียงร้องเรียกที่ขาดช่วง เมื่อพายุสงบลง กาลินออกบินตามหามายาไปทั่วป่า เขาเรียกชื่อเธอจนเสียงแหบแห้ง แต่มีเพียงเสียงสะท้อนจากหุบเขากลับมาเท่านั้น ท้องฟ้าที่เคยสวยงามกลับดูอ้างว้างและเหน็บหนาว ความสุขที่เคยมีมลายหายไปในพริบตา เหลือเพียงความเจ็บปวดที่ทิ่มแทงอยู่ในอก กาลินรอนแรมมาจนถึงริมสระโบกขรณีที่สงบนิ่ง เขาจ้องมองเงาของตัวเองในน้ำและเริ่มตระหนักว่า แม้แต่เงาก็ยังเปลี่ยนแปลงไปตามระลอกคลื่น \"ความรักของเราที่คิดว่ามั่นคง ไยจึงพังทลายลงง่ายดายเช่นนี้?\" เขาคร่ำครวญอยู่ตามลำพัง ความเศร้าโศกทำให้เขามองไม่เห็นความงามของดอกบัวที่เบ่งบานอยู่เบื้องหน้า ในขณะนั้น พระเจ้าพรหมทัต ผู้ครองเมืองพาราณสี เสด็จประพาสอุทยานและทรงได้ยินเสียงคร่ำครวญของกาลิน พระองค์ทรงเป็นผู้มีความรู้ในภาษาศาสตร์และทรงเข้าใจสิ่งที่นกเขากำลังสื่อสาร พระองค์ทรงดำเนินเข้าไปใกล้กาลินด้วยความเมตตา \"เจ้านกน้อย เหตุใดเจ้าจึงเอาแต่ร้องไห้ถึงสิ่งที่ผ่านไปแล้ว?\" พระเจ้าพรหมทัตทรงตรัสถาม กาลินจึงทูลตอบถึงความรักที่สูญหายและความเจ็บปวดจากการพลัดพราก พระองค์ทรงยิ้มอย่างอ่อนโยนและเริ่มสอนบทเรียนสำคัญเรื่องความไม่เที่ยง \"กาลินเ๋ย... สรรพสิ่งในโลกนี้เปรียบเสมือนน้ำค้างบนยอดหญ้า\" พระเจ้าพรหมทัตทรงชี้ให้ดูใบไม้ที่ร่วงหล่น \"มีการพบย่อมมีการพราก มีการเกิดขึ้นย่อมมีการดับไป ความเศร้าของเจ้าเกิดจากการยึดมั่นว่า 'มายา' คือของเจ้า แต่ในความเป็นจริง ไม่มีสิ่งใดเป็นของเราอย่างแท้จริงแม้แต่ลมหายใจ\" คำสอนของพระเจ้าพรหมทัตเปรียบเสมือนแสงสว่างที่ส่องเข้ามาในใจที่มืดมิดของกาลิน เขาเริ่มเข้าใจว่าความทุกข์ไม่ได้มาจากพายุ แต่มาจากใจที่ยึดติดกับอดีต กาลินหลับตาลงและเริ่มทำสมาธิ ความโกรธแค้นต่อโชคชะตาเริ่มจางหายไปแทนที่ด้วยความสงบ ในอีกด้านหนึ่งของป่า มายาซึ่งรอดชีวิตจากพายุได้เช่นกัน เธอกำลังเรียนรู้ที่จะอยู่กับปัจจุบัน เธอเฝ้ามองดวงอาทิตย์ที่ลับขอบฟ้าและตระหนักว่า วันใหม่จะมาถึงเสมอ เธอไม่ได้โหยหากาลินด้วยความทุกข์อีกต่อไป แต่ระลึกถึงเขาด้วยความเมตตาและปรารถนาดี กาลินและมายาได้กลับมาพบกันอีกครั้งโดยบังเอิญที่ต้นศรีมหาโพธิ์ แต่การพบกันครั้งนี้ต่างไปจากเดิม ทั้งคู่ไม่ได้โผเข้าหากันด้วยความหลงใหล แต่กลับมองตากันด้วยความเข้าใจในสัจธรรม \"ขอบคุณพายุลูกนั้น\" มายากล่าว \"ที่ทำให้เรารู้จักคุณค่าของความปล่อยวาง\" กาลินและมายาออกบินไปด้วยกันอีกครั้ง ไม่ใช่ในฐานะผู้ครอบครองกันและกัน แต่ในฐานะเพื่อนร่วมทางในสังสารวัฏ นิทานเรื่องนี้สอนให้รู้ว่า \"ความไม่เที่ยงคือนิรันดร์\" และการยอมรับการเปลี่ยนแปลงคือหนทางสู่ความสุขที่แท้จริง";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

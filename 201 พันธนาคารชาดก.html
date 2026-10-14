@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>พันธนาคารชาดก: เครื่องจองจำแห่งใจ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_0_11205165649903122044.jpg" alt="พันธนาคารชาดก: เครื่องจองจำแห่งใจ" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">พันธนาคารชาดก: เครื่องจองจำแห่งใจ</h1>
+            <p class="cover-author">By wolf tbmx</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">Page 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_1_2610337588542489803.jpg" alt="Page 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>นานมาแล้ว ณ หมู่บ้านอันเงียบสงบในอินเดียโบราณ ชายหนุ่มชื่อ พันธุ (Bandhu) ผู้มีจิตใจใฝ่ในธรรม มักนั่งครุ่นคิดถึงความสงบสุขที่แท้จริง เขารู้สึกว่าชีวิตทางโลกช่างวุ่นวายและอยากจะออกบวชเพื่อค้นหาสัจธรรม แต่เขายังคงติดภาระหน้าที่ในฐานะหัวหน้าครอบครัว</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_2_9369770250692401891.jpg" alt="Page 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วันหนึ่ง พันธุ เดินเข้าไปหา มาลตี (Malati) ภรรยาผู้เลอโฉมของเขา เขาตัดสินใจบอกความในใจว่า &quot;น้องหญิง พี่ปรารถนาจะสละความวุ่นวายนี้ไปสู่ป่าเขา เพื่อแสวงหาความหลุดพ้น&quot; มาลตีมองเขาด้วยสายตาที่เปี่ยมไปด้วยความรักและกังวล</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_3_9521155233857174526.jpg" alt="Page 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>มาลตีบอกข่าวดีแก่เขาว่าเธอกำลังตั้งครรภ์ &quot;ท่านพี่ โปรดรอจนกว่าบุตรของเราจะลืมตาดูโลกเถิด แล้วท่านค่อยไปตามทางที่ท่านเลือก&quot; พันธุรับคำด้วยความยินดี แต่ในใจเขารู้สึกเหมือนมีสายใยบางๆ เริ่มพันธนาการเขาไว้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_4_1640135380897314256.jpg" alt="Page 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เวลาผ่านไป บุตรชายตัวน้อยชื่อ อริน (Aryn) ได้ถือกำเนิดขึ้น พันธุมองดูทารกน้อยด้วยความรักที่มากล้น เขาบอกตัวเองว่า &quot;รอให้อรินเดินได้ก่อนเถิด แล้วเราค่อยจากไป&quot; ความรักที่มีต่อลูกกลายเป็นโซ่เส้นใหม่ที่เหนียวแน่นกว่าเดิม</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_5_12226447892266089039.jpg" alt="Page 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อ อริน เริ่มเดินและวิ่งเล่นได้ พันธุเตรียมตัวจะจากไปอีกครั้ง แต่เขาก็ต้องชะงักเมื่อเห็นลูกน้อยวิ่งเข้ามากอดขาและเรียกชื่อเขาด้วยเสียงเจื้อยแจ้ว มาลตีมองดูทั้งสองด้วยรอยยิ้มที่ทำให้ใจของพันธุไหวหวั่น</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_6_4358771308250746854.jpg" alt="Page 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>คืนหนึ่ง พันธุนั่งมองมาลตีที่กำลังหลับใหล เขาเห็นความงามและความอ่อนโยนของเธอ แต่ในขณะเดียวกัน เขากลับเห็นภาพนิมิตว่าความรักและความผูกพันเหล่านี้ เป็นเหมือนด้ายสีทองที่มัดตรึงกายและใจของเขาไว้กับโลกไม่ให้ไปไหน</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_7_7546743313197271714.jpg" alt="Page 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วันรุ่งขึ้น พันธุเดินผ่านลานหมู่บ้านและเห็นนักโทษคนหนึ่งถูกจองจำด้วยโซ่เหล็กหนักอึ้ง นักโทษผู้นั้นมีใบหน้าเศร้าสร้อยและพยายามจะหักโซ่ทิ้งแต่ก็ทำไม่ได้ พันธุมองดูด้วยความเวทนา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_8_4721156545030676524.jpg" alt="Page 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ทันใดนั้น พันธุก็เกิดความรู้แจ้ง เขาตระหนักได้ว่า &quot;โซ่ที่ทำจากเหล็ก ไม้ หรือหญ้าปล้องนั้นไม่ได้แข็งแกร่งเลย เพราะคนยังพอจะหักมันได้ด้วยพละกำลัง&quot; เขาเริ่มเปรียบเทียบสิ่งที่เห็นกับความรู้สึกในใจตนเอง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_9_9358407149144154600.jpg" alt="Page 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>&quot;แต่เครื่องจองจำที่ทำด้วยความกำหนัดยินดีในทรัพย์สมบัติ บุตร และภรรยานี่ต่างหากที่เป็นเครื่องจองจำอันมั่นคง&quot; พันธุรำพึงออกมา &quot;มันดูเหมือนอ่อนนุ่มและปลดเปลื้องได้ง่าย แต่จริงๆ แล้วมันฉุดให้คนตกลงไปในวัฏสงสารได้ลึกที่สุด&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_10_14006317953696588153.jpg" alt="Page 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พันธุตัดสินใจบอกลามาลตีและอรินด้วยความเมตตา เขาอธิบายถึงความจริงที่เขาค้นพบ มาลตีแม้จะเศร้าใจแต่เธอก็เข้าใจในจุดมุ่งหมายอันยิ่งใหญ่ของสามี เธอจึงยอมปล่อยเขาไปเพื่อแสวงหาธรรม</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_11_8885955929546539087.jpg" alt="Page 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พันธุออกบวชเป็นฤาษีและบำเพ็ญเพียรจนจิตใจสงบนิ่ง เขาได้สอนสั่งมิตรา (Mitra) ศิษย์คนสำคัญถึงเรื่องเครื่องจองจำแห่งใจ &quot;ผู้ที่ตัดเครื่องจองจำอันเหนียวแน่นนี้ได้เท่านั้น จึงจะพบกับเสรีภาพที่แท้จริง&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./201 พันธนาคารชาดก_files/storybook_page_12_783342817597958339.jpg" alt="Page 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เรื่องราวของพันธุเตือนใจเราว่า ความรักและความผูกพันเป็นสิ่งสวยงาม แต่หากเรายึดติดจนกลายเป็นเครื่องพันธนาการ มันจะขวางกั้นเราจากสันติสุขที่ยั่งยืน การรู้จักปล่อยวางคือหนทางสู่ความหลุดพ้นอย่างแท้จริง</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "นานมาแล้ว ณ หมู่บ้านอันเงียบสงบในอินเดียโบราณ ชายหนุ่มชื่อ พันธุ (Bandhu) ผู้มีจิตใจใฝ่ในธรรม มักนั่งครุ่นคิดถึงความสงบสุขที่แท้จริง เขารู้สึกว่าชีวิตทางโลกช่างวุ่นวายและอยากจะออกบวชเพื่อค้นหาสัจธรรม แต่เขายังคงติดภาระหน้าที่ในฐานะหัวหน้าครอบครัว วันหนึ่ง พันธุ เดินเข้าไปหา มาลตี (Malati) ภรรยาผู้เลอโฉมของเขา เขาตัดสินใจบอกความในใจว่า \"น้องหญิง พี่ปรารถนาจะสละความวุ่นวายนี้ไปสู่ป่าเขา เพื่อแสวงหาความหลุดพ้น\" มาลตีมองเขาด้วยสายตาที่เปี่ยมไปด้วยความรักและกังวล มาลตีบอกข่าวดีแก่เขาว่าเธอกำลังตั้งครรภ์ \"ท่านพี่ โปรดรอจนกว่าบุตรของเราจะลืมตาดูโลกเถิด แล้วท่านค่อยไปตามทางที่ท่านเลือก\" พันธุรับคำด้วยความยินดี แต่ในใจเขารู้สึกเหมือนมีสายใยบางๆ เริ่มพันธนาการเขาไว้ เวลาผ่านไป บุตรชายตัวน้อยชื่อ อริน (Aryn) ได้ถือกำเนิดขึ้น พันธุมองดูทารกน้อยด้วยความรักที่มากล้น เขาบอกตัวเองว่า \"รอให้อรินเดินได้ก่อนเถิด แล้วเราค่อยจากไป\" ความรักที่มีต่อลูกกลายเป็นโซ่เส้นใหม่ที่เหนียวแน่นกว่าเดิม เมื่อ อริน เริ่มเดินและวิ่งเล่นได้ พันธุเตรียมตัวจะจากไปอีกครั้ง แต่เขาก็ต้องชะงักเมื่อเห็นลูกน้อยวิ่งเข้ามากอดขาและเรียกชื่อเขาด้วยเสียงเจื้อยแจ้ว มาลตีมองดูทั้งสองด้วยรอยยิ้มที่ทำให้ใจของพันธุไหวหวั่น คืนหนึ่ง พันธุนั่งมองมาลตีที่กำลังหลับใหล เขาเห็นความงามและความอ่อนโยนของเธอ แต่ในขณะเดียวกัน เขากลับเห็นภาพนิมิตว่าความรักและความผูกพันเหล่านี้ เป็นเหมือนด้ายสีทองที่มัดตรึงกายและใจของเขาไว้กับโลกไม่ให้ไปไหน วันรุ่งขึ้น พันธุเดินผ่านลานหมู่บ้านและเห็นนักโทษคนหนึ่งถูกจองจำด้วยโซ่เหล็กหนักอึ้ง นักโทษผู้นั้นมีใบหน้าเศร้าสร้อยและพยายามจะหักโซ่ทิ้งแต่ก็ทำไม่ได้ พันธุมองดูด้วยความเวทนา ทันใดนั้น พันธุก็เกิดความรู้แจ้ง เขาตระหนักได้ว่า \"โซ่ที่ทำจากเหล็ก ไม้ หรือหญ้าปล้องนั้นไม่ได้แข็งแกร่งเลย เพราะคนยังพอจะหักมันได้ด้วยพละกำลัง\" เขาเริ่มเปรียบเทียบสิ่งที่เห็นกับความรู้สึกในใจตนเอง \"แต่เครื่องจองจำที่ทำด้วยความกำหนัดยินดีในทรัพย์สมบัติ บุตร และภรรยานี่ต่างหากที่เป็นเครื่องจองจำอันมั่นคง\" พันธุรำพึงออกมา \"มันดูเหมือนอ่อนนุ่มและปลดเปลื้องได้ง่าย แต่จริงๆ แล้วมันฉุดให้คนตกลงไปในวัฏสงสารได้ลึกที่สุด\" พันธุตัดสินใจบอกลามาลตีและอรินด้วยความเมตตา เขาอธิบายถึงความจริงที่เขาค้นพบ มาลตีแม้จะเศร้าใจแต่เธอก็เข้าใจในจุดมุ่งหมายอันยิ่งใหญ่ของสามี เธอจึงยอมปล่อยเขาไปเพื่อแสวงหาธรรม พันธุออกบวชเป็นฤาษีและบำเพ็ญเพียรจนจิตใจสงบนิ่ง เขาได้สอนสั่งมิตรา (Mitra) ศิษย์คนสำคัญถึงเรื่องเครื่องจองจำแห่งใจ \"ผู้ที่ตัดเครื่องจองจำอันเหนียวแน่นนี้ได้เท่านั้น จึงจะพบกับเสรีภาพที่แท้จริง\" เรื่องราวของพันธุเตือนใจเราว่า ความรักและความผูกพันเป็นสิ่งสวยงาม แต่หากเรายึดติดจนกลายเป็นเครื่องพันธนาการ มันจะขวางกั้นเราจากสันติสุขที่ยั่งยืน การรู้จักปล่อยวางคือหนทางสู่ความหลุดพ้นอย่างแท้จริง";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

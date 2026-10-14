@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>รากเหง้าแห่งปัญญา: บทเรียนแห่งความอ่อนน้อม</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_0_9269154019491252548.jpg" alt="รากเหง้าแห่งปัญญา: บทเรียนแห่งความอ่อนน้อม" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">รากเหง้าแห่งปัญญา: บทเรียนแห่งความอ่อนน้อม</h1>
+            <p class="cover-author">By wolf tbmx</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">Page 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_1_17350076081732225239.jpg" alt="Page 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>นานมาแล้ว ณ ดินแดนชมพูทวีปอันรุ่งโรจน์ มีพราหมณ์หนุ่มผู้หนึ่งนามว่า ภารทวาชะ เขาเป็นผู้ที่เฉลียวฉลาดอย่างยิ่ง ภารทวาชะใช้เวลาทั้งชีวิตศึกษาคัมภีร์พระเวทจนแตกฉาน จนเขามั่นใจว่าไม่มีความรู้ใดในโลกที่เขาไม่ล่วงรู้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_2_17375980588670046930.jpg" alt="Page 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ภารทวาชะมีเพื่อนสนิทนามว่า กัสสปะ ทั้งสองมักจะสนทนาธรรมและถกเถียงปัญหาปรัชญาที่ลึกซึ้งอยู่เสมอ &quot;กัสสปะเอ๋ย ข้าได้เรียนรู้ทุกสรรพสิ่งแล้ว ไม่มีสิ่งใดที่ข้าจะทำความเข้าใจไม่ได้อีก&quot; ภารทวาชะกล่าวด้วยความลำพองใจ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_3_9261497813740064809.jpg" alt="Page 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ต่อมา ทั้งสองได้ยินกิตติศัพท์ของพระพุทธเจ้า ผู้ทรงเป็นศาสดาเอกของโลก พวกเขาจึงตัดสินใจเข้าสู่ร่มกาสาวพัสตร์ บวชเป็นภิกษุในพระพุทธศาสนา แม้จะครองเพศบรรพชิต แต่ในใจของภารทวาชะยังคงเต็มไปด้วยความทิฐิ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_4_12298750484910956867.jpg" alt="Page 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อได้ฟังธรรมจากพระพุทธองค์เพียงไม่กี่ครั้ง ภารทวาชะก็นึกในใจว่า &quot;สิ่งที่พระองค์สอน ข้าก็รู้อยู่แล้ว ความรู้ของพระพุทธเจ้าก็ไม่ต่างจากความรู้ที่ข้ามีเลย&quot; เขาเริ่มมองข้ามคำสั่งสอนและไม่ตั้งใจปฏิบัติอย่างแท้จริง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_5_7468815783694221220.jpg" alt="Page 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พระพุทธองค์ทรงทราบด้วยพระญาณว่าภารทวาชะและเพื่อนพราหมณ์อีกหลายรูป กำลังถูกไฟแห่งความหลงผิดแผดเผาใจ พวกเขาคิดว่าตนเองหยั่งถึง &quot;รากเหง้า&quot; ของธรรมะแล้ว ทั้งที่ความจริงยังติดอยู่เพียงเปลือกนอก</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_6_12381269949184121553.jpg" alt="Page 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วันหนึ่ง พระพุทธองค์ทรงเรียกประชุมสงฆ์ที่ป่าเลย์ยา ภารทวาชะและกัสสปะเดินมาสมทบด้วยความมั่นใจ &quot;วันนี้เราจะได้ฟังสิ่งที่เรารู้อยู่แล้วอีกหรือเปล่านะ&quot; กัสสปะกระซิบถามเพื่อน</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_7_2292854730982488327.jpg" alt="Page 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พระพุทธองค์ทรงเริ่มแสดง &quot;มูลปริยายสูตร&quot; หรือพระสูตรว่าด้วยรากเหง้าแห่งสรรพสิ่ง ทรงตรัสถามถึงความเข้าใจเกี่ยวกับ ดิน น้ำ ไฟ ลม และธรรมะในระดับต่างๆ ที่ลึกซึ้งเกินกว่าที่ตำราใดจะเคยจารึกไว้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_8_14160234855801915422.jpg" alt="Page 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อพระพุทธองค์ทรงจำแนกความรู้สภาวะของปุถุชน พระเสขะ และพระอรหันต์ ภารทวาชะก็เริ่มเหงื่อซึม เขาพบว่าคำถามที่พระองค์ทรงถามนั้น ตัวเขาไม่สามารถตอบได้เลยแม้แต่ข้อเดียว ความมั่นใจที่เคยมีเริ่มพังทลาย</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_9_9749762835768204592.jpg" alt="Page 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พระพุทธองค์ทรงสอนว่า &quot;ผู้ที่ยึดติดในความรู้ว่า &#039;สิ่งนี้เป็นของเรา&#039; หรือ &#039;เราเป็นสิ่งนี้&#039; ย่อมไม่อาจเข้าถึงความจริงที่แท้จริงได้&quot; ภารทวาชะตั้งใจฟังทุกถ้อยคำ ราวกับน้ำทิพย์ที่รดลงบนดินที่แห้งผาก</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_10_10663633051878667127.jpg" alt="Page 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กัสสปะเองก็ตระหนักได้ว่า ความรู้ที่เขาเคยสะสมมานั้นเป็นเพียงเศษเสี้ยวของมหาสมุทรแห่งปัญญา เขาละทิ้งทิฐิมานะ และก้มลงกราบแทบพระบาทด้วยความซาบซึ้งในพระมหากรุณาธิคุณ</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_11_14131679733561048452.jpg" alt="Page 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ภารทวาชะได้เข้าเฝ้าพระพุทธองค์และทูลสารภาพผิด &quot;ข้าพระองค์โง่เขลาที่หลงผิดคิดว่าตนรู้แจ้ง วันนี้ข้าพระองค์ขอวางมานะทิฐิลง และขอเริ่มต้นศึกษาธรรมที่แท้จริงจากพระองค์&quot; พระพุทธองค์ทรงยิ้มด้วยความเมตตา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">Page 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./245 มูลปริยายชาดก_files/storybook_page_12_18204100868232170342.jpg" alt="Page 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>จากวันนั้น ภารทวาชะและเหล่าพราหมณ์กลายเป็นภิกษุที่เคร่งครัดและอ่อนน้อม พวกเขาเข้าใจแล้วว่า รากเหง้าที่แท้จริงของปัญญาไม่ได้มาจากตำรา แต่มาจากการละวางตัวตนและการเปิดใจรับความจริงอันยิ่งใหญ่</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "นานมาแล้ว ณ ดินแดนชมพูทวีปอันรุ่งโรจน์ มีพราหมณ์หนุ่มผู้หนึ่งนามว่า ภารทวาชะ เขาเป็นผู้ที่เฉลียวฉลาดอย่างยิ่ง ภารทวาชะใช้เวลาทั้งชีวิตศึกษาคัมภีร์พระเวทจนแตกฉาน จนเขามั่นใจว่าไม่มีความรู้ใดในโลกที่เขาไม่ล่วงรู้ ภารทวาชะมีเพื่อนสนิทนามว่า กัสสปะ ทั้งสองมักจะสนทนาธรรมและถกเถียงปัญหาปรัชญาที่ลึกซึ้งอยู่เสมอ \"กัสสปะเอ๋ย ข้าได้เรียนรู้ทุกสรรพสิ่งแล้ว ไม่มีสิ่งใดที่ข้าจะทำความเข้าใจไม่ได้อีก\" ภารทวาชะกล่าวด้วยความลำพองใจ ต่อมา ทั้งสองได้ยินกิตติศัพท์ของพระพุทธเจ้า ผู้ทรงเป็นศาสดาเอกของโลก พวกเขาจึงตัดสินใจเข้าสู่ร่มกาสาวพัสตร์ บวชเป็นภิกษุในพระพุทธศาสนา แม้จะครองเพศบรรพชิต แต่ในใจของภารทวาชะยังคงเต็มไปด้วยความทิฐิ เมื่อได้ฟังธรรมจากพระพุทธองค์เพียงไม่กี่ครั้ง ภารทวาชะก็นึกในใจว่า \"สิ่งที่พระองค์สอน ข้าก็รู้อยู่แล้ว ความรู้ของพระพุทธเจ้าก็ไม่ต่างจากความรู้ที่ข้ามีเลย\" เขาเริ่มมองข้ามคำสั่งสอนและไม่ตั้งใจปฏิบัติอย่างแท้จริง พระพุทธองค์ทรงทราบด้วยพระญาณว่าภารทวาชะและเพื่อนพราหมณ์อีกหลายรูป กำลังถูกไฟแห่งความหลงผิดแผดเผาใจ พวกเขาคิดว่าตนเองหยั่งถึง \"รากเหง้า\" ของธรรมะแล้ว ทั้งที่ความจริงยังติดอยู่เพียงเปลือกนอก วันหนึ่ง พระพุทธองค์ทรงเรียกประชุมสงฆ์ที่ป่าเลย์ยา ภารทวาชะและกัสสปะเดินมาสมทบด้วยความมั่นใจ \"วันนี้เราจะได้ฟังสิ่งที่เรารู้อยู่แล้วอีกหรือเปล่านะ\" กัสสปะกระซิบถามเพื่อน พระพุทธองค์ทรงเริ่มแสดง \"มูลปริยายสูตร\" หรือพระสูตรว่าด้วยรากเหง้าแห่งสรรพสิ่ง ทรงตรัสถามถึงความเข้าใจเกี่ยวกับ ดิน น้ำ ไฟ ลม และธรรมะในระดับต่างๆ ที่ลึกซึ้งเกินกว่าที่ตำราใดจะเคยจารึกไว้ เมื่อพระพุทธองค์ทรงจำแนกความรู้สภาวะของปุถุชน พระเสขะ และพระอรหันต์ ภารทวาชะก็เริ่มเหงื่อซึม เขาพบว่าคำถามที่พระองค์ทรงถามนั้น ตัวเขาไม่สามารถตอบได้เลยแม้แต่ข้อเดียว ความมั่นใจที่เคยมีเริ่มพังทลาย พระพุทธองค์ทรงสอนว่า \"ผู้ที่ยึดติดในความรู้ว่า 'สิ่งนี้เป็นของเรา' หรือ 'เราเป็นสิ่งนี้' ย่อมไม่อาจเข้าถึงความจริงที่แท้จริงได้\" ภารทวาชะตั้งใจฟังทุกถ้อยคำ ราวกับน้ำทิพย์ที่รดลงบนดินที่แห้งผาก กัสสปะเองก็ตระหนักได้ว่า ความรู้ที่เขาเคยสะสมมานั้นเป็นเพียงเศษเสี้ยวของมหาสมุทรแห่งปัญญา เขาละทิ้งทิฐิมานะ และก้มลงกราบแทบพระบาทด้วยความซาบซึ้งในพระมหากรุณาธิคุณ ภารทวาชะได้เข้าเฝ้าพระพุทธองค์และทูลสารภาพผิด \"ข้าพระองค์โง่เขลาที่หลงผิดคิดว่าตนรู้แจ้ง วันนี้ข้าพระองค์ขอวางมานะทิฐิลง และขอเริ่มต้นศึกษาธรรมที่แท้จริงจากพระองค์\" พระพุทธองค์ทรงยิ้มด้วยความเมตตา จากวันนั้น ภารทวาชะและเหล่าพราหมณ์กลายเป็นภิกษุที่เคร่งครัดและอ่อนน้อม พวกเขาเข้าใจแล้วว่า รากเหง้าที่แท้จริงของปัญญาไม่ได้มาจากตำรา แต่มาจากการละวางตัวตนและการเปิดใจรับความจริงอันยิ่งใหญ่";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>

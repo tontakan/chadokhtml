@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>มายากุมารชาดก (The Tale of the Illusionist Prince)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p {
+      margin-bottom: 12px;
+    }
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">กำลังอ่าน</span>
+  </div>
+
+  <audio id="storyAudio" src="" preload="none"></audio>
+
+  <main class="mobile-reader">
+    
+        <div class="page-card cover-card">
+          <div class="cover-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_0_2548799991933039344.jpg" alt="มายากุมารชาดก (The Tale of the Illusionist Prince)" class="cover-img" />
+          </div>
+          <div class="cover-overlay">
+            <h1 class="cover-title">มายากุมารชาดก (The Tale of the Illusionist Prince)</h1>
+            <p class="cover-author">โดย music relax</p>
+          </div>
+        </div>
+      
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 1/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_1_9287275753239413969.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>กาลครั้งหนึ่งในนครพาราณสี มีเจ้าชายหนุ่มนามว่า &quot;สมเทวะ&quot; พระองค์ไม่เพียงแต่ทรงเชี่ยวชาญในวิชาการปกครอง แต่ยังทรงรอบรู้ในศาสตร์แห่ง &quot;มายา&quot; หรือเวทมนตร์ลวงตาที่ใช้เพื่อการสั่งสอนธรรมะ เจ้าชายมักจะประทับอยู่ในสวนหลวงเพื่อฝึกฝนจิตให้เป็นสมาธิ จนสามารถเนรมิตสิ่งต่างๆ ขึ้นมาได้ดั่งใจนึก</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 2/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_2_17419914453743517197.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พระราชาพรหมทัต พระราชบิดาของเจ้าชายทรงมีเรื่องทุกข์พระทัย เนื่องจากทรงระแวงว่าเหล่าเสนาบดีในราชสำนักเริ่มมีความโลภและทุจริต พระองค์จึงตรัสปรึกษากับเจ้าชายสมเทวะ &quot;ลูกเอ๋ย พ่ออยากรู้ว่าใครกันแน่ที่ซื่อสัตย์ต่อแผ่นดิน และใครที่เห็นแก่ลาภยศ&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 3/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_3_2126210460915168305.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เจ้าชายสมเทวะยิ้มอย่างอ่อนโยนแล้วทูลตอบว่า &quot;ข้าแต่เสด็จพ่อ มายาของลูกสามารถเผยความจริงในใจคนได้ ขอให้ลูกได้จัดงานเลี้ยงในสวนหลวง และลูกจะทดสอบความซื่อสัตย์ของพวกเขาเอง&quot; พระราชาทรงเห็นดีด้วยและตั้งตารอดูแผนการของพระโอรส</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 4/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_4_17902554765921033587.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>ในเช้าวันต่อมา เจ้าชายสมเทวะทรงใช้พลังมายาเนรมิต &quot;ต้นกัลปพฤกษ์จำลอง&quot; ขึ้นที่กลางสวนหลวง ต้นไม้นี้มีกิ่งก้านเป็นเงิน ใบเป็นมณี และมีผลเป็นทองคำสุกปลั่งส่งประกายระยิบระยับไปทั่วบริเวณ ใครที่ได้เห็นต่างก็ต้องตะลึงในความงดงาม</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 5/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_5_18398737854536759555.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เจ้าชายทรงเรียกเหล่าเสนาบดีมาพร้อมกัน โดยมี &quot;วิสาขะ&quot; อัครเสนาบดีผู้มักใหญ่ใฝ่สูงยืนอยู่หน้าสุด เจ้าชายประกาศว่า &quot;ต้นไม้นี้จะให้ผลเป็นทองคำแท้แก่ผู้ที่มีความซื่อสัตย์เท่านั้น หากใครมีความโลภ ผลทองคำจะกลายเป็นเพียงก้อนหินทันทีที่สัมผัส&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 6/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_6_10240599050978862699.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เมื่อตกกลางคืน บรรยากาศในสวนหลวงเงียบสงัด เสนาบดีวิสาขะไม่อาจห้ามความโลภในใจได้ เขาแอบย่องเข้าไปในสวนเพียงลำพัง แสงจันทร์สาดส่องลงมาบนใบหน้าของเขาที่เต็มไปด้วยความระแวดระวัง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 7/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_7_15963981905154907344.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>วิสาขะเอื้อมมือไปเด็ดผลทองคำที่ส่องแสงเรืองรอง แต่ด้วยอำนาจมายาของเจ้าชายสมเทวะ ทันทีที่มือของเขาแตะผลไม้ สิ่งที่เขาเห็นกลับไม่ใช่ทองคำ แต่เป็น &quot;งูพิษ&quot; ที่ขดตัวอยู่ เขาตกใจแทบสิ้นสติแต่ด้วยความหลงผิด เขาคิดว่านี่คือบททดสอบที่ต้องปกปิดไว้</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 8/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_8_6098597438325612338.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>แทนที่จะสำนึกผิด วิสาขะกลับใช้ผ้าคลุมไหล่รีบห่อ &quot;งู&quot; นั้นไว้ (ซึ่งจริงๆ แล้วคือผลไม้มายาที่เจ้าชายสร้างขึ้น) เขารีบซ่อนมันไว้ใต้เสื้อผ้าของเขาด้วยความกลัวว่าคนอื่นจะเห็นว่าเขาได้ก้อนหินหรือสิ่งอัปมงคลไป และตั้งใจจะเอาไปทิ้งนอกวัง</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 9/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_9_2352922604874735939.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เช้าวันรุ่งขึ้น พระราชาพรหมทัตและเจ้าชายสมเทวะเสด็จออก ณ ท้องพระโรง เหล่าเสนาบดีมาประชุมกันพร้อมหน้า เจ้าชายทรงสังเกตเห็นวิสาขะที่มีอาการกระสับกระส่ายและกุมแขนเสื้อของตนไว้ตลอดเวลา</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 10/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_10_9352284646429171557.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เจ้าชายสมเทวะเอ่ยถามขึ้นว่า &quot;มีใครในที่นี้แอบไปเด็ดผลไม้จากต้นกัลปพฤกษ์เมื่อคืนนี้หรือไม่? หากใครสารภาพตอนนี้ ข้าจะถือว่าเขายังมีความซื่อสัตย์เหลืออยู่บ้าง&quot; เสนาบดีวิสาขะยืนนิ่งและทูลมุสาว่า &quot;หามิได้พ่ะย่ะค่ะ ข้าพระองค์มิได้ทำเช่นนั้น&quot;</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 11/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_11_16308885792079638560.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>เจ้าชายสมเทวะทรงดีดพระองคุลี (ดีดนิ้ว) เพียงครั้งเดียว มายาทั้งหมดก็หายไป ห่อผ้าที่วิสาขะซ่อนไว้กลับกลายเป็นก้อนหินธรรมดาที่เปื้อนโคลน และล้มลงกองกับพื้นต่อหน้าพระพักตร์พระราชา ความลับที่ถูกซ่อนไว้จึงถูกเปิดเผยต่อสายตาทุกคน</p>
+          </div>
+        </div>
+        
+        <div class="page-card story-card">
+          <div class="page-header">หน้าที่ 12/12</div>
+          
+          <div class="story-image-wrapper">
+            <img src="./390 มายากุมารชาดก_files/storybook_page_12_15236681646422299744.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p>พระราชาทรงสั่งสอนวิสาขะเรื่องความซื่อสัตย์ และทรงชื่นชมปัญญาของเจ้าชายสมเทวะ ตั้งแต่นั้นมาเหล่าข้าราชบริพารต่างปกครองแผ่นดินด้วยความสุจริต เพราะรู้ว่า &quot;ความจริงนั้นงดงามกว่ามายา และความซื่อสัตย์คือสมบัติที่แท้จริงของมนุษย์&quot;</p>
+          </div>
+        </div>
+        
+  </main>
+
+  <script>
+    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
+    const listenPill = document.getElementById('listenPill');
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio');
+    const fullStoryText = "กาลครั้งหนึ่งในนครพาราณสี มีเจ้าชายหนุ่มนามว่า \"สมเทวะ\" พระองค์ไม่เพียงแต่ทรงเชี่ยวชาญในวิชาการปกครอง แต่ยังทรงรอบรู้ในศาสตร์แห่ง \"มายา\" หรือเวทมนตร์ลวงตาที่ใช้เพื่อการสั่งสอนธรรมะ เจ้าชายมักจะประทับอยู่ในสวนหลวงเพื่อฝึกฝนจิตให้เป็นสมาธิ จนสามารถเนรมิตสิ่งต่างๆ ขึ้นมาได้ดั่งใจนึก พระราชาพรหมทัต พระราชบิดาของเจ้าชายทรงมีเรื่องทุกข์พระทัย เนื่องจากทรงระแวงว่าเหล่าเสนาบดีในราชสำนักเริ่มมีความโลภและทุจริต พระองค์จึงตรัสปรึกษากับเจ้าชายสมเทวะ \"ลูกเอ๋ย พ่ออยากรู้ว่าใครกันแน่ที่ซื่อสัตย์ต่อแผ่นดิน และใครที่เห็นแก่ลาภยศ\" เจ้าชายสมเทวะยิ้มอย่างอ่อนโยนแล้วทูลตอบว่า \"ข้าแต่เสด็จพ่อ มายาของลูกสามารถเผยความจริงในใจคนได้ ขอให้ลูกได้จัดงานเลี้ยงในสวนหลวง และลูกจะทดสอบความซื่อสัตย์ของพวกเขาเอง\" พระราชาทรงเห็นดีด้วยและตั้งตารอดูแผนการของพระโอรส ในเช้าวันต่อมา เจ้าชายสมเทวะทรงใช้พลังมายาเนรมิต \"ต้นกัลปพฤกษ์จำลอง\" ขึ้นที่กลางสวนหลวง ต้นไม้นี้มีกิ่งก้านเป็นเงิน ใบเป็นมณี และมีผลเป็นทองคำสุกปลั่งส่งประกายระยิบระยับไปทั่วบริเวณ ใครที่ได้เห็นต่างก็ต้องตะลึงในความงดงาม เจ้าชายทรงเรียกเหล่าเสนาบดีมาพร้อมกัน โดยมี \"วิสาขะ\" อัครเสนาบดีผู้มักใหญ่ใฝ่สูงยืนอยู่หน้าสุด เจ้าชายประกาศว่า \"ต้นไม้นี้จะให้ผลเป็นทองคำแท้แก่ผู้ที่มีความซื่อสัตย์เท่านั้น หากใครมีความโลภ ผลทองคำจะกลายเป็นเพียงก้อนหินทันทีที่สัมผัส\" เมื่อตกกลางคืน บรรยากาศในสวนหลวงเงียบสงัด เสนาบดีวิสาขะไม่อาจห้ามความโลภในใจได้ เขาแอบย่องเข้าไปในสวนเพียงลำพัง แสงจันทร์สาดส่องลงมาบนใบหน้าของเขาที่เต็มไปด้วยความระแวดระวัง วิสาขะเอื้อมมือไปเด็ดผลทองคำที่ส่องแสงเรืองรอง แต่ด้วยอำนาจมายาของเจ้าชายสมเทวะ ทันทีที่มือของเขาแตะผลไม้ สิ่งที่เขาเห็นกลับไม่ใช่ทองคำ แต่เป็น \"งูพิษ\" ที่ขดตัวอยู่ เขาตกใจแทบสิ้นสติแต่ด้วยความหลงผิด เขาคิดว่านี่คือบททดสอบที่ต้องปกปิดไว้ แทนที่จะสำนึกผิด วิสาขะกลับใช้ผ้าคลุมไหล่รีบห่อ \"งู\" นั้นไว้ (ซึ่งจริงๆ แล้วคือผลไม้มายาที่เจ้าชายสร้างขึ้น) เขารีบซ่อนมันไว้ใต้เสื้อผ้าของเขาด้วยความกลัวว่าคนอื่นจะเห็นว่าเขาได้ก้อนหินหรือสิ่งอัปมงคลไป และตั้งใจจะเอาไปทิ้งนอกวัง เช้าวันรุ่งขึ้น พระราชาพรหมทัตและเจ้าชายสมเทวะเสด็จออก ณ ท้องพระโรง เหล่าเสนาบดีมาประชุมกันพร้อมหน้า เจ้าชายทรงสังเกตเห็นวิสาขะที่มีอาการกระสับกระส่ายและกุมแขนเสื้อของตนไว้ตลอดเวลา เจ้าชายสมเทวะเอ่ยถามขึ้นว่า \"มีใครในที่นี้แอบไปเด็ดผลไม้จากต้นกัลปพฤกษ์เมื่อคืนนี้หรือไม่? หากใครสารภาพตอนนี้ ข้าจะถือว่าเขายังมีความซื่อสัตย์เหลืออยู่บ้าง\" เสนาบดีวิสาขะยืนนิ่งและทูลมุสาว่า \"หามิได้พ่ะย่ะค่ะ ข้าพระองค์มิได้ทำเช่นนั้น\" เจ้าชายสมเทวะทรงดีดพระองคุลี (ดีดนิ้ว) เพียงครั้งเดียว มายาทั้งหมดก็หายไป ห่อผ้าที่วิสาขะซ่อนไว้กลับกลายเป็นก้อนหินธรรมดาที่เปื้อนโคลน และล้มลงกองกับพื้นต่อหน้าพระพักตร์พระราชา ความลับที่ถูกซ่อนไว้จึงถูกเปิดเผยต่อสายตาทุกคน พระราชาทรงสั่งสอนวิสาขะเรื่องความซื่อสัตย์ และทรงชื่นชมปัญญาของเจ้าชายสมเทวะ ตั้งแต่นั้นมาเหล่าข้าราชบริพารต่างปกครองแผ่นดินด้วยความสุจริต เพราะรู้ว่า \"ความจริงนั้นงดงามกว่ามายา และความซื่อสัตย์คือสมบัติที่แท้จริงของมนุษย์\"";
+
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    if (listenPill) {
+      listenPill.addEventListener('click', () => {
+        if (!isSpeaking) {
+          startSpeech();
+        } else {
+          stopSpeech();
+        }
+      });
+    }
+
+    function startSpeech() {
+      if (storyAudio && storyAudio.getAttribute('src')) {
+        storyAudio.play();
+        listenPill.classList.add('is-playing');
+        audioMiniBar.classList.add('active');
+        isSpeaking = true;
+        return;
+      }
+
+      if ('speechSynthesis' in window && fullStoryText) {
+        synth.cancel();
+        utterance = new SpeechSynthesisUtterance(fullStoryText);
+        utterance.lang = 'th-TH';
+        utterance.rate = 0.95;
+
+        utterance.onstart = () => {
+          listenPill.classList.add('is-playing');
+          audioMiniBar.classList.add('active');
+          isSpeaking = true;
+        };
+
+        utterance.onend = () => {
+          stopSpeech();
+        };
+
+        utterance.onerror = () => {
+          stopSpeech();
+        };
+
+        synth.speak(utterance);
+      } else {
+        listenPill.classList.toggle('is-playing');
+        audioMiniBar.classList.toggle('active');
+        isSpeaking = !isSpeaking;
+      }
+    }
+
+    function stopSpeech() {
+      if (storyAudio && !storyAudio.paused) {
+        storyAudio.pause();
+      }
+      if (synth) {
+        synth.cancel();
+      }
+      listenPill.classList.remove('is-playing');
+      audioMiniBar.classList.remove('active');
+      isSpeaking = false;
+    }
+  <\/script>
+</body>
+</html>
