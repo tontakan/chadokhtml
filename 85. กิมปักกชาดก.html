@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_0_7019268691877315446.jpg" alt="กิมปักกชาดก: ผลไม้หวานที่อาบด้วยพิษร้าย" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">กิมปักกชาดก: ผลไม้หวานที่อาบด้วยพิษร้าย</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_1_3330104739713070044.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ท่ามกลางป่าลึกที่ดูเขียวขจีและสงบเงียบ กลับมีภาพอันน่าสลดใจปรากฏขึ้น ใต้ต้นไม้ใหญ่ที่มีผลสีแดงสดดั่งอัญมณี ร่างของนักเดินทางกลุ่มหนึ่งนอนระเกะระกะ ร่างกายของพวกเขาชักเกร็ง ผิวพรรณซีดเผือด และสิ้นลมหายใจอย่างทุกข์ทรมาน ทั้งที่ข้างตัวยังมีผลไม้รสหวานที่พวกเขากินเข้าไปเพียงไม่กี่คำ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_2_17065871066019572509.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในกาลต่อมา พระพุทธเจ้าทรงหยิบยกเรื่องราวนี้ขึ้นมาตรัสสอนเหล่าภิกษุถึงอันตรายของ &quot;กามคุณ 5&quot; อันได้แก่ รูป เสียง กลิ่น รส และสัมผัส พระองค์ทรงเปรียบเทียบว่าสิ่งยั่วเย้าเหล่านี้เหมือนกับผลไม้พิษที่ดูสวยงามภายนอก แต่สามารถทำลายจิตวิญญาณของผู้ที่หลงมัวเมาได้อย่างเลือดเย็น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_3_18240637619812474985.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระพุทธองค์ทรงย้อนอดีตไปถึงชาติหนึ่ง เมื่อพระองค์เสวยพระชาติเป็น &quot;สัตถะ&quot; หัวหน้ากองเกวียนผู้ชาญฉลาด เขากำลังนำขบวนเกวียนบรรทุกสินค้าผ่านป่าใหญ่ที่มีอันตรายรอบด้าน สัตถะมักจะคอยเตือนบริวารเสมอว่า &quot;ในป่านี้มีต้นไม้ที่ดูแปลกตา อย่าเพิ่งกินผลไม้หรือใบไม้ใดๆ จนกว่าจะถามข้าก่อน&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_4_7376617542855461920.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ขณะที่ขบวนเกวียนเคลื่อนผ่านดงไม้ทึบ พวกเขาได้พบกับต้น &quot;กิมปักกะ&quot; ขนาดใหญ่ กิ่งก้านของมันโน้มลงมาด้วยน้ำหนักของผลสีแดงฉาน กลิ่นหอมหวลของมันขจรขจายไปทั่วบริเวณจนทำให้เหล่านักเดินทางที่เหนื่อยล้าต่างพากันหยุดมองด้วยความหิวโหย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_5_2667889241190775630.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สัตถะรีบตะโกนสั่งหยุดขบวนเกวียนทันที เขามองเห็น &quot;มัคคะ&quot; บริวารผู้มีความโลภกำลังจะเอื้อมมือไปเด็ดผลไม้นั้นมาเข้าปาก &quot;หยุดก่อนมัคคะ! อย่าได้กินผลไม้นี้เด็ดขาด แม้สีจะสวยและกลิ่นจะหอม แต่มันคือผลกิมปักกะที่มีพิษร้ายถึงชีวิต&quot; สัตถะเตือนด้วยน้ำเสียงเด็ดขาด</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_6_7287480874212869025.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>บริวารหลายคนรวมถึง &quot;ธีระ&quot; ต่างเชื่อฟังคำเตือนของหัวหน้า พวกเขาลดมือลงและถอยห่างจากต้นไม้พิษนั้น ธีระกล่าวว่า &quot;หากท่านหัวหน้าว่ามีพิษ ข้าพเจ้าก็จะไม่แตะต้อง เพราะความปลอดภัยย่อมสำคัญกว่าความหวานเพียงชั่วครู่&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_7_10493313004709111031.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>แต่ทว่า มัคคะและเพื่อนอีกคนกลับไม่เชื่อคำเตือนนั้น พวกเขาซุบซิบกันว่า &quot;หัวหน้าคงอยากจะเก็บผลไม้รสเลิศนี้ไว้กินเองคนเดียวมากกว่า ดูสิ กลิ่นมันหอมขนาดนี้จะมีพิษได้อย่างไร&quot; ทั้งสองรอจังหวะที่สัตถะเผลอ เพื่อจะแอบเข้าไปเด็ดผลไม้มาลิ้มลอง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_8_3169654191822276308.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>มัคคะกัดผลกิมปักกะเข้าไปคำใหญ่ รสชาติของมันหวานฉ่ำยิ่งกว่าน้ำผึ้ง กลิ่นหอมฟุ้งกระจายในปาก เขาเคี้ยวอย่างเอร็ดอร่อยและส่งอีกลูกให้เพื่อน &quot;เห็นไหมล่ะ มันทั้งหวานทั้งหอม หัวหน้าโกหกพวกเราจริงๆ ด้วย&quot; เขาหัวเราะเยาะคำเตือนนั้น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_9_13903650572770574664.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ไม่นานนัก หลังจากที่รสหวานจางหายไป พิษร้ายก็เริ่มทำงาน มัคคะและเพื่อนของเขาล้มลงกับพื้นทันที ทั้งคู่เอามือกุมท้องด้วยความเจ็บปวดอย่างแสนสาหัส ร่างกายชักกระตุกและเริ่มอาเจียนออกมาเป็นเลือด สติของพวกเขาค่อยๆ เลือนรางไปพร้อมกับความทรมาน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_10_897976785892320255.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สัตถะรีบเข้ามาช่วยเหลือ แต่พิษนั้นรุนแรงเกินกว่าจะเยียวยาได้ เขาได้แต่มองบริวารที่สิ้นลมไปด้วยความเศร้าใจ ก่อนจะพาบริวารที่เหลือเดินทางต่อไป &quot;จงจำไว้ ความประมาทต่อสิ่งยั่วเย้านำมาซึ่งความตาย&quot; สัตถะกล่าวกับธีระขณะที่ขบวนเกวียนเคลื่อนตัวออกจากป่า</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_11_14440121288076964808.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อเล่าจบ พระพุทธเจ้าทรงสรุปว่า บริวารที่หลงกินผลไม้พิษในครั้งนั้น คือเหล่าภิกษุผู้หลงผิดในปัจจุบัน ส่วนหัวหน้ากองเกวียนผู้ชาญฉลาดในครั้งนั้น ก็คือพระองค์เองนั่นเอง การมีสติและเชื่อฟังคำสอนของผู้รู้จะช่วยให้พ้นจากบ่วงแห่งอันตราย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./85. กิมปักกชาดก_files/storybook_page_12_1691701244928972226.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>คติธรรมจากเรื่องนี้สอนให้รู้ว่า กามคุณทั้ง 5 เปรียบเสมือนผลไม้พิษที่ภายนอกดูสวยงามและรสชาติหวานหอม แต่หากใครหลงเข้าไปมัวเมาโดยขาดสติ สิ่งเหล่านั้นจะเผาผลาญจิตวิญญาณและนำมาซึ่งความทุกข์ระทมอย่างไม่สิ้นสุด</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_0_7019268691877315446.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="กิมปักกชาดก: ผลไม้หวานที่อาบด้วยพิษร้าย" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">กิมปักกชาดก: ผลไม้หวานที่อาบด้วยพิษร้าย</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_1_3330104739713070044.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ท่ามกลางป่าลึกที่ดูเขียวขจีและสงบเงียบ กลับมีภาพอันน่าสลดใจปรากฏขึ้น ใต้ต้นไม้ใหญ่ที่มีผลสีแดงสดดั่งอัญมณี ร่างของนักเดินทางกลุ่มหนึ่งนอนระเกะระกะ ร่างกายของพวกเขาชักเกร็ง ผิวพรรณซีดเผือด และสิ้นลมหายใจอย่างทุกข์ทรมาน ทั้งที่ข้างตัวยังมีผลไม้รสหวานที่พวกเขากินเข้าไปเพียงไม่กี่คำ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_2_17065871066019572509.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในกาลต่อมา พระพุทธเจ้าทรงหยิบยกเรื่องราวนี้ขึ้นมาตรัสสอนเหล่าภิกษุถึงอันตรายของ "กามคุณ 5" อันได้แก่ รูป เสียง กลิ่น รส และสัมผัส พระองค์ทรงเปรียบเทียบว่าสิ่งยั่วเย้าเหล่านี้เหมือนกับผลไม้พิษที่ดูสวยงามภายนอก แต่สามารถทำลายจิตวิญญาณของผู้ที่หลงมัวเมาได้อย่างเลือดเย็น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_3_18240637619812474985.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระพุทธองค์ทรงย้อนอดีตไปถึงชาติหนึ่ง เมื่อพระองค์เสวยพระชาติเป็น "สัตถะ" หัวหน้ากองเกวียนผู้ชาญฉลาด เขากำลังนำขบวนเกวียนบรรทุกสินค้าผ่านป่าใหญ่ที่มีอันตรายรอบด้าน สัตถะมักจะคอยเตือนบริวารเสมอว่า "ในป่านี้มีต้นไม้ที่ดูแปลกตา อย่าเพิ่งกินผลไม้หรือใบไม้ใดๆ จนกว่าจะถามข้าก่อน"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_4_7376617542855461920.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ขณะที่ขบวนเกวียนเคลื่อนผ่านดงไม้ทึบ พวกเขาได้พบกับต้น "กิมปักกะ" ขนาดใหญ่ กิ่งก้านของมันโน้มลงมาด้วยน้ำหนักของผลสีแดงฉาน กลิ่นหอมหวลของมันขจรขจายไปทั่วบริเวณจนทำให้เหล่านักเดินทางที่เหนื่อยล้าต่างพากันหยุดมองด้วยความหิวโหย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_5_2667889241190775630.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สัตถะรีบตะโกนสั่งหยุดขบวนเกวียนทันที เขามองเห็น "มัคคะ" บริวารผู้มีความโลภกำลังจะเอื้อมมือไปเด็ดผลไม้นั้นมาเข้าปาก "หยุดก่อนมัคคะ! อย่าได้กินผลไม้นี้เด็ดขาด แม้สีจะสวยและกลิ่นจะหอม แต่มันคือผลกิมปักกะที่มีพิษร้ายถึงชีวิต" สัตถะเตือนด้วยน้ำเสียงเด็ดขาด</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_6_7287480874212869025.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>บริวารหลายคนรวมถึง "ธีระ" ต่างเชื่อฟังคำเตือนของหัวหน้า พวกเขาลดมือลงและถอยห่างจากต้นไม้พิษนั้น ธีระกล่าวว่า "หากท่านหัวหน้าว่ามีพิษ ข้าพเจ้าก็จะไม่แตะต้อง เพราะความปลอดภัยย่อมสำคัญกว่าความหวานเพียงชั่วครู่"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_7_10493313004709111031.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>แต่ทว่า มัคคะและเพื่อนอีกคนกลับไม่เชื่อคำเตือนนั้น พวกเขาซุบซิบกันว่า "หัวหน้าคงอยากจะเก็บผลไม้รสเลิศนี้ไว้กินเองคนเดียวมากกว่า ดูสิ กลิ่นมันหอมขนาดนี้จะมีพิษได้อย่างไร" ทั้งสองรอจังหวะที่สัตถะเผลอ เพื่อจะแอบเข้าไปเด็ดผลไม้มาลิ้มลอง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_8_3169654191822276308.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มัคคะกัดผลกิมปักกะเข้าไปคำใหญ่ รสชาติของมันหวานฉ่ำยิ่งกว่าน้ำผึ้ง กลิ่นหอมฟุ้งกระจายในปาก เขาเคี้ยวอย่างเอร็ดอร่อยและส่งอีกลูกให้เพื่อน "เห็นไหมล่ะ มันทั้งหวานทั้งหอม หัวหน้าโกหกพวกเราจริงๆ ด้วย" เขาหัวเราะเยาะคำเตือนนั้น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_9_13903650572770574664.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ไม่นานนัก หลังจากที่รสหวานจางหายไป พิษร้ายก็เริ่มทำงาน มัคคะและเพื่อนของเขาล้มลงกับพื้นทันที ทั้งคู่เอามือกุมท้องด้วยความเจ็บปวดอย่างแสนสาหัส ร่างกายชักกระตุกและเริ่มอาเจียนออกมาเป็นเลือด สติของพวกเขาค่อยๆ เลือนรางไปพร้อมกับความทรมาน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_10_897976785892320255.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สัตถะรีบเข้ามาช่วยเหลือ แต่พิษนั้นรุนแรงเกินกว่าจะเยียวยาได้ เขาได้แต่มองบริวารที่สิ้นลมไปด้วยความเศร้าใจ ก่อนจะพาบริวารที่เหลือเดินทางต่อไป "จงจำไว้ ความประมาทต่อสิ่งยั่วเย้านำมาซึ่งความตาย" สัตถะกล่าวกับธีระขณะที่ขบวนเกวียนเคลื่อนตัวออกจากป่า</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_11_14440121288076964808.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อเล่าจบ พระพุทธเจ้าทรงสรุปว่า บริวารที่หลงกินผลไม้พิษในครั้งนั้น คือเหล่าภิกษุผู้หลงผิดในปัจจุบัน ส่วนหัวหน้ากองเกวียนผู้ชาญฉลาดในครั้งนั้น ก็คือพระองค์เองนั่นเอง การมีสติและเชื่อฟังคำสอนของผู้รู้จะช่วยให้พ้นจากบ่วงแห่งอันตราย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./85. กิมปักกชาดก_files/storybook_page_12_1691701244928972226.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>คติธรรมจากเรื่องนี้สอนให้รู้ว่า กามคุณทั้ง 5 เปรียบเสมือนผลไม้พิษที่ภายนอกดูสวยงามและรสชาติหวานหอม แต่หากใครหลงเข้าไปมัวเมาโดยขาดสติ สิ่งเหล่านั้นจะเผาผลาญจิตวิญญาณและนำมาซึ่งความทุกข์ระทมอย่างไม่สิ้นสุด</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ท่ามกลางป่าลึกที่ดูเขียวขจีและสงบเงียบ กลับมีภาพอันน่าสลดใจปรากฏขึ้น ใต้ต้นไม้ใหญ่ที่มีผลสีแดงสดดั่งอัญมณี ร่างของนักเดินทางกลุ่มหนึ่งนอนระเกะระกะ ร่างกายของพวกเขาชักเกร็ง ผิวพรรณซีดเผือด และสิ้นลมหายใจอย่างทุกข์ทรมาน ทั้งที่ข้างตัวยังมีผลไม้รสหวานที่พวกเขากินเข้าไปเพียงไม่กี่คำ ในกาลต่อมา พระพุทธเจ้าทรงหยิบยกเรื่องราวนี้ขึ้นมาตรัสสอนเหล่าภิกษุถึงอันตรายของ \"กามคุณ 5\" อันได้แก่ รูป เสียง กลิ่น รส และสัมผัส พระองค์ทรงเปรียบเทียบว่าสิ่งยั่วเย้าเหล่านี้เหมือนกับผลไม้พิษที่ดูสวยงามภายนอก แต่สามารถทำลายจิตวิญญาณของผู้ที่หลงมัวเมาได้อย่างเลือดเย็น พระพุทธองค์ทรงย้อนอดีตไปถึงชาติหนึ่ง เมื่อพระองค์เสวยพระชาติเป็น \"สัตถะ\" หัวหน้ากองเกวียนผู้ชาญฉลาด เขากำลังนำขบวนเกวียนบรรทุกสินค้าผ่านป่าใหญ่ที่มีอันตรายรอบด้าน สัตถะมักจะคอยเตือนบริวารเสมอว่า \"ในป่านี้มีต้นไม้ที่ดูแปลกตา อย่าเพิ่งกินผลไม้หรือใบไม้ใดๆ จนกว่าจะถามข้าก่อน\" ขณะที่ขบวนเกวียนเคลื่อนผ่านดงไม้ทึบ พวกเขาได้พบกับต้น \"กิมปักกะ\" ขนาดใหญ่ กิ่งก้านของมันโน้มลงมาด้วยน้ำหนักของผลสีแดงฉาน กลิ่นหอมหวลของมันขจรขจายไปทั่วบริเวณจนทำให้เหล่านักเดินทางที่เหนื่อยล้าต่างพากันหยุดมองด้วยความหิวโหย สัตถะรีบตะโกนสั่งหยุดขบวนเกวียนทันที เขามองเห็น \"มัคคะ\" บริวารผู้มีความโลภกำลังจะเอื้อมมือไปเด็ดผลไม้นั้นมาเข้าปาก \"หยุดก่อนมัคคะ! อย่าได้กินผลไม้นี้เด็ดขาด แม้สีจะสวยและกลิ่นจะหอม แต่มันคือผลกิมปักกะที่มีพิษร้ายถึงชีวิต\" สัตถะเตือนด้วยน้ำเสียงเด็ดขาด บริวารหลายคนรวมถึง \"ธีระ\" ต่างเชื่อฟังคำเตือนของหัวหน้า พวกเขาลดมือลงและถอยห่างจากต้นไม้พิษนั้น ธีระกล่าวว่า \"หากท่านหัวหน้าว่ามีพิษ ข้าพเจ้าก็จะไม่แตะต้อง เพราะความปลอดภัยย่อมสำคัญกว่าความหวานเพียงชั่วครู่\" แต่ทว่า มัคคะและเพื่อนอีกคนกลับไม่เชื่อคำเตือนนั้น พวกเขาซุบซิบกันว่า \"หัวหน้าคงอยากจะเก็บผลไม้รสเลิศนี้ไว้กินเองคนเดียวมากกว่า ดูสิ กลิ่นมันหอมขนาดนี้จะมีพิษได้อย่างไร\" ทั้งสองรอจังหวะที่สัตถะเผลอ เพื่อจะแอบเข้าไปเด็ดผลไม้มาลิ้มลอง มัคคะกัดผลกิมปักกะเข้าไปคำใหญ่ รสชาติของมันหวานฉ่ำยิ่งกว่าน้ำผึ้ง กลิ่นหอมฟุ้งกระจายในปาก เขาเคี้ยวอย่างเอร็ดอร่อยและส่งอีกลูกให้เพื่อน \"เห็นไหมล่ะ มันทั้งหวานทั้งหอม หัวหน้าโกหกพวกเราจริงๆ ด้วย\" เขาหัวเราะเยาะคำเตือนนั้น ไม่นานนัก หลังจากที่รสหวานจางหายไป พิษร้ายก็เริ่มทำงาน มัคคะและเพื่อนของเขาล้มลงกับพื้นทันที ทั้งคู่เอามือกุมท้องด้วยความเจ็บปวดอย่างแสนสาหัส ร่างกายชักกระตุกและเริ่มอาเจียนออกมาเป็นเลือด สติของพวกเขาค่อยๆ เลือนรางไปพร้อมกับความทรมาน สัตถะรีบเข้ามาช่วยเหลือ แต่พิษนั้นรุนแรงเกินกว่าจะเยียวยาได้ เขาได้แต่มองบริวารที่สิ้นลมไปด้วยความเศร้าใจ ก่อนจะพาบริวารที่เหลือเดินทางต่อไป \"จงจำไว้ ความประมาทต่อสิ่งยั่วเย้านำมาซึ่งความตาย\" สัตถะกล่าวกับธีระขณะที่ขบวนเกวียนเคลื่อนตัวออกจากป่า เมื่อเล่าจบ พระพุทธเจ้าทรงสรุปว่า บริวารที่หลงกินผลไม้พิษในครั้งนั้น คือเหล่าภิกษุผู้หลงผิดในปัจจุบัน ส่วนหัวหน้ากองเกวียนผู้ชาญฉลาดในครั้งนั้น ก็คือพระองค์เองนั่นเอง การมีสติและเชื่อฟังคำสอนของผู้รู้จะช่วยให้พ้นจากบ่วงแห่งอันตราย คติธรรมจากเรื่องนี้สอนให้รู้ว่า กามคุณทั้ง 5 เปรียบเสมือนผลไม้พิษที่ภายนอกดูสวยงามและรสชาติหวานหอม แต่หากใครหลงเข้าไปมัวเมาโดยขาดสติ สิ่งเหล่านั้นจะเผาผลาญจิตวิญญาณและนำมาซึ่งความทุกข์ระทมอย่างไม่สิ้นสุด";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/85-00-7a3800e3.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/85-01-0a014de3.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/85-02-0a608e67.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/85-03-c724e612.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/85-04-b36fe3b6.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/85-05-ddbc93c3.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/85-06-34c7a560.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/85-07-4e05ccb2.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/85-08-85453c0c.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/85-09-6c5a7d16.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/85-10-a23f3e2d.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/85-11-63b19a6c.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/85-12-2508ca79.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

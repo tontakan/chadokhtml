@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_0_12244227661366312482.jpg" alt="วานรินทชาดก: พญาวานรผู้มีปัญญาเฉียบแหลม" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">วานรินทชาดก: พญาวานรผู้มีปัญญาเฉียบแหลม</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_1_8223689359974582441.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว มีพญาวานรผู้หนึ่งอาศัยอยู่ริมฝั่งแม่น้ำคงคา เขามีกำลังวังชาดั่งพญาช้างและมีสติปัญญาที่ล้ำเลิศ ทุกๆ วัน พญาวานรจะกระโดดจากฝั่งหนึ่งไปสู่อีกฝั่งหนึ่งด้วยความคล่องแคล่วว่องไว ราวกับเหาะเหินเดินอากาศได้เหนือผืนน้ำที่กว้างใหญ่</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_2_2180299108115725322.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ณ เชตวันมหาวิหาร พระสัมมาสัมพุทธเจ้าทรงปรารภถึงความพยายามของพระเทวทัตที่คอยจองล้างจองผลาญพระองค์มาหลายภพหลายชาติ พระองค์จึงทรงระลึกชาติและตรัสเล่าเรื่องราวของพญาวานรผู้ใช้ปัญญาเอาชนะอันตรายให้แก่เหล่าภิกษุทั้งหลายได้ฟัง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_3_2491302262421672909.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พญาวานรกะปิอาศัยอยู่ในป่าริมฝั่งน้ำที่อุดมสมบูรณ์ เขาใช้ชีวิตอย่างอิสระและมีความสุข แต่ที่เกาะกลางแม่น้ำนั้นมีต้นมะม่วงและต้นขนุนที่มีผลรสหวานฉ่ำดึงดูดใจ กะปิจึงมักจะกระโดดไปที่เกาะนั้นเพื่อกินผลไม้รสเลิศอยู่เป็นประจำ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_4_7126762305824618105.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>การเดินทางไปเกาะนั้นไม่ใช่เรื่องง่าย กะปิต้องใช้โขดหินกลางน้ำเป็นจุดพักเท้า เขาจะรวบรวมกำลังแล้วกระโดดปราดเดียวไปลงที่ก้อนหินนั้น ก่อนจะกระโดดต่ออีกครั้งเพื่อไปถึงเกาะสีเขียวขจีกลางสายน้ำไหลเชี่ยว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_5_4874774040154920533.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ใต้ผืนน้ำนั้นมีจระเข้ใหญ่ชื่อกุมภีละอาศัยอยู่กับภรรยา กุมภีละเห็นพญาวานรกระโดดข้ามไปมาทุกวันจึงเกิดความริษยาและอยากจะจับกะปิกินเป็นอาหาร &quot;เจ้าลิงตัวนี้ช่างว่องไวนัก ข้าต้องหาวิธีจับมันให้ได้&quot; กุมภีละกล่าวกับเมียของตน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_6_8690040139683523192.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในเย็นวันนั้น กุมภีละตัดสินใจขึ้นไปหมอบนิ่งอยู่บนโขดหินกลางน้ำ เขาพรางตัวให้ดูเหมือนเป็นส่วนหนึ่งของหิน เพื่อรอจังหวะที่พญาวานรกระโดดกลับมา &quot;คราวนี้แหละ เจ้าลิงน้อยเจ้าไม่รอดเงื้อมมือข้าแน่&quot; กุมภีละคิดในใจอย่างลำพอง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_7_3225359734979877266.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อดวงอาทิตย์เริ่มลับขอบฟ้า พญาวานรกะปิเตรียมตัวจะกลับฝั่ง แต่เขาสังเกตเห็นความผิดปกติ &quot;เอ๊ะ! ทำไมวันนี้โขดหินก้อนนั้นถึงดูสูงกว่าปกติ&quot; กะปิหยุดคิดด้วยสติปัญญา เขาไม่ได้วู่วามกระโดดลงไปทันที</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_8_1333268013649624793.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กะปิจึงลองทดสอบดู เขาตะโกนเรียกโขดหินนั้นว่า &quot;โอ้... เจ้าก้อนหิน เพื่อนรัก ทำไมวันนี้เจ้าไม่ขานรับข้าเหมือนทุกวันล่ะ?&quot; กะปิแสร้งทำเป็นว่าหินก้อนนั้นเคยพูดกับเขาได้ เพื่อหลอกให้จระเข้เผยตัวออกมา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_9_485004984777216429.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กุมภีละหลงกลเพราะความโง่เขลา เขาคิดว่าหินก้อนนี้คงจะพูดได้จริงๆ จึงตอบกลับไปว่า &quot;ข้าอยู่นี่แล้ว เพื่อนลิง มีอะไรหรือ?&quot; พญาวานรจึงรู้ทันทีว่านั่นคือจระเข้ กุมภีละจึงบอกว่า &quot;ข้าจะกินเจ้า ข้าจะอ้าปากรอให้เจ้ากระโดดลงมาเอง!&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_10_8456480109954802408.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พญาวานรกะปิใช้ไหวพริบ เขากระโดดลอยตัวขึ้นสูงเหนือหัวจระเข้ที่อ้าปากค้างไว้ แล้วใช้เท้าเหยียบลงบนหัวของกุมภีละเบาๆ เป็นแรงส่งให้เขากระโดดข้ามไปถึงฝั่งได้อย่างปลอดภัย กุมภีละได้แต่ตะลึงในความยอดเยี่ยมของพญาวานร</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_11_13504500301721908093.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กุมภีละยอมแพ้ต่อปัญญาของกะปิและกล่าวสรรเสริญว่า &quot;ผู้ใดมีธรรม 4 ประการ คือ สัจจะ ธรรมะ ธิติ และจาคะ ผู้นั้นย่อมชนะศัตรูได้&quot; พระพุทธเจ้าทรงประชุมชาดกว่า จระเข้ในครั้งนั้นคือพระเทวทัต ส่วนพญาวานรคือเราตถาคต</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./57 วานรินทชาดก_files/storybook_page_12_16325536817856380684.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นิทานเรื่องนี้สอนให้รู้ว่า สติปัญญาและความเพียรพยายามจะช่วยให้เราพ้นจากอันตรายทั้งปวง หากเรามีสติและไม่ประมาท แม้ศัตรูจะแข็งแกร่งเพียงใด เราก็สามารถเอาชนะได้ด้วยคุณธรรมและความดีที่สถิตอยู่ในใจเสมอ</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_0_12244227661366312482.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="วานรินทชาดก: พญาวานรผู้มีปัญญาเฉียบแหลม" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">วานรินทชาดก: พญาวานรผู้มีปัญญาเฉียบแหลม</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_1_8223689359974582441.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว มีพญาวานรผู้หนึ่งอาศัยอยู่ริมฝั่งแม่น้ำคงคา เขามีกำลังวังชาดั่งพญาช้างและมีสติปัญญาที่ล้ำเลิศ ทุกๆ วัน พญาวานรจะกระโดดจากฝั่งหนึ่งไปสู่อีกฝั่งหนึ่งด้วยความคล่องแคล่วว่องไว ราวกับเหาะเหินเดินอากาศได้เหนือผืนน้ำที่กว้างใหญ่</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_2_2180299108115725322.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ณ เชตวันมหาวิหาร พระสัมมาสัมพุทธเจ้าทรงปรารภถึงความพยายามของพระเทวทัตที่คอยจองล้างจองผลาญพระองค์มาหลายภพหลายชาติ พระองค์จึงทรงระลึกชาติและตรัสเล่าเรื่องราวของพญาวานรผู้ใช้ปัญญาเอาชนะอันตรายให้แก่เหล่าภิกษุทั้งหลายได้ฟัง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_3_2491302262421672909.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พญาวานรกะปิอาศัยอยู่ในป่าริมฝั่งน้ำที่อุดมสมบูรณ์ เขาใช้ชีวิตอย่างอิสระและมีความสุข แต่ที่เกาะกลางแม่น้ำนั้นมีต้นมะม่วงและต้นขนุนที่มีผลรสหวานฉ่ำดึงดูดใจ กะปิจึงมักจะกระโดดไปที่เกาะนั้นเพื่อกินผลไม้รสเลิศอยู่เป็นประจำ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_4_7126762305824618105.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>การเดินทางไปเกาะนั้นไม่ใช่เรื่องง่าย กะปิต้องใช้โขดหินกลางน้ำเป็นจุดพักเท้า เขาจะรวบรวมกำลังแล้วกระโดดปราดเดียวไปลงที่ก้อนหินนั้น ก่อนจะกระโดดต่ออีกครั้งเพื่อไปถึงเกาะสีเขียวขจีกลางสายน้ำไหลเชี่ยว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_5_4874774040154920533.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ใต้ผืนน้ำนั้นมีจระเข้ใหญ่ชื่อกุมภีละอาศัยอยู่กับภรรยา กุมภีละเห็นพญาวานรกระโดดข้ามไปมาทุกวันจึงเกิดความริษยาและอยากจะจับกะปิกินเป็นอาหาร "เจ้าลิงตัวนี้ช่างว่องไวนัก ข้าต้องหาวิธีจับมันให้ได้" กุมภีละกล่าวกับเมียของตน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_6_8690040139683523192.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในเย็นวันนั้น กุมภีละตัดสินใจขึ้นไปหมอบนิ่งอยู่บนโขดหินกลางน้ำ เขาพรางตัวให้ดูเหมือนเป็นส่วนหนึ่งของหิน เพื่อรอจังหวะที่พญาวานรกระโดดกลับมา "คราวนี้แหละ เจ้าลิงน้อยเจ้าไม่รอดเงื้อมมือข้าแน่" กุมภีละคิดในใจอย่างลำพอง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_7_3225359734979877266.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อดวงอาทิตย์เริ่มลับขอบฟ้า พญาวานรกะปิเตรียมตัวจะกลับฝั่ง แต่เขาสังเกตเห็นความผิดปกติ "เอ๊ะ! ทำไมวันนี้โขดหินก้อนนั้นถึงดูสูงกว่าปกติ" กะปิหยุดคิดด้วยสติปัญญา เขาไม่ได้วู่วามกระโดดลงไปทันที</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_8_1333268013649624793.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กะปิจึงลองทดสอบดู เขาตะโกนเรียกโขดหินนั้นว่า "โอ้... เจ้าก้อนหิน เพื่อนรัก ทำไมวันนี้เจ้าไม่ขานรับข้าเหมือนทุกวันล่ะ?" กะปิแสร้งทำเป็นว่าหินก้อนนั้นเคยพูดกับเขาได้ เพื่อหลอกให้จระเข้เผยตัวออกมา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_9_485004984777216429.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กุมภีละหลงกลเพราะความโง่เขลา เขาคิดว่าหินก้อนนี้คงจะพูดได้จริงๆ จึงตอบกลับไปว่า "ข้าอยู่นี่แล้ว เพื่อนลิง มีอะไรหรือ?" พญาวานรจึงรู้ทันทีว่านั่นคือจระเข้ กุมภีละจึงบอกว่า "ข้าจะกินเจ้า ข้าจะอ้าปากรอให้เจ้ากระโดดลงมาเอง!"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_10_8456480109954802408.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พญาวานรกะปิใช้ไหวพริบ เขากระโดดลอยตัวขึ้นสูงเหนือหัวจระเข้ที่อ้าปากค้างไว้ แล้วใช้เท้าเหยียบลงบนหัวของกุมภีละเบาๆ เป็นแรงส่งให้เขากระโดดข้ามไปถึงฝั่งได้อย่างปลอดภัย กุมภีละได้แต่ตะลึงในความยอดเยี่ยมของพญาวานร</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_11_13504500301721908093.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กุมภีละยอมแพ้ต่อปัญญาของกะปิและกล่าวสรรเสริญว่า "ผู้ใดมีธรรม 4 ประการ คือ สัจจะ ธรรมะ ธิติ และจาคะ ผู้นั้นย่อมชนะศัตรูได้" พระพุทธเจ้าทรงประชุมชาดกว่า จระเข้ในครั้งนั้นคือพระเทวทัต ส่วนพญาวานรคือเราตถาคต</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./57 วานรินทชาดก_files/storybook_page_12_16325536817856380684.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นิทานเรื่องนี้สอนให้รู้ว่า สติปัญญาและความเพียรพยายามจะช่วยให้เราพ้นจากอันตรายทั้งปวง หากเรามีสติและไม่ประมาท แม้ศัตรูจะแข็งแกร่งเพียงใด เราก็สามารถเอาชนะได้ด้วยคุณธรรมและความดีที่สถิตอยู่ในใจเสมอ</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว มีพญาวานรผู้หนึ่งอาศัยอยู่ริมฝั่งแม่น้ำคงคา เขามีกำลังวังชาดั่งพญาช้างและมีสติปัญญาที่ล้ำเลิศ ทุกๆ วัน พญาวานรจะกระโดดจากฝั่งหนึ่งไปสู่อีกฝั่งหนึ่งด้วยความคล่องแคล่วว่องไว ราวกับเหาะเหินเดินอากาศได้เหนือผืนน้ำที่กว้างใหญ่ ณ เชตวันมหาวิหาร พระสัมมาสัมพุทธเจ้าทรงปรารภถึงความพยายามของพระเทวทัตที่คอยจองล้างจองผลาญพระองค์มาหลายภพหลายชาติ พระองค์จึงทรงระลึกชาติและตรัสเล่าเรื่องราวของพญาวานรผู้ใช้ปัญญาเอาชนะอันตรายให้แก่เหล่าภิกษุทั้งหลายได้ฟัง พญาวานรกะปิอาศัยอยู่ในป่าริมฝั่งน้ำที่อุดมสมบูรณ์ เขาใช้ชีวิตอย่างอิสระและมีความสุข แต่ที่เกาะกลางแม่น้ำนั้นมีต้นมะม่วงและต้นขนุนที่มีผลรสหวานฉ่ำดึงดูดใจ กะปิจึงมักจะกระโดดไปที่เกาะนั้นเพื่อกินผลไม้รสเลิศอยู่เป็นประจำ การเดินทางไปเกาะนั้นไม่ใช่เรื่องง่าย กะปิต้องใช้โขดหินกลางน้ำเป็นจุดพักเท้า เขาจะรวบรวมกำลังแล้วกระโดดปราดเดียวไปลงที่ก้อนหินนั้น ก่อนจะกระโดดต่ออีกครั้งเพื่อไปถึงเกาะสีเขียวขจีกลางสายน้ำไหลเชี่ยว ใต้ผืนน้ำนั้นมีจระเข้ใหญ่ชื่อกุมภีละอาศัยอยู่กับภรรยา กุมภีละเห็นพญาวานรกระโดดข้ามไปมาทุกวันจึงเกิดความริษยาและอยากจะจับกะปิกินเป็นอาหาร \"เจ้าลิงตัวนี้ช่างว่องไวนัก ข้าต้องหาวิธีจับมันให้ได้\" กุมภีละกล่าวกับเมียของตน ในเย็นวันนั้น กุมภีละตัดสินใจขึ้นไปหมอบนิ่งอยู่บนโขดหินกลางน้ำ เขาพรางตัวให้ดูเหมือนเป็นส่วนหนึ่งของหิน เพื่อรอจังหวะที่พญาวานรกระโดดกลับมา \"คราวนี้แหละ เจ้าลิงน้อยเจ้าไม่รอดเงื้อมมือข้าแน่\" กุมภีละคิดในใจอย่างลำพอง เมื่อดวงอาทิตย์เริ่มลับขอบฟ้า พญาวานรกะปิเตรียมตัวจะกลับฝั่ง แต่เขาสังเกตเห็นความผิดปกติ \"เอ๊ะ! ทำไมวันนี้โขดหินก้อนนั้นถึงดูสูงกว่าปกติ\" กะปิหยุดคิดด้วยสติปัญญา เขาไม่ได้วู่วามกระโดดลงไปทันที กะปิจึงลองทดสอบดู เขาตะโกนเรียกโขดหินนั้นว่า \"โอ้... เจ้าก้อนหิน เพื่อนรัก ทำไมวันนี้เจ้าไม่ขานรับข้าเหมือนทุกวันล่ะ?\" กะปิแสร้งทำเป็นว่าหินก้อนนั้นเคยพูดกับเขาได้ เพื่อหลอกให้จระเข้เผยตัวออกมา กุมภีละหลงกลเพราะความโง่เขลา เขาคิดว่าหินก้อนนี้คงจะพูดได้จริงๆ จึงตอบกลับไปว่า \"ข้าอยู่นี่แล้ว เพื่อนลิง มีอะไรหรือ?\" พญาวานรจึงรู้ทันทีว่านั่นคือจระเข้ กุมภีละจึงบอกว่า \"ข้าจะกินเจ้า ข้าจะอ้าปากรอให้เจ้ากระโดดลงมาเอง!\" พญาวานรกะปิใช้ไหวพริบ เขากระโดดลอยตัวขึ้นสูงเหนือหัวจระเข้ที่อ้าปากค้างไว้ แล้วใช้เท้าเหยียบลงบนหัวของกุมภีละเบาๆ เป็นแรงส่งให้เขากระโดดข้ามไปถึงฝั่งได้อย่างปลอดภัย กุมภีละได้แต่ตะลึงในความยอดเยี่ยมของพญาวานร กุมภีละยอมแพ้ต่อปัญญาของกะปิและกล่าวสรรเสริญว่า \"ผู้ใดมีธรรม 4 ประการ คือ สัจจะ ธรรมะ ธิติ และจาคะ ผู้นั้นย่อมชนะศัตรูได้\" พระพุทธเจ้าทรงประชุมชาดกว่า จระเข้ในครั้งนั้นคือพระเทวทัต ส่วนพญาวานรคือเราตถาคต นิทานเรื่องนี้สอนให้รู้ว่า สติปัญญาและความเพียรพยายามจะช่วยให้เราพ้นจากอันตรายทั้งปวง หากเรามีสติและไม่ประมาท แม้ศัตรูจะแข็งแกร่งเพียงใด เราก็สามารถเอาชนะได้ด้วยคุณธรรมและความดีที่สถิตอยู่ในใจเสมอ";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/57-00-794c74d2.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/57-01-b623f81c.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/57-02-9d634119.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/57-03-2cec92af.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/57-04-f7801120.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/57-05-f41f0df7.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/57-06-510e072d.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/57-07-a34a44f4.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/57-08-c71c2347.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/57-09-690b7f1a.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/57-10-4734ed6c.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/57-11-e5c1a823.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/57-12-e98e03fc.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>
