@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,508 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_0_810447628394383397.jpg" alt="ความสุขที่แท้จริงของเศรษฐีกับฤาษี" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">ความสุขที่แท้จริงของเศรษฐีกับฤาษี</h1>
-            <p class="cover-author">By wolf tbmx</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">Page 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_1_12844804531599108783.jpg" alt="Page 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นานมาแล้ว ในเมืองพาราณสีที่รุ่งเรืองและเต็มไปด้วยชีวิตชีวา มีเศรษฐีนามว่า &quot;วสุ&quot; ผู้เป็นเจ้าของคฤหาสน์หลังใหญ่โต วสุมีแก้วแหวนเงินทองมากมายจนนับไม่ถ้วน แต่ในใจของเขากลับรู้สึกหนักอึ้งและวุ่นวายอยู่ตลอดเวลา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_2_3884016384880512289.jpg" alt="Page 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทุกๆ วัน วสุต้องคอยตรวจตราหีบสมบัติและสั่งการบริวารนับร้อย เขาแทบไม่มีเวลาพักผ่อน เพราะมัวแต่กังวลว่าทรัพย์สินจะสูญหาย หรือคนในบ้านจะทะเลาะเบาะแว้งกัน ความเป็นอยู่ที่หรูหรากลับกลายเป็นภาระที่เขาสลัดไม่หลุด</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_3_6888497985755091715.jpg" alt="Page 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ห่างออกไปในป่าลึกที่เงียบสงบ เพื่อนรักของวสุนามว่า &quot;มุกตะ&quot; ได้ตัดสินใจสละชีวิตทางโลกออกบวชเป็นฤาษี มุกตะอาศัยอยู่ในศาลาใบไม้เล็กๆ นั่งสมาธิอยู่โคนต้นไม้ใหญ่ด้วยใบหน้าที่เปี่ยมไปด้วยความสุขและความสงบ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_4_15554710767936691530.jpg" alt="Page 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>มุกตะไม่มีทรัพย์สินใดๆ นอกจากบาตรดินและผ้าผืนน้อย แต่เขากลับรู้สึกเบาสบายเหมือนขนนก นกป่าและกวางน้อยมักจะเข้ามาคลอเคลียเขา เพราะเขามีแต่ความเมตตาและไม่มีสิ่งใดให้ต้องกังวล</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_5_8476334690148170602.jpg" alt="Page 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันหนึ่ง วสุรู้สึกเหนื่อยล้ากับปัญหาการครองเรือนจนถึงขีดสุด เขาจึงตัดสินใจเดินทางออกจากเมืองมุ่งหน้าสู่ป่าลึก เพื่อไปเยี่ยมเยียนเพื่อนเก่าอย่างมุกตะ หวังว่าจะได้รับคำแนะนำที่ช่วยให้ใจของเขาสงบลงบ้าง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_6_16941393555257234041.jpg" alt="Page 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วสุเดินลัดเลาะตามลำธารและข้ามเนินเขา เครื่องประดับทองคำบนตัวเขาส่งเสียงกรุ๊งกริ๊งและหนักอึ้งในยามที่ต้องปีนป่าย เขารู้สึกว่าป่าไม้ที่แสนธรรมดากลับดูงดงามและเบาสบายกว่าคฤหาสน์ของเขาอย่างบอกไม่ถูก</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_7_11590927245566473230.jpg" alt="Page 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อเพื่อนทั้งสองได้พบกัน วสุรีบเข้าไปสวมกอดมุกตะและระบายความในใจออกมาว่า &quot;เพื่อนรัก ชีวิตในเมืองช่างเป็นทุกข์เหลือเกิน ข้าต้องดูแลทุกอย่างจนไม่มีเวลาเป็นของตัวเองเลย&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_8_2330575850185809864.jpg" alt="Page 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วสุเล่าถึงความวุ่นวายจากการบริหารทรัพย์สินและความกังวลเรื่องบริวาร &quot;ข้าเหมือนติดอยู่ในกรงทองที่สวยงามแต่หายใจไม่ออก ทุกอย่างที่ข้ามีกลับกลายเป็นสิ่งที่ล่ามโซ่ข้าไว้&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_9_3164437997439739738.jpg" alt="Page 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>มุกตะยิ้มอย่างเมตตาแล้วกล่าวเตือนว่า &quot;วสุเอ๋ย การครองเรือนนั้นเหมือนการเก็บสะสมก้อนหิน ยิ่งท่านมีมาก ท่านก็ยิ่งต้องแบกหนัก ความสุขที่แท้ไม่ได้อยู่ที่การมี แต่คือนามที่เรียกว่า &#039;การวางลง&#039;&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_10_14612062513807539860.jpg" alt="Page 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>มุกตะชี้ชวนให้วสุมองดูความงามของธรรมชาติรอบตัว &quot;ดูนกเหล่านั้นสิ พวกมันไม่มีคลังสมบัติ แต่พวกมันก็ร้องเพลงอย่างร่าเริง เพราะหัวใจของมันไม่มีพันธะใดๆ มาเหนี่ยวรั้งไว้&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_11_10410293210163768342.jpg" alt="Page 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>คำสอนของมุกตะทำให้วสุฉุกคิดและเข้าใจถึงต้นเหตุแห่งความทุกข์ เขาเปรียบเทียบใจของเขากับป่าไม้ที่สงบเงียบ และตระหนักว่าความสุขที่แท้จริงคือความสันโดษและการไม่ยึดติด</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">Page 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./235 วัจฉนขชาดก_files/storybook_page_12_5560404915825470957.jpg" alt="Page 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วสุกลับสู่เมืองพาราณสีด้วยหัวใจที่เบาสบาย เขาเริ่มแบ่งปันทรัพย์สินและใช้ชีวิตอย่างเรียบง่ายขึ้น แม้จะยังเป็นเศรษฐี แต่เขาก็พบความสงบในใจที่ยั่งยืน เหมือนกับเพื่อนฤาษีของเขาในป่าใหญ่</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_0_810447628394383397.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="ความสุขที่แท้จริงของเศรษฐีกับฤาษี" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">ความสุขที่แท้จริงของเศรษฐีกับฤาษี</h1>
+        <p class="cover-author">By wolf tbmx</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_1_12844804531599108783.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นานมาแล้ว ในเมืองพาราณสีที่รุ่งเรืองและเต็มไปด้วยชีวิตชีวา มีเศรษฐีนามว่า "วสุ" ผู้เป็นเจ้าของคฤหาสน์หลังใหญ่โต วสุมีแก้วแหวนเงินทองมากมายจนนับไม่ถ้วน แต่ในใจของเขากลับรู้สึกหนักอึ้งและวุ่นวายอยู่ตลอดเวลา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_2_3884016384880512289.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทุกๆ วัน วสุต้องคอยตรวจตราหีบสมบัติและสั่งการบริวารนับร้อย เขาแทบไม่มีเวลาพักผ่อน เพราะมัวแต่กังวลว่าทรัพย์สินจะสูญหาย หรือคนในบ้านจะทะเลาะเบาะแว้งกัน ความเป็นอยู่ที่หรูหรากลับกลายเป็นภาระที่เขาสลัดไม่หลุด</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_3_6888497985755091715.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ห่างออกไปในป่าลึกที่เงียบสงบ เพื่อนรักของวสุนามว่า "มุกตะ" ได้ตัดสินใจสละชีวิตทางโลกออกบวชเป็นฤาษี มุกตะอาศัยอยู่ในศาลาใบไม้เล็กๆ นั่งสมาธิอยู่โคนต้นไม้ใหญ่ด้วยใบหน้าที่เปี่ยมไปด้วยความสุขและความสงบ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_4_15554710767936691530.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มุกตะไม่มีทรัพย์สินใดๆ นอกจากบาตรดินและผ้าผืนน้อย แต่เขากลับรู้สึกเบาสบายเหมือนขนนก นกป่าและกวางน้อยมักจะเข้ามาคลอเคลียเขา เพราะเขามีแต่ความเมตตาและไม่มีสิ่งใดให้ต้องกังวล</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_5_8476334690148170602.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันหนึ่ง วสุรู้สึกเหนื่อยล้ากับปัญหาการครองเรือนจนถึงขีดสุด เขาจึงตัดสินใจเดินทางออกจากเมืองมุ่งหน้าสู่ป่าลึก เพื่อไปเยี่ยมเยียนเพื่อนเก่าอย่างมุกตะ หวังว่าจะได้รับคำแนะนำที่ช่วยให้ใจของเขาสงบลงบ้าง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_6_16941393555257234041.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วสุเดินลัดเลาะตามลำธารและข้ามเนินเขา เครื่องประดับทองคำบนตัวเขาส่งเสียงกรุ๊งกริ๊งและหนักอึ้งในยามที่ต้องปีนป่าย เขารู้สึกว่าป่าไม้ที่แสนธรรมดากลับดูงดงามและเบาสบายกว่าคฤหาสน์ของเขาอย่างบอกไม่ถูก</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_7_11590927245566473230.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อเพื่อนทั้งสองได้พบกัน วสุรีบเข้าไปสวมกอดมุกตะและระบายความในใจออกมาว่า "เพื่อนรัก ชีวิตในเมืองช่างเป็นทุกข์เหลือเกิน ข้าต้องดูแลทุกอย่างจนไม่มีเวลาเป็นของตัวเองเลย"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_8_2330575850185809864.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วสุเล่าถึงความวุ่นวายจากการบริหารทรัพย์สินและความกังวลเรื่องบริวาร "ข้าเหมือนติดอยู่ในกรงทองที่สวยงามแต่หายใจไม่ออก ทุกอย่างที่ข้ามีกลับกลายเป็นสิ่งที่ล่ามโซ่ข้าไว้"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_9_3164437997439739738.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มุกตะยิ้มอย่างเมตตาแล้วกล่าวเตือนว่า "วสุเอ๋ย การครองเรือนนั้นเหมือนการเก็บสะสมก้อนหิน ยิ่งท่านมีมาก ท่านก็ยิ่งต้องแบกหนัก ความสุขที่แท้ไม่ได้อยู่ที่การมี แต่คือนามที่เรียกว่า 'การวางลง'"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_10_14612062513807539860.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มุกตะชี้ชวนให้วสุมองดูความงามของธรรมชาติรอบตัว "ดูนกเหล่านั้นสิ พวกมันไม่มีคลังสมบัติ แต่พวกมันก็ร้องเพลงอย่างร่าเริง เพราะหัวใจของมันไม่มีพันธะใดๆ มาเหนี่ยวรั้งไว้"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_11_10410293210163768342.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>คำสอนของมุกตะทำให้วสุฉุกคิดและเข้าใจถึงต้นเหตุแห่งความทุกข์ เขาเปรียบเทียบใจของเขากับป่าไม้ที่สงบเงียบ และตระหนักว่าความสุขที่แท้จริงคือความสันโดษและการไม่ยึดติด</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./235 วัจฉนขชาดก_files/storybook_page_12_5560404915825470957.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วสุกลับสู่เมืองพาราณสีด้วยหัวใจที่เบาสบาย เขาเริ่มแบ่งปันทรัพย์สินและใช้ชีวิตอย่างเรียบง่ายขึ้น แม้จะยังเป็นเศรษฐี แต่เขาก็พบความสงบในใจที่ยั่งยืน เหมือนกับเพื่อนฤาษีของเขาในป่าใหญ่</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"./audio235/00_cover.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"./audio235/01_page_1.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"./audio235/02_page_2.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"./audio235/03_page_3.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"./audio235/04_page_4.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"./audio235/05_page_5.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"./audio235/06_page_6.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"./audio235/07_page_7.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"./audio235/08_page_8.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"./audio235/09_page_9.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"./audio235/10_page_10.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"./audio235/11_page_11.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"./audio235/12_page_12.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
+  let usingSpeechSynth = false;
+  let synthTimer = null;
+
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
     const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "นานมาแล้ว ในเมืองพาราณสีที่รุ่งเรืองและเต็มไปด้วยชีวิตชีวา มีเศรษฐีนามว่า \"วสุ\" ผู้เป็นเจ้าของคฤหาสน์หลังใหญ่โต วสุมีแก้วแหวนเงินทองมากมายจนนับไม่ถ้วน แต่ในใจของเขากลับรู้สึกหนักอึ้งและวุ่นวายอยู่ตลอดเวลา ทุกๆ วัน วสุต้องคอยตรวจตราหีบสมบัติและสั่งการบริวารนับร้อย เขาแทบไม่มีเวลาพักผ่อน เพราะมัวแต่กังวลว่าทรัพย์สินจะสูญหาย หรือคนในบ้านจะทะเลาะเบาะแว้งกัน ความเป็นอยู่ที่หรูหรากลับกลายเป็นภาระที่เขาสลัดไม่หลุด ห่างออกไปในป่าลึกที่เงียบสงบ เพื่อนรักของวสุนามว่า \"มุกตะ\" ได้ตัดสินใจสละชีวิตทางโลกออกบวชเป็นฤาษี มุกตะอาศัยอยู่ในศาลาใบไม้เล็กๆ นั่งสมาธิอยู่โคนต้นไม้ใหญ่ด้วยใบหน้าที่เปี่ยมไปด้วยความสุขและความสงบ มุกตะไม่มีทรัพย์สินใดๆ นอกจากบาตรดินและผ้าผืนน้อย แต่เขากลับรู้สึกเบาสบายเหมือนขนนก นกป่าและกวางน้อยมักจะเข้ามาคลอเคลียเขา เพราะเขามีแต่ความเมตตาและไม่มีสิ่งใดให้ต้องกังวล วันหนึ่ง วสุรู้สึกเหนื่อยล้ากับปัญหาการครองเรือนจนถึงขีดสุด เขาจึงตัดสินใจเดินทางออกจากเมืองมุ่งหน้าสู่ป่าลึก เพื่อไปเยี่ยมเยียนเพื่อนเก่าอย่างมุกตะ หวังว่าจะได้รับคำแนะนำที่ช่วยให้ใจของเขาสงบลงบ้าง วสุเดินลัดเลาะตามลำธารและข้ามเนินเขา เครื่องประดับทองคำบนตัวเขาส่งเสียงกรุ๊งกริ๊งและหนักอึ้งในยามที่ต้องปีนป่าย เขารู้สึกว่าป่าไม้ที่แสนธรรมดากลับดูงดงามและเบาสบายกว่าคฤหาสน์ของเขาอย่างบอกไม่ถูก เมื่อเพื่อนทั้งสองได้พบกัน วสุรีบเข้าไปสวมกอดมุกตะและระบายความในใจออกมาว่า \"เพื่อนรัก ชีวิตในเมืองช่างเป็นทุกข์เหลือเกิน ข้าต้องดูแลทุกอย่างจนไม่มีเวลาเป็นของตัวเองเลย\" วสุเล่าถึงความวุ่นวายจากการบริหารทรัพย์สินและความกังวลเรื่องบริวาร \"ข้าเหมือนติดอยู่ในกรงทองที่สวยงามแต่หายใจไม่ออก ทุกอย่างที่ข้ามีกลับกลายเป็นสิ่งที่ล่ามโซ่ข้าไว้\" มุกตะยิ้มอย่างเมตตาแล้วกล่าวเตือนว่า \"วสุเอ๋ย การครองเรือนนั้นเหมือนการเก็บสะสมก้อนหิน ยิ่งท่านมีมาก ท่านก็ยิ่งต้องแบกหนัก ความสุขที่แท้ไม่ได้อยู่ที่การมี แต่คือนามที่เรียกว่า 'การวางลง'\" มุกตะชี้ชวนให้วสุมองดูความงามของธรรมชาติรอบตัว \"ดูนกเหล่านั้นสิ พวกมันไม่มีคลังสมบัติ แต่พวกมันก็ร้องเพลงอย่างร่าเริง เพราะหัวใจของมันไม่มีพันธะใดๆ มาเหนี่ยวรั้งไว้\" คำสอนของมุกตะทำให้วสุฉุกคิดและเข้าใจถึงต้นเหตุแห่งความทุกข์ เขาเปรียบเทียบใจของเขากับป่าไม้ที่สงบเงียบ และตระหนักว่าความสุขที่แท้จริงคือความสันโดษและการไม่ยึดติด วสุกลับสู่เมืองพาราณสีด้วยหัวใจที่เบาสบาย เขาเริ่มแบ่งปันทรัพย์สินและใช้ชีวิตอย่างเรียบง่ายขึ้น แม้จะยังเป็นเศรษฐี แต่เขาก็พบความสงบในใจที่ยั่งยืน เหมือนกับเพื่อนฤาษีของเขาในป่าใหญ่";
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
 
-    if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    const firstSrc = STORY_TRACKS[0].audioSrc || STORY_TRACKS[0].fallbackSrc || '';
+    if (firstSrc) {
+      storyAudio.src = firstSrc;
+    }
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+        if (isPlayingStory && usingSpeechSynth) {
+          playTrackAtIndex(currentTrackIndex);
+        }
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    function getFallbackTextForTrack(track, index) {
+      if (track && track.text) return track.text;
+      const cardEl = getCardElementForTrack(track);
+      if (cardEl) {
+        const tEl = cardEl.querySelector('.story-text, .cover-overlay');
+        if (tEl) return tEl.textContent.replace(/\s+/g, ' ').trim();
+      }
+      return '';
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function stopAllPlayback() {
+      if (synthTimer) {
+        clearInterval(synthTimer);
+        synthTimer = null;
+      }
+      try { storyAudio.pause(); } catch(e) {}
+      if (window.speechSynthesis) {
+        try { window.speechSynthesis.cancel(); } catch(e) {}
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
         } else {
-          stopSpeech();
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    // Browser Web Speech API Fallback so sound ALWAYS plays even if MP3 wasn't generated yet
+    function playWithWebSpeechFallback(index) {
+      const track = STORY_TRACKS[index];
+      const textToRead = getFallbackTextForTrack(track, index);
+      if (!textToRead || !('speechSynthesis' in window)) {
+        updateUIPlayingState(false);
+        return;
+      }
+
+      usingSpeechSynth = true;
+      window.speechSynthesis.cancel();
+      if (synthTimer) clearInterval(synthTimer);
+
+      const utter = new SpeechSynthesisUtterance(textToRead);
+      utter.lang = 'th-TH';
+      utter.rate = playbackSpeed;
+
+      const voices = window.speechSynthesis.getVoices();
+      const thVoice = voices.find(function(v) { return v.lang && v.lang.toLowerCase().indexOf('th') !== -1; });
+      if (thVoice) utter.voice = thVoice;
+
+      const estimatedDuration = Math.max(3, Math.ceil((textToRead.length / 12) / playbackSpeed));
+      let elapsed = 0;
+      if (currentTimeText) currentTimeText.textContent = '0:00';
+      if (durationText) durationText.textContent = formatTime(estimatedDuration);
+      if (audioProgressFill) audioProgressFill.style.width = '0%';
+
+      synthTimer = setInterval(function() {
+        elapsed += 0.25;
+        if (currentTimeText) currentTimeText.textContent = formatTime(Math.min(elapsed, estimatedDuration));
+        if (audioProgressFill) {
+          const pct = Math.min(98, (elapsed / estimatedDuration) * 100);
+          audioProgressFill.style.width = pct + '%';
+        }
+      }, 250);
+
+      utter.onend = function() {
+        if (synthTimer) { clearInterval(synthTimer); synthTimer = null; }
+        if (!isPlayingStory) return;
+        if (audioProgressFill) audioProgressFill.style.width = '100%';
+        if (currentTrackIndex + 1 < STORY_TRACKS.length) {
+          playTrackAtIndex(currentTrackIndex + 1);
+        } else {
+          playTrackAtIndex(-1);
+        }
+      };
+
+      utter.onerror = function() {
+        if (synthTimer) { clearInterval(synthTimer); synthTimer = null; }
+        updateUIPlayingState(false);
+      };
+
+      updateUIPlayingState(true);
+      window.speechSynthesis.speak(utter);
+
+      // Watchdog: If browser speechSynthesis doesn't actually start speaking within 1.2s (common when th-TH voice is missing), alert user clearly
+      setTimeout(function() {
+        if (usingSpeechSynth && isPlayingStory && !window.speechSynthesis.speaking) {
+          if (pageIndicatorEl) {
+            pageIndicatorEl.textContent = '⚠️ กดปุ่ม "พากย์ไฟล์นี้" สีฟ้า เพื่อสร้างเสียง AI ก่อนครับ';
+            pageIndicatorEl.style.color = '#fbbf24';
+          }
+        }
+      }, 1200);
+    }
+
+    function playTrackAtIndex(index) {
+      stopAllPlayback();
+
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label || ('หน้า ' + (currentTrackIndex + 1)));
+      } else {
+        const allCards = getAllPageCards();
+        if (allCards.length > 0) {
+          highlightCardElement(allCards[0].el, allCards[0].label);
+        }
+      }
+
+      const targetSrc = track.audioSrc || track.fallbackSrc || '';
+      if (!targetSrc) {
+        playWithWebSpeechFallback(currentTrackIndex);
+        return;
+      }
+
+      usingSpeechSynth = false;
+      if (storyAudio.src !== targetSrc) {
+        storyAudio.src = targetSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        if (track.fallbackSrc && storyAudio.src !== track.fallbackSrc) {
+          storyAudio.src = track.fallbackSrc;
+          storyAudio.playbackRate = playbackSpeed;
+          storyAudio.play().then(function() {
+            updateUIPlayingState(true);
+          }).catch(function() {
+            playWithWebSpeechFallback(currentTrackIndex);
+          });
+        } else {
+          playWithWebSpeechFallback(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    if (listenPill) {
+      listenPill.addEventListener('click', function() {
+        if (isPlayingStory) {
+          stopAllPlayback();
+          updateUIPlayingState(false);
+        } else {
+          playTrackAtIndex(currentTrackIndex);
+        }
+      });
+    }
+
+    if (!isSingleFullTrack) {
+      STORY_TRACKS.forEach(function(track, idx) {
+        const cardEl = getCardElementForTrack(track);
+        if (cardEl) {
+          const headerEl = cardEl.querySelector('.page-header, .cover-overlay');
+          if (headerEl) {
+            headerEl.style.cursor = 'pointer';
+            headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+            headerEl.addEventListener('click', function() {
+              playTrackAtIndex(idx);
+            });
+          }
+        }
+      });
+    }
+
+    storyAudio.addEventListener('timeupdate', function() {
+      if (usingSpeechSynth) return;
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
+
+        if (isSingleFullTrack) {
+          const allCards = getAllPageCards();
+          if (allCards.length > 0) {
+            const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+            highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+          }
+        }
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        if (usingSpeechSynth) return;
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
-
-        utterance.onerror = () => {
-          stopSpeech();
-        };
-
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (usingSpeechSynth) return;
+      if (currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>
