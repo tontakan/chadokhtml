@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,508 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_0_12971196977966255764.jpg" alt="พลังแห่งการให้อภัย: บทเรียนจากสระน้ำแห่งขุนเขา" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">พลังแห่งการให้อภัย: บทเรียนจากสระน้ำแห่งขุนเขา</h1>
-            <p class="cover-author">โดย Story Live</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_1_17808641705410071132.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นานมาแล้ว ณ นครพาราณสีอันรุ่งเรือง พระเจ้าวิมลทรงปกครองบ้านเมืองด้วยทศพิธราชธรรม พระองค์ทรงเป็นกษัตริย์ที่เปี่ยมด้วยบารมีและมีพระปรีชาสามารถ โดยมีท่านบัณฑิตเมธา ที่ปรึกษาผู้ชาญฉลาดคอยถวายคำแนะนำเคียงข้างเสมอมา บ้านเมืองสงบสุขดั่งผืนน้ำที่ไร้คลื่น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_2_14432815516718641108.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ภายในเขตพระราชฐานชั้นใน พระเจ้าวิมลทรงมีพระสนมเอกนามว่า พระสนมอนงค์ นางเป็นหญิงที่มีสิริโฉมงดงามและกิริยามารยาทอ่อนหวาน พระราชาทรงรักและไว้วางพระทัยนางมาก มักจะทรงใช้เวลาว่างในอุทยานหลวงร่วมกับนางท่ามกลางดอกไม้นานาพรรณ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_3_1642541473384685148.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทว่าในความสงบนั้นกลับมีคลื่นใต้น้ำ อำมาตย์วรมัน ข้าราชบริพารผู้ใกล้ชิด กลับมีใจปฏิพัทธ์ต่อพระสนมอนงค์ เขาแอบส่งสายตาและพยายามเข้าหาพระนางในยามที่พระราชาไม่อยู่ ความหลงผิดทำให้เขาลืมเลือนความจงรักภักดีที่มีต่อขัตติยพงศ์</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_4_15963814295386700104.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันหนึ่ง พระเจ้าวิมลทรงบังเอิญทอดพระเนตรเห็นพฤติกรรมที่ไม่เหมาะสมของอำมาตย์วรมันเข้าด้วยพระองค์เอง ความกริ้วประดุจไฟบรรลัยกัลป์พุ่งพล่านขึ้นในหฤทัย พระองค์ทรงกำพระหัตถ์แน่น ทรงคิดถึงบทลงโทษที่รุนแรงเพื่อจัดการกับผู้ที่บังอาจล่วงเกินของรักของพระองค์</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_5_8575594317971794184.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในเช้าวันต่อมา พระเจ้าวิมลทรงเรียกอำมาตย์วรมันเข้าเฝ้า บรรยากาศในท้องพระโรงเต็มไปด้วยความตึงเครียด อำมาตย์วรมันคุกเข่าตัวสั่นงันงกอยู่เบื้องหน้าพระพักตร์ เขารู้ตัวดีว่าความลับที่เขาปิดบังไว้อาจถูกเปิดเผยแล้ว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_6_8832030551673643873.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ก่อนที่จะทรงตัดสินพระทัยลงทัณฑ์ พระเจ้าวิมลทรงระงับความโกรธและเสด็จไปปรึกษาท่านบัณฑิตเมธา พระองค์ทรงเล่าเหตุการณ์ทั้งหมดและถามว่า &quot;บุคคลผู้ล่วงเกินของสูงเช่นนี้ สมควรได้รับโทษอย่างไรจึงจะสาสม?&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_7_9658653885726650569.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ท่านบัณฑิตเมธาไม่ได้ตอบตรงๆ แต่ได้ยกอุปมานิทานเรื่อง &quot;สระน้ำแห่งขุนเขา&quot; ขึ้นมา โดยกล่าวว่า &quot;ข้าแต่มหาราช ในป่าหิมพานต์มีสระน้ำใสสะอาดที่เชิงเขา แม้จะมีกาสกปรกบินลงมาดื่มกินน้ำในสระนั้น แต่น้ำในสระก็ยังคงความใสสะอาดและเย็นฉ่ำอยู่เช่นเดิม ไม่ได้ขุ่นมัวไปตามมลทินของกาตัวนั้น&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_8_10706674807194812082.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระเจ้าวิมลทรงสดับนิทานอุปมานั้นแล้วก็ทรงนิ่งอึ้ง พระองค์เริ่มเข้าใจความหมายที่ซ่อนอยู่ ท่านบัณฑิตเมธากล่าวต่อว่า &quot;พระองค์ทรงเป็นดั่งสระน้ำที่ยิ่งใหญ่ ส่วนอำมาตย์ผู้นั้นก็เปรียบเสมือนกาตัวเล็กลูกนก ความยิ่งใหญ่ของพระองค์จะเสื่อมถอยลงหรือไม่ เพียงเพราะนกตัวหนึ่งมาดื่มน้ำ?&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_9_11398198557325885955.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระราชาทรงตรึกตรองว่า การลงทัณฑ์ด้วยความโกรธมีแต่จะสร้างความพินาศ แต่การให้อภัยคือตบะของผู้ยิ่งใหญ่ พระองค์ทรงระลึกได้ว่าเมตตานั้นมีค่ามากกว่าความพยาบาท ทรงทอดพระเนตรออกไปนอกหน้าต่างเห็นสระน้ำหลวงที่สะท้อนแสงอาทิตย์อัสดง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_10_17371697066675749653.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันรุ่งขึ้น พระเจ้าวิมลทรงเรียกอำมาตย์วรมันมาพบอีกครั้ง แต่ครั้งนี้ไม่มีบรรยากาศแห่งความตาย พระองค์ทรงตรัสว่า &quot;วรมัน เจ้าได้ทำผิดต่อเรา แต่เราจะขอเป็นดั่งสระน้ำที่เชิงเขาที่ไม่ถือสาหาความนกที่ลงมากินน้ำ เราขอให้อภัยเจ้าในครั้งนี้&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_11_10679692675648798943.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อำมาตย์วรมันกราบลงที่พระบาทด้วยความสำนึกผิดอย่างสุดซึ้ง เขาปฏิญาณตนว่าจะรับใช้พระราชาด้วยความซื่อสัตย์ตลอดชีวิต ต่อมาเขาได้เข้าไปขอขมาพระสนมอนงค์ต่อหน้าพระพักตร์ และวางตัวอยู่ในขอบเขตของข้าราชบริพารที่ดีนับแต่นั้น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_12_13449474811488010114.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นครพาราณสีกลับมามีความสุขและสงบเงียบอีกครั้ง พระเจ้าวิมลทรงได้รับคำชมเชยจากท่านบัณฑิตเมธาว่า ทรงเป็นผู้ชนะที่แท้จริง เพราะทรงชนะใจตนเองและชนะความโกรธด้วยการให้อภัย ดั่งสระน้ำที่ยังคงความบริสุทธิ์นิจนิรันดร์</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_0_12971196977966255764.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="พลังแห่งการให้อภัย: บทเรียนจากสระน้ำแห่งขุนเขา" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">พลังแห่งการให้อภัย: บทเรียนจากสระน้ำแห่งขุนเขา</h1>
+        <p class="cover-author">โดย Story Live</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_1_17808641705410071132.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นานมาแล้ว ณ นครพาราณสีอันรุ่งเรือง พระเจ้าวิมลทรงปกครองบ้านเมืองด้วยทศพิธราชธรรม พระองค์ทรงเป็นกษัตริย์ที่เปี่ยมด้วยบารมีและมีพระปรีชาสามารถ โดยมีท่านบัณฑิตเมธา ที่ปรึกษาผู้ชาญฉลาดคอยถวายคำแนะนำเคียงข้างเสมอมา บ้านเมืองสงบสุขดั่งผืนน้ำที่ไร้คลื่น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_2_14432815516718641108.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ภายในเขตพระราชฐานชั้นใน พระเจ้าวิมลทรงมีพระสนมเอกนามว่า พระสนมอนงค์ นางเป็นหญิงที่มีสิริโฉมงดงามและกิริยามารยาทอ่อนหวาน พระราชาทรงรักและไว้วางพระทัยนางมาก มักจะทรงใช้เวลาว่างในอุทยานหลวงร่วมกับนางท่ามกลางดอกไม้นานาพรรณ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_3_1642541473384685148.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทว่าในความสงบนั้นกลับมีคลื่นใต้น้ำ อำมาตย์วรมัน ข้าราชบริพารผู้ใกล้ชิด กลับมีใจปฏิพัทธ์ต่อพระสนมอนงค์ เขาแอบส่งสายตาและพยายามเข้าหาพระนางในยามที่พระราชาไม่อยู่ ความหลงผิดทำให้เขาลืมเลือนความจงรักภักดีที่มีต่อขัตติยพงศ์</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_4_15963814295386700104.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันหนึ่ง พระเจ้าวิมลทรงบังเอิญทอดพระเนตรเห็นพฤติกรรมที่ไม่เหมาะสมของอำมาตย์วรมันเข้าด้วยพระองค์เอง ความกริ้วประดุจไฟบรรลัยกัลป์พุ่งพล่านขึ้นในหฤทัย พระองค์ทรงกำพระหัตถ์แน่น ทรงคิดถึงบทลงโทษที่รุนแรงเพื่อจัดการกับผู้ที่บังอาจล่วงเกินของรักของพระองค์</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_5_8575594317971794184.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในเช้าวันต่อมา พระเจ้าวิมลทรงเรียกอำมาตย์วรมันเข้าเฝ้า บรรยากาศในท้องพระโรงเต็มไปด้วยความตึงเครียด อำมาตย์วรมันคุกเข่าตัวสั่นงันงกอยู่เบื้องหน้าพระพักตร์ เขารู้ตัวดีว่าความลับที่เขาปิดบังไว้อาจถูกเปิดเผยแล้ว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_6_8832030551673643873.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ก่อนที่จะทรงตัดสินพระทัยลงทัณฑ์ พระเจ้าวิมลทรงระงับความโกรธและเสด็จไปปรึกษาท่านบัณฑิตเมธา พระองค์ทรงเล่าเหตุการณ์ทั้งหมดและถามว่า "บุคคลผู้ล่วงเกินของสูงเช่นนี้ สมควรได้รับโทษอย่างไรจึงจะสาสม?"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_7_9658653885726650569.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ท่านบัณฑิตเมธาไม่ได้ตอบตรงๆ แต่ได้ยกอุปมานิทานเรื่อง "สระน้ำแห่งขุนเขา" ขึ้นมา โดยกล่าวว่า "ข้าแต่มหาราช ในป่าหิมพานต์มีสระน้ำใสสะอาดที่เชิงเขา แม้จะมีกาสกปรกบินลงมาดื่มกินน้ำในสระนั้น แต่น้ำในสระก็ยังคงความใสสะอาดและเย็นฉ่ำอยู่เช่นเดิม ไม่ได้ขุ่นมัวไปตามมลทินของกาตัวนั้น"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_8_10706674807194812082.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าวิมลทรงสดับนิทานอุปมานั้นแล้วก็ทรงนิ่งอึ้ง พระองค์เริ่มเข้าใจความหมายที่ซ่อนอยู่ ท่านบัณฑิตเมธากล่าวต่อว่า "พระองค์ทรงเป็นดั่งสระน้ำที่ยิ่งใหญ่ ส่วนอำมาตย์ผู้นั้นก็เปรียบเสมือนกาตัวเล็กลูกนก ความยิ่งใหญ่ของพระองค์จะเสื่อมถอยลงหรือไม่ เพียงเพราะนกตัวหนึ่งมาดื่มน้ำ?"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_9_11398198557325885955.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระราชาทรงตรึกตรองว่า การลงทัณฑ์ด้วยความโกรธมีแต่จะสร้างความพินาศ แต่การให้อภัยคือตบะของผู้ยิ่งใหญ่ พระองค์ทรงระลึกได้ว่าเมตตานั้นมีค่ามากกว่าความพยาบาท ทรงทอดพระเนตรออกไปนอกหน้าต่างเห็นสระน้ำหลวงที่สะท้อนแสงอาทิตย์อัสดง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_10_17371697066675749653.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันรุ่งขึ้น พระเจ้าวิมลทรงเรียกอำมาตย์วรมันมาพบอีกครั้ง แต่ครั้งนี้ไม่มีบรรยากาศแห่งความตาย พระองค์ทรงตรัสว่า "วรมัน เจ้าได้ทำผิดต่อเรา แต่เราจะขอเป็นดั่งสระน้ำที่เชิงเขาที่ไม่ถือสาหาความนกที่ลงมากินน้ำ เราขอให้อภัยเจ้าในครั้งนี้"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_11_10679692675648798943.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อำมาตย์วรมันกราบลงที่พระบาทด้วยความสำนึกผิดอย่างสุดซึ้ง เขาปฏิญาณตนว่าจะรับใช้พระราชาด้วยความซื่อสัตย์ตลอดชีวิต ต่อมาเขาได้เข้าไปขอขมาพระสนมอนงค์ต่อหน้าพระพักตร์ และวางตัวอยู่ในขอบเขตของข้าราชบริพารที่ดีนับแต่นั้น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./195 ปัพพตูปัตถรชาดก_files/storybook_page_12_13449474811488010114.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นครพาราณสีกลับมามีความสุขและสงบเงียบอีกครั้ง พระเจ้าวิมลทรงได้รับคำชมเชยจากท่านบัณฑิตเมธาว่า ทรงเป็นผู้ชนะที่แท้จริง เพราะทรงชนะใจตนเองและชนะความโกรธด้วยการให้อภัย ดั่งสระน้ำที่ยังคงความบริสุทธิ์นิจนิรันดร์</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":""},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":""},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":""},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":""},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":""},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":""},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":""},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":""},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":""},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":""},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":""},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":""},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":""}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
+  let usingSpeechSynth = false;
+  let synthTimer = null;
+
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
     const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "นานมาแล้ว ณ นครพาราณสีอันรุ่งเรือง พระเจ้าวิมลทรงปกครองบ้านเมืองด้วยทศพิธราชธรรม พระองค์ทรงเป็นกษัตริย์ที่เปี่ยมด้วยบารมีและมีพระปรีชาสามารถ โดยมีท่านบัณฑิตเมธา ที่ปรึกษาผู้ชาญฉลาดคอยถวายคำแนะนำเคียงข้างเสมอมา บ้านเมืองสงบสุขดั่งผืนน้ำที่ไร้คลื่น ภายในเขตพระราชฐานชั้นใน พระเจ้าวิมลทรงมีพระสนมเอกนามว่า พระสนมอนงค์ นางเป็นหญิงที่มีสิริโฉมงดงามและกิริยามารยาทอ่อนหวาน พระราชาทรงรักและไว้วางพระทัยนางมาก มักจะทรงใช้เวลาว่างในอุทยานหลวงร่วมกับนางท่ามกลางดอกไม้นานาพรรณ ทว่าในความสงบนั้นกลับมีคลื่นใต้น้ำ อำมาตย์วรมัน ข้าราชบริพารผู้ใกล้ชิด กลับมีใจปฏิพัทธ์ต่อพระสนมอนงค์ เขาแอบส่งสายตาและพยายามเข้าหาพระนางในยามที่พระราชาไม่อยู่ ความหลงผิดทำให้เขาลืมเลือนความจงรักภักดีที่มีต่อขัตติยพงศ์ วันหนึ่ง พระเจ้าวิมลทรงบังเอิญทอดพระเนตรเห็นพฤติกรรมที่ไม่เหมาะสมของอำมาตย์วรมันเข้าด้วยพระองค์เอง ความกริ้วประดุจไฟบรรลัยกัลป์พุ่งพล่านขึ้นในหฤทัย พระองค์ทรงกำพระหัตถ์แน่น ทรงคิดถึงบทลงโทษที่รุนแรงเพื่อจัดการกับผู้ที่บังอาจล่วงเกินของรักของพระองค์ ในเช้าวันต่อมา พระเจ้าวิมลทรงเรียกอำมาตย์วรมันเข้าเฝ้า บรรยากาศในท้องพระโรงเต็มไปด้วยความตึงเครียด อำมาตย์วรมันคุกเข่าตัวสั่นงันงกอยู่เบื้องหน้าพระพักตร์ เขารู้ตัวดีว่าความลับที่เขาปิดบังไว้อาจถูกเปิดเผยแล้ว ก่อนที่จะทรงตัดสินพระทัยลงทัณฑ์ พระเจ้าวิมลทรงระงับความโกรธและเสด็จไปปรึกษาท่านบัณฑิตเมธา พระองค์ทรงเล่าเหตุการณ์ทั้งหมดและถามว่า \"บุคคลผู้ล่วงเกินของสูงเช่นนี้ สมควรได้รับโทษอย่างไรจึงจะสาสม?\" ท่านบัณฑิตเมธาไม่ได้ตอบตรงๆ แต่ได้ยกอุปมานิทานเรื่อง \"สระน้ำแห่งขุนเขา\" ขึ้นมา โดยกล่าวว่า \"ข้าแต่มหาราช ในป่าหิมพานต์มีสระน้ำใสสะอาดที่เชิงเขา แม้จะมีกาสกปรกบินลงมาดื่มกินน้ำในสระนั้น แต่น้ำในสระก็ยังคงความใสสะอาดและเย็นฉ่ำอยู่เช่นเดิม ไม่ได้ขุ่นมัวไปตามมลทินของกาตัวนั้น\" พระเจ้าวิมลทรงสดับนิทานอุปมานั้นแล้วก็ทรงนิ่งอึ้ง พระองค์เริ่มเข้าใจความหมายที่ซ่อนอยู่ ท่านบัณฑิตเมธากล่าวต่อว่า \"พระองค์ทรงเป็นดั่งสระน้ำที่ยิ่งใหญ่ ส่วนอำมาตย์ผู้นั้นก็เปรียบเสมือนกาตัวเล็กลูกนก ความยิ่งใหญ่ของพระองค์จะเสื่อมถอยลงหรือไม่ เพียงเพราะนกตัวหนึ่งมาดื่มน้ำ?\" พระราชาทรงตรึกตรองว่า การลงทัณฑ์ด้วยความโกรธมีแต่จะสร้างความพินาศ แต่การให้อภัยคือตบะของผู้ยิ่งใหญ่ พระองค์ทรงระลึกได้ว่าเมตตานั้นมีค่ามากกว่าความพยาบาท ทรงทอดพระเนตรออกไปนอกหน้าต่างเห็นสระน้ำหลวงที่สะท้อนแสงอาทิตย์อัสดง วันรุ่งขึ้น พระเจ้าวิมลทรงเรียกอำมาตย์วรมันมาพบอีกครั้ง แต่ครั้งนี้ไม่มีบรรยากาศแห่งความตาย พระองค์ทรงตรัสว่า \"วรมัน เจ้าได้ทำผิดต่อเรา แต่เราจะขอเป็นดั่งสระน้ำที่เชิงเขาที่ไม่ถือสาหาความนกที่ลงมากินน้ำ เราขอให้อภัยเจ้าในครั้งนี้\" อำมาตย์วรมันกราบลงที่พระบาทด้วยความสำนึกผิดอย่างสุดซึ้ง เขาปฏิญาณตนว่าจะรับใช้พระราชาด้วยความซื่อสัตย์ตลอดชีวิต ต่อมาเขาได้เข้าไปขอขมาพระสนมอนงค์ต่อหน้าพระพักตร์ และวางตัวอยู่ในขอบเขตของข้าราชบริพารที่ดีนับแต่นั้น นครพาราณสีกลับมามีความสุขและสงบเงียบอีกครั้ง พระเจ้าวิมลทรงได้รับคำชมเชยจากท่านบัณฑิตเมธาว่า ทรงเป็นผู้ชนะที่แท้จริง เพราะทรงชนะใจตนเองและชนะความโกรธด้วยการให้อภัย ดั่งสระน้ำที่ยังคงความบริสุทธิ์นิจนิรันดร์";
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
 
-    if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    const firstSrc = STORY_TRACKS[0].audioSrc || STORY_TRACKS[0].fallbackSrc || '';
+    if (firstSrc) {
+      storyAudio.src = firstSrc;
+    }
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+        if (isPlayingStory && usingSpeechSynth) {
+          playTrackAtIndex(currentTrackIndex);
+        }
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    function getFallbackTextForTrack(track, index) {
+      if (track && track.text) return track.text;
+      const cardEl = getCardElementForTrack(track);
+      if (cardEl) {
+        const tEl = cardEl.querySelector('.story-text, .cover-overlay');
+        if (tEl) return tEl.textContent.replace(/\s+/g, ' ').trim();
+      }
+      return '';
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function stopAllPlayback() {
+      if (synthTimer) {
+        clearInterval(synthTimer);
+        synthTimer = null;
+      }
+      try { storyAudio.pause(); } catch(e) {}
+      if (window.speechSynthesis) {
+        try { window.speechSynthesis.cancel(); } catch(e) {}
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
         } else {
-          stopSpeech();
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    // Browser Web Speech API Fallback so sound ALWAYS plays even if MP3 wasn't generated yet
+    function playWithWebSpeechFallback(index) {
+      const track = STORY_TRACKS[index];
+      const textToRead = getFallbackTextForTrack(track, index);
+      if (!textToRead || !('speechSynthesis' in window)) {
+        updateUIPlayingState(false);
+        return;
+      }
+
+      usingSpeechSynth = true;
+      window.speechSynthesis.cancel();
+      if (synthTimer) clearInterval(synthTimer);
+
+      const utter = new SpeechSynthesisUtterance(textToRead);
+      utter.lang = 'th-TH';
+      utter.rate = playbackSpeed;
+
+      const voices = window.speechSynthesis.getVoices();
+      const thVoice = voices.find(function(v) { return v.lang && v.lang.toLowerCase().indexOf('th') !== -1; });
+      if (thVoice) utter.voice = thVoice;
+
+      const estimatedDuration = Math.max(3, Math.ceil((textToRead.length / 12) / playbackSpeed));
+      let elapsed = 0;
+      if (currentTimeText) currentTimeText.textContent = '0:00';
+      if (durationText) durationText.textContent = formatTime(estimatedDuration);
+      if (audioProgressFill) audioProgressFill.style.width = '0%';
+
+      synthTimer = setInterval(function() {
+        elapsed += 0.25;
+        if (currentTimeText) currentTimeText.textContent = formatTime(Math.min(elapsed, estimatedDuration));
+        if (audioProgressFill) {
+          const pct = Math.min(98, (elapsed / estimatedDuration) * 100);
+          audioProgressFill.style.width = pct + '%';
+        }
+      }, 250);
+
+      utter.onend = function() {
+        if (synthTimer) { clearInterval(synthTimer); synthTimer = null; }
+        if (!isPlayingStory) return;
+        if (audioProgressFill) audioProgressFill.style.width = '100%';
+        if (currentTrackIndex + 1 < STORY_TRACKS.length) {
+          playTrackAtIndex(currentTrackIndex + 1);
+        } else {
+          playTrackAtIndex(-1);
+        }
+      };
+
+      utter.onerror = function() {
+        if (synthTimer) { clearInterval(synthTimer); synthTimer = null; }
+        updateUIPlayingState(false);
+      };
+
+      updateUIPlayingState(true);
+      window.speechSynthesis.speak(utter);
+
+      // Watchdog: If browser speechSynthesis doesn't actually start speaking within 1.2s (common when th-TH voice is missing), alert user clearly
+      setTimeout(function() {
+        if (usingSpeechSynth && isPlayingStory && !window.speechSynthesis.speaking) {
+          if (pageIndicatorEl) {
+            pageIndicatorEl.textContent = '⚠️ กดปุ่ม "พากย์ไฟล์นี้" สีฟ้า เพื่อสร้างเสียง AI ก่อนครับ';
+            pageIndicatorEl.style.color = '#fbbf24';
+          }
+        }
+      }, 1200);
+    }
+
+    function playTrackAtIndex(index) {
+      stopAllPlayback();
+
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label || ('หน้า ' + (currentTrackIndex + 1)));
+      } else {
+        const allCards = getAllPageCards();
+        if (allCards.length > 0) {
+          highlightCardElement(allCards[0].el, allCards[0].label);
+        }
+      }
+
+      const targetSrc = track.audioSrc || track.fallbackSrc || '';
+      if (!targetSrc) {
+        playWithWebSpeechFallback(currentTrackIndex);
+        return;
+      }
+
+      usingSpeechSynth = false;
+      if (storyAudio.src !== targetSrc) {
+        storyAudio.src = targetSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        if (track.fallbackSrc && storyAudio.src !== track.fallbackSrc) {
+          storyAudio.src = track.fallbackSrc;
+          storyAudio.playbackRate = playbackSpeed;
+          storyAudio.play().then(function() {
+            updateUIPlayingState(true);
+          }).catch(function() {
+            playWithWebSpeechFallback(currentTrackIndex);
+          });
+        } else {
+          playWithWebSpeechFallback(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    if (listenPill) {
+      listenPill.addEventListener('click', function() {
+        if (isPlayingStory) {
+          stopAllPlayback();
+          updateUIPlayingState(false);
+        } else {
+          playTrackAtIndex(currentTrackIndex);
+        }
+      });
+    }
+
+    if (!isSingleFullTrack) {
+      STORY_TRACKS.forEach(function(track, idx) {
+        const cardEl = getCardElementForTrack(track);
+        if (cardEl) {
+          const headerEl = cardEl.querySelector('.page-header, .cover-overlay');
+          if (headerEl) {
+            headerEl.style.cursor = 'pointer';
+            headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+            headerEl.addEventListener('click', function() {
+              playTrackAtIndex(idx);
+            });
+          }
+        }
+      });
+    }
+
+    storyAudio.addEventListener('timeupdate', function() {
+      if (usingSpeechSynth) return;
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
+
+        if (isSingleFullTrack) {
+          const allCards = getAllPageCards();
+          if (allCards.length > 0) {
+            const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+            highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+          }
+        }
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        if (usingSpeechSynth) return;
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
-
-        utterance.onerror = () => {
-          stopSpeech();
-        };
-
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (usingSpeechSynth) return;
+      if (currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

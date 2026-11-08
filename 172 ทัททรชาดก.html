@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,508 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_0_1289380586336095832.jpg" alt="ทัททรชาดก: พญานาคผู้มีขันติธรรม" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">ทัททรชาดก: พญานาคผู้มีขันติธรรม</h1>
-            <p class="cover-author">โดย Story Live</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_1_4026391850212292133.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่ง ณ สระสวรรค์อันกว้างใหญ่ใต้มหาสมุทร เป็นที่ตั้งของนครนาคราชอันรุ่งโรจน์ มีพญานาคผู้สง่างามนามว่า &quot;ทัททรนาคราช&quot; พระองค์ทรงปกครองเหล่านากด้วยความยุติธรรมและยึดมั่นในศีลธรรมเสมอมา รัศมีจากกายของพระองค์เปล่งประกายสีทองอร่ามไปทั่วทั้งวังบาดาล</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_2_8438408258113714958.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทัททรนาคราชมีน้องชายผู้หนึ่งนามว่า &quot;จุลลนาคราช&quot; ทั้งสองมักจะออกไปท่องเที่ยวตามริมฝั่งน้ำด้วยกันเสมอ จุลลนาคราชนั้นมีนิสัยวู่วามและทะนงในศักดิ์ศรีของตนเอง ต่างจากทัททรนาคราชที่มีความสุขุมและเยือกเย็นราวกับกระแสน้ำลึก</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_3_13726473662192097536.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อยู่มาวันหนึ่ง ด้วยความคึกคะนองของจุลลนาคราช เขาได้ทำผิดกฎของเหล่านาคจนทำให้พญานาคผู้ใหญ่ไม่พอใจ เพื่อเป็นการรักษาระเบียบวินัย ทัททรนาคราชจึงต้องพาน้องชายออกไปบำเพ็ญตบะนอกเมืองนาค ทั้งสองตัดสินใจเดินทางมายังโลกมนุษย์และอาศัยอยู่ในคูน้ำที่เฉอะแฉะใกล้กับหมู่บ้านแห่งหนึ่ง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_4_16469698547603277259.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในคูน้ำที่สกปรกและตื้นเขินนั้น มีกบตัวหนึ่งนามว่า &quot;มัณฑุกะ&quot; อาศัยอยู่ก่อนแล้ว มัณฑุกะเป็นกบที่เย่อหยิ่งและไม่เคยเห็นโลกกว้าง เมื่อเห็นนาคทั้งสองที่มีขนาดใหญ่กว่าตนแต่กลับดูสงบนิ่ง มันจึงเริ่มแสดงท่าทีดูถูกเหยียดหยาม</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_5_7444672831822022686.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>มัณฑุกะกระโดดขึ้นไปบนหัวของทัททรนาคราช แล้วร้องตะโกนด่าทอด้วยถ้อยคำหยาบคาย &quot;พวกเจ้านี่มันช่างน่าเวทนา ขนาดตัวใหญ่โตเสียเปล่าแต่กลับต้องมาอาศัยในน้ำโคลนเหมือนข้า เจ้ามันก็นาคตกอับไม่มีที่ไป!&quot; มัณฑุกะเยาะเย้ยพลางใช้เท้าถีบไปที่ใบหน้าของพญานาค</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_6_15737385434212778013.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>จุลลนาคราชเห็นเหตุการณ์นั้นก็เกิดความโกรธแค้นจนตัวสั่น ดวงตาของเขากลายเป็นสีแดงฉาน &quot;ท่านพี่! ทำไมท่านถึงยอมให้กบกระจอกตัวนี้ดูหมิ่นได้ถึงเพียงนี้ ข้าจะขย้ำมันให้จมเขี้ยวเดี๋ยวนี้แหละ!&quot; เขาเตรียมจะพ่นพิษใส่กบมัณฑุกะ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_7_15560886230011699445.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทัททรนาคราชรีบเข้ามาขวางน้องชายไว้ &quot;ช้าก่อนจุลลนาคราช! การนิ่งเฉยต่อคำดูหมิ่นไม่ใช่ความอ่อนแอ แต่คือความเข้มแข็งของจิตใจที่รักษาศีลไว้ได้ หากเราฆ่าเขาเพียงเพราะคำด่า เราเองที่จะเป็นฝ่ายพ่ายแพ้ต่อกิเลสในใจเรา&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_8_6423595012552051883.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กบมัณฑุกะเห็นนาคทั้งสองไม่ตอบโต้ก็ยิ่งลำพองใจ มันกระโดดลงไปในน้ำแล้วสาดโคลนใส่ทัททรนาคราชพลางหัวเราะร่วน &quot;ดูสิ! พญานาคผู้ยิ่งใหญ่กลายเป็นนาคเปื้อนโคลนไปเสียแล้ว เจ้าไม่มีน้ำยาแม้แต่จะสู้กับกบอย่างข้าหรืออย่างไร?&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_9_14246818963431822655.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทัททรนาคราชยังคงรักษาศีลและปฏิบัติธรรมต่อไปอย่างมั่นคง พระองค์ทรงระลึกเสมอว่าความอดทนเป็นตบะอย่างยิ่ง การถูกดูหมิ่นจากผู้ที่ด้อยกว่าเป็นบททดสอบที่สำคัญที่สุดของพญานาคผู้ปรารถนาในโพธิญาณ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_10_15447557722388294921.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อเวลาผ่านไป จุลลนาคราชเริ่มเข้าใจในคำสอนของพี่ชาย เขาเห็นความสงบสุขที่เกิดขึ้นในใจของทัททรนาคราชที่ไม่หวั่นไหวต่อคำพูดใดๆ เขาจึงวางความโกรธลงและหันมานั่งสมาธิเคียงข้างพี่ชาย ทิ้งความทะนงตนไว้เบื้องหลัง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_11_7735173587771698967.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในที่สุด ระยะเวลาแห่งการบำเพ็ญตบะก็สิ้นสุดลง เหล่าเทวดาต่างลงมาประทานพรและชื่นชมในขันติธรรมของทัททรนาคราช ทันใดนั้นร่างของพญานาคทั้งสองก็กลับมาเปล่งประกายสีทองเจิดจ้ามากกว่าเดิมหลายเท่า พร้อมที่จะกลับคืนสู่เมืองนาคอย่างสมเกียรติ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./172 ทัททรชาดก_files/storybook_page_12_10059629009190896516.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทัททรนาคราชและจุลลนาคราชเดินทางกลับสู่นครบาดาลด้วยความภาคภูมิใจ พระองค์ทรงสอนเหล่านาคทั้งหลายว่า &quot;ผู้ที่มีขันติย่อมรักษาศีลไว้ได้ และผู้ที่รักษาศีลได้ย่อมได้รับความสุขที่แท้จริง&quot; ตั้งแต่นั้นมา ทัททรนาคราชก็เป็นที่เคารพรักของทั้งเทวดาและมนุษย์สืบไป</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_0_1289380586336095832.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="ทัททรชาดก: พญานาคผู้มีขันติธรรม" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">ทัททรชาดก: พญานาคผู้มีขันติธรรม</h1>
+        <p class="cover-author">โดย Story Live</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_1_4026391850212292133.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่ง ณ สระสวรรค์อันกว้างใหญ่ใต้มหาสมุทร เป็นที่ตั้งของนครนาคราชอันรุ่งโรจน์ มีพญานาคผู้สง่างามนามว่า "ทัททรนาคราช" พระองค์ทรงปกครองเหล่านากด้วยความยุติธรรมและยึดมั่นในศีลธรรมเสมอมา รัศมีจากกายของพระองค์เปล่งประกายสีทองอร่ามไปทั่วทั้งวังบาดาล</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_2_8438408258113714958.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทัททรนาคราชมีน้องชายผู้หนึ่งนามว่า "จุลลนาคราช" ทั้งสองมักจะออกไปท่องเที่ยวตามริมฝั่งน้ำด้วยกันเสมอ จุลลนาคราชนั้นมีนิสัยวู่วามและทะนงในศักดิ์ศรีของตนเอง ต่างจากทัททรนาคราชที่มีความสุขุมและเยือกเย็นราวกับกระแสน้ำลึก</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_3_13726473662192097536.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อยู่มาวันหนึ่ง ด้วยความคึกคะนองของจุลลนาคราช เขาได้ทำผิดกฎของเหล่านาคจนทำให้พญานาคผู้ใหญ่ไม่พอใจ เพื่อเป็นการรักษาระเบียบวินัย ทัททรนาคราชจึงต้องพาน้องชายออกไปบำเพ็ญตบะนอกเมืองนาค ทั้งสองตัดสินใจเดินทางมายังโลกมนุษย์และอาศัยอยู่ในคูน้ำที่เฉอะแฉะใกล้กับหมู่บ้านแห่งหนึ่ง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_4_16469698547603277259.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในคูน้ำที่สกปรกและตื้นเขินนั้น มีกบตัวหนึ่งนามว่า "มัณฑุกะ" อาศัยอยู่ก่อนแล้ว มัณฑุกะเป็นกบที่เย่อหยิ่งและไม่เคยเห็นโลกกว้าง เมื่อเห็นนาคทั้งสองที่มีขนาดใหญ่กว่าตนแต่กลับดูสงบนิ่ง มันจึงเริ่มแสดงท่าทีดูถูกเหยียดหยาม</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_5_7444672831822022686.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มัณฑุกะกระโดดขึ้นไปบนหัวของทัททรนาคราช แล้วร้องตะโกนด่าทอด้วยถ้อยคำหยาบคาย "พวกเจ้านี่มันช่างน่าเวทนา ขนาดตัวใหญ่โตเสียเปล่าแต่กลับต้องมาอาศัยในน้ำโคลนเหมือนข้า เจ้ามันก็นาคตกอับไม่มีที่ไป!" มัณฑุกะเยาะเย้ยพลางใช้เท้าถีบไปที่ใบหน้าของพญานาค</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_6_15737385434212778013.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>จุลลนาคราชเห็นเหตุการณ์นั้นก็เกิดความโกรธแค้นจนตัวสั่น ดวงตาของเขากลายเป็นสีแดงฉาน "ท่านพี่! ทำไมท่านถึงยอมให้กบกระจอกตัวนี้ดูหมิ่นได้ถึงเพียงนี้ ข้าจะขย้ำมันให้จมเขี้ยวเดี๋ยวนี้แหละ!" เขาเตรียมจะพ่นพิษใส่กบมัณฑุกะ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_7_15560886230011699445.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทัททรนาคราชรีบเข้ามาขวางน้องชายไว้ "ช้าก่อนจุลลนาคราช! การนิ่งเฉยต่อคำดูหมิ่นไม่ใช่ความอ่อนแอ แต่คือความเข้มแข็งของจิตใจที่รักษาศีลไว้ได้ หากเราฆ่าเขาเพียงเพราะคำด่า เราเองที่จะเป็นฝ่ายพ่ายแพ้ต่อกิเลสในใจเรา"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_8_6423595012552051883.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กบมัณฑุกะเห็นนาคทั้งสองไม่ตอบโต้ก็ยิ่งลำพองใจ มันกระโดดลงไปในน้ำแล้วสาดโคลนใส่ทัททรนาคราชพลางหัวเราะร่วน "ดูสิ! พญานาคผู้ยิ่งใหญ่กลายเป็นนาคเปื้อนโคลนไปเสียแล้ว เจ้าไม่มีน้ำยาแม้แต่จะสู้กับกบอย่างข้าหรืออย่างไร?"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_9_14246818963431822655.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทัททรนาคราชยังคงรักษาศีลและปฏิบัติธรรมต่อไปอย่างมั่นคง พระองค์ทรงระลึกเสมอว่าความอดทนเป็นตบะอย่างยิ่ง การถูกดูหมิ่นจากผู้ที่ด้อยกว่าเป็นบททดสอบที่สำคัญที่สุดของพญานาคผู้ปรารถนาในโพธิญาณ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_10_15447557722388294921.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อเวลาผ่านไป จุลลนาคราชเริ่มเข้าใจในคำสอนของพี่ชาย เขาเห็นความสงบสุขที่เกิดขึ้นในใจของทัททรนาคราชที่ไม่หวั่นไหวต่อคำพูดใดๆ เขาจึงวางความโกรธลงและหันมานั่งสมาธิเคียงข้างพี่ชาย ทิ้งความทะนงตนไว้เบื้องหลัง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_11_7735173587771698967.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในที่สุด ระยะเวลาแห่งการบำเพ็ญตบะก็สิ้นสุดลง เหล่าเทวดาต่างลงมาประทานพรและชื่นชมในขันติธรรมของทัททรนาคราช ทันใดนั้นร่างของพญานาคทั้งสองก็กลับมาเปล่งประกายสีทองเจิดจ้ามากกว่าเดิมหลายเท่า พร้อมที่จะกลับคืนสู่เมืองนาคอย่างสมเกียรติ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./172 ทัททรชาดก_files/storybook_page_12_10059629009190896516.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทัททรนาคราชและจุลลนาคราชเดินทางกลับสู่นครบาดาลด้วยความภาคภูมิใจ พระองค์ทรงสอนเหล่านาคทั้งหลายว่า "ผู้ที่มีขันติย่อมรักษาศีลไว้ได้ และผู้ที่รักษาศีลได้ย่อมได้รับความสุขที่แท้จริง" ตั้งแต่นั้นมา ทัททรนาคราชก็เป็นที่เคารพรักของทั้งเทวดาและมนุษย์สืบไป</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"./audio172/00_cover.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"./audio172/01_page_1.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"./audio172/02_page_2.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"./audio172/03_page_3.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"./audio172/04_page_4.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"./audio172/05_page_5.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"./audio172/06_page_6.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"./audio172/07_page_7.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"./audio172/08_page_8.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"./audio172/09_page_9.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"./audio172/10_page_10.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"./audio172/11_page_11.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"./audio172/12_page_12.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
+  let usingSpeechSynth = false;
+  let synthTimer = null;
+
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
     const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่ง ณ สระสวรรค์อันกว้างใหญ่ใต้มหาสมุทร เป็นที่ตั้งของนครนาคราชอันรุ่งโรจน์ มีพญานาคผู้สง่างามนามว่า \"ทัททรนาคราช\" พระองค์ทรงปกครองเหล่านากด้วยความยุติธรรมและยึดมั่นในศีลธรรมเสมอมา รัศมีจากกายของพระองค์เปล่งประกายสีทองอร่ามไปทั่วทั้งวังบาดาล ทัททรนาคราชมีน้องชายผู้หนึ่งนามว่า \"จุลลนาคราช\" ทั้งสองมักจะออกไปท่องเที่ยวตามริมฝั่งน้ำด้วยกันเสมอ จุลลนาคราชนั้นมีนิสัยวู่วามและทะนงในศักดิ์ศรีของตนเอง ต่างจากทัททรนาคราชที่มีความสุขุมและเยือกเย็นราวกับกระแสน้ำลึก อยู่มาวันหนึ่ง ด้วยความคึกคะนองของจุลลนาคราช เขาได้ทำผิดกฎของเหล่านาคจนทำให้พญานาคผู้ใหญ่ไม่พอใจ เพื่อเป็นการรักษาระเบียบวินัย ทัททรนาคราชจึงต้องพาน้องชายออกไปบำเพ็ญตบะนอกเมืองนาค ทั้งสองตัดสินใจเดินทางมายังโลกมนุษย์และอาศัยอยู่ในคูน้ำที่เฉอะแฉะใกล้กับหมู่บ้านแห่งหนึ่ง ในคูน้ำที่สกปรกและตื้นเขินนั้น มีกบตัวหนึ่งนามว่า \"มัณฑุกะ\" อาศัยอยู่ก่อนแล้ว มัณฑุกะเป็นกบที่เย่อหยิ่งและไม่เคยเห็นโลกกว้าง เมื่อเห็นนาคทั้งสองที่มีขนาดใหญ่กว่าตนแต่กลับดูสงบนิ่ง มันจึงเริ่มแสดงท่าทีดูถูกเหยียดหยาม มัณฑุกะกระโดดขึ้นไปบนหัวของทัททรนาคราช แล้วร้องตะโกนด่าทอด้วยถ้อยคำหยาบคาย \"พวกเจ้านี่มันช่างน่าเวทนา ขนาดตัวใหญ่โตเสียเปล่าแต่กลับต้องมาอาศัยในน้ำโคลนเหมือนข้า เจ้ามันก็นาคตกอับไม่มีที่ไป!\" มัณฑุกะเยาะเย้ยพลางใช้เท้าถีบไปที่ใบหน้าของพญานาค จุลลนาคราชเห็นเหตุการณ์นั้นก็เกิดความโกรธแค้นจนตัวสั่น ดวงตาของเขากลายเป็นสีแดงฉาน \"ท่านพี่! ทำไมท่านถึงยอมให้กบกระจอกตัวนี้ดูหมิ่นได้ถึงเพียงนี้ ข้าจะขย้ำมันให้จมเขี้ยวเดี๋ยวนี้แหละ!\" เขาเตรียมจะพ่นพิษใส่กบมัณฑุกะ ทัททรนาคราชรีบเข้ามาขวางน้องชายไว้ \"ช้าก่อนจุลลนาคราช! การนิ่งเฉยต่อคำดูหมิ่นไม่ใช่ความอ่อนแอ แต่คือความเข้มแข็งของจิตใจที่รักษาศีลไว้ได้ หากเราฆ่าเขาเพียงเพราะคำด่า เราเองที่จะเป็นฝ่ายพ่ายแพ้ต่อกิเลสในใจเรา\" กบมัณฑุกะเห็นนาคทั้งสองไม่ตอบโต้ก็ยิ่งลำพองใจ มันกระโดดลงไปในน้ำแล้วสาดโคลนใส่ทัททรนาคราชพลางหัวเราะร่วน \"ดูสิ! พญานาคผู้ยิ่งใหญ่กลายเป็นนาคเปื้อนโคลนไปเสียแล้ว เจ้าไม่มีน้ำยาแม้แต่จะสู้กับกบอย่างข้าหรืออย่างไร?\" ทัททรนาคราชยังคงรักษาศีลและปฏิบัติธรรมต่อไปอย่างมั่นคง พระองค์ทรงระลึกเสมอว่าความอดทนเป็นตบะอย่างยิ่ง การถูกดูหมิ่นจากผู้ที่ด้อยกว่าเป็นบททดสอบที่สำคัญที่สุดของพญานาคผู้ปรารถนาในโพธิญาณ เมื่อเวลาผ่านไป จุลลนาคราชเริ่มเข้าใจในคำสอนของพี่ชาย เขาเห็นความสงบสุขที่เกิดขึ้นในใจของทัททรนาคราชที่ไม่หวั่นไหวต่อคำพูดใดๆ เขาจึงวางความโกรธลงและหันมานั่งสมาธิเคียงข้างพี่ชาย ทิ้งความทะนงตนไว้เบื้องหลัง ในที่สุด ระยะเวลาแห่งการบำเพ็ญตบะก็สิ้นสุดลง เหล่าเทวดาต่างลงมาประทานพรและชื่นชมในขันติธรรมของทัททรนาคราช ทันใดนั้นร่างของพญานาคทั้งสองก็กลับมาเปล่งประกายสีทองเจิดจ้ามากกว่าเดิมหลายเท่า พร้อมที่จะกลับคืนสู่เมืองนาคอย่างสมเกียรติ ทัททรนาคราชและจุลลนาคราชเดินทางกลับสู่นครบาดาลด้วยความภาคภูมิใจ พระองค์ทรงสอนเหล่านาคทั้งหลายว่า \"ผู้ที่มีขันติย่อมรักษาศีลไว้ได้ และผู้ที่รักษาศีลได้ย่อมได้รับความสุขที่แท้จริง\" ตั้งแต่นั้นมา ทัททรนาคราชก็เป็นที่เคารพรักของทั้งเทวดาและมนุษย์สืบไป";
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
 
-    if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    const firstSrc = STORY_TRACKS[0].audioSrc || STORY_TRACKS[0].fallbackSrc || '';
+    if (firstSrc) {
+      storyAudio.src = firstSrc;
+    }
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+        if (isPlayingStory && usingSpeechSynth) {
+          playTrackAtIndex(currentTrackIndex);
+        }
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    function getFallbackTextForTrack(track, index) {
+      if (track && track.text) return track.text;
+      const cardEl = getCardElementForTrack(track);
+      if (cardEl) {
+        const tEl = cardEl.querySelector('.story-text, .cover-overlay');
+        if (tEl) return tEl.textContent.replace(/\s+/g, ' ').trim();
+      }
+      return '';
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function stopAllPlayback() {
+      if (synthTimer) {
+        clearInterval(synthTimer);
+        synthTimer = null;
+      }
+      try { storyAudio.pause(); } catch(e) {}
+      if (window.speechSynthesis) {
+        try { window.speechSynthesis.cancel(); } catch(e) {}
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
         } else {
-          stopSpeech();
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    // Browser Web Speech API Fallback so sound ALWAYS plays even if MP3 wasn't generated yet
+    function playWithWebSpeechFallback(index) {
+      const track = STORY_TRACKS[index];
+      const textToRead = getFallbackTextForTrack(track, index);
+      if (!textToRead || !('speechSynthesis' in window)) {
+        updateUIPlayingState(false);
+        return;
+      }
+
+      usingSpeechSynth = true;
+      window.speechSynthesis.cancel();
+      if (synthTimer) clearInterval(synthTimer);
+
+      const utter = new SpeechSynthesisUtterance(textToRead);
+      utter.lang = 'th-TH';
+      utter.rate = playbackSpeed;
+
+      const voices = window.speechSynthesis.getVoices();
+      const thVoice = voices.find(function(v) { return v.lang && v.lang.toLowerCase().indexOf('th') !== -1; });
+      if (thVoice) utter.voice = thVoice;
+
+      const estimatedDuration = Math.max(3, Math.ceil((textToRead.length / 12) / playbackSpeed));
+      let elapsed = 0;
+      if (currentTimeText) currentTimeText.textContent = '0:00';
+      if (durationText) durationText.textContent = formatTime(estimatedDuration);
+      if (audioProgressFill) audioProgressFill.style.width = '0%';
+
+      synthTimer = setInterval(function() {
+        elapsed += 0.25;
+        if (currentTimeText) currentTimeText.textContent = formatTime(Math.min(elapsed, estimatedDuration));
+        if (audioProgressFill) {
+          const pct = Math.min(98, (elapsed / estimatedDuration) * 100);
+          audioProgressFill.style.width = pct + '%';
+        }
+      }, 250);
+
+      utter.onend = function() {
+        if (synthTimer) { clearInterval(synthTimer); synthTimer = null; }
+        if (!isPlayingStory) return;
+        if (audioProgressFill) audioProgressFill.style.width = '100%';
+        if (currentTrackIndex + 1 < STORY_TRACKS.length) {
+          playTrackAtIndex(currentTrackIndex + 1);
+        } else {
+          playTrackAtIndex(-1);
+        }
+      };
+
+      utter.onerror = function() {
+        if (synthTimer) { clearInterval(synthTimer); synthTimer = null; }
+        updateUIPlayingState(false);
+      };
+
+      updateUIPlayingState(true);
+      window.speechSynthesis.speak(utter);
+
+      // Watchdog: If browser speechSynthesis doesn't actually start speaking within 1.2s (common when th-TH voice is missing), alert user clearly
+      setTimeout(function() {
+        if (usingSpeechSynth && isPlayingStory && !window.speechSynthesis.speaking) {
+          if (pageIndicatorEl) {
+            pageIndicatorEl.textContent = '⚠️ กดปุ่ม "พากย์ไฟล์นี้" สีฟ้า เพื่อสร้างเสียง AI ก่อนครับ';
+            pageIndicatorEl.style.color = '#fbbf24';
+          }
+        }
+      }, 1200);
+    }
+
+    function playTrackAtIndex(index) {
+      stopAllPlayback();
+
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label || ('หน้า ' + (currentTrackIndex + 1)));
+      } else {
+        const allCards = getAllPageCards();
+        if (allCards.length > 0) {
+          highlightCardElement(allCards[0].el, allCards[0].label);
+        }
+      }
+
+      const targetSrc = track.audioSrc || track.fallbackSrc || '';
+      if (!targetSrc) {
+        playWithWebSpeechFallback(currentTrackIndex);
+        return;
+      }
+
+      usingSpeechSynth = false;
+      if (storyAudio.src !== targetSrc) {
+        storyAudio.src = targetSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        if (track.fallbackSrc && storyAudio.src !== track.fallbackSrc) {
+          storyAudio.src = track.fallbackSrc;
+          storyAudio.playbackRate = playbackSpeed;
+          storyAudio.play().then(function() {
+            updateUIPlayingState(true);
+          }).catch(function() {
+            playWithWebSpeechFallback(currentTrackIndex);
+          });
+        } else {
+          playWithWebSpeechFallback(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    if (listenPill) {
+      listenPill.addEventListener('click', function() {
+        if (isPlayingStory) {
+          stopAllPlayback();
+          updateUIPlayingState(false);
+        } else {
+          playTrackAtIndex(currentTrackIndex);
+        }
+      });
+    }
+
+    if (!isSingleFullTrack) {
+      STORY_TRACKS.forEach(function(track, idx) {
+        const cardEl = getCardElementForTrack(track);
+        if (cardEl) {
+          const headerEl = cardEl.querySelector('.page-header, .cover-overlay');
+          if (headerEl) {
+            headerEl.style.cursor = 'pointer';
+            headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+            headerEl.addEventListener('click', function() {
+              playTrackAtIndex(idx);
+            });
+          }
+        }
+      });
+    }
+
+    storyAudio.addEventListener('timeupdate', function() {
+      if (usingSpeechSynth) return;
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
+
+        if (isSingleFullTrack) {
+          const allCards = getAllPageCards();
+          if (allCards.length > 0) {
+            const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+            highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+          }
+        }
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        if (usingSpeechSynth) return;
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
-
-        utterance.onerror = () => {
-          stopSpeech();
-        };
-
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (usingSpeechSynth) return;
+      if (currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>
