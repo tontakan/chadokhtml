@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_0_15322020886440261889.jpg" alt="มิตตาจินตีชาดก: ปัญญาพาพ้นภัย" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">มิตตาจินตีชาดก: ปัญญาพาพ้นภัย</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_1_5828752216085655120.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในแม่น้ำกว้างใหญ่ที่ไหลเอื่อยผ่านหุบเขาเขียวขจี เป็นที่อยู่อาศัยของปลาสามสหาย มิตตาจินตีเป็นปลาที่มีปัญญาและช่างสังเกต เขาชอบว่ายน้ำไปตามกระแสเพื่อเรียนรู้โลกกว้าง ส่วนพหุจินตีมักจะกังวลและคิดมากเกินไปจนไม่ได้ทำอะไรเลย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_2_1159497641017216189.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สหายตัวที่สามคือ อัปปจินตี เขาเป็นปลาที่ร่าเริงและรักความสนุกสนาน แต่มักจะประมาทและไม่เคยคิดถึงอนาคต มิตตาจินตีเตือนเพื่อนๆ เสมอว่า &quot;ฤดูแล้งกำลังจะมาถึง น้ำในแม่น้ำจะแห้งขอด พวกเราควรย้ายไปอยู่บึงใหญ่ที่ลึกกว่านี้เถอะ&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_3_2201753258204194382.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พหุจินตีนิ่งคิดอยู่นานแล้วพูดว่า &quot;ข้ายังคิดไม่ตกเลยว่าทางไปบึงใหญ่นั้นปลอดภัยจริงไหม&quot; ส่วนอัปปจินตีก็หัวเราะแล้วบอกว่า &quot;จะรีบไปทำไมกัน น้ำยังเหลือตั้งเยอะ สนุกกับวันนี้ก่อนดีกว่า!&quot; ทั้งสองไม่ยอมฟังคำเตือนของมิตตาจินตีเลย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_4_16063853532558051970.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เช้าตรู่วันหนึ่ง ขณะที่แสงอาทิตย์สีทองเพิ่งจับขอบฟ้า ชาวประมงสองคนเดินมาที่ริมน้ำพร้อมกับข่ายตาข่ายผืนใหญ่ พวกเขามองเห็นฝูงปลาที่รวมตัวกันอยู่ในบริเวณน้ำตื้นและเตรียมพร้อมที่จะทอดแห</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_5_2203422620665173295.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;ฟึ่บ!&quot; แหผืนใหญ่ถูกทอดลงมาครอบคลุมพื้นที่น้ำตื้นนั้นไว้ทั้งหมด พหุจินตีและอัปปจินตีตกใจสุดขีด พวกเขาว่ายวนไปมาชนกันเองด้วยความตื่นตระหนกจนหาทางออกไม่เจอ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_6_6290254467324610524.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>มิตตาจินตีซึ่งว่ายตามมาดูเพื่อนด้วยความเป็นห่วง เห็นสถานการณ์คับขัน เขาไม่ได้หนีไปคนเดียวแต่กลับตัดสินใจว่ายเข้าไปใกล้แหเพื่อหาทางช่วยเพื่อนๆ ด้วยสติที่มั่นคง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_7_10596730135515464978.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>มิตตาจินตีแสร้งทำเป็นติดแหไปด้วย เขาแกล้งนอนนิ่งๆ หงายท้องขึ้น ลอยเท้งเต้งเหมือนปลาที่ตายมานานแล้ว เขากลั้นหายใจและไม่ขยับครีบแม้แต่น้อย เมื่อชาวประมงคนหนึ่งยกแหขึ้นมาดู ก็เห็นมิตตาจินตีนอนนิ่งอยู่</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_8_763384145243034351.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;ปลาตัวนี้ตายจนเน่าแล้วนี่นา กลิ่นเหม็นโชยมาเลย&quot; ชาวประมงกล่าวด้วยความเสียดาย แล้วเขาก็หยิบมิตตาจินตีออกจากแหแล้วขว้างกลับลงไปในแม่น้ำ มิตตาจินตีรอดพ้นจากเงื้อมมือมาได้ด้วยอุบายนี้</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_9_1882442092948513231.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อกลับลงน้ำ มิตตาจินตีรีบว่ายไปที่ใต้แห เขาใช้พละกำลังทั้งหมดกระแทกและดึงที่ตาข่ายจนเกิดช่องว่างพอที่จะให้ปลาตัวอื่นรอดออกมาได้ เขาพยายามทำสัญญาณบอกเพื่อนๆ ให้รู้ตัว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_10_16063699674426912824.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พหุจินตีและอัปปจินตีเห็นช่องว่างนั้น ทั้งสองรีบว่ายรอดผ่านรูแหออกมาได้ทันเวลาก่อนที่ชาวประมงจะลากแหขึ้นฝั่ง ทั้งคู่รู้สึกโล่งใจและซาบซึ้งในความช่วยเหลือของเพื่อนรัก</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_11_10261755965021752874.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ปลาทั้งสามสหายว่ายน้ำอย่างสุดชีวิตหนีออกจากบริเวณนั้น จนมาถึงบึงน้ำลึกที่ปลอดภัย มิตตาจินตีและพหุจินตีหยุดพักหายใจใต้ร่มเงาของใบบัวขนาดใหญ่ที่ปกคลุมผิวน้ำ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./114 มิตตาจินตีชาดก_files/storybook_page_12_15863642069591541490.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อัปปจินตีกล่าวขอบคุณมิตตาจินตีด้วยความจริงใจ &quot;ถ้าไม่มีปัญญาและสติของเจ้า พวกเราคงกลายเป็นอาหารของมนุษย์ไปแล้ว&quot; ตั้งแต่นั้นมา ปลาทั้งสามก็ใช้ชีวิตอย่างไม่ประมาทและเชื่อฟังคำแนะนำที่หวังดีต่อกันเสมอ</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_0_15322020886440261889.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="มิตตาจินตีชาดก: ปัญญาพาพ้นภัย" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">มิตตาจินตีชาดก: ปัญญาพาพ้นภัย</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_1_5828752216085655120.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในแม่น้ำกว้างใหญ่ที่ไหลเอื่อยผ่านหุบเขาเขียวขจี เป็นที่อยู่อาศัยของปลาสามสหาย มิตตาจินตีเป็นปลาที่มีปัญญาและช่างสังเกต เขาชอบว่ายน้ำไปตามกระแสเพื่อเรียนรู้โลกกว้าง ส่วนพหุจินตีมักจะกังวลและคิดมากเกินไปจนไม่ได้ทำอะไรเลย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_2_1159497641017216189.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สหายตัวที่สามคือ อัปปจินตี เขาเป็นปลาที่ร่าเริงและรักความสนุกสนาน แต่มักจะประมาทและไม่เคยคิดถึงอนาคต มิตตาจินตีเตือนเพื่อนๆ เสมอว่า "ฤดูแล้งกำลังจะมาถึง น้ำในแม่น้ำจะแห้งขอด พวกเราควรย้ายไปอยู่บึงใหญ่ที่ลึกกว่านี้เถอะ"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_3_2201753258204194382.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พหุจินตีนิ่งคิดอยู่นานแล้วพูดว่า "ข้ายังคิดไม่ตกเลยว่าทางไปบึงใหญ่นั้นปลอดภัยจริงไหม" ส่วนอัปปจินตีก็หัวเราะแล้วบอกว่า "จะรีบไปทำไมกัน น้ำยังเหลือตั้งเยอะ สนุกกับวันนี้ก่อนดีกว่า!" ทั้งสองไม่ยอมฟังคำเตือนของมิตตาจินตีเลย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_4_16063853532558051970.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เช้าตรู่วันหนึ่ง ขณะที่แสงอาทิตย์สีทองเพิ่งจับขอบฟ้า ชาวประมงสองคนเดินมาที่ริมน้ำพร้อมกับข่ายตาข่ายผืนใหญ่ พวกเขามองเห็นฝูงปลาที่รวมตัวกันอยู่ในบริเวณน้ำตื้นและเตรียมพร้อมที่จะทอดแห</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_5_2203422620665173295.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"ฟึ่บ!" แหผืนใหญ่ถูกทอดลงมาครอบคลุมพื้นที่น้ำตื้นนั้นไว้ทั้งหมด พหุจินตีและอัปปจินตีตกใจสุดขีด พวกเขาว่ายวนไปมาชนกันเองด้วยความตื่นตระหนกจนหาทางออกไม่เจอ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_6_6290254467324610524.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มิตตาจินตีซึ่งว่ายตามมาดูเพื่อนด้วยความเป็นห่วง เห็นสถานการณ์คับขัน เขาไม่ได้หนีไปคนเดียวแต่กลับตัดสินใจว่ายเข้าไปใกล้แหเพื่อหาทางช่วยเพื่อนๆ ด้วยสติที่มั่นคง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_7_10596730135515464978.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มิตตาจินตีแสร้งทำเป็นติดแหไปด้วย เขาแกล้งนอนนิ่งๆ หงายท้องขึ้น ลอยเท้งเต้งเหมือนปลาที่ตายมานานแล้ว เขากลั้นหายใจและไม่ขยับครีบแม้แต่น้อย เมื่อชาวประมงคนหนึ่งยกแหขึ้นมาดู ก็เห็นมิตตาจินตีนอนนิ่งอยู่</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_8_763384145243034351.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"ปลาตัวนี้ตายจนเน่าแล้วนี่นา กลิ่นเหม็นโชยมาเลย" ชาวประมงกล่าวด้วยความเสียดาย แล้วเขาก็หยิบมิตตาจินตีออกจากแหแล้วขว้างกลับลงไปในแม่น้ำ มิตตาจินตีรอดพ้นจากเงื้อมมือมาได้ด้วยอุบายนี้</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_9_1882442092948513231.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อกลับลงน้ำ มิตตาจินตีรีบว่ายไปที่ใต้แห เขาใช้พละกำลังทั้งหมดกระแทกและดึงที่ตาข่ายจนเกิดช่องว่างพอที่จะให้ปลาตัวอื่นรอดออกมาได้ เขาพยายามทำสัญญาณบอกเพื่อนๆ ให้รู้ตัว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_10_16063699674426912824.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พหุจินตีและอัปปจินตีเห็นช่องว่างนั้น ทั้งสองรีบว่ายรอดผ่านรูแหออกมาได้ทันเวลาก่อนที่ชาวประมงจะลากแหขึ้นฝั่ง ทั้งคู่รู้สึกโล่งใจและซาบซึ้งในความช่วยเหลือของเพื่อนรัก</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_11_10261755965021752874.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ปลาทั้งสามสหายว่ายน้ำอย่างสุดชีวิตหนีออกจากบริเวณนั้น จนมาถึงบึงน้ำลึกที่ปลอดภัย มิตตาจินตีและพหุจินตีหยุดพักหายใจใต้ร่มเงาของใบบัวขนาดใหญ่ที่ปกคลุมผิวน้ำ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./114 มิตตาจินตีชาดก_files/storybook_page_12_15863642069591541490.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อัปปจินตีกล่าวขอบคุณมิตตาจินตีด้วยความจริงใจ "ถ้าไม่มีปัญญาและสติของเจ้า พวกเราคงกลายเป็นอาหารของมนุษย์ไปแล้ว" ตั้งแต่นั้นมา ปลาทั้งสามก็ใช้ชีวิตอย่างไม่ประมาทและเชื่อฟังคำแนะนำที่หวังดีต่อกันเสมอ</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "ในแม่น้ำกว้างใหญ่ที่ไหลเอื่อยผ่านหุบเขาเขียวขจี เป็นที่อยู่อาศัยของปลาสามสหาย มิตตาจินตีเป็นปลาที่มีปัญญาและช่างสังเกต เขาชอบว่ายน้ำไปตามกระแสเพื่อเรียนรู้โลกกว้าง ส่วนพหุจินตีมักจะกังวลและคิดมากเกินไปจนไม่ได้ทำอะไรเลย สหายตัวที่สามคือ อัปปจินตี เขาเป็นปลาที่ร่าเริงและรักความสนุกสนาน แต่มักจะประมาทและไม่เคยคิดถึงอนาคต มิตตาจินตีเตือนเพื่อนๆ เสมอว่า \"ฤดูแล้งกำลังจะมาถึง น้ำในแม่น้ำจะแห้งขอด พวกเราควรย้ายไปอยู่บึงใหญ่ที่ลึกกว่านี้เถอะ\" พหุจินตีนิ่งคิดอยู่นานแล้วพูดว่า \"ข้ายังคิดไม่ตกเลยว่าทางไปบึงใหญ่นั้นปลอดภัยจริงไหม\" ส่วนอัปปจินตีก็หัวเราะแล้วบอกว่า \"จะรีบไปทำไมกัน น้ำยังเหลือตั้งเยอะ สนุกกับวันนี้ก่อนดีกว่า!\" ทั้งสองไม่ยอมฟังคำเตือนของมิตตาจินตีเลย เช้าตรู่วันหนึ่ง ขณะที่แสงอาทิตย์สีทองเพิ่งจับขอบฟ้า ชาวประมงสองคนเดินมาที่ริมน้ำพร้อมกับข่ายตาข่ายผืนใหญ่ พวกเขามองเห็นฝูงปลาที่รวมตัวกันอยู่ในบริเวณน้ำตื้นและเตรียมพร้อมที่จะทอดแห \"ฟึ่บ!\" แหผืนใหญ่ถูกทอดลงมาครอบคลุมพื้นที่น้ำตื้นนั้นไว้ทั้งหมด พหุจินตีและอัปปจินตีตกใจสุดขีด พวกเขาว่ายวนไปมาชนกันเองด้วยความตื่นตระหนกจนหาทางออกไม่เจอ มิตตาจินตีซึ่งว่ายตามมาดูเพื่อนด้วยความเป็นห่วง เห็นสถานการณ์คับขัน เขาไม่ได้หนีไปคนเดียวแต่กลับตัดสินใจว่ายเข้าไปใกล้แหเพื่อหาทางช่วยเพื่อนๆ ด้วยสติที่มั่นคง มิตตาจินตีแสร้งทำเป็นติดแหไปด้วย เขาแกล้งนอนนิ่งๆ หงายท้องขึ้น ลอยเท้งเต้งเหมือนปลาที่ตายมานานแล้ว เขากลั้นหายใจและไม่ขยับครีบแม้แต่น้อย เมื่อชาวประมงคนหนึ่งยกแหขึ้นมาดู ก็เห็นมิตตาจินตีนอนนิ่งอยู่ \"ปลาตัวนี้ตายจนเน่าแล้วนี่นา กลิ่นเหม็นโชยมาเลย\" ชาวประมงกล่าวด้วยความเสียดาย แล้วเขาก็หยิบมิตตาจินตีออกจากแหแล้วขว้างกลับลงไปในแม่น้ำ มิตตาจินตีรอดพ้นจากเงื้อมมือมาได้ด้วยอุบายนี้ เมื่อกลับลงน้ำ มิตตาจินตีรีบว่ายไปที่ใต้แห เขาใช้พละกำลังทั้งหมดกระแทกและดึงที่ตาข่ายจนเกิดช่องว่างพอที่จะให้ปลาตัวอื่นรอดออกมาได้ เขาพยายามทำสัญญาณบอกเพื่อนๆ ให้รู้ตัว พหุจินตีและอัปปจินตีเห็นช่องว่างนั้น ทั้งสองรีบว่ายรอดผ่านรูแหออกมาได้ทันเวลาก่อนที่ชาวประมงจะลากแหขึ้นฝั่ง ทั้งคู่รู้สึกโล่งใจและซาบซึ้งในความช่วยเหลือของเพื่อนรัก ปลาทั้งสามสหายว่ายน้ำอย่างสุดชีวิตหนีออกจากบริเวณนั้น จนมาถึงบึงน้ำลึกที่ปลอดภัย มิตตาจินตีและพหุจินตีหยุดพักหายใจใต้ร่มเงาของใบบัวขนาดใหญ่ที่ปกคลุมผิวน้ำ อัปปจินตีกล่าวขอบคุณมิตตาจินตีด้วยความจริงใจ \"ถ้าไม่มีปัญญาและสติของเจ้า พวกเราคงกลายเป็นอาหารของมนุษย์ไปแล้ว\" ตั้งแต่นั้นมา ปลาทั้งสามก็ใช้ชีวิตอย่างไม่ประมาทและเชื่อฟังคำแนะนำที่หวังดีต่อกันเสมอ";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/114-00-d54bbcf0.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/114-01-d9edbf1e.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/114-02-70df9d4f.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/114-03-6c1e2e93.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/114-04-25a3b498.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/114-05-a56cef3a.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/114-06-15dbdc50.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/114-07-aa38825c.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/114-08-6188e35b.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/114-09-87719c4b.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/114-10-2e822c9c.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/114-11-4a37ab63.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/114-12-74e435aa.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

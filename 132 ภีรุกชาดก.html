@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_0_3857196822389821352.jpg" alt="หัวใจที่มั่นคงของมาตังคะและสินธุ: บทเรียนจากภีรุกชาดก" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">หัวใจที่มั่นคงของมาตังคะและสินธุ: บทเรียนจากภีรุกชาดก</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_1_17708599701656949937.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งในนครพาราณสีอันรุ่งเรือง เมื่อฤดูฝนมาเยือน ท้องฟ้ามักจะถูกปกคลุมด้วยเมฆสีเทาครึ้มและเสียงฟ้าร้องที่ดังกึกก้องไปทั่วพระราชวัง ในเมืองแห่งนี้มีราชบัณฑิตผู้มีความรู้อย่างลึกซึ้งเกี่ยวกับการฝึกจิตใจนามว่า &quot;สุมาติ&quot; เขาเชื่อว่าความกลัวไม่ได้เกิดจากสิ่งที่อยู่ภายนอก แต่เกิดจากใจที่ยังไม่ได้รับการฝึกฝน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_2_6261245797676890085.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในโรงช้างและโรงม้าของพระราชา มีช้างศึกร่างสูงใหญ่ชื่อ &quot;มาตังคะ&quot; และม้าศึกฝีเท้าเร็วชื่อ &quot;สินธุ&quot; ทั้งสองเป็นสัตว์ที่แข็งแกร่งที่สุดในกองทัพ แต่พวกเขามีจุดอ่อนที่เหมือนกันคือ ทุกครั้งที่เกิดเสียงฟ้าร้อง มาตังคะจะชูงวงร้องด้วยความตกใจ ส่วนสินธุจะสะบัดตัวจนคนขี่เกือบตก</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_3_2586727835683370339.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อพายุพัดมาและสายฟ้าฟาดลงมากลางดึก เสียง &quot;เปรี้ยง!&quot; ดังสนั่นจนแผ่นดินสะเทือน มาตังคะตื่นตกใจจนทำลายคอกกั้น ส่วนสินธุพยายามกระโดดข้ามรั้วด้วยความหวาดกลัวอย่างหนัก ความกลัวของพวกเขาสร้างความวุ่นวายไปทั่วทั้งพระราชวัง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_4_2423289679868716513.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระเจ้าพรหมทัตทรงกังวลพระทัยยิ่งนัก เพราะม้าและช้างที่ไม่กล้าหาญย่อมไม่สามารถออกศึกได้ พระองค์จึงเรียกสุมาติมาเข้าเฝ้า &quot;ท่านสุมาติ ช่วยฝึกสัตว์ทั้งสองนี้ให้มีความใจเด็ดเดี่ยว ไม่หวั่นไหวต่อเสียงฟ้าได้หรือไม่?&quot; สุมาติยิ้มรับและกะพริบตาอย่างใจดี</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_5_7776094434272981984.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สุมาติเริ่มต้นการฝึกด้วยความอดทน เขาไม่ได้นำพวกมันไปเผชิญพายุในทันที แต่เขานำกลองใบใหญ่มาวางไว้ข้างๆ สินธุ ในขณะที่สินธุกำลังกินหญ้า สุมาติค่อยๆ ตีกลองเบาๆ ให้เกิดเสียง &quot;ครืน... ครืน...&quot; เพื่อให้ม้าหนุ่มคุ้นเคยกับเสียงที่คล้ายฟ้าร้อง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_6_4878610377994019072.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ต่อมาสุมาติเดินไปหามาตังคะ เขาใช้มือลูบงวงของช้างใหญ่ด้วยความเมตตา ขณะที่มืออีกข้างหนึ่งตีกลองให้ดังขึ้นอีกนิด &quot;ดูเถิดมาตังคะ เสียงนี้เป็นเพียงเสียงสั่นสะเทือนของอากาศ มันทำอะไรเจ้าไม่ได้หากเจ้ามีสติ&quot; สุมาติกระซิบบอกช้างใหญ่</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_7_17747022295672532361.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันต่อมา สุมาตินำทั้งมาตังคะและสินธุมาอยู่ด้วยกัน เขาให้รางวัลเป็นผลไม้อร่อยๆ ทุกครั้งที่เขาส่งเสียงดังหรือตีกลอง สัตว์ทั้งสองเริ่มเรียนรู้ว่าเสียงดังนั้นไม่ได้นำมาซึ่งอันตราย แต่มันเป็นเพียงสัญญาณของรางวัลและความรักจากครูฝึกของพวกเขา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_8_4980218668490643516.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทันใดนั้น เมฆดำทมิฬก็เคลื่อนตัวมาเหนือพระราชวังอีกครั้ง ลมกระโชกแรงและกลิ่นฝนลอยมาในอากาศ สุมาติพาสัตว์ทั้งสองออกไปยืนกลางลานกว้าง เขาไม่ยอมให้พวกมันหนีเข้าคอก &quot;จงดูเถิด ความจริงกำลังจะมาถึงแล้ว&quot; เขาบอกกับมาตังคะ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_9_10809730700376630210.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เสียงฟ้าร้องเริ่มดังขึ้น &quot;เปรี้ยง!&quot; สินธุตกใจจนเกือบจะสะบัดตัววิ่งหนี แต่สุมาติรีบเดินเข้าไปจับบังเหียนและสบตาของมัน &quot;สินธุ ลมหายใจของเจ้าคือโล่กำบัง จงหายใจลึกๆ และรู้เท่าทันเสียงนั้น&quot; สุมาติกล่าวด้วยน้ำเสียงที่มั่นคงยิ่งกว่าเสียงฟ้า</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_10_15566141168679567455.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สายฟ้าฟาดลงมาอีกครั้ง แสงสว่างจ้ากระจายไปทั่วท้องฟ้า มาตังคะยืนนิ่ง ไม่ขยับเขยื้อนแม้แต่นิดเดียว สินธุเองก็เริ่มยืนได้อย่างมั่นคง ขาทั้งสี่ข้างของพวกเขารู้สึกถึงความแข็งแกร่งของแผ่นดิน พวกเขาค้นพบว่าเสียงฟ้าร้องนั้นเป็นเพียงเสียงของธรรมชาติ ไม่ใช่สัตว์ประหลาดที่น่ากลัว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_11_10645033156416944680.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อพายุสงบลง ท้องฟ้าเปิดกว้างและมีรุ้งกินน้ำปรากฏขึ้น สุมาติยิ้มด้วยความภูมิใจ เขาตบที่ข้างตัวของมาตังคะเบาๆ &quot;เจ้าทำได้แล้ว ความกลัวหายไปเพราะเจ้าเข้าใจความจริง&quot; มาตังคะส่งเสียงร้องเบาๆ อย่างมีความสุขโดยไม่มีความตื่นตระหนกเหลืออยู่เลย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./132 ภีรุกชาดก_files/storybook_page_12_852708363133137492.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระเจ้าพรหมทัตทรงพระราชทานรางวัลแก่สุมาติอย่างงาม มาตังคะและสินธุได้กลายเป็นช้างศึกและม้าศึกที่กล้าหาญที่สุดในแผ่นดิน พวกเขาไม่เคยเกรงกลัวต่อสิ่งใดอีกเลย เพราะหัวใจของพวกเขาได้รับการฝึกฝนให้มั่นคงราวกับขุนเขาจากการสอนของราชบัณฑิตผู้ชาญฉลาด</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_0_3857196822389821352.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="หัวใจที่มั่นคงของมาตังคะและสินธุ: บทเรียนจากภีรุกชาดก" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">หัวใจที่มั่นคงของมาตังคะและสินธุ: บทเรียนจากภีรุกชาดก</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_1_17708599701656949937.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งในนครพาราณสีอันรุ่งเรือง เมื่อฤดูฝนมาเยือน ท้องฟ้ามักจะถูกปกคลุมด้วยเมฆสีเทาครึ้มและเสียงฟ้าร้องที่ดังกึกก้องไปทั่วพระราชวัง ในเมืองแห่งนี้มีราชบัณฑิตผู้มีความรู้อย่างลึกซึ้งเกี่ยวกับการฝึกจิตใจนามว่า "สุมาติ" เขาเชื่อว่าความกลัวไม่ได้เกิดจากสิ่งที่อยู่ภายนอก แต่เกิดจากใจที่ยังไม่ได้รับการฝึกฝน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_2_6261245797676890085.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในโรงช้างและโรงม้าของพระราชา มีช้างศึกร่างสูงใหญ่ชื่อ "มาตังคะ" และม้าศึกฝีเท้าเร็วชื่อ "สินธุ" ทั้งสองเป็นสัตว์ที่แข็งแกร่งที่สุดในกองทัพ แต่พวกเขามีจุดอ่อนที่เหมือนกันคือ ทุกครั้งที่เกิดเสียงฟ้าร้อง มาตังคะจะชูงวงร้องด้วยความตกใจ ส่วนสินธุจะสะบัดตัวจนคนขี่เกือบตก</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_3_2586727835683370339.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อพายุพัดมาและสายฟ้าฟาดลงมากลางดึก เสียง "เปรี้ยง!" ดังสนั่นจนแผ่นดินสะเทือน มาตังคะตื่นตกใจจนทำลายคอกกั้น ส่วนสินธุพยายามกระโดดข้ามรั้วด้วยความหวาดกลัวอย่างหนัก ความกลัวของพวกเขาสร้างความวุ่นวายไปทั่วทั้งพระราชวัง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_4_2423289679868716513.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าพรหมทัตทรงกังวลพระทัยยิ่งนัก เพราะม้าและช้างที่ไม่กล้าหาญย่อมไม่สามารถออกศึกได้ พระองค์จึงเรียกสุมาติมาเข้าเฝ้า "ท่านสุมาติ ช่วยฝึกสัตว์ทั้งสองนี้ให้มีความใจเด็ดเดี่ยว ไม่หวั่นไหวต่อเสียงฟ้าได้หรือไม่?" สุมาติยิ้มรับและกะพริบตาอย่างใจดี</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_5_7776094434272981984.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สุมาติเริ่มต้นการฝึกด้วยความอดทน เขาไม่ได้นำพวกมันไปเผชิญพายุในทันที แต่เขานำกลองใบใหญ่มาวางไว้ข้างๆ สินธุ ในขณะที่สินธุกำลังกินหญ้า สุมาติค่อยๆ ตีกลองเบาๆ ให้เกิดเสียง "ครืน... ครืน..." เพื่อให้ม้าหนุ่มคุ้นเคยกับเสียงที่คล้ายฟ้าร้อง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_6_4878610377994019072.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ต่อมาสุมาติเดินไปหามาตังคะ เขาใช้มือลูบงวงของช้างใหญ่ด้วยความเมตตา ขณะที่มืออีกข้างหนึ่งตีกลองให้ดังขึ้นอีกนิด "ดูเถิดมาตังคะ เสียงนี้เป็นเพียงเสียงสั่นสะเทือนของอากาศ มันทำอะไรเจ้าไม่ได้หากเจ้ามีสติ" สุมาติกระซิบบอกช้างใหญ่</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_7_17747022295672532361.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันต่อมา สุมาตินำทั้งมาตังคะและสินธุมาอยู่ด้วยกัน เขาให้รางวัลเป็นผลไม้อร่อยๆ ทุกครั้งที่เขาส่งเสียงดังหรือตีกลอง สัตว์ทั้งสองเริ่มเรียนรู้ว่าเสียงดังนั้นไม่ได้นำมาซึ่งอันตราย แต่มันเป็นเพียงสัญญาณของรางวัลและความรักจากครูฝึกของพวกเขา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_8_4980218668490643516.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทันใดนั้น เมฆดำทมิฬก็เคลื่อนตัวมาเหนือพระราชวังอีกครั้ง ลมกระโชกแรงและกลิ่นฝนลอยมาในอากาศ สุมาติพาสัตว์ทั้งสองออกไปยืนกลางลานกว้าง เขาไม่ยอมให้พวกมันหนีเข้าคอก "จงดูเถิด ความจริงกำลังจะมาถึงแล้ว" เขาบอกกับมาตังคะ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_9_10809730700376630210.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เสียงฟ้าร้องเริ่มดังขึ้น "เปรี้ยง!" สินธุตกใจจนเกือบจะสะบัดตัววิ่งหนี แต่สุมาติรีบเดินเข้าไปจับบังเหียนและสบตาของมัน "สินธุ ลมหายใจของเจ้าคือโล่กำบัง จงหายใจลึกๆ และรู้เท่าทันเสียงนั้น" สุมาติกล่าวด้วยน้ำเสียงที่มั่นคงยิ่งกว่าเสียงฟ้า</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_10_15566141168679567455.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สายฟ้าฟาดลงมาอีกครั้ง แสงสว่างจ้ากระจายไปทั่วท้องฟ้า มาตังคะยืนนิ่ง ไม่ขยับเขยื้อนแม้แต่นิดเดียว สินธุเองก็เริ่มยืนได้อย่างมั่นคง ขาทั้งสี่ข้างของพวกเขารู้สึกถึงความแข็งแกร่งของแผ่นดิน พวกเขาค้นพบว่าเสียงฟ้าร้องนั้นเป็นเพียงเสียงของธรรมชาติ ไม่ใช่สัตว์ประหลาดที่น่ากลัว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_11_10645033156416944680.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อพายุสงบลง ท้องฟ้าเปิดกว้างและมีรุ้งกินน้ำปรากฏขึ้น สุมาติยิ้มด้วยความภูมิใจ เขาตบที่ข้างตัวของมาตังคะเบาๆ "เจ้าทำได้แล้ว ความกลัวหายไปเพราะเจ้าเข้าใจความจริง" มาตังคะส่งเสียงร้องเบาๆ อย่างมีความสุขโดยไม่มีความตื่นตระหนกเหลืออยู่เลย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./132 ภีรุกชาดก_files/storybook_page_12_852708363133137492.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าพรหมทัตทรงพระราชทานรางวัลแก่สุมาติอย่างงาม มาตังคะและสินธุได้กลายเป็นช้างศึกและม้าศึกที่กล้าหาญที่สุดในแผ่นดิน พวกเขาไม่เคยเกรงกลัวต่อสิ่งใดอีกเลย เพราะหัวใจของพวกเขาได้รับการฝึกฝนให้มั่นคงราวกับขุนเขาจากการสอนของราชบัณฑิตผู้ชาญฉลาด</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งในนครพาราณสีอันรุ่งเรือง เมื่อฤดูฝนมาเยือน ท้องฟ้ามักจะถูกปกคลุมด้วยเมฆสีเทาครึ้มและเสียงฟ้าร้องที่ดังกึกก้องไปทั่วพระราชวัง ในเมืองแห่งนี้มีราชบัณฑิตผู้มีความรู้อย่างลึกซึ้งเกี่ยวกับการฝึกจิตใจนามว่า \"สุมาติ\" เขาเชื่อว่าความกลัวไม่ได้เกิดจากสิ่งที่อยู่ภายนอก แต่เกิดจากใจที่ยังไม่ได้รับการฝึกฝน ในโรงช้างและโรงม้าของพระราชา มีช้างศึกร่างสูงใหญ่ชื่อ \"มาตังคะ\" และม้าศึกฝีเท้าเร็วชื่อ \"สินธุ\" ทั้งสองเป็นสัตว์ที่แข็งแกร่งที่สุดในกองทัพ แต่พวกเขามีจุดอ่อนที่เหมือนกันคือ ทุกครั้งที่เกิดเสียงฟ้าร้อง มาตังคะจะชูงวงร้องด้วยความตกใจ ส่วนสินธุจะสะบัดตัวจนคนขี่เกือบตก เมื่อพายุพัดมาและสายฟ้าฟาดลงมากลางดึก เสียง \"เปรี้ยง!\" ดังสนั่นจนแผ่นดินสะเทือน มาตังคะตื่นตกใจจนทำลายคอกกั้น ส่วนสินธุพยายามกระโดดข้ามรั้วด้วยความหวาดกลัวอย่างหนัก ความกลัวของพวกเขาสร้างความวุ่นวายไปทั่วทั้งพระราชวัง พระเจ้าพรหมทัตทรงกังวลพระทัยยิ่งนัก เพราะม้าและช้างที่ไม่กล้าหาญย่อมไม่สามารถออกศึกได้ พระองค์จึงเรียกสุมาติมาเข้าเฝ้า \"ท่านสุมาติ ช่วยฝึกสัตว์ทั้งสองนี้ให้มีความใจเด็ดเดี่ยว ไม่หวั่นไหวต่อเสียงฟ้าได้หรือไม่?\" สุมาติยิ้มรับและกะพริบตาอย่างใจดี สุมาติเริ่มต้นการฝึกด้วยความอดทน เขาไม่ได้นำพวกมันไปเผชิญพายุในทันที แต่เขานำกลองใบใหญ่มาวางไว้ข้างๆ สินธุ ในขณะที่สินธุกำลังกินหญ้า สุมาติค่อยๆ ตีกลองเบาๆ ให้เกิดเสียง \"ครืน... ครืน...\" เพื่อให้ม้าหนุ่มคุ้นเคยกับเสียงที่คล้ายฟ้าร้อง ต่อมาสุมาติเดินไปหามาตังคะ เขาใช้มือลูบงวงของช้างใหญ่ด้วยความเมตตา ขณะที่มืออีกข้างหนึ่งตีกลองให้ดังขึ้นอีกนิด \"ดูเถิดมาตังคะ เสียงนี้เป็นเพียงเสียงสั่นสะเทือนของอากาศ มันทำอะไรเจ้าไม่ได้หากเจ้ามีสติ\" สุมาติกระซิบบอกช้างใหญ่ วันต่อมา สุมาตินำทั้งมาตังคะและสินธุมาอยู่ด้วยกัน เขาให้รางวัลเป็นผลไม้อร่อยๆ ทุกครั้งที่เขาส่งเสียงดังหรือตีกลอง สัตว์ทั้งสองเริ่มเรียนรู้ว่าเสียงดังนั้นไม่ได้นำมาซึ่งอันตราย แต่มันเป็นเพียงสัญญาณของรางวัลและความรักจากครูฝึกของพวกเขา ทันใดนั้น เมฆดำทมิฬก็เคลื่อนตัวมาเหนือพระราชวังอีกครั้ง ลมกระโชกแรงและกลิ่นฝนลอยมาในอากาศ สุมาติพาสัตว์ทั้งสองออกไปยืนกลางลานกว้าง เขาไม่ยอมให้พวกมันหนีเข้าคอก \"จงดูเถิด ความจริงกำลังจะมาถึงแล้ว\" เขาบอกกับมาตังคะ เสียงฟ้าร้องเริ่มดังขึ้น \"เปรี้ยง!\" สินธุตกใจจนเกือบจะสะบัดตัววิ่งหนี แต่สุมาติรีบเดินเข้าไปจับบังเหียนและสบตาของมัน \"สินธุ ลมหายใจของเจ้าคือโล่กำบัง จงหายใจลึกๆ และรู้เท่าทันเสียงนั้น\" สุมาติกล่าวด้วยน้ำเสียงที่มั่นคงยิ่งกว่าเสียงฟ้า สายฟ้าฟาดลงมาอีกครั้ง แสงสว่างจ้ากระจายไปทั่วท้องฟ้า มาตังคะยืนนิ่ง ไม่ขยับเขยื้อนแม้แต่นิดเดียว สินธุเองก็เริ่มยืนได้อย่างมั่นคง ขาทั้งสี่ข้างของพวกเขารู้สึกถึงความแข็งแกร่งของแผ่นดิน พวกเขาค้นพบว่าเสียงฟ้าร้องนั้นเป็นเพียงเสียงของธรรมชาติ ไม่ใช่สัตว์ประหลาดที่น่ากลัว เมื่อพายุสงบลง ท้องฟ้าเปิดกว้างและมีรุ้งกินน้ำปรากฏขึ้น สุมาติยิ้มด้วยความภูมิใจ เขาตบที่ข้างตัวของมาตังคะเบาๆ \"เจ้าทำได้แล้ว ความกลัวหายไปเพราะเจ้าเข้าใจความจริง\" มาตังคะส่งเสียงร้องเบาๆ อย่างมีความสุขโดยไม่มีความตื่นตระหนกเหลืออยู่เลย พระเจ้าพรหมทัตทรงพระราชทานรางวัลแก่สุมาติอย่างงาม มาตังคะและสินธุได้กลายเป็นช้างศึกและม้าศึกที่กล้าหาญที่สุดในแผ่นดิน พวกเขาไม่เคยเกรงกลัวต่อสิ่งใดอีกเลย เพราะหัวใจของพวกเขาได้รับการฝึกฝนให้มั่นคงราวกับขุนเขาจากการสอนของราชบัณฑิตผู้ชาญฉลาด";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/132-00-9e3fdb2f.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/132-01-6715a0ea.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/132-02-24360d54.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/132-03-07472c71.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/132-04-467787a1.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/132-05-a2420922.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/132-06-436999bd.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/132-07-81b59122.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/132-08-0c016b81.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/132-09-ac10a219.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/132-10-24351cb9.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/132-11-980da1e9.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/132-12-1ee05127.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

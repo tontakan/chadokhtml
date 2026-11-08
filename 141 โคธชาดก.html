@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_0_17788327909299113488.jpg" alt="กิ้งก่าผู้หลงลืมตัวกับสร้อยทองแห่งอหังการ" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">กิ้งก่าผู้หลงลืมตัวกับสร้อยทองแห่งอหังการ</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_1_2507940298288180860.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ณ นครพาราณสีอันรุ่งเรือง พระเจ้าพรหมทัตผู้ครองเมืองมักจะเสด็จประพาสอุทยานหลวงเพื่อพักผ่อนพระทัย พระองค์เป็นกษัตริย์ที่มีพระเมตตาต่อเหล่าสรรพสัตว์ทั้งปวง ในอุทยานแห่งนี้มีกิ้งก่าตัวหนึ่งชื่อว่า โกธะ อาศัยอยู่ที่ซุ้มประตูทางเข้า ทุกครั้งที่พระราชาเสด็จผ่าน โกธะจะหมอบลงกับพื้น แสดงความเคารพอย่างนอบน้อมเสมอ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_2_15264959185152786075.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระเจ้าพรหมทัตทรงสังเกตเห็นกิริยาอันน่ารักของกิ้งก่าโกธะ พระองค์ทรงแย้มพระสรวลด้วยความเอ็นดู และดำริว่า &quot;กิ้งก่าตัวนี้ช่างรู้จักกาลเทศะและมีความอ่อนน้อมยิ่งนัก&quot; พระองค์จึงมีพระบัญชาให้วรุณ ผู้ดูแลอุทยาน นำเนื้อสัตว์ดิบมาเลี้ยงดูโกธะเป็นประจำทุกวัน เพื่อเป็นรางวัลในความมีมารยาทของมัน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_3_11443168625304641608.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ตั้งแต่นั้นมา วรุณก็นำเนื้อสัตว์มาให้โกธะกินทุกวันไม่เคยขาด โกธะอยู่อย่างสุขสบายจนตัวอ้วนท้วน มันรู้สึกขอบคุณพระราชาและวรุณเป็นอย่างมาก และยังคงหมอบกราบพระราชาด้วยความเคารพรักเหมือนเช่นเดิมทุกวันที่พระองค์เสด็จผ่านซุ้มประตู</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_4_13108203942984829043.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อยู่มาวันหนึ่ง เป็นวันหยุดนักขัตฤกษ์ที่ร้านขายเนื้อในเมืองปิดหมด วรุณไม่สามารถหาเนื้อมาให้โกธะได้ เขาจึงหยิบเหรียญทองคำที่มีสายคล้องคอมาเส้นหนึ่ง แล้วนำไปคล้องคอให้โกธะแทน พร้อมกับพูดว่า &quot;วันนี้ไม่มีเนื้อนะเจ้ากิ้งก่า เอาสร้อยทองนี้ไปใส่ประดับไว้ก่อนเถิด&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_5_8045962018762744040.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อโกธะได้รับสร้อยทองมาคล้องคอ ความคิดของมันก็เริ่มเปลี่ยนไป มันมองเงาตัวเองในน้ำแล้วเห็นสร้อยทองประกายวับแวม มันเริ่มรู้สึกว่าตัวเองสูงส่งกว่ากิ้งก่าตัวอื่นๆ &quot;ตอนนี้ข้ามีทองเท่ากับพระราชาแล้ว ข้าไม่ใช่กิ้งก่าธรรมดาอีกต่อไป&quot; โกธะคิดด้วยความลำพองใจ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_6_7418632223641363145.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เย็นวันนั้น เมื่อพระเจ้าพรหมทัตเสด็จประพาสอุทยานตามปกติ โกธะที่เคยหมอบกราบกลับนอนนิ่งอยู่บนซุ้มประตู มันไม่ได้หมอบลงเหมือนเคย แต่กลับชูคอตั้งบ่า มองข้ามพระเศียรของพระราชาไปอย่างไม่ใยดี เพราะคิดว่าตนเองนั้นร่ำรวยและยิ่งใหญ่ไม่แพ้กัน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_7_8992204932587138967.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>โกธะรำพึงในใจด้วยความเย่อหยิ่งว่า &quot;ทรัพย์สมบัติของพระราชาก็มีทอง ของข้าก็มีทอง แล้วเหตุใดข้าจะต้องก้มหัวให้มนุษย์ผู้นี้ด้วยเล่า? ข้ากับพระองค์ก็มีฐานะเสมอกันแล้ว&quot; มันหลับตาลงอย่างเกียจคร้าน แสดงท่าทางดูแคลนพระราชาอย่างเห็นได้ชัด</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_8_7287110329039042026.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระเจ้าพรหมทัตทรงประหลาดใจในการเปลี่ยนแปลงของกิ้งก่าตัวนี้ พระองค์ทรงหันไปปรึกษาสุเมธา อำมาตย์ผู้ชาญฉลาดที่ตามเสด็จมาด้วย &quot;ท่านสุเมธา เหตุใดกิ้งก่าที่เคยนอบน้อมตัวนี้ ถึงได้เปลี่ยนไปเป็นหยิ่งจองหองเพียงชั่วข้ามคืนเช่นนี้?&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_9_8706443926669171864.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สุเมธาอำมาตย์พินิจดูลักษณะของกิ้งก่าแล้วเห็นสร้อยทองที่คอของมัน เขาจึงทูลพระราชาว่า &quot;ขอเดชะ พระอาญาไม่พ้นเกล้า กิ้งก่าตัวนี้เปลี่ยนไปเพราะสร้อยทองเพียงเส้นเดียว มันหลงผิดคิดว่าเพียงแค่มีทรัพย์ภายนอก ก็ทำให้มันยิ่งใหญ่เทียบเท่าพระองค์ได้&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_10_4038123379777170730.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระเจ้าพรหมทัตทรงเข้าใจในทันที พระองค์ทรงดำเนินเข้าไปใกล้กิ้งก่าแล้วตรัสสอนใจว่า &quot;เจ้ากิ้งก่าเอ๋ย เพียงแค่ทองเส้นเล็กๆ นี้หรือ ที่ทำให้เจ้าลืมตัวและลืมบุญคุณ ความยิ่งใหญ่ไม่ได้วัดกันที่เครื่องประดับ แต่วัดกันที่ความดีงามและการรู้จักตน&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_11_16566396147225635187.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อพระราชาทรงมีพระบัญชา วรุณก็เข้ามาปลดสร้อยทองออกจากคอของโกธะ ทันทีที่เครื่องประดับนั้นหายไป โกธะก็รู้สึกถึงความจริงที่ว่ามันเป็นเพียงสัตว์ตัวเล็กๆ ตัวหนึ่งในอุทยาน ความอหังการที่เคยกดทับหัวใจมลายหายไป เหลือเพียงความอับอายและสำนึกผิด</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./141 โคธชาดก_files/storybook_page_12_6843729290189403933.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>โกธะรีบหมอบกราบลงที่พระบาทของพระเจ้าพรหมทัตอีกครั้งด้วยความละอายใจ พระราชาทรงให้อภัยและสอนว่า &quot;จงรักษาความอ่อนน้อมไว้ เพราะนั่นคือสมบัติที่แท้จริงของเจ้า&quot; ตั้งแต่นั้นมา โกธะก็ไม่เคยลืมตัวอีกเลย และอาศัยอยู่อย่างสงบสุขสืบไป</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_0_17788327909299113488.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="กิ้งก่าผู้หลงลืมตัวกับสร้อยทองแห่งอหังการ" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">กิ้งก่าผู้หลงลืมตัวกับสร้อยทองแห่งอหังการ</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_1_2507940298288180860.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ณ นครพาราณสีอันรุ่งเรือง พระเจ้าพรหมทัตผู้ครองเมืองมักจะเสด็จประพาสอุทยานหลวงเพื่อพักผ่อนพระทัย พระองค์เป็นกษัตริย์ที่มีพระเมตตาต่อเหล่าสรรพสัตว์ทั้งปวง ในอุทยานแห่งนี้มีกิ้งก่าตัวหนึ่งชื่อว่า โกธะ อาศัยอยู่ที่ซุ้มประตูทางเข้า ทุกครั้งที่พระราชาเสด็จผ่าน โกธะจะหมอบลงกับพื้น แสดงความเคารพอย่างนอบน้อมเสมอ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_2_15264959185152786075.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าพรหมทัตทรงสังเกตเห็นกิริยาอันน่ารักของกิ้งก่าโกธะ พระองค์ทรงแย้มพระสรวลด้วยความเอ็นดู และดำริว่า "กิ้งก่าตัวนี้ช่างรู้จักกาลเทศะและมีความอ่อนน้อมยิ่งนัก" พระองค์จึงมีพระบัญชาให้วรุณ ผู้ดูแลอุทยาน นำเนื้อสัตว์ดิบมาเลี้ยงดูโกธะเป็นประจำทุกวัน เพื่อเป็นรางวัลในความมีมารยาทของมัน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_3_11443168625304641608.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ตั้งแต่นั้นมา วรุณก็นำเนื้อสัตว์มาให้โกธะกินทุกวันไม่เคยขาด โกธะอยู่อย่างสุขสบายจนตัวอ้วนท้วน มันรู้สึกขอบคุณพระราชาและวรุณเป็นอย่างมาก และยังคงหมอบกราบพระราชาด้วยความเคารพรักเหมือนเช่นเดิมทุกวันที่พระองค์เสด็จผ่านซุ้มประตู</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_4_13108203942984829043.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อยู่มาวันหนึ่ง เป็นวันหยุดนักขัตฤกษ์ที่ร้านขายเนื้อในเมืองปิดหมด วรุณไม่สามารถหาเนื้อมาให้โกธะได้ เขาจึงหยิบเหรียญทองคำที่มีสายคล้องคอมาเส้นหนึ่ง แล้วนำไปคล้องคอให้โกธะแทน พร้อมกับพูดว่า "วันนี้ไม่มีเนื้อนะเจ้ากิ้งก่า เอาสร้อยทองนี้ไปใส่ประดับไว้ก่อนเถิด"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_5_8045962018762744040.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อโกธะได้รับสร้อยทองมาคล้องคอ ความคิดของมันก็เริ่มเปลี่ยนไป มันมองเงาตัวเองในน้ำแล้วเห็นสร้อยทองประกายวับแวม มันเริ่มรู้สึกว่าตัวเองสูงส่งกว่ากิ้งก่าตัวอื่นๆ "ตอนนี้ข้ามีทองเท่ากับพระราชาแล้ว ข้าไม่ใช่กิ้งก่าธรรมดาอีกต่อไป" โกธะคิดด้วยความลำพองใจ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_6_7418632223641363145.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เย็นวันนั้น เมื่อพระเจ้าพรหมทัตเสด็จประพาสอุทยานตามปกติ โกธะที่เคยหมอบกราบกลับนอนนิ่งอยู่บนซุ้มประตู มันไม่ได้หมอบลงเหมือนเคย แต่กลับชูคอตั้งบ่า มองข้ามพระเศียรของพระราชาไปอย่างไม่ใยดี เพราะคิดว่าตนเองนั้นร่ำรวยและยิ่งใหญ่ไม่แพ้กัน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_7_8992204932587138967.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>โกธะรำพึงในใจด้วยความเย่อหยิ่งว่า "ทรัพย์สมบัติของพระราชาก็มีทอง ของข้าก็มีทอง แล้วเหตุใดข้าจะต้องก้มหัวให้มนุษย์ผู้นี้ด้วยเล่า? ข้ากับพระองค์ก็มีฐานะเสมอกันแล้ว" มันหลับตาลงอย่างเกียจคร้าน แสดงท่าทางดูแคลนพระราชาอย่างเห็นได้ชัด</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_8_7287110329039042026.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าพรหมทัตทรงประหลาดใจในการเปลี่ยนแปลงของกิ้งก่าตัวนี้ พระองค์ทรงหันไปปรึกษาสุเมธา อำมาตย์ผู้ชาญฉลาดที่ตามเสด็จมาด้วย "ท่านสุเมธา เหตุใดกิ้งก่าที่เคยนอบน้อมตัวนี้ ถึงได้เปลี่ยนไปเป็นหยิ่งจองหองเพียงชั่วข้ามคืนเช่นนี้?"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_9_8706443926669171864.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สุเมธาอำมาตย์พินิจดูลักษณะของกิ้งก่าแล้วเห็นสร้อยทองที่คอของมัน เขาจึงทูลพระราชาว่า "ขอเดชะ พระอาญาไม่พ้นเกล้า กิ้งก่าตัวนี้เปลี่ยนไปเพราะสร้อยทองเพียงเส้นเดียว มันหลงผิดคิดว่าเพียงแค่มีทรัพย์ภายนอก ก็ทำให้มันยิ่งใหญ่เทียบเท่าพระองค์ได้"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_10_4038123379777170730.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าพรหมทัตทรงเข้าใจในทันที พระองค์ทรงดำเนินเข้าไปใกล้กิ้งก่าแล้วตรัสสอนใจว่า "เจ้ากิ้งก่าเอ๋ย เพียงแค่ทองเส้นเล็กๆ นี้หรือ ที่ทำให้เจ้าลืมตัวและลืมบุญคุณ ความยิ่งใหญ่ไม่ได้วัดกันที่เครื่องประดับ แต่วัดกันที่ความดีงามและการรู้จักตน"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_11_16566396147225635187.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อพระราชาทรงมีพระบัญชา วรุณก็เข้ามาปลดสร้อยทองออกจากคอของโกธะ ทันทีที่เครื่องประดับนั้นหายไป โกธะก็รู้สึกถึงความจริงที่ว่ามันเป็นเพียงสัตว์ตัวเล็กๆ ตัวหนึ่งในอุทยาน ความอหังการที่เคยกดทับหัวใจมลายหายไป เหลือเพียงความอับอายและสำนึกผิด</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./141 โคธชาดก_files/storybook_page_12_6843729290189403933.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>โกธะรีบหมอบกราบลงที่พระบาทของพระเจ้าพรหมทัตอีกครั้งด้วยความละอายใจ พระราชาทรงให้อภัยและสอนว่า "จงรักษาความอ่อนน้อมไว้ เพราะนั่นคือสมบัติที่แท้จริงของเจ้า" ตั้งแต่นั้นมา โกธะก็ไม่เคยลืมตัวอีกเลย และอาศัยอยู่อย่างสงบสุขสืบไป</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ณ นครพาราณสีอันรุ่งเรือง พระเจ้าพรหมทัตผู้ครองเมืองมักจะเสด็จประพาสอุทยานหลวงเพื่อพักผ่อนพระทัย พระองค์เป็นกษัตริย์ที่มีพระเมตตาต่อเหล่าสรรพสัตว์ทั้งปวง ในอุทยานแห่งนี้มีกิ้งก่าตัวหนึ่งชื่อว่า โกธะ อาศัยอยู่ที่ซุ้มประตูทางเข้า ทุกครั้งที่พระราชาเสด็จผ่าน โกธะจะหมอบลงกับพื้น แสดงความเคารพอย่างนอบน้อมเสมอ พระเจ้าพรหมทัตทรงสังเกตเห็นกิริยาอันน่ารักของกิ้งก่าโกธะ พระองค์ทรงแย้มพระสรวลด้วยความเอ็นดู และดำริว่า \"กิ้งก่าตัวนี้ช่างรู้จักกาลเทศะและมีความอ่อนน้อมยิ่งนัก\" พระองค์จึงมีพระบัญชาให้วรุณ ผู้ดูแลอุทยาน นำเนื้อสัตว์ดิบมาเลี้ยงดูโกธะเป็นประจำทุกวัน เพื่อเป็นรางวัลในความมีมารยาทของมัน ตั้งแต่นั้นมา วรุณก็นำเนื้อสัตว์มาให้โกธะกินทุกวันไม่เคยขาด โกธะอยู่อย่างสุขสบายจนตัวอ้วนท้วน มันรู้สึกขอบคุณพระราชาและวรุณเป็นอย่างมาก และยังคงหมอบกราบพระราชาด้วยความเคารพรักเหมือนเช่นเดิมทุกวันที่พระองค์เสด็จผ่านซุ้มประตู อยู่มาวันหนึ่ง เป็นวันหยุดนักขัตฤกษ์ที่ร้านขายเนื้อในเมืองปิดหมด วรุณไม่สามารถหาเนื้อมาให้โกธะได้ เขาจึงหยิบเหรียญทองคำที่มีสายคล้องคอมาเส้นหนึ่ง แล้วนำไปคล้องคอให้โกธะแทน พร้อมกับพูดว่า \"วันนี้ไม่มีเนื้อนะเจ้ากิ้งก่า เอาสร้อยทองนี้ไปใส่ประดับไว้ก่อนเถิด\" เมื่อโกธะได้รับสร้อยทองมาคล้องคอ ความคิดของมันก็เริ่มเปลี่ยนไป มันมองเงาตัวเองในน้ำแล้วเห็นสร้อยทองประกายวับแวม มันเริ่มรู้สึกว่าตัวเองสูงส่งกว่ากิ้งก่าตัวอื่นๆ \"ตอนนี้ข้ามีทองเท่ากับพระราชาแล้ว ข้าไม่ใช่กิ้งก่าธรรมดาอีกต่อไป\" โกธะคิดด้วยความลำพองใจ เย็นวันนั้น เมื่อพระเจ้าพรหมทัตเสด็จประพาสอุทยานตามปกติ โกธะที่เคยหมอบกราบกลับนอนนิ่งอยู่บนซุ้มประตู มันไม่ได้หมอบลงเหมือนเคย แต่กลับชูคอตั้งบ่า มองข้ามพระเศียรของพระราชาไปอย่างไม่ใยดี เพราะคิดว่าตนเองนั้นร่ำรวยและยิ่งใหญ่ไม่แพ้กัน โกธะรำพึงในใจด้วยความเย่อหยิ่งว่า \"ทรัพย์สมบัติของพระราชาก็มีทอง ของข้าก็มีทอง แล้วเหตุใดข้าจะต้องก้มหัวให้มนุษย์ผู้นี้ด้วยเล่า? ข้ากับพระองค์ก็มีฐานะเสมอกันแล้ว\" มันหลับตาลงอย่างเกียจคร้าน แสดงท่าทางดูแคลนพระราชาอย่างเห็นได้ชัด พระเจ้าพรหมทัตทรงประหลาดใจในการเปลี่ยนแปลงของกิ้งก่าตัวนี้ พระองค์ทรงหันไปปรึกษาสุเมธา อำมาตย์ผู้ชาญฉลาดที่ตามเสด็จมาด้วย \"ท่านสุเมธา เหตุใดกิ้งก่าที่เคยนอบน้อมตัวนี้ ถึงได้เปลี่ยนไปเป็นหยิ่งจองหองเพียงชั่วข้ามคืนเช่นนี้?\" สุเมธาอำมาตย์พินิจดูลักษณะของกิ้งก่าแล้วเห็นสร้อยทองที่คอของมัน เขาจึงทูลพระราชาว่า \"ขอเดชะ พระอาญาไม่พ้นเกล้า กิ้งก่าตัวนี้เปลี่ยนไปเพราะสร้อยทองเพียงเส้นเดียว มันหลงผิดคิดว่าเพียงแค่มีทรัพย์ภายนอก ก็ทำให้มันยิ่งใหญ่เทียบเท่าพระองค์ได้\" พระเจ้าพรหมทัตทรงเข้าใจในทันที พระองค์ทรงดำเนินเข้าไปใกล้กิ้งก่าแล้วตรัสสอนใจว่า \"เจ้ากิ้งก่าเอ๋ย เพียงแค่ทองเส้นเล็กๆ นี้หรือ ที่ทำให้เจ้าลืมตัวและลืมบุญคุณ ความยิ่งใหญ่ไม่ได้วัดกันที่เครื่องประดับ แต่วัดกันที่ความดีงามและการรู้จักตน\" เมื่อพระราชาทรงมีพระบัญชา วรุณก็เข้ามาปลดสร้อยทองออกจากคอของโกธะ ทันทีที่เครื่องประดับนั้นหายไป โกธะก็รู้สึกถึงความจริงที่ว่ามันเป็นเพียงสัตว์ตัวเล็กๆ ตัวหนึ่งในอุทยาน ความอหังการที่เคยกดทับหัวใจมลายหายไป เหลือเพียงความอับอายและสำนึกผิด โกธะรีบหมอบกราบลงที่พระบาทของพระเจ้าพรหมทัตอีกครั้งด้วยความละอายใจ พระราชาทรงให้อภัยและสอนว่า \"จงรักษาความอ่อนน้อมไว้ เพราะนั่นคือสมบัติที่แท้จริงของเจ้า\" ตั้งแต่นั้นมา โกธะก็ไม่เคยลืมตัวอีกเลย และอาศัยอยู่อย่างสงบสุขสืบไป";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/141-00-59bf762f.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/141-01-f2efa534.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/141-02-13c54284.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/141-03-531c2612.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/141-04-92eb1ef8.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/141-05-5e4434af.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/141-06-bf2ee442.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/141-07-970fcb22.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/141-08-51dcd4db.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/141-09-b33ac721.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/141-10-24ec44f4.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/141-11-9e54f8f3.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/141-12-f22c5f77.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

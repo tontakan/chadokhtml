@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_0_2361223932001797939.jpg" alt="มิตรภาพและรำข้าวหยาบ: บทเรียนแห่งความกตัญญู" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">มิตรภาพและรำข้าวหยาบ: บทเรียนแห่งความกตัญญู</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_1_9011403442462332452.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ในเมืองพาราณสีอันรุ่งเรือง มีเศรษฐีผู้ใจบุญนามว่า &quot;สุทัตตะ&quot; เขาเป็นผู้ที่มีจิตใจกว้างขวางเหมือนดั่งมหาสมุทร สุทัตตะมักจะช่วยเหลือผู้ยากไร้และแบ่งปันทรัพย์สินของเขาให้กับเพื่อนฝูงเสมอ บ้านของเขาเต็มไปด้วยเสียงหัวเราะและมิตรสหายที่แวะเวียนมาไม่ขาดสาย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_2_18157493593450745496.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในเมืองเดียวกันนั้น ยังมีมหาเศรษฐีอีกคนหนึ่งนามว่า &quot;ขาลกะ&quot; เขาเป็นเพื่อนสนิทของสุทัตตะ ขาลกะมีทรัพย์สมบัติมากมายมหาศาลไม่แพ้กัน แต่เขามักจะเก็บตัวและหมกมุ่นอยู่กับการนับหยดน้ำหอมและเหรียญทองในคลังของเขาเสมอ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_3_13049637229338232542.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อยู่มาวันหนึ่ง เคราะห์ร้ายก็มาเยือนขาลกะ ทรัพย์สมบัติของเขาถูกไฟไหม้และถูกโกงจนหมดสิ้นภายในชั่วข้ามคืน จากเศรษฐีผู้มั่งคั่ง ขาลกะกลายเป็นคนสิ้นเนื้อประดาตัว เขานั่งร้องไห้อยู่ริมถนนด้วยความสิ้นหวัง ไม่มีใครเหลียวแลเขาเลย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_4_5588492336170646040.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อสุทัตตะทราบข่าวความทุกข์ยากของเพื่อน เขาจึงรีบเดินทางไปหาขาลกะทันที สุทัตตะไม่ได้เพียงแต่ปลอบใจ แต่เขายังแบ่งทรัพย์สมบัติของเขาให้ขาลกะกึ่งหนึ่ง เพื่อให้เพื่อนรักได้เริ่มต้นชีวิตใหม่ &quot;รับไปเถิดเพื่อนรัก ทรัพย์สินเหล่านี้เป็นของเจ้าครึ่งหนึ่ง&quot; สุทัตตะกล่าวด้วยความจริงใจ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_5_6850903182475897661.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ด้วยความช่วยเหลือของสุทัตตะ ขาลกะกลับมามั่งคั่งอีกครั้ง เขาสร้างคฤหาสน์หลังใหญ่กว่าเดิมและมีบริวารมากมาย แต่ในใจของขาลกะนั้นกลับเริ่มคับแคบลง เขาเริ่มคิดว่าความใจดีของสุทัตตะนั้นเป็นสิ่งที่ได้มาง่ายๆ และเริ่มลืมเลือนบุญคุณที่เคยได้รับ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_6_16173960126361630384.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลเวลาผ่านไป โชคชะตาได้เล่นตลกกับสุทัตตะบ้าง เรือสินค้าของเขาถูกพายุพัดจมลงในมหาสมุทร และทรัพย์สินที่เก็บไว้ในดินก็ถูกน้ำท่วมเสียหายหมดสิ้น สุทัตตะกลายเป็นคนยากจนลงในพริบตา เขาต้องอยู่อย่างลำบากกับครอบครัว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_7_15684181822465754494.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อไม่มีทางเลือกอื่น สุทัตตะจึงนึกถึงมิตรภาพเก่าก่อน เขาเดินทางไปหาขาลกะที่คฤหาสน์เพื่อขอหยิบยืมเงินเพียงเล็กน้อยเพื่อไปตั้งตัวใหม่ &quot;ข้ามาหาเพื่อนเก่าเพื่อขอความเมตตา&quot; สุทัตตะบอกกับคนเฝ้าประตูด้วยความหวัง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_8_10518035547768338371.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อขาลกะเห็นสุทัตตะ เขากลับทำเป็นจำไม่ได้ เขาพูดจาถากถางและดูหมิ่นเพื่อนที่เคยช่วยชีวิตเขาไว้ &quot;เจ้าเป็นใครกัน? ข้าไม่รู้จักคนมอซอเช่นเจ้า อย่ามาตู่เป็นเพื่อนกับคนรวยอย่างข้าเลย&quot; ขาลกะกล่าวด้วยน้ำเสียงเย็นชา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_9_3772064707483213449.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>แทนที่จะช่วยเงินทองตามที่สุทัตตะขอ ขาลกะกลับสั่งให้คนใช้ไปเอา &quot;รำข้าวหยาบ&quot; ที่ใช้เลี้ยงหมูมาให้หนึ่งกระสอบ &quot;เอาสิ่งนี้ไปสิ นี่คือสิ่งที่เหมาะกับคนอย่างเจ้าในตอนนี้&quot; ขาลกะโยนกระสอบรำข้าวลงแทบเท้าของสุทัตตะ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_10_11976464007788637622.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สุทัตตะแบกกระสอบรำข้าวหยาบกลับบ้านด้วยหัวใจที่แตกสลาย บริวารเก่าของเขาเห็นเข้าก็โกรธแค้นแทนเจ้านาย &quot;ท่านเศรษฐี เหตุใดท่านถึงยอมรับสิ่งอัปยศนี้มา? ขาลกะช่างไร้น้ำใจและอกตัญญูยิ่งนัก!&quot; แต่สุทัตตะกลับนิ่งเงียบและยอมรับโชคชะตา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_11_5608698135532049566.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เรื่องความใจแคบของขาลกะรู้ไปถึงพระกรรณของพระราชา พระองค์ทรงกริ้วมากจึงสั่งให้ทหารไปคุมตัวเศรษฐีทั้งสองมาเข้าเฝ้า พระราชาทรงตรัสถามสุทัตตะถึงเรื่องที่เกิดขึ้น สุทัตตะเล่าความจริงทุกประการโดยไม่บิดเบือนและไม่มีความพยาบาท</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./131 อสัมปทานชาดก_files/storybook_page_12_12004697680656119043.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระราชาทรงตัดสินให้ขาลกะคืนทรัพย์สมบัติครึ่งหนึ่งให้สุทัตตะตามเดิม และตำหนิขาลกะว่า &quot;คนที่ไม่รู้จักบุญคุณคน เปรียบเสมือนรำข้าวหยาบที่ไม่มีราคา&quot; สุทัตตะกลับมามั่งคั่งและใช้ชีวิตอย่างมีความสุข ส่วนขาลกะต้องอยู่อย่างโดดเดี่ยวเพราะไม่มีใครอยากเป็นมิตรกับคนใจแคบอีกเลย</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_0_2361223932001797939.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="มิตรภาพและรำข้าวหยาบ: บทเรียนแห่งความกตัญญู" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">มิตรภาพและรำข้าวหยาบ: บทเรียนแห่งความกตัญญู</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_1_9011403442462332452.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ในเมืองพาราณสีอันรุ่งเรือง มีเศรษฐีผู้ใจบุญนามว่า "สุทัตตะ" เขาเป็นผู้ที่มีจิตใจกว้างขวางเหมือนดั่งมหาสมุทร สุทัตตะมักจะช่วยเหลือผู้ยากไร้และแบ่งปันทรัพย์สินของเขาให้กับเพื่อนฝูงเสมอ บ้านของเขาเต็มไปด้วยเสียงหัวเราะและมิตรสหายที่แวะเวียนมาไม่ขาดสาย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_2_18157493593450745496.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในเมืองเดียวกันนั้น ยังมีมหาเศรษฐีอีกคนหนึ่งนามว่า "ขาลกะ" เขาเป็นเพื่อนสนิทของสุทัตตะ ขาลกะมีทรัพย์สมบัติมากมายมหาศาลไม่แพ้กัน แต่เขามักจะเก็บตัวและหมกมุ่นอยู่กับการนับหยดน้ำหอมและเหรียญทองในคลังของเขาเสมอ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_3_13049637229338232542.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อยู่มาวันหนึ่ง เคราะห์ร้ายก็มาเยือนขาลกะ ทรัพย์สมบัติของเขาถูกไฟไหม้และถูกโกงจนหมดสิ้นภายในชั่วข้ามคืน จากเศรษฐีผู้มั่งคั่ง ขาลกะกลายเป็นคนสิ้นเนื้อประดาตัว เขานั่งร้องไห้อยู่ริมถนนด้วยความสิ้นหวัง ไม่มีใครเหลียวแลเขาเลย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_4_5588492336170646040.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อสุทัตตะทราบข่าวความทุกข์ยากของเพื่อน เขาจึงรีบเดินทางไปหาขาลกะทันที สุทัตตะไม่ได้เพียงแต่ปลอบใจ แต่เขายังแบ่งทรัพย์สมบัติของเขาให้ขาลกะกึ่งหนึ่ง เพื่อให้เพื่อนรักได้เริ่มต้นชีวิตใหม่ "รับไปเถิดเพื่อนรัก ทรัพย์สินเหล่านี้เป็นของเจ้าครึ่งหนึ่ง" สุทัตตะกล่าวด้วยความจริงใจ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_5_6850903182475897661.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ด้วยความช่วยเหลือของสุทัตตะ ขาลกะกลับมามั่งคั่งอีกครั้ง เขาสร้างคฤหาสน์หลังใหญ่กว่าเดิมและมีบริวารมากมาย แต่ในใจของขาลกะนั้นกลับเริ่มคับแคบลง เขาเริ่มคิดว่าความใจดีของสุทัตตะนั้นเป็นสิ่งที่ได้มาง่ายๆ และเริ่มลืมเลือนบุญคุณที่เคยได้รับ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_6_16173960126361630384.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลเวลาผ่านไป โชคชะตาได้เล่นตลกกับสุทัตตะบ้าง เรือสินค้าของเขาถูกพายุพัดจมลงในมหาสมุทร และทรัพย์สินที่เก็บไว้ในดินก็ถูกน้ำท่วมเสียหายหมดสิ้น สุทัตตะกลายเป็นคนยากจนลงในพริบตา เขาต้องอยู่อย่างลำบากกับครอบครัว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_7_15684181822465754494.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อไม่มีทางเลือกอื่น สุทัตตะจึงนึกถึงมิตรภาพเก่าก่อน เขาเดินทางไปหาขาลกะที่คฤหาสน์เพื่อขอหยิบยืมเงินเพียงเล็กน้อยเพื่อไปตั้งตัวใหม่ "ข้ามาหาเพื่อนเก่าเพื่อขอความเมตตา" สุทัตตะบอกกับคนเฝ้าประตูด้วยความหวัง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_8_10518035547768338371.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อขาลกะเห็นสุทัตตะ เขากลับทำเป็นจำไม่ได้ เขาพูดจาถากถางและดูหมิ่นเพื่อนที่เคยช่วยชีวิตเขาไว้ "เจ้าเป็นใครกัน? ข้าไม่รู้จักคนมอซอเช่นเจ้า อย่ามาตู่เป็นเพื่อนกับคนรวยอย่างข้าเลย" ขาลกะกล่าวด้วยน้ำเสียงเย็นชา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_9_3772064707483213449.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>แทนที่จะช่วยเงินทองตามที่สุทัตตะขอ ขาลกะกลับสั่งให้คนใช้ไปเอา "รำข้าวหยาบ" ที่ใช้เลี้ยงหมูมาให้หนึ่งกระสอบ "เอาสิ่งนี้ไปสิ นี่คือสิ่งที่เหมาะกับคนอย่างเจ้าในตอนนี้" ขาลกะโยนกระสอบรำข้าวลงแทบเท้าของสุทัตตะ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_10_11976464007788637622.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สุทัตตะแบกกระสอบรำข้าวหยาบกลับบ้านด้วยหัวใจที่แตกสลาย บริวารเก่าของเขาเห็นเข้าก็โกรธแค้นแทนเจ้านาย "ท่านเศรษฐี เหตุใดท่านถึงยอมรับสิ่งอัปยศนี้มา? ขาลกะช่างไร้น้ำใจและอกตัญญูยิ่งนัก!" แต่สุทัตตะกลับนิ่งเงียบและยอมรับโชคชะตา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_11_5608698135532049566.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เรื่องความใจแคบของขาลกะรู้ไปถึงพระกรรณของพระราชา พระองค์ทรงกริ้วมากจึงสั่งให้ทหารไปคุมตัวเศรษฐีทั้งสองมาเข้าเฝ้า พระราชาทรงตรัสถามสุทัตตะถึงเรื่องที่เกิดขึ้น สุทัตตะเล่าความจริงทุกประการโดยไม่บิดเบือนและไม่มีความพยาบาท</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./131 อสัมปทานชาดก_files/storybook_page_12_12004697680656119043.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระราชาทรงตัดสินให้ขาลกะคืนทรัพย์สมบัติครึ่งหนึ่งให้สุทัตตะตามเดิม และตำหนิขาลกะว่า "คนที่ไม่รู้จักบุญคุณคน เปรียบเสมือนรำข้าวหยาบที่ไม่มีราคา" สุทัตตะกลับมามั่งคั่งและใช้ชีวิตอย่างมีความสุข ส่วนขาลกะต้องอยู่อย่างโดดเดี่ยวเพราะไม่มีใครอยากเป็นมิตรกับคนใจแคบอีกเลย</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ในเมืองพาราณสีอันรุ่งเรือง มีเศรษฐีผู้ใจบุญนามว่า \"สุทัตตะ\" เขาเป็นผู้ที่มีจิตใจกว้างขวางเหมือนดั่งมหาสมุทร สุทัตตะมักจะช่วยเหลือผู้ยากไร้และแบ่งปันทรัพย์สินของเขาให้กับเพื่อนฝูงเสมอ บ้านของเขาเต็มไปด้วยเสียงหัวเราะและมิตรสหายที่แวะเวียนมาไม่ขาดสาย ในเมืองเดียวกันนั้น ยังมีมหาเศรษฐีอีกคนหนึ่งนามว่า \"ขาลกะ\" เขาเป็นเพื่อนสนิทของสุทัตตะ ขาลกะมีทรัพย์สมบัติมากมายมหาศาลไม่แพ้กัน แต่เขามักจะเก็บตัวและหมกมุ่นอยู่กับการนับหยดน้ำหอมและเหรียญทองในคลังของเขาเสมอ อยู่มาวันหนึ่ง เคราะห์ร้ายก็มาเยือนขาลกะ ทรัพย์สมบัติของเขาถูกไฟไหม้และถูกโกงจนหมดสิ้นภายในชั่วข้ามคืน จากเศรษฐีผู้มั่งคั่ง ขาลกะกลายเป็นคนสิ้นเนื้อประดาตัว เขานั่งร้องไห้อยู่ริมถนนด้วยความสิ้นหวัง ไม่มีใครเหลียวแลเขาเลย เมื่อสุทัตตะทราบข่าวความทุกข์ยากของเพื่อน เขาจึงรีบเดินทางไปหาขาลกะทันที สุทัตตะไม่ได้เพียงแต่ปลอบใจ แต่เขายังแบ่งทรัพย์สมบัติของเขาให้ขาลกะกึ่งหนึ่ง เพื่อให้เพื่อนรักได้เริ่มต้นชีวิตใหม่ \"รับไปเถิดเพื่อนรัก ทรัพย์สินเหล่านี้เป็นของเจ้าครึ่งหนึ่ง\" สุทัตตะกล่าวด้วยความจริงใจ ด้วยความช่วยเหลือของสุทัตตะ ขาลกะกลับมามั่งคั่งอีกครั้ง เขาสร้างคฤหาสน์หลังใหญ่กว่าเดิมและมีบริวารมากมาย แต่ในใจของขาลกะนั้นกลับเริ่มคับแคบลง เขาเริ่มคิดว่าความใจดีของสุทัตตะนั้นเป็นสิ่งที่ได้มาง่ายๆ และเริ่มลืมเลือนบุญคุณที่เคยได้รับ กาลเวลาผ่านไป โชคชะตาได้เล่นตลกกับสุทัตตะบ้าง เรือสินค้าของเขาถูกพายุพัดจมลงในมหาสมุทร และทรัพย์สินที่เก็บไว้ในดินก็ถูกน้ำท่วมเสียหายหมดสิ้น สุทัตตะกลายเป็นคนยากจนลงในพริบตา เขาต้องอยู่อย่างลำบากกับครอบครัว เมื่อไม่มีทางเลือกอื่น สุทัตตะจึงนึกถึงมิตรภาพเก่าก่อน เขาเดินทางไปหาขาลกะที่คฤหาสน์เพื่อขอหยิบยืมเงินเพียงเล็กน้อยเพื่อไปตั้งตัวใหม่ \"ข้ามาหาเพื่อนเก่าเพื่อขอความเมตตา\" สุทัตตะบอกกับคนเฝ้าประตูด้วยความหวัง เมื่อขาลกะเห็นสุทัตตะ เขากลับทำเป็นจำไม่ได้ เขาพูดจาถากถางและดูหมิ่นเพื่อนที่เคยช่วยชีวิตเขาไว้ \"เจ้าเป็นใครกัน? ข้าไม่รู้จักคนมอซอเช่นเจ้า อย่ามาตู่เป็นเพื่อนกับคนรวยอย่างข้าเลย\" ขาลกะกล่าวด้วยน้ำเสียงเย็นชา แทนที่จะช่วยเงินทองตามที่สุทัตตะขอ ขาลกะกลับสั่งให้คนใช้ไปเอา \"รำข้าวหยาบ\" ที่ใช้เลี้ยงหมูมาให้หนึ่งกระสอบ \"เอาสิ่งนี้ไปสิ นี่คือสิ่งที่เหมาะกับคนอย่างเจ้าในตอนนี้\" ขาลกะโยนกระสอบรำข้าวลงแทบเท้าของสุทัตตะ สุทัตตะแบกกระสอบรำข้าวหยาบกลับบ้านด้วยหัวใจที่แตกสลาย บริวารเก่าของเขาเห็นเข้าก็โกรธแค้นแทนเจ้านาย \"ท่านเศรษฐี เหตุใดท่านถึงยอมรับสิ่งอัปยศนี้มา? ขาลกะช่างไร้น้ำใจและอกตัญญูยิ่งนัก!\" แต่สุทัตตะกลับนิ่งเงียบและยอมรับโชคชะตา เรื่องความใจแคบของขาลกะรู้ไปถึงพระกรรณของพระราชา พระองค์ทรงกริ้วมากจึงสั่งให้ทหารไปคุมตัวเศรษฐีทั้งสองมาเข้าเฝ้า พระราชาทรงตรัสถามสุทัตตะถึงเรื่องที่เกิดขึ้น สุทัตตะเล่าความจริงทุกประการโดยไม่บิดเบือนและไม่มีความพยาบาท พระราชาทรงตัดสินให้ขาลกะคืนทรัพย์สมบัติครึ่งหนึ่งให้สุทัตตะตามเดิม และตำหนิขาลกะว่า \"คนที่ไม่รู้จักบุญคุณคน เปรียบเสมือนรำข้าวหยาบที่ไม่มีราคา\" สุทัตตะกลับมามั่งคั่งและใช้ชีวิตอย่างมีความสุข ส่วนขาลกะต้องอยู่อย่างโดดเดี่ยวเพราะไม่มีใครอยากเป็นมิตรกับคนใจแคบอีกเลย";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/131-00-ab416221.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/131-01-1e4d450b.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/131-02-daeb587f.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/131-03-1c19c4bf.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/131-04-f3feb243.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/131-05-a720a532.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/131-06-c09894d3.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/131-07-d37fc12b.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/131-08-23d97fdf.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/131-09-d252e3d2.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/131-10-4e5aa0ec.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/131-11-d43f2093.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/131-12-d10e3b97.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

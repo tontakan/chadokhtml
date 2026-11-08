@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_0_311783912408217804.jpg" alt="อกาลราวิชาดก: บทเรียนของไก่ที่ไม่รู้จักเวลา" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">อกาลราวิชาดก: บทเรียนของไก่ที่ไม่รู้จักเวลา</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_1_16031638536715212302.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ในป่าอันเงียบสงบใกล้เมืองพาราณสี มีสำนักตักศิลาที่ตั้งอยู่อย่างสงบวิเวก ณ ที่นั่นมีพระอาจารย์ผู้ทรงความรู้และเปี่ยมด้วยเมตตาชื่อว่า &quot;สุเมธ&quot; ท่านเป็นผู้ประสิทธิ์ประสาทวิชาความรู้ให้แก่เหล่ามานพน้อยใหญ่ที่เดินทางมาจากทั่วสารทิศเพื่อศึกษาศิลปวิทยา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_2_9720149844374108385.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในบรรดาศิษย์ทั้งหมด มีมานพหนุ่มสองคนที่เป็นเพื่อนรักกัน ชื่อว่า &quot;กาละ&quot; และ &quot;วรุณ&quot; ทั้งคู่เป็นเด็กหนุ่มที่ขยันหมั่นเพียร กาละมักจะถือคัมภีร์ใบลานติดตัวเสมอ ส่วนวรุณก็คอยช่วยจัดเตรียมสถานที่สำหรับการเรียนรู้ในทุกๆ เช้าตรู่</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_3_6290883591606130053.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ใกล้สำนักนั้น มีไก่ป่าตัวหนึ่งชื่อว่า &quot;ตุณฑะ&quot; มันอาศัยอยู่บนต้นไม้ใหญ่ใกล้ที่พักของเหล่ามานพ ตุณฑะเป็นไก่ที่มีรูปร่างสง่างาม ขนของมันเป็นประกายสีทองและแดงเพลิง แต่มันมีนิสัยประหลาดอย่างหนึ่งคือ มันไม่เคยรู้เลยว่าเวลาไหนควรจะขัน หรือเวลาไหนควรจะเงียบ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_4_2987662153177921067.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ปกติแล้ว ไก่ป่าทั่วไปจะขันเมื่อแสงเงินแสงทองจับขอบฟ้า เพื่อบอกเวลาให้ผู้คนตื่นขึ้นมาทำหน้าที่ แต่เจ้าตุณฑะนั้นต่างออกไป บางคืนในเวลาเที่ยงคืนที่ทุกคนกำลังหลับสนิท มันกลับโก่งคอขันเสียงดังสนั่นหวั่นไหว &quot;เอก-อี-เอ๊ก-เอ๊ก!&quot; จนทำให้ป่าทั้งป่าต้องสะดุ้งตื่น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_5_15135832898239497575.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาละและวรุณสะดุ้งตื่นขึ้นมาด้วยความตกใจ &quot;นั่นเสียงไก่ขันนี่นา! หรือว่าถึงเวลาเรียนแล้ว?&quot; กาละรีบคว้าคัมภีร์ ส่วนวรุณก็รีบล้างหน้าล้างตา ทั้งที่ร่างกายยังอ่อนเพลียและง่วงงุน เพราะดวงจันทร์ยังลอยเด่นอยู่กลางท้องฟ้าแท้ๆ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_6_13652455795985154717.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อมานพทุกคนมาพร้อมหน้ากันที่ลานเรียน อาจารย์สุเมธเห็นศิษย์มีอาการสัปหงกและดวงตาแดงก่ำ ท่านจึงถามด้วยความสงสัย กาละกราบเรียนว่า &quot;พวกเรานึกว่าเช้าแล้วครับท่านอาจารย์ เพราะเจ้าไก่ตุณฑะมันขันเรียกพวกเราตั้งแต่ดึกดื่น&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_7_3340425350612789512.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันต่อมา เจ้าตุณฑะก็นึกอยากจะนอนยาว มันหลับปุ๋ยจนกระทั่งพระอาทิตย์ขึ้นสูงเลยหัว เมื่อเหล่ามานพกำลังตั้งใจอ่านตำราในความเงียบสงบ อยู่ๆ เจ้าไก่ก็โผลงมาจากกิ่งไม้แล้วขันเสียงดังรบกวนสมาธิของทุกคน &quot;เอก-อี-เอ๊ก-เอ๊ก!&quot; ในเวลาที่ไม่ต้องการ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_8_17206815782423615476.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาละและวรุณเริ่มทนไม่ไหว &quot;มันทำให้พวกเราอดนอนตอนกลางคืน และทำให้พวกเราเสียสมาธิตอนกลางวัน&quot; วรุณบ่นด้วยความโกรธ &quot;ไก่ที่ขันไม่เป็นเวลาก็ไม่ต่างอะไรกับเครื่องดนตรีที่เพี้ยนเสียง มีแต่จะสร้างความรำคาญใจ&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_9_12854269174092466433.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในที่สุด ความอดทนของกาละก็สิ้นสุดลง เขาตัดสินใจว่าจะต้องทำอะไรสักอย่างเพื่อไม่ให้เจ้าไก่ตัวนี้รบกวนการเรียนอีกต่อไป กาละค่อยๆ ย่องเข้าไปใกล้เจ้าตุณฑะที่กำลังนอนหลับไม่รู้เรื่องรู้ราวอยู่ในเวลาที่ควรจะตื่น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_10_14863600040551948835.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาละคว้าตัวเจ้าตุณฑะไว้ได้ แต่มันกลับดิ้นรนและส่งเสียงร้องหนวกหูยิ่งกว่าเดิม ด้วยความโกรธที่สะสมมานานจากการไม่ได้พักผ่อน กาละจึงเผลอออกแรงบีบที่คอของมันจนเจ้าไก่ป่าผู้ไร้กาลเทศะสิ้นใจลงในมือของเขานั่นเอง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_11_16715920954498463194.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่ออาจารย์สุเมธทราบเรื่อง ท่านไม่ได้ดุด่ากาละ แต่ท่านเรียกศิษย์ทุกคนมาประชุมแล้วกล่าวว่า &quot;ดูเถิดศิษย์ทั้งหลาย เจ้าไก่ตัวนี้มีรูปร่างงดงาม มีเสียงที่กังวาน แต่มันกลับต้องตายเพราะมันไม่รู้กาลเทศะ ไม่รู้ว่าเวลาใดควรพูด เวลาใดควรเงียบ&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./119 อกาลราวิชาดก_files/storybook_page_12_4996197361163162195.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;ผู้ใดก็ตามที่พูดไม่เลือกเวลา ทำงานไม่เลือกสถานที่ ย่อมประสบกับความเดือดร้อนเหมือนเจ้าไก่ตุณฑะนี้&quot; อาจารย์สุเมธสรุป มานพทุกคนรวมถึงกาละและวรุณต่างเข้าใจลึกซึ้งถึงความสำคัญของการรู้กาลเทศะ ซึ่งเป็นหัวใจสำคัญของการเป็นผู้มีปัญญา</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_0_311783912408217804.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="อกาลราวิชาดก: บทเรียนของไก่ที่ไม่รู้จักเวลา" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">อกาลราวิชาดก: บทเรียนของไก่ที่ไม่รู้จักเวลา</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_1_16031638536715212302.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ในป่าอันเงียบสงบใกล้เมืองพาราณสี มีสำนักตักศิลาที่ตั้งอยู่อย่างสงบวิเวก ณ ที่นั่นมีพระอาจารย์ผู้ทรงความรู้และเปี่ยมด้วยเมตตาชื่อว่า "สุเมธ" ท่านเป็นผู้ประสิทธิ์ประสาทวิชาความรู้ให้แก่เหล่ามานพน้อยใหญ่ที่เดินทางมาจากทั่วสารทิศเพื่อศึกษาศิลปวิทยา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_2_9720149844374108385.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในบรรดาศิษย์ทั้งหมด มีมานพหนุ่มสองคนที่เป็นเพื่อนรักกัน ชื่อว่า "กาละ" และ "วรุณ" ทั้งคู่เป็นเด็กหนุ่มที่ขยันหมั่นเพียร กาละมักจะถือคัมภีร์ใบลานติดตัวเสมอ ส่วนวรุณก็คอยช่วยจัดเตรียมสถานที่สำหรับการเรียนรู้ในทุกๆ เช้าตรู่</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_3_6290883591606130053.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ใกล้สำนักนั้น มีไก่ป่าตัวหนึ่งชื่อว่า "ตุณฑะ" มันอาศัยอยู่บนต้นไม้ใหญ่ใกล้ที่พักของเหล่ามานพ ตุณฑะเป็นไก่ที่มีรูปร่างสง่างาม ขนของมันเป็นประกายสีทองและแดงเพลิง แต่มันมีนิสัยประหลาดอย่างหนึ่งคือ มันไม่เคยรู้เลยว่าเวลาไหนควรจะขัน หรือเวลาไหนควรจะเงียบ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_4_2987662153177921067.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ปกติแล้ว ไก่ป่าทั่วไปจะขันเมื่อแสงเงินแสงทองจับขอบฟ้า เพื่อบอกเวลาให้ผู้คนตื่นขึ้นมาทำหน้าที่ แต่เจ้าตุณฑะนั้นต่างออกไป บางคืนในเวลาเที่ยงคืนที่ทุกคนกำลังหลับสนิท มันกลับโก่งคอขันเสียงดังสนั่นหวั่นไหว "เอก-อี-เอ๊ก-เอ๊ก!" จนทำให้ป่าทั้งป่าต้องสะดุ้งตื่น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_5_15135832898239497575.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาละและวรุณสะดุ้งตื่นขึ้นมาด้วยความตกใจ "นั่นเสียงไก่ขันนี่นา! หรือว่าถึงเวลาเรียนแล้ว?" กาละรีบคว้าคัมภีร์ ส่วนวรุณก็รีบล้างหน้าล้างตา ทั้งที่ร่างกายยังอ่อนเพลียและง่วงงุน เพราะดวงจันทร์ยังลอยเด่นอยู่กลางท้องฟ้าแท้ๆ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_6_13652455795985154717.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อมานพทุกคนมาพร้อมหน้ากันที่ลานเรียน อาจารย์สุเมธเห็นศิษย์มีอาการสัปหงกและดวงตาแดงก่ำ ท่านจึงถามด้วยความสงสัย กาละกราบเรียนว่า "พวกเรานึกว่าเช้าแล้วครับท่านอาจารย์ เพราะเจ้าไก่ตุณฑะมันขันเรียกพวกเราตั้งแต่ดึกดื่น"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_7_3340425350612789512.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันต่อมา เจ้าตุณฑะก็นึกอยากจะนอนยาว มันหลับปุ๋ยจนกระทั่งพระอาทิตย์ขึ้นสูงเลยหัว เมื่อเหล่ามานพกำลังตั้งใจอ่านตำราในความเงียบสงบ อยู่ๆ เจ้าไก่ก็โผลงมาจากกิ่งไม้แล้วขันเสียงดังรบกวนสมาธิของทุกคน "เอก-อี-เอ๊ก-เอ๊ก!" ในเวลาที่ไม่ต้องการ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_8_17206815782423615476.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาละและวรุณเริ่มทนไม่ไหว "มันทำให้พวกเราอดนอนตอนกลางคืน และทำให้พวกเราเสียสมาธิตอนกลางวัน" วรุณบ่นด้วยความโกรธ "ไก่ที่ขันไม่เป็นเวลาก็ไม่ต่างอะไรกับเครื่องดนตรีที่เพี้ยนเสียง มีแต่จะสร้างความรำคาญใจ"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_9_12854269174092466433.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในที่สุด ความอดทนของกาละก็สิ้นสุดลง เขาตัดสินใจว่าจะต้องทำอะไรสักอย่างเพื่อไม่ให้เจ้าไก่ตัวนี้รบกวนการเรียนอีกต่อไป กาละค่อยๆ ย่องเข้าไปใกล้เจ้าตุณฑะที่กำลังนอนหลับไม่รู้เรื่องรู้ราวอยู่ในเวลาที่ควรจะตื่น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_10_14863600040551948835.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาละคว้าตัวเจ้าตุณฑะไว้ได้ แต่มันกลับดิ้นรนและส่งเสียงร้องหนวกหูยิ่งกว่าเดิม ด้วยความโกรธที่สะสมมานานจากการไม่ได้พักผ่อน กาละจึงเผลอออกแรงบีบที่คอของมันจนเจ้าไก่ป่าผู้ไร้กาลเทศะสิ้นใจลงในมือของเขานั่นเอง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_11_16715920954498463194.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่ออาจารย์สุเมธทราบเรื่อง ท่านไม่ได้ดุด่ากาละ แต่ท่านเรียกศิษย์ทุกคนมาประชุมแล้วกล่าวว่า "ดูเถิดศิษย์ทั้งหลาย เจ้าไก่ตัวนี้มีรูปร่างงดงาม มีเสียงที่กังวาน แต่มันกลับต้องตายเพราะมันไม่รู้กาลเทศะ ไม่รู้ว่าเวลาใดควรพูด เวลาใดควรเงียบ"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./119 อกาลราวิชาดก_files/storybook_page_12_4996197361163162195.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"ผู้ใดก็ตามที่พูดไม่เลือกเวลา ทำงานไม่เลือกสถานที่ ย่อมประสบกับความเดือดร้อนเหมือนเจ้าไก่ตุณฑะนี้" อาจารย์สุเมธสรุป มานพทุกคนรวมถึงกาละและวรุณต่างเข้าใจลึกซึ้งถึงความสำคัญของการรู้กาลเทศะ ซึ่งเป็นหัวใจสำคัญของการเป็นผู้มีปัญญา</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ในป่าอันเงียบสงบใกล้เมืองพาราณสี มีสำนักตักศิลาที่ตั้งอยู่อย่างสงบวิเวก ณ ที่นั่นมีพระอาจารย์ผู้ทรงความรู้และเปี่ยมด้วยเมตตาชื่อว่า \"สุเมธ\" ท่านเป็นผู้ประสิทธิ์ประสาทวิชาความรู้ให้แก่เหล่ามานพน้อยใหญ่ที่เดินทางมาจากทั่วสารทิศเพื่อศึกษาศิลปวิทยา ในบรรดาศิษย์ทั้งหมด มีมานพหนุ่มสองคนที่เป็นเพื่อนรักกัน ชื่อว่า \"กาละ\" และ \"วรุณ\" ทั้งคู่เป็นเด็กหนุ่มที่ขยันหมั่นเพียร กาละมักจะถือคัมภีร์ใบลานติดตัวเสมอ ส่วนวรุณก็คอยช่วยจัดเตรียมสถานที่สำหรับการเรียนรู้ในทุกๆ เช้าตรู่ ใกล้สำนักนั้น มีไก่ป่าตัวหนึ่งชื่อว่า \"ตุณฑะ\" มันอาศัยอยู่บนต้นไม้ใหญ่ใกล้ที่พักของเหล่ามานพ ตุณฑะเป็นไก่ที่มีรูปร่างสง่างาม ขนของมันเป็นประกายสีทองและแดงเพลิง แต่มันมีนิสัยประหลาดอย่างหนึ่งคือ มันไม่เคยรู้เลยว่าเวลาไหนควรจะขัน หรือเวลาไหนควรจะเงียบ ปกติแล้ว ไก่ป่าทั่วไปจะขันเมื่อแสงเงินแสงทองจับขอบฟ้า เพื่อบอกเวลาให้ผู้คนตื่นขึ้นมาทำหน้าที่ แต่เจ้าตุณฑะนั้นต่างออกไป บางคืนในเวลาเที่ยงคืนที่ทุกคนกำลังหลับสนิท มันกลับโก่งคอขันเสียงดังสนั่นหวั่นไหว \"เอก-อี-เอ๊ก-เอ๊ก!\" จนทำให้ป่าทั้งป่าต้องสะดุ้งตื่น กาละและวรุณสะดุ้งตื่นขึ้นมาด้วยความตกใจ \"นั่นเสียงไก่ขันนี่นา! หรือว่าถึงเวลาเรียนแล้ว?\" กาละรีบคว้าคัมภีร์ ส่วนวรุณก็รีบล้างหน้าล้างตา ทั้งที่ร่างกายยังอ่อนเพลียและง่วงงุน เพราะดวงจันทร์ยังลอยเด่นอยู่กลางท้องฟ้าแท้ๆ เมื่อมานพทุกคนมาพร้อมหน้ากันที่ลานเรียน อาจารย์สุเมธเห็นศิษย์มีอาการสัปหงกและดวงตาแดงก่ำ ท่านจึงถามด้วยความสงสัย กาละกราบเรียนว่า \"พวกเรานึกว่าเช้าแล้วครับท่านอาจารย์ เพราะเจ้าไก่ตุณฑะมันขันเรียกพวกเราตั้งแต่ดึกดื่น\" วันต่อมา เจ้าตุณฑะก็นึกอยากจะนอนยาว มันหลับปุ๋ยจนกระทั่งพระอาทิตย์ขึ้นสูงเลยหัว เมื่อเหล่ามานพกำลังตั้งใจอ่านตำราในความเงียบสงบ อยู่ๆ เจ้าไก่ก็โผลงมาจากกิ่งไม้แล้วขันเสียงดังรบกวนสมาธิของทุกคน \"เอก-อี-เอ๊ก-เอ๊ก!\" ในเวลาที่ไม่ต้องการ กาละและวรุณเริ่มทนไม่ไหว \"มันทำให้พวกเราอดนอนตอนกลางคืน และทำให้พวกเราเสียสมาธิตอนกลางวัน\" วรุณบ่นด้วยความโกรธ \"ไก่ที่ขันไม่เป็นเวลาก็ไม่ต่างอะไรกับเครื่องดนตรีที่เพี้ยนเสียง มีแต่จะสร้างความรำคาญใจ\" ในที่สุด ความอดทนของกาละก็สิ้นสุดลง เขาตัดสินใจว่าจะต้องทำอะไรสักอย่างเพื่อไม่ให้เจ้าไก่ตัวนี้รบกวนการเรียนอีกต่อไป กาละค่อยๆ ย่องเข้าไปใกล้เจ้าตุณฑะที่กำลังนอนหลับไม่รู้เรื่องรู้ราวอยู่ในเวลาที่ควรจะตื่น กาละคว้าตัวเจ้าตุณฑะไว้ได้ แต่มันกลับดิ้นรนและส่งเสียงร้องหนวกหูยิ่งกว่าเดิม ด้วยความโกรธที่สะสมมานานจากการไม่ได้พักผ่อน กาละจึงเผลอออกแรงบีบที่คอของมันจนเจ้าไก่ป่าผู้ไร้กาลเทศะสิ้นใจลงในมือของเขานั่นเอง เมื่ออาจารย์สุเมธทราบเรื่อง ท่านไม่ได้ดุด่ากาละ แต่ท่านเรียกศิษย์ทุกคนมาประชุมแล้วกล่าวว่า \"ดูเถิดศิษย์ทั้งหลาย เจ้าไก่ตัวนี้มีรูปร่างงดงาม มีเสียงที่กังวาน แต่มันกลับต้องตายเพราะมันไม่รู้กาลเทศะ ไม่รู้ว่าเวลาใดควรพูด เวลาใดควรเงียบ\" \"ผู้ใดก็ตามที่พูดไม่เลือกเวลา ทำงานไม่เลือกสถานที่ ย่อมประสบกับความเดือดร้อนเหมือนเจ้าไก่ตุณฑะนี้\" อาจารย์สุเมธสรุป มานพทุกคนรวมถึงกาละและวรุณต่างเข้าใจลึกซึ้งถึงความสำคัญของการรู้กาลเทศะ ซึ่งเป็นหัวใจสำคัญของการเป็นผู้มีปัญญา";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/119-00-83b4ec00.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/119-01-233d5341.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/119-02-f12343a3.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/119-03-261cf35e.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/119-04-980bad08.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/119-05-c1961b70.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/119-06-6e39906e.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/119-07-dc1f97ed.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/119-08-bb9fd18d.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/119-09-aff9a267.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/119-10-f44fcddd.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/119-11-dedcbde6.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/119-12-9816538b.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

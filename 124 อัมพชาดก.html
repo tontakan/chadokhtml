@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_0_972223409248668493.jpg" alt="มนต์เสกมะม่วงกับบทเรียนแห่งความกตัญญู" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">มนต์เสกมะม่วงกับบทเรียนแห่งความกตัญญู</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_1_14235006743192735514.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ในป่าอันสงบเงียบ มีชายผู้หนึ่งชื่อว่า &quot;มาตังคะ&quot; เขาเป็นผู้มีวิชาอาคมแก่กล้า สามารถร่ายมนต์เรียกผลมะม่วงให้สุกงอมร่วงหล่นลงมาจากต้นได้ทุกเวลา แม้จะไม่ใช่ฤดูกาลของมันก็ตาม มาตังคะใช้ชีวิตอย่างสมถะและใจดี แม้ว่าสังคมจะตราหน้าว่าเขาเป็นคนจัณฑาลผู้ต่ำต้อยก็ตาม</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_2_5172382481377556993.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันหนึ่ง &quot;อมระ&quot; มาณพหนุ่มผู้มีความทะเยอทะยาน ได้เดินทางมาพบมาตังคะและเห็นปาฏิหาริย์นั้น เขาปรารถนาจะเรียนรู้วิชานี้เพื่อสร้างชื่อเสียงให้กับตนเอง อมระจึงเข้าไปกราบกรานขอเป็นศิษย์ มาตังคะมองเห็นความมุ่งมั่นในแววตาของชายหนุ่ม จึงกล่าวว่า &quot;วิชานี้มีเงื่อนไขสำคัญคือ เจ้าต้องกตัญญูและซื่อสัตย์ต่อครูบาอาจารย์เสมอ&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_3_8422655068415180733.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อมระรับคำด้วยความเต็มใจ เขาเฝ้าปรนนิบัติรับใช้มาตังคะอย่างขยันขันแข็ง ทั้งหาฟืน ตักน้ำ และดูแลที่พักอาศัย เพื่อพิสูจน์ว่าตนเองมีความกตัญญูและคู่ควรกับวิชาวิเศษนี้ มาตังคะเฝ้าดูความพยายามของลูกศิษย์ด้วยความเอ็นดู โดยหวังว่าชายหนุ่มจะรักษาคุณธรรมนี้ไว้ได้ตลอดไป</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_4_2210293810665260710.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อเห็นว่าลูกศิษย์พร้อมแล้ว มาตังคะจึงถ่ายทอดมนต์เรียกมะม่วงให้อมระจนหมดสิ้น &quot;จำไว้นะอมระ หากใครถามว่าเจ้าเรียนวิชานี้มาจากใคร เจ้าต้องตอบความจริง อย่าได้ปิดบังชื่อของข้าเพียงเพราะข้าเป็นจัณฑาล มิฉะนั้นมนต์จะเสื่อมถอยไป&quot; อมระรับคำสัญญาอย่างหนักแน่นก่อนจะลาอาจารย์เข้าสู่เมืองหลวง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_5_772321088089452199.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อมระเดินทางมาถึงเมืองพาราณสี เขาต้องการแสดงความสามารถให้เป็นที่ประจักษ์ จึงไปที่อุทยานหลวงและร่ายมนต์เรียกมะม่วงให้สุกงอมเต็มต้นต่อหน้าผู้คนมากมาย ข่าวนี้แพร่สะพัดไปอย่างรวดเร็วจนถึงพระกรรณของพระราชา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_6_18202305184449710408.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;พระเจ้าพรหมทัต&quot; เจ้าเมืองพาราณสี ทรงเลื่อมใสในวิชาของอมระเป็นอย่างมาก พระองค์ทรงเชิญอมระเข้ามาในพระราชวังเพื่อแสดงวิชาให้ทอดพระเนตร อมระร่ายมนต์เพียงครู่เดียว มะม่วงผลโตสีเหลืองทองรสชาติหวานหอมก็ร่วงหล่นลงมาเต็มพานทอง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_7_17195065870280696825.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระเจ้าพรหมทัตทรงพอพระทัยยิ่งนัก ทรงพระราชทานรางวัลแก่อมระอย่างมากมาย ทั้งเงินทองและเกียรติยศ อมระกลายเป็นบุคคลสำคัญของเมืองเพียงชั่วข้ามคืน ความสุขสบายทำให้เขาเริ่มหลงระเริงในลาภยศและชื่อเสียงที่ได้รับ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_8_7734150988175318841.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันหนึ่งพระเจ้าพรหมทัตตรัสถามอมระว่า &quot;ท่านเรียนวิชาอันน่าอัศจรรย์นี้มาจากอาจารย์ผู้เป็นพราหมณ์ชั้นสูงท่านใดหรือ? ข้าอยากจะส่งเครื่องราชบรรณาการไปขอบคุณท่านผู้นั้น&quot; อมระชะงักไปครู่หนึ่ง หัวใจของเขาเริ่มสั่นคลอนด้วยความอับอาย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_9_6378787560441845336.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อมระคิดในใจว่า &quot;ถ้าข้าบอกว่าอาจารย์ของข้าเป็นคนจัณฑาล พระราชาต้องดูถูกข้าแน่ๆ และข้าอาจจะเสียตำแหน่งนี้ไป&quot; ด้วยความขลาดเขลาและลืมคำสัญญาที่ให้ไว้กับมาตังคะ อมระจึงทูลปดไปว่า &quot;ข้าพระองค์เรียนมาจากพราหมณ์ผู้เรืองเวทย์ในสำนักตักศิลาพะเจ้าข้า&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_10_12521362724365984741.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทันทีที่พูดคำเท็จจบลง พระเจ้าพรหมทัตทรงขอให้อมระแสดงวิชาอีกครั้ง แต่อมระกลับพบว่าเขาไม่สามารถร่ายมนต์ได้สำเร็จ มะม่วงที่เคยสุกงอมกลับกลายเป็นเพียงกิ่งไม้แห้งเหี่ยว มนต์วิเศษได้เสื่อมถอยไปเสียแล้วตามคำเตือนของอาจารย์</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_11_16729346647255870709.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระเจ้าพรหมทัตทรงกริ้วมากเมื่อทรงทราบว่าอมระโกหกและอกตัญญูต่ออาจารย์ &quot;คนที่ไม่เห็นคุณค่าของครูผู้ประสิทธิ์ประสาทวิชา ย่อมไม่สมควรได้รับความไว้วางใจจากใคร&quot; พระองค์จึงสั่งเนรเทศอมระออกจากเมืองไปทันที อมระเสียใจมาก เขาซัดเซพเนจรกลับไปหามาตังคะในป่า</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./124 อัมพชาดก_files/storybook_page_12_11045136015591912631.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>มาตังคะเห็นอมระกลับมาในสภาพที่สิ้นหวัง เขาไม่ได้โกรธเคืองแต่กลับสอนด้วยความเมตตาว่า &quot;ความกตัญญูคือรากฐานของความเจริญ เมื่อเจ้าทำลายมันด้วยความเห็นแก่ตัว วิชาใดๆ ก็ไร้ความหมาย&quot; อมระกราบขอขมาและเรียนรู้ว่า ความสัตย์จริงและความกตัญญูนั้นมีค่าสูงยิ่งกว่าลาภยศใดๆ ในโลก</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_0_972223409248668493.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="มนต์เสกมะม่วงกับบทเรียนแห่งความกตัญญู" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">มนต์เสกมะม่วงกับบทเรียนแห่งความกตัญญู</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_1_14235006743192735514.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ในป่าอันสงบเงียบ มีชายผู้หนึ่งชื่อว่า "มาตังคะ" เขาเป็นผู้มีวิชาอาคมแก่กล้า สามารถร่ายมนต์เรียกผลมะม่วงให้สุกงอมร่วงหล่นลงมาจากต้นได้ทุกเวลา แม้จะไม่ใช่ฤดูกาลของมันก็ตาม มาตังคะใช้ชีวิตอย่างสมถะและใจดี แม้ว่าสังคมจะตราหน้าว่าเขาเป็นคนจัณฑาลผู้ต่ำต้อยก็ตาม</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_2_5172382481377556993.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันหนึ่ง "อมระ" มาณพหนุ่มผู้มีความทะเยอทะยาน ได้เดินทางมาพบมาตังคะและเห็นปาฏิหาริย์นั้น เขาปรารถนาจะเรียนรู้วิชานี้เพื่อสร้างชื่อเสียงให้กับตนเอง อมระจึงเข้าไปกราบกรานขอเป็นศิษย์ มาตังคะมองเห็นความมุ่งมั่นในแววตาของชายหนุ่ม จึงกล่าวว่า "วิชานี้มีเงื่อนไขสำคัญคือ เจ้าต้องกตัญญูและซื่อสัตย์ต่อครูบาอาจารย์เสมอ"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_3_8422655068415180733.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อมระรับคำด้วยความเต็มใจ เขาเฝ้าปรนนิบัติรับใช้มาตังคะอย่างขยันขันแข็ง ทั้งหาฟืน ตักน้ำ และดูแลที่พักอาศัย เพื่อพิสูจน์ว่าตนเองมีความกตัญญูและคู่ควรกับวิชาวิเศษนี้ มาตังคะเฝ้าดูความพยายามของลูกศิษย์ด้วยความเอ็นดู โดยหวังว่าชายหนุ่มจะรักษาคุณธรรมนี้ไว้ได้ตลอดไป</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_4_2210293810665260710.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อเห็นว่าลูกศิษย์พร้อมแล้ว มาตังคะจึงถ่ายทอดมนต์เรียกมะม่วงให้อมระจนหมดสิ้น "จำไว้นะอมระ หากใครถามว่าเจ้าเรียนวิชานี้มาจากใคร เจ้าต้องตอบความจริง อย่าได้ปิดบังชื่อของข้าเพียงเพราะข้าเป็นจัณฑาล มิฉะนั้นมนต์จะเสื่อมถอยไป" อมระรับคำสัญญาอย่างหนักแน่นก่อนจะลาอาจารย์เข้าสู่เมืองหลวง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_5_772321088089452199.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อมระเดินทางมาถึงเมืองพาราณสี เขาต้องการแสดงความสามารถให้เป็นที่ประจักษ์ จึงไปที่อุทยานหลวงและร่ายมนต์เรียกมะม่วงให้สุกงอมเต็มต้นต่อหน้าผู้คนมากมาย ข่าวนี้แพร่สะพัดไปอย่างรวดเร็วจนถึงพระกรรณของพระราชา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_6_18202305184449710408.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"พระเจ้าพรหมทัต" เจ้าเมืองพาราณสี ทรงเลื่อมใสในวิชาของอมระเป็นอย่างมาก พระองค์ทรงเชิญอมระเข้ามาในพระราชวังเพื่อแสดงวิชาให้ทอดพระเนตร อมระร่ายมนต์เพียงครู่เดียว มะม่วงผลโตสีเหลืองทองรสชาติหวานหอมก็ร่วงหล่นลงมาเต็มพานทอง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_7_17195065870280696825.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าพรหมทัตทรงพอพระทัยยิ่งนัก ทรงพระราชทานรางวัลแก่อมระอย่างมากมาย ทั้งเงินทองและเกียรติยศ อมระกลายเป็นบุคคลสำคัญของเมืองเพียงชั่วข้ามคืน ความสุขสบายทำให้เขาเริ่มหลงระเริงในลาภยศและชื่อเสียงที่ได้รับ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_8_7734150988175318841.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันหนึ่งพระเจ้าพรหมทัตตรัสถามอมระว่า "ท่านเรียนวิชาอันน่าอัศจรรย์นี้มาจากอาจารย์ผู้เป็นพราหมณ์ชั้นสูงท่านใดหรือ? ข้าอยากจะส่งเครื่องราชบรรณาการไปขอบคุณท่านผู้นั้น" อมระชะงักไปครู่หนึ่ง หัวใจของเขาเริ่มสั่นคลอนด้วยความอับอาย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_9_6378787560441845336.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อมระคิดในใจว่า "ถ้าข้าบอกว่าอาจารย์ของข้าเป็นคนจัณฑาล พระราชาต้องดูถูกข้าแน่ๆ และข้าอาจจะเสียตำแหน่งนี้ไป" ด้วยความขลาดเขลาและลืมคำสัญญาที่ให้ไว้กับมาตังคะ อมระจึงทูลปดไปว่า "ข้าพระองค์เรียนมาจากพราหมณ์ผู้เรืองเวทย์ในสำนักตักศิลาพะเจ้าข้า"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_10_12521362724365984741.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทันทีที่พูดคำเท็จจบลง พระเจ้าพรหมทัตทรงขอให้อมระแสดงวิชาอีกครั้ง แต่อมระกลับพบว่าเขาไม่สามารถร่ายมนต์ได้สำเร็จ มะม่วงที่เคยสุกงอมกลับกลายเป็นเพียงกิ่งไม้แห้งเหี่ยว มนต์วิเศษได้เสื่อมถอยไปเสียแล้วตามคำเตือนของอาจารย์</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_11_16729346647255870709.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าพรหมทัตทรงกริ้วมากเมื่อทรงทราบว่าอมระโกหกและอกตัญญูต่ออาจารย์ "คนที่ไม่เห็นคุณค่าของครูผู้ประสิทธิ์ประสาทวิชา ย่อมไม่สมควรได้รับความไว้วางใจจากใคร" พระองค์จึงสั่งเนรเทศอมระออกจากเมืองไปทันที อมระเสียใจมาก เขาซัดเซพเนจรกลับไปหามาตังคะในป่า</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./124 อัมพชาดก_files/storybook_page_12_11045136015591912631.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มาตังคะเห็นอมระกลับมาในสภาพที่สิ้นหวัง เขาไม่ได้โกรธเคืองแต่กลับสอนด้วยความเมตตาว่า "ความกตัญญูคือรากฐานของความเจริญ เมื่อเจ้าทำลายมันด้วยความเห็นแก่ตัว วิชาใดๆ ก็ไร้ความหมาย" อมระกราบขอขมาและเรียนรู้ว่า ความสัตย์จริงและความกตัญญูนั้นมีค่าสูงยิ่งกว่าลาภยศใดๆ ในโลก</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ในป่าอันสงบเงียบ มีชายผู้หนึ่งชื่อว่า \"มาตังคะ\" เขาเป็นผู้มีวิชาอาคมแก่กล้า สามารถร่ายมนต์เรียกผลมะม่วงให้สุกงอมร่วงหล่นลงมาจากต้นได้ทุกเวลา แม้จะไม่ใช่ฤดูกาลของมันก็ตาม มาตังคะใช้ชีวิตอย่างสมถะและใจดี แม้ว่าสังคมจะตราหน้าว่าเขาเป็นคนจัณฑาลผู้ต่ำต้อยก็ตาม วันหนึ่ง \"อมระ\" มาณพหนุ่มผู้มีความทะเยอทะยาน ได้เดินทางมาพบมาตังคะและเห็นปาฏิหาริย์นั้น เขาปรารถนาจะเรียนรู้วิชานี้เพื่อสร้างชื่อเสียงให้กับตนเอง อมระจึงเข้าไปกราบกรานขอเป็นศิษย์ มาตังคะมองเห็นความมุ่งมั่นในแววตาของชายหนุ่ม จึงกล่าวว่า \"วิชานี้มีเงื่อนไขสำคัญคือ เจ้าต้องกตัญญูและซื่อสัตย์ต่อครูบาอาจารย์เสมอ\" อมระรับคำด้วยความเต็มใจ เขาเฝ้าปรนนิบัติรับใช้มาตังคะอย่างขยันขันแข็ง ทั้งหาฟืน ตักน้ำ และดูแลที่พักอาศัย เพื่อพิสูจน์ว่าตนเองมีความกตัญญูและคู่ควรกับวิชาวิเศษนี้ มาตังคะเฝ้าดูความพยายามของลูกศิษย์ด้วยความเอ็นดู โดยหวังว่าชายหนุ่มจะรักษาคุณธรรมนี้ไว้ได้ตลอดไป เมื่อเห็นว่าลูกศิษย์พร้อมแล้ว มาตังคะจึงถ่ายทอดมนต์เรียกมะม่วงให้อมระจนหมดสิ้น \"จำไว้นะอมระ หากใครถามว่าเจ้าเรียนวิชานี้มาจากใคร เจ้าต้องตอบความจริง อย่าได้ปิดบังชื่อของข้าเพียงเพราะข้าเป็นจัณฑาล มิฉะนั้นมนต์จะเสื่อมถอยไป\" อมระรับคำสัญญาอย่างหนักแน่นก่อนจะลาอาจารย์เข้าสู่เมืองหลวง อมระเดินทางมาถึงเมืองพาราณสี เขาต้องการแสดงความสามารถให้เป็นที่ประจักษ์ จึงไปที่อุทยานหลวงและร่ายมนต์เรียกมะม่วงให้สุกงอมเต็มต้นต่อหน้าผู้คนมากมาย ข่าวนี้แพร่สะพัดไปอย่างรวดเร็วจนถึงพระกรรณของพระราชา \"พระเจ้าพรหมทัต\" เจ้าเมืองพาราณสี ทรงเลื่อมใสในวิชาของอมระเป็นอย่างมาก พระองค์ทรงเชิญอมระเข้ามาในพระราชวังเพื่อแสดงวิชาให้ทอดพระเนตร อมระร่ายมนต์เพียงครู่เดียว มะม่วงผลโตสีเหลืองทองรสชาติหวานหอมก็ร่วงหล่นลงมาเต็มพานทอง พระเจ้าพรหมทัตทรงพอพระทัยยิ่งนัก ทรงพระราชทานรางวัลแก่อมระอย่างมากมาย ทั้งเงินทองและเกียรติยศ อมระกลายเป็นบุคคลสำคัญของเมืองเพียงชั่วข้ามคืน ความสุขสบายทำให้เขาเริ่มหลงระเริงในลาภยศและชื่อเสียงที่ได้รับ วันหนึ่งพระเจ้าพรหมทัตตรัสถามอมระว่า \"ท่านเรียนวิชาอันน่าอัศจรรย์นี้มาจากอาจารย์ผู้เป็นพราหมณ์ชั้นสูงท่านใดหรือ? ข้าอยากจะส่งเครื่องราชบรรณาการไปขอบคุณท่านผู้นั้น\" อมระชะงักไปครู่หนึ่ง หัวใจของเขาเริ่มสั่นคลอนด้วยความอับอาย อมระคิดในใจว่า \"ถ้าข้าบอกว่าอาจารย์ของข้าเป็นคนจัณฑาล พระราชาต้องดูถูกข้าแน่ๆ และข้าอาจจะเสียตำแหน่งนี้ไป\" ด้วยความขลาดเขลาและลืมคำสัญญาที่ให้ไว้กับมาตังคะ อมระจึงทูลปดไปว่า \"ข้าพระองค์เรียนมาจากพราหมณ์ผู้เรืองเวทย์ในสำนักตักศิลาพะเจ้าข้า\" ทันทีที่พูดคำเท็จจบลง พระเจ้าพรหมทัตทรงขอให้อมระแสดงวิชาอีกครั้ง แต่อมระกลับพบว่าเขาไม่สามารถร่ายมนต์ได้สำเร็จ มะม่วงที่เคยสุกงอมกลับกลายเป็นเพียงกิ่งไม้แห้งเหี่ยว มนต์วิเศษได้เสื่อมถอยไปเสียแล้วตามคำเตือนของอาจารย์ พระเจ้าพรหมทัตทรงกริ้วมากเมื่อทรงทราบว่าอมระโกหกและอกตัญญูต่ออาจารย์ \"คนที่ไม่เห็นคุณค่าของครูผู้ประสิทธิ์ประสาทวิชา ย่อมไม่สมควรได้รับความไว้วางใจจากใคร\" พระองค์จึงสั่งเนรเทศอมระออกจากเมืองไปทันที อมระเสียใจมาก เขาซัดเซพเนจรกลับไปหามาตังคะในป่า มาตังคะเห็นอมระกลับมาในสภาพที่สิ้นหวัง เขาไม่ได้โกรธเคืองแต่กลับสอนด้วยความเมตตาว่า \"ความกตัญญูคือรากฐานของความเจริญ เมื่อเจ้าทำลายมันด้วยความเห็นแก่ตัว วิชาใดๆ ก็ไร้ความหมาย\" อมระกราบขอขมาและเรียนรู้ว่า ความสัตย์จริงและความกตัญญูนั้นมีค่าสูงยิ่งกว่าลาภยศใดๆ ในโลก";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/124-00-ac73dcff.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/124-01-70b24178.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/124-02-18600b09.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/124-03-2fb7b45b.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/124-04-1a017aeb.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/124-05-af4ff707.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/124-06-e8859adf.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/124-07-0fe50c1a.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/124-08-a55c68b5.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/124-09-c46841cc.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/124-10-1b706b3d.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/124-11-7659cfaf.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/124-12-0763a4aa.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

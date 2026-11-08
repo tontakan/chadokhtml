@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_0_6817381876160974566.jpg" alt="ฆตาสนชาดก: พญานกผู้หยั่งรู้และต้นไม้แห่งเพลิง" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">ฆตาสนชาดก: พญานกผู้หยั่งรู้และต้นไม้แห่งเพลิง</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_1_18305453617636610263.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ณ ป่าหิมพานต์อันกว้างใหญ่ มีพญานกนามว่า &quot;ปักษี&quot; ท่านเป็นผู้มีความฉลาดหลักแหลมและเปี่ยมด้วยเมตตา ปักษีอาศัยอยู่บนต้นไม้ใหญ่ที่มีกิ่งก้านสาขาแผ่ขยายให้ร่มเงาแก่เหล่านกทั้งหลายอย่างมีความสุข</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_2_2421768775118564273.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในบรรดาบริวารทั้งหมด มีนกน้อยนามว่า &quot;อรณี&quot; ผู้ขยันขันแข็ง อรณีมักจะคอยติดตามปักษีเพื่อเรียนรู้การใช้ชีวิตและการสังเกตธรรมชาติรอบตัวอยู่เสมอ ทั้งสองใช้เวลาช่วงเช้าในการบินสำรวจความอุดมสมบูรณ์ของป่า</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_3_13843230067650632343.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อยู่มาวันหนึ่ง ลมพายุพัดแรงผิดปกติ กิ่งไม้ใหญ่ของต้นที่ปักษีอาศัยอยู่เริ่มเสียดสีกันอย่างรุนแรง ปักษีเฝ้ามองเหตุการณ์นั้นด้วยความกังวล ท่านสังเกตเห็นบางอย่างที่ผิดปกติเกิดขึ้นจากการเสียดสีนั้น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_4_12888389158906944018.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อรณีบินเข้ามาใกล้และสังเกตเห็นผงไม้ละเอียดสีดำร่วงหล่นลงมาจากจุดที่กิ่งไม้เสียดสีกัน &quot;ท่านปักษี เหตุใดกิ่งไม้จึงมีควันจางๆ พุ่งออกมาเช่นนั้นหรือ?&quot; นกน้อยเอ่ยถามด้วยความสงสัย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_5_13604823007867357022.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ปักษีสูดกลิ่นในอากาศแล้วตอบว่า &quot;นี่คือสัญญาณอันตราย เมื่อไม้เสียดสีกันจะเกิดความร้อน และความร้อนนั้นจะกลายเป็นไฟในไม่ช้า ต้นไม้ที่เคยให้ร่มเย็นแก่เรา บัดนี้กำลังจะกลายเป็นกองเพลิง&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_6_10999688078810892458.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ปักษีรีบเรียกประชุมบริวารนกทั้งหมด ท่านประกาศด้วยเสียงอันดังว่า &quot;พี่น้องทั้งหลาย ต้นไม้นี้ไม่ปลอดภัยอีกต่อไปแล้ว ลมพัดแรงกิ่งไม้เสียดสีจนเกิดความร้อน เราต้องย้ายไปหาที่พำนักใหม่ก่อนที่ไฟจะลุกโชน&quot; อรณีรีบขยับปีกเตรียมพร้อมทำตามคำสั่ง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_7_7372736549832979683.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทว่า มีนกแก่ผู้ดื้อรั้นตัวหนึ่งนามว่า &quot;วายุ&quot; กลับหัวเราะเยาะ &quot;ท่านปักษีกังวลเกินไปแล้ว นั่นก็แค่ฝุ่นไม้และไอน้ำจากความชื้น ข้าอยู่ที่นี่มานาน ไม่เคยเห็นไฟที่ไหนจะเกิดจากไม้เปล่าๆ ได้เลย&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_8_1774258892331225405.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ปักษีพยายามเตือนวายุด้วยความหวังดี &quot;ท่านวายุ อย่าประมาทในสิ่งที่ยังมองไม่เห็นด้วยตาเปล่าเลย ความร้อนที่สะสมอยู่ข้างในนั้นมันรุนแรงนัก&quot; แต่วายุก็ยังคงนิ่งเฉยและไม่ยอมขยับเขยื้อนไปไหน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_9_2686944180334146940.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อเห็นว่าไม่อาจเปลี่ยนใจนกที่ประมาทได้ ปักษีจึงตัดสินใจกางปีกออกกว้างและเริ่มบินขึ้นสู่ท้องฟ้า &quot;ใครที่รักชีวิต จงตามข้ามา!&quot; ท่านนำทางเหล่านกที่เชื่อมั่นในปัญญาออกไปจากต้นไม้ต้นนั้น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_10_12508353107490043081.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อรณีบินตามปักษีไปอย่างรวดเร็ว ทั้งสองนำหน้าฝูงนกมุ่งหน้าสู่ยอดเขาสีทองที่อยู่ไกลออกไป ปักษีคอยเหลียวหลังกลับมาดูบริวารเพื่อให้แน่ใจว่าไม่มีใครหลงทางหรือเหนื่อยล้าจนเกินไป</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_11_9297878024271566086.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทันใดนั้นเอง ลมพายุหอบใหญ่ก็พัดมาอีกครั้ง กิ่งไม้ที่เสียดสีกันจนร้อนจัดก็เกิดประกายไฟลุกพรึบขึ้น วายุที่ยังคงเกาะอยู่บนต้นไม้ตกใจสุดขีดเมื่อเห็นเปลวเพลิงสีแดงฉานล้อมรอบตัวเขาไว้ในพริบตา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./133 ฆตาสนชาดก_files/storybook_page_12_15760326232137382167.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>จากยอดเขาอันปลอดภัย ปักษีและอรณีมองกลับมายังต้นไม้ต้นเดิมที่บัดนี้กลายเป็นกองไฟใหญ่ ปักษีสอนอรณีว่า &quot;ผู้ที่มีปัญญาจะสังเกตเห็นภัยก่อนที่มันจะมาถึง และความไม่ประมาทคือเกราะคุ้มครองชีวิตที่แท้จริง&quot;</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_0_6817381876160974566.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="ฆตาสนชาดก: พญานกผู้หยั่งรู้และต้นไม้แห่งเพลิง" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">ฆตาสนชาดก: พญานกผู้หยั่งรู้และต้นไม้แห่งเพลิง</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_1_18305453617636610263.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ณ ป่าหิมพานต์อันกว้างใหญ่ มีพญานกนามว่า "ปักษี" ท่านเป็นผู้มีความฉลาดหลักแหลมและเปี่ยมด้วยเมตตา ปักษีอาศัยอยู่บนต้นไม้ใหญ่ที่มีกิ่งก้านสาขาแผ่ขยายให้ร่มเงาแก่เหล่านกทั้งหลายอย่างมีความสุข</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_2_2421768775118564273.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในบรรดาบริวารทั้งหมด มีนกน้อยนามว่า "อรณี" ผู้ขยันขันแข็ง อรณีมักจะคอยติดตามปักษีเพื่อเรียนรู้การใช้ชีวิตและการสังเกตธรรมชาติรอบตัวอยู่เสมอ ทั้งสองใช้เวลาช่วงเช้าในการบินสำรวจความอุดมสมบูรณ์ของป่า</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_3_13843230067650632343.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อยู่มาวันหนึ่ง ลมพายุพัดแรงผิดปกติ กิ่งไม้ใหญ่ของต้นที่ปักษีอาศัยอยู่เริ่มเสียดสีกันอย่างรุนแรง ปักษีเฝ้ามองเหตุการณ์นั้นด้วยความกังวล ท่านสังเกตเห็นบางอย่างที่ผิดปกติเกิดขึ้นจากการเสียดสีนั้น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_4_12888389158906944018.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อรณีบินเข้ามาใกล้และสังเกตเห็นผงไม้ละเอียดสีดำร่วงหล่นลงมาจากจุดที่กิ่งไม้เสียดสีกัน "ท่านปักษี เหตุใดกิ่งไม้จึงมีควันจางๆ พุ่งออกมาเช่นนั้นหรือ?" นกน้อยเอ่ยถามด้วยความสงสัย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_5_13604823007867357022.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ปักษีสูดกลิ่นในอากาศแล้วตอบว่า "นี่คือสัญญาณอันตราย เมื่อไม้เสียดสีกันจะเกิดความร้อน และความร้อนนั้นจะกลายเป็นไฟในไม่ช้า ต้นไม้ที่เคยให้ร่มเย็นแก่เรา บัดนี้กำลังจะกลายเป็นกองเพลิง"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_6_10999688078810892458.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ปักษีรีบเรียกประชุมบริวารนกทั้งหมด ท่านประกาศด้วยเสียงอันดังว่า "พี่น้องทั้งหลาย ต้นไม้นี้ไม่ปลอดภัยอีกต่อไปแล้ว ลมพัดแรงกิ่งไม้เสียดสีจนเกิดความร้อน เราต้องย้ายไปหาที่พำนักใหม่ก่อนที่ไฟจะลุกโชน" อรณีรีบขยับปีกเตรียมพร้อมทำตามคำสั่ง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_7_7372736549832979683.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทว่า มีนกแก่ผู้ดื้อรั้นตัวหนึ่งนามว่า "วายุ" กลับหัวเราะเยาะ "ท่านปักษีกังวลเกินไปแล้ว นั่นก็แค่ฝุ่นไม้และไอน้ำจากความชื้น ข้าอยู่ที่นี่มานาน ไม่เคยเห็นไฟที่ไหนจะเกิดจากไม้เปล่าๆ ได้เลย"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_8_1774258892331225405.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ปักษีพยายามเตือนวายุด้วยความหวังดี "ท่านวายุ อย่าประมาทในสิ่งที่ยังมองไม่เห็นด้วยตาเปล่าเลย ความร้อนที่สะสมอยู่ข้างในนั้นมันรุนแรงนัก" แต่วายุก็ยังคงนิ่งเฉยและไม่ยอมขยับเขยื้อนไปไหน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_9_2686944180334146940.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อเห็นว่าไม่อาจเปลี่ยนใจนกที่ประมาทได้ ปักษีจึงตัดสินใจกางปีกออกกว้างและเริ่มบินขึ้นสู่ท้องฟ้า "ใครที่รักชีวิต จงตามข้ามา!" ท่านนำทางเหล่านกที่เชื่อมั่นในปัญญาออกไปจากต้นไม้ต้นนั้น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_10_12508353107490043081.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อรณีบินตามปักษีไปอย่างรวดเร็ว ทั้งสองนำหน้าฝูงนกมุ่งหน้าสู่ยอดเขาสีทองที่อยู่ไกลออกไป ปักษีคอยเหลียวหลังกลับมาดูบริวารเพื่อให้แน่ใจว่าไม่มีใครหลงทางหรือเหนื่อยล้าจนเกินไป</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_11_9297878024271566086.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทันใดนั้นเอง ลมพายุหอบใหญ่ก็พัดมาอีกครั้ง กิ่งไม้ที่เสียดสีกันจนร้อนจัดก็เกิดประกายไฟลุกพรึบขึ้น วายุที่ยังคงเกาะอยู่บนต้นไม้ตกใจสุดขีดเมื่อเห็นเปลวเพลิงสีแดงฉานล้อมรอบตัวเขาไว้ในพริบตา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./133 ฆตาสนชาดก_files/storybook_page_12_15760326232137382167.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>จากยอดเขาอันปลอดภัย ปักษีและอรณีมองกลับมายังต้นไม้ต้นเดิมที่บัดนี้กลายเป็นกองไฟใหญ่ ปักษีสอนอรณีว่า "ผู้ที่มีปัญญาจะสังเกตเห็นภัยก่อนที่มันจะมาถึง และความไม่ประมาทคือเกราะคุ้มครองชีวิตที่แท้จริง"</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ณ ป่าหิมพานต์อันกว้างใหญ่ มีพญานกนามว่า \"ปักษี\" ท่านเป็นผู้มีความฉลาดหลักแหลมและเปี่ยมด้วยเมตตา ปักษีอาศัยอยู่บนต้นไม้ใหญ่ที่มีกิ่งก้านสาขาแผ่ขยายให้ร่มเงาแก่เหล่านกทั้งหลายอย่างมีความสุข ในบรรดาบริวารทั้งหมด มีนกน้อยนามว่า \"อรณี\" ผู้ขยันขันแข็ง อรณีมักจะคอยติดตามปักษีเพื่อเรียนรู้การใช้ชีวิตและการสังเกตธรรมชาติรอบตัวอยู่เสมอ ทั้งสองใช้เวลาช่วงเช้าในการบินสำรวจความอุดมสมบูรณ์ของป่า อยู่มาวันหนึ่ง ลมพายุพัดแรงผิดปกติ กิ่งไม้ใหญ่ของต้นที่ปักษีอาศัยอยู่เริ่มเสียดสีกันอย่างรุนแรง ปักษีเฝ้ามองเหตุการณ์นั้นด้วยความกังวล ท่านสังเกตเห็นบางอย่างที่ผิดปกติเกิดขึ้นจากการเสียดสีนั้น อรณีบินเข้ามาใกล้และสังเกตเห็นผงไม้ละเอียดสีดำร่วงหล่นลงมาจากจุดที่กิ่งไม้เสียดสีกัน \"ท่านปักษี เหตุใดกิ่งไม้จึงมีควันจางๆ พุ่งออกมาเช่นนั้นหรือ?\" นกน้อยเอ่ยถามด้วยความสงสัย ปักษีสูดกลิ่นในอากาศแล้วตอบว่า \"นี่คือสัญญาณอันตราย เมื่อไม้เสียดสีกันจะเกิดความร้อน และความร้อนนั้นจะกลายเป็นไฟในไม่ช้า ต้นไม้ที่เคยให้ร่มเย็นแก่เรา บัดนี้กำลังจะกลายเป็นกองเพลิง\" ปักษีรีบเรียกประชุมบริวารนกทั้งหมด ท่านประกาศด้วยเสียงอันดังว่า \"พี่น้องทั้งหลาย ต้นไม้นี้ไม่ปลอดภัยอีกต่อไปแล้ว ลมพัดแรงกิ่งไม้เสียดสีจนเกิดความร้อน เราต้องย้ายไปหาที่พำนักใหม่ก่อนที่ไฟจะลุกโชน\" อรณีรีบขยับปีกเตรียมพร้อมทำตามคำสั่ง ทว่า มีนกแก่ผู้ดื้อรั้นตัวหนึ่งนามว่า \"วายุ\" กลับหัวเราะเยาะ \"ท่านปักษีกังวลเกินไปแล้ว นั่นก็แค่ฝุ่นไม้และไอน้ำจากความชื้น ข้าอยู่ที่นี่มานาน ไม่เคยเห็นไฟที่ไหนจะเกิดจากไม้เปล่าๆ ได้เลย\" ปักษีพยายามเตือนวายุด้วยความหวังดี \"ท่านวายุ อย่าประมาทในสิ่งที่ยังมองไม่เห็นด้วยตาเปล่าเลย ความร้อนที่สะสมอยู่ข้างในนั้นมันรุนแรงนัก\" แต่วายุก็ยังคงนิ่งเฉยและไม่ยอมขยับเขยื้อนไปไหน เมื่อเห็นว่าไม่อาจเปลี่ยนใจนกที่ประมาทได้ ปักษีจึงตัดสินใจกางปีกออกกว้างและเริ่มบินขึ้นสู่ท้องฟ้า \"ใครที่รักชีวิต จงตามข้ามา!\" ท่านนำทางเหล่านกที่เชื่อมั่นในปัญญาออกไปจากต้นไม้ต้นนั้น อรณีบินตามปักษีไปอย่างรวดเร็ว ทั้งสองนำหน้าฝูงนกมุ่งหน้าสู่ยอดเขาสีทองที่อยู่ไกลออกไป ปักษีคอยเหลียวหลังกลับมาดูบริวารเพื่อให้แน่ใจว่าไม่มีใครหลงทางหรือเหนื่อยล้าจนเกินไป ทันใดนั้นเอง ลมพายุหอบใหญ่ก็พัดมาอีกครั้ง กิ่งไม้ที่เสียดสีกันจนร้อนจัดก็เกิดประกายไฟลุกพรึบขึ้น วายุที่ยังคงเกาะอยู่บนต้นไม้ตกใจสุดขีดเมื่อเห็นเปลวเพลิงสีแดงฉานล้อมรอบตัวเขาไว้ในพริบตา จากยอดเขาอันปลอดภัย ปักษีและอรณีมองกลับมายังต้นไม้ต้นเดิมที่บัดนี้กลายเป็นกองไฟใหญ่ ปักษีสอนอรณีว่า \"ผู้ที่มีปัญญาจะสังเกตเห็นภัยก่อนที่มันจะมาถึง และความไม่ประมาทคือเกราะคุ้มครองชีวิตที่แท้จริง\"";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/133-00-1c5a7ea6.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/133-01-b1f232b3.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/133-02-82095966.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/133-03-4c41fedb.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/133-04-6c2a445d.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/133-05-2ba9aa6b.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/133-06-33cc2bb7.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/133-07-553d03e8.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/133-08-d8d34782.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/133-09-73ace7ee.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/133-10-d19db1d9.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/133-11-e9258723.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/133-12-f52198e2.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_0_5956088547926590641.jpg" alt="แสงแห่งปัญญาของธรรมันต์" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">แสงแห่งปัญญาของธรรมันต์</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_1_14110519131636755785.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ท่ามกลางป่าลึกอันเงียบสงบในชมพูทวีป มีถ้ำขนาดใหญ่ที่ประดับประดาด้วยภาพเขียนสีสวยงาม เป็นที่พำนักของพระดาบสผู้ทรงศีลนามว่า ฤาษีอสิตะ ท่านเป็นอาจารย์ผู้เชี่ยวชาญในพระธรรมและมีลูกศิษย์มากมายที่เดินทางมาจากแดนไกลเพื่อรับการถ่ายทอดวิชาความรู้</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_2_10947560541306029502.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในบรรดาศิษย์ทั้งหมด มีศิษย์เอกคนหนึ่งนามว่า ธรรมันต์ เขาเป็นชายหนุ่มที่มีกิริยาสงบเสงี่ยมและมักจะใช้เวลาส่วนใหญ่ไปกับการพินิจพิจารณาสิ่งรอบตัว ฤาษีอสิตะมักจะเฝ้ามองธรรมันต์ด้วยความเมตตา เพราะท่านเห็นแววแห่งปัญญาที่เปล่งประกายอยู่ในดวงตาของเขาเสมอ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_3_627931813122990592.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในทางกลับกัน ตารันต์ ซึ่งเป็นศิษย์อีกคนหนึ่ง แม้จะขยันหมั่นเพียรในการท่องบ่นตำรา แต่เขาก็มักจะยึดติดอยู่กับเพียงตัวอักษร ตารันต์มักจะโอ้อวดว่าตนเองจำคำสอนได้ทุกบท แต่เขากลับไม่เคยตั้งคำถามถึงความหมายที่แท้จริงที่ซ่อนอยู่ภายใต้ถ้อยคำเหล่านั้นเลย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_4_16742341208066651849.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันหนึ่ง ฤาษีอสิตะต้องการทดสอบปัญญาของเหล่าศิษย์ ท่านจึงพาทั้งหมดออกเดินธุดงค์เข้าไปในป่าลึก ผ่านเส้นทางที่ขรุขระและพงหนาม ท่านต้องการให้ศิษย์ได้เห็นความจริงของโลกที่ไม่ได้อยู่เพียงในตำราที่ท่องจำ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_5_5455185176753534406.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อเดินมาถึงลานกว้างใกล้กับป่าช้าเก่า พวกเขาได้พบกับกองกระดูกขาวโพลนที่ทับถมกันอยู่ ฤาษีอสิตะหยุดเดินแล้วชี้ไปที่กะโหลกศีรษะอันหนึ่งที่วางเด่นอยู่บนพื้นดินที่แห้งระแหง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_6_13337079104752250385.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;พวกเจ้าลองบอกอาจารย์ซิว่า กะโหลกที่พวกเจ้าเห็นอยู่นี้ มันบอกอะไรแก่พวกเจ้าบ้าง?&quot; ฤาษีอสิตะถามขึ้นด้วยน้ำเสียงเรียบราบ สายตาของท่านกวาดมองไปยังศิษย์ทุกคนเพื่อรอฟังคำตอบ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_7_15048748675902873034.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ตารันต์รีบชิงตอบเป็นคนแรกด้วยความมั่นใจ &quot;ท่านอาจารย์ครับ นี่คือซากของมนุษย์ที่ตายไปแล้ว มันคือสิ่งที่ไร้ค่า เป็นเพียงธาตุสี่ที่แตกสลายไปตามตำราที่ข้าได้ท่องจำมาไม่มีผิดเพี้ยนครับ&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_8_14379429526228839470.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ธรรมันต์นิ่งเงียบไปครู่หนึ่ง เขาไม่ได้รีบร้อนตอบ แต่เขากลับหลับตาลงและใช้จิตเพ่งพิจารณาถึงความไม่เที่ยงแท้ เขาเห็นภาพของเจ้าของกะโหลกนี้ในวันที่เคยมีชีวิต มีความรัก มีความโกรธ และสุดท้ายก็ต้องเหลือเพียงเท่านี้</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_9_9592916947939069029.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;ท่านอาจารย์ครับ&quot; ธรรมันต์กล่าวขึ้น &quot;กะโหลกนี้หาใช่เพียงซากศพ แต่มันคือธรรมพจน์ที่ไม่มีเสียง มันบอกข้าว่าไม่ว่าผู้ใดจะยิ่งใหญ่หรือต่ำต้อยเพียงใด สุดท้ายกิเลสและสังขารก็นำพามาสู่จุดเดียวกัน ความจริงข้อนี้เองที่ช่วยให้เราละวางความถือตัวตน&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_10_13248290057478492920.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ฤาษีอสิตะพยักหน้าด้วยความพอใจยิ่งนัก ท่านกล่าวชื่นชมธรรมันต์ต่อหน้าศิษย์ทุกคน &quot;เก่งมากธรรมันต์ เจ้าไม่ได้เพียงแค่จำธรรมะได้ แต่เจ้า &#039;เข้าใจ&#039; ธรรมะด้วยหัวใจ ปัญญาที่เกิดจากการเห็นแจ้งเช่นนี้คือแสงสว่างที่แท้จริง&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_11_7252867005134798925.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ตารันต์และศิษย์คนอื่นๆ ต่างก้มหน้าลงด้วยความละอาย พวกเขาตระหนักได้ว่าการท่องจำตำรานับพันเล่มก็มิอาจสู้การมีปัญญาเพียงหนึ่งเดียวที่เข้าใจถึงแก่นแท้ของธรรมชาติได้ ฤาษีอสิตะจึงเมตตาสอนบทเรียนสุดท้ายในวันนั้น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./101 ปโรสตชาดก_files/storybook_page_12_1040880265903441549.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทั้งหมดพากันเดินกลับสู่ถ้ำที่พำนักด้วยจิตใจที่สว่างไสว ธรรมันต์ยังคงเป็นศิษย์ที่ถ่อมตัวเช่นเดิม แต่ปัญญาของเขาได้กลายเป็นตะเกียงนำทางให้เพื่อนร่วมสำนักสืบต่อไป และเรื่องราวความเข้าใจธรรมนี้ก็ถูกจารึกไว้ในใจของทุกคนตราบนานเท่านาน</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_0_5956088547926590641.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="แสงแห่งปัญญาของธรรมันต์" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">แสงแห่งปัญญาของธรรมันต์</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_1_14110519131636755785.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ท่ามกลางป่าลึกอันเงียบสงบในชมพูทวีป มีถ้ำขนาดใหญ่ที่ประดับประดาด้วยภาพเขียนสีสวยงาม เป็นที่พำนักของพระดาบสผู้ทรงศีลนามว่า ฤาษีอสิตะ ท่านเป็นอาจารย์ผู้เชี่ยวชาญในพระธรรมและมีลูกศิษย์มากมายที่เดินทางมาจากแดนไกลเพื่อรับการถ่ายทอดวิชาความรู้</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_2_10947560541306029502.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในบรรดาศิษย์ทั้งหมด มีศิษย์เอกคนหนึ่งนามว่า ธรรมันต์ เขาเป็นชายหนุ่มที่มีกิริยาสงบเสงี่ยมและมักจะใช้เวลาส่วนใหญ่ไปกับการพินิจพิจารณาสิ่งรอบตัว ฤาษีอสิตะมักจะเฝ้ามองธรรมันต์ด้วยความเมตตา เพราะท่านเห็นแววแห่งปัญญาที่เปล่งประกายอยู่ในดวงตาของเขาเสมอ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_3_627931813122990592.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในทางกลับกัน ตารันต์ ซึ่งเป็นศิษย์อีกคนหนึ่ง แม้จะขยันหมั่นเพียรในการท่องบ่นตำรา แต่เขาก็มักจะยึดติดอยู่กับเพียงตัวอักษร ตารันต์มักจะโอ้อวดว่าตนเองจำคำสอนได้ทุกบท แต่เขากลับไม่เคยตั้งคำถามถึงความหมายที่แท้จริงที่ซ่อนอยู่ภายใต้ถ้อยคำเหล่านั้นเลย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_4_16742341208066651849.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันหนึ่ง ฤาษีอสิตะต้องการทดสอบปัญญาของเหล่าศิษย์ ท่านจึงพาทั้งหมดออกเดินธุดงค์เข้าไปในป่าลึก ผ่านเส้นทางที่ขรุขระและพงหนาม ท่านต้องการให้ศิษย์ได้เห็นความจริงของโลกที่ไม่ได้อยู่เพียงในตำราที่ท่องจำ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_5_5455185176753534406.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อเดินมาถึงลานกว้างใกล้กับป่าช้าเก่า พวกเขาได้พบกับกองกระดูกขาวโพลนที่ทับถมกันอยู่ ฤาษีอสิตะหยุดเดินแล้วชี้ไปที่กะโหลกศีรษะอันหนึ่งที่วางเด่นอยู่บนพื้นดินที่แห้งระแหง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_6_13337079104752250385.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"พวกเจ้าลองบอกอาจารย์ซิว่า กะโหลกที่พวกเจ้าเห็นอยู่นี้ มันบอกอะไรแก่พวกเจ้าบ้าง?" ฤาษีอสิตะถามขึ้นด้วยน้ำเสียงเรียบราบ สายตาของท่านกวาดมองไปยังศิษย์ทุกคนเพื่อรอฟังคำตอบ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_7_15048748675902873034.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ตารันต์รีบชิงตอบเป็นคนแรกด้วยความมั่นใจ "ท่านอาจารย์ครับ นี่คือซากของมนุษย์ที่ตายไปแล้ว มันคือสิ่งที่ไร้ค่า เป็นเพียงธาตุสี่ที่แตกสลายไปตามตำราที่ข้าได้ท่องจำมาไม่มีผิดเพี้ยนครับ"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_8_14379429526228839470.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ธรรมันต์นิ่งเงียบไปครู่หนึ่ง เขาไม่ได้รีบร้อนตอบ แต่เขากลับหลับตาลงและใช้จิตเพ่งพิจารณาถึงความไม่เที่ยงแท้ เขาเห็นภาพของเจ้าของกะโหลกนี้ในวันที่เคยมีชีวิต มีความรัก มีความโกรธ และสุดท้ายก็ต้องเหลือเพียงเท่านี้</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_9_9592916947939069029.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"ท่านอาจารย์ครับ" ธรรมันต์กล่าวขึ้น "กะโหลกนี้หาใช่เพียงซากศพ แต่มันคือธรรมพจน์ที่ไม่มีเสียง มันบอกข้าว่าไม่ว่าผู้ใดจะยิ่งใหญ่หรือต่ำต้อยเพียงใด สุดท้ายกิเลสและสังขารก็นำพามาสู่จุดเดียวกัน ความจริงข้อนี้เองที่ช่วยให้เราละวางความถือตัวตน"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_10_13248290057478492920.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ฤาษีอสิตะพยักหน้าด้วยความพอใจยิ่งนัก ท่านกล่าวชื่นชมธรรมันต์ต่อหน้าศิษย์ทุกคน "เก่งมากธรรมันต์ เจ้าไม่ได้เพียงแค่จำธรรมะได้ แต่เจ้า 'เข้าใจ' ธรรมะด้วยหัวใจ ปัญญาที่เกิดจากการเห็นแจ้งเช่นนี้คือแสงสว่างที่แท้จริง"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_11_7252867005134798925.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ตารันต์และศิษย์คนอื่นๆ ต่างก้มหน้าลงด้วยความละอาย พวกเขาตระหนักได้ว่าการท่องจำตำรานับพันเล่มก็มิอาจสู้การมีปัญญาเพียงหนึ่งเดียวที่เข้าใจถึงแก่นแท้ของธรรมชาติได้ ฤาษีอสิตะจึงเมตตาสอนบทเรียนสุดท้ายในวันนั้น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./101 ปโรสตชาดก_files/storybook_page_12_1040880265903441549.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทั้งหมดพากันเดินกลับสู่ถ้ำที่พำนักด้วยจิตใจที่สว่างไสว ธรรมันต์ยังคงเป็นศิษย์ที่ถ่อมตัวเช่นเดิม แต่ปัญญาของเขาได้กลายเป็นตะเกียงนำทางให้เพื่อนร่วมสำนักสืบต่อไป และเรื่องราวความเข้าใจธรรมนี้ก็ถูกจารึกไว้ในใจของทุกคนตราบนานเท่านาน</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ท่ามกลางป่าลึกอันเงียบสงบในชมพูทวีป มีถ้ำขนาดใหญ่ที่ประดับประดาด้วยภาพเขียนสีสวยงาม เป็นที่พำนักของพระดาบสผู้ทรงศีลนามว่า ฤาษีอสิตะ ท่านเป็นอาจารย์ผู้เชี่ยวชาญในพระธรรมและมีลูกศิษย์มากมายที่เดินทางมาจากแดนไกลเพื่อรับการถ่ายทอดวิชาความรู้ ในบรรดาศิษย์ทั้งหมด มีศิษย์เอกคนหนึ่งนามว่า ธรรมันต์ เขาเป็นชายหนุ่มที่มีกิริยาสงบเสงี่ยมและมักจะใช้เวลาส่วนใหญ่ไปกับการพินิจพิจารณาสิ่งรอบตัว ฤาษีอสิตะมักจะเฝ้ามองธรรมันต์ด้วยความเมตตา เพราะท่านเห็นแววแห่งปัญญาที่เปล่งประกายอยู่ในดวงตาของเขาเสมอ ในทางกลับกัน ตารันต์ ซึ่งเป็นศิษย์อีกคนหนึ่ง แม้จะขยันหมั่นเพียรในการท่องบ่นตำรา แต่เขาก็มักจะยึดติดอยู่กับเพียงตัวอักษร ตารันต์มักจะโอ้อวดว่าตนเองจำคำสอนได้ทุกบท แต่เขากลับไม่เคยตั้งคำถามถึงความหมายที่แท้จริงที่ซ่อนอยู่ภายใต้ถ้อยคำเหล่านั้นเลย วันหนึ่ง ฤาษีอสิตะต้องการทดสอบปัญญาของเหล่าศิษย์ ท่านจึงพาทั้งหมดออกเดินธุดงค์เข้าไปในป่าลึก ผ่านเส้นทางที่ขรุขระและพงหนาม ท่านต้องการให้ศิษย์ได้เห็นความจริงของโลกที่ไม่ได้อยู่เพียงในตำราที่ท่องจำ เมื่อเดินมาถึงลานกว้างใกล้กับป่าช้าเก่า พวกเขาได้พบกับกองกระดูกขาวโพลนที่ทับถมกันอยู่ ฤาษีอสิตะหยุดเดินแล้วชี้ไปที่กะโหลกศีรษะอันหนึ่งที่วางเด่นอยู่บนพื้นดินที่แห้งระแหง \"พวกเจ้าลองบอกอาจารย์ซิว่า กะโหลกที่พวกเจ้าเห็นอยู่นี้ มันบอกอะไรแก่พวกเจ้าบ้าง?\" ฤาษีอสิตะถามขึ้นด้วยน้ำเสียงเรียบราบ สายตาของท่านกวาดมองไปยังศิษย์ทุกคนเพื่อรอฟังคำตอบ ตารันต์รีบชิงตอบเป็นคนแรกด้วยความมั่นใจ \"ท่านอาจารย์ครับ นี่คือซากของมนุษย์ที่ตายไปแล้ว มันคือสิ่งที่ไร้ค่า เป็นเพียงธาตุสี่ที่แตกสลายไปตามตำราที่ข้าได้ท่องจำมาไม่มีผิดเพี้ยนครับ\" ธรรมันต์นิ่งเงียบไปครู่หนึ่ง เขาไม่ได้รีบร้อนตอบ แต่เขากลับหลับตาลงและใช้จิตเพ่งพิจารณาถึงความไม่เที่ยงแท้ เขาเห็นภาพของเจ้าของกะโหลกนี้ในวันที่เคยมีชีวิต มีความรัก มีความโกรธ และสุดท้ายก็ต้องเหลือเพียงเท่านี้ \"ท่านอาจารย์ครับ\" ธรรมันต์กล่าวขึ้น \"กะโหลกนี้หาใช่เพียงซากศพ แต่มันคือธรรมพจน์ที่ไม่มีเสียง มันบอกข้าว่าไม่ว่าผู้ใดจะยิ่งใหญ่หรือต่ำต้อยเพียงใด สุดท้ายกิเลสและสังขารก็นำพามาสู่จุดเดียวกัน ความจริงข้อนี้เองที่ช่วยให้เราละวางความถือตัวตน\" ฤาษีอสิตะพยักหน้าด้วยความพอใจยิ่งนัก ท่านกล่าวชื่นชมธรรมันต์ต่อหน้าศิษย์ทุกคน \"เก่งมากธรรมันต์ เจ้าไม่ได้เพียงแค่จำธรรมะได้ แต่เจ้า 'เข้าใจ' ธรรมะด้วยหัวใจ ปัญญาที่เกิดจากการเห็นแจ้งเช่นนี้คือแสงสว่างที่แท้จริง\" ตารันต์และศิษย์คนอื่นๆ ต่างก้มหน้าลงด้วยความละอาย พวกเขาตระหนักได้ว่าการท่องจำตำรานับพันเล่มก็มิอาจสู้การมีปัญญาเพียงหนึ่งเดียวที่เข้าใจถึงแก่นแท้ของธรรมชาติได้ ฤาษีอสิตะจึงเมตตาสอนบทเรียนสุดท้ายในวันนั้น ทั้งหมดพากันเดินกลับสู่ถ้ำที่พำนักด้วยจิตใจที่สว่างไสว ธรรมันต์ยังคงเป็นศิษย์ที่ถ่อมตัวเช่นเดิม แต่ปัญญาของเขาได้กลายเป็นตะเกียงนำทางให้เพื่อนร่วมสำนักสืบต่อไป และเรื่องราวความเข้าใจธรรมนี้ก็ถูกจารึกไว้ในใจของทุกคนตราบนานเท่านาน";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/101-00-9f787519.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/101-01-1210ec3a.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/101-02-f7e3e011.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/101-03-0c66703f.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/101-04-b58fc2ed.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/101-05-08707677.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/101-06-e019824e.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/101-07-ce99ee19.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/101-08-e90d2211.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/101-09-e6b8876f.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/101-10-244e9a21.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/101-11-7bf378c9.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/101-12-59e8ae25.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

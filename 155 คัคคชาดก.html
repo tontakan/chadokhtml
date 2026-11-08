@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_0_9626251094488849909.jpg" alt="กัคคชาดก: วาจามงคลสยบยักษ์ร้าย" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">กัคคชาดก: วาจามงคลสยบยักษ์ร้าย</h1>
-            <p class="cover-author">โดย Story Live</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_1_3745982884878423842.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ในดินแดนชมพูทวีปอันกว้างใหญ่ พราหมณ์ผู้เฒ่าชื่อ พรหมทัตต์ เดินทางรอนแรมผ่านป่าลึกพร้อมกับลูกชายวัยหนุ่มผู้มีปัญญาเฉลียวฉลาดชื่อ กัคคะ ทั้งสองกำลังมุ่งหน้าไปยังเมืองพาราณสีเพื่อทำธุระสำคัญ ท่ามกลางแมกไม้หนาทึบและเสียงนกป่าที่เริ่มเงียบลงเมื่ออาทิตย์อัสดง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_2_360273243899026128.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อแสงแดดสุดท้ายลับขอบฟ้า ลมเย็นเริ่มพัดผ่าน ผืนป่าตกอยู่ในความมืดสลัว กัคคะมองเห็นศาลาหลังเก่าตั้งอยู่ริมทาง เขาจึงหันไปบอกพ่อว่า &quot;ท่านพ่อครับ คืนนี้เราพักค้างแรมที่ศาลาแห่งนี้เถิด ป่าข้างหน้ายังอีกไกลนักและดูอันตรายเกินกว่าจะเดินทางต่อในยามวิกาล&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_3_2258266736753455674.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พรหมทัตต์พยักหน้าเห็นด้วย ทั้งสองก้าวเข้าไปภายในศาลาที่เงียบเชียบ พราหมณ์ผู้เฒ่านั่งลงบนพื้นไม้ที่เย็นเยียบด้วยความเหนื่อยล้าจากการเดินทางมาตลอดทั้งวัน &quot;พ่อจะพักสายตาสักหน่อยนะกัคคะ&quot; เขาเอ่ยพร้อมกับวางย่ามลงข้างกาย โดยไม่รู้เลยว่ามีสายตาคู่หนึ่งกำลังจับจ้องพวกเขามาจากเงามืดบนเพดาน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_4_16843058504731105718.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>บนขื่อคาของศาลาหลังนั้น เป็นที่อยู่ของยักษ์ตนหนึ่งชื่อ อสูรฆะ มันได้รับพรจากพญายมว่า &quot;เจ้าสามารถจับใครก็ตามที่เข้ามาในศาลานี้กินเป็นอาหารได้ หากคนผู้นั้นไม่กล่าววาจาอันเป็นมงคลเมื่อมีการจามเกิดขึ้น&quot; อสูรฆะนั่งนิ่ง จ้องมองพราหมณ์ทั้งสองด้วยความหิวโหย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_5_12145801872307064138.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อสูรฆะเฝ้ารออย่างอดทน มันรู้ดีว่าเมื่อความเย็นในยามดึกมาเยือน มนุษย์มักจะทนไม่ไหวและต้องจามออกมาในที่สุด มันเตรียมกรงเล็บอันแหลมคมไว้พร้อมที่จะกระโดดลงไปคร่าชีวิตเหยื่อ หากพวกเขาเผลอเรอและหลงลืมประเพณีอันดีงาม</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_6_12116501489356618063.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทันใดนั้น ลมเย็นวาบพัดผ่านช่องหน้าต่างศาลา พรหมทัตต์ที่กำลังเคลิ้มหลับก็รู้สึกคันจมูกอย่างรุนแรง เขาเงยหน้าขึ้นและจามออกมาเสียงดังสนั่น &quot;ฮัดเช้ย!&quot; เสียงนั้นก้องไปทั่วศาลาที่เงียบสงัด อสูรฆะเตรียมตัวพุ่งลงมาจากขื่อทันที</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_7_14857782584749088618.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>แต่ก่อนที่เท้าของยักษ์จะแตะพื้น กัคคะผู้มีสติมั่นคงและรู้ถึงลางสังหรณ์บางอย่าง ก็รีบประคองมือขึ้นและกล่าวคำอำนวยพรเสียงดังว่า &quot;ขอให้ท่านพ่อมีอายุยืนยาวร้อยปี! ขอความทุกข์โศกและโรคภัยจงมลายหายไป ขอให้ท่านมีสุขภาพพลานามัยที่แข็งแรงตลอดกาลนานเทอญ!&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_8_14187878128888272473.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อสูรฆะชะงักงันกลางอากาศ มันร่อนลงพื้นอย่างแผ่วเบาต่อหน้ากัคคะ ร่างอันใหญ่โตของมันสั่นสะท้านด้วยอำนาจแห่งวาจามงคล กัคคะไม่ได้แสดงความหวาดกลัวแม้แต่น้อย เขายืนประจันหน้ากับยักษ์ร้ายด้วยดวงตาที่เต็มไปด้วยความกรุณา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_9_9086211923055829281.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;ท่านยักษ์&quot; กัคคะเอ่ยด้วยน้ำเสียงนุ่มนวล &quot;วาจาที่ข้ากล่าวนั้นคือมงคล เป็นการแสดงความกตัญญูและความปรารถนาดีต่อผู้มีพระคุณ ท่านผู้มีฤทธิ์เช่นท่าน ไยจึงต้องหล่อเลี้ยงชีพด้วยการเบียดเบียนผู้อื่นเล่า? ความโกรธและความหิวโหยจะมอดไหม้ใจท่านเอง&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_10_15366927258475954496.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>อสูรฆะฟังคำของกัคคะแล้วรู้สึกเหมือนมีน้ำเย็นมาชโลมใจที่รุ่มร้อน หัวใจที่แข็งกระด้างของมันเริ่มอ่อนโยนลง มันสำนึกได้ว่าคำพูดดี ๆ เพียงไม่กี่คำมีอำนาจยิ่งใหญ่กว่าพละกำลังที่มันมีเสียอีก มันก้มหน้าลงด้วยความละอายต่อบาปที่เคยทำมา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_11_3230064396104053656.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พรหมทัตต์ตื่นขึ้นมาด้วยความตกใจ แต่เมื่อเห็นเหตุการณ์เขาก็ยิ้มด้วยความปิติ กัคคะช่วยพยุงพ่อให้ลุกขึ้น ทั้งสองมองดูยักษ์ที่บัดนี้ละทิ้งความดุร้าย &quot;เราจะไม่โกรธเคืองท่าน&quot; พรหมทัตต์กล่าว &quot;ขอให้ท่านรักษาศีลและเลิกเบียดเบียนชีวิตผู้อื่นเถิด&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./155 คัคคชาดก_files/storybook_page_12_7307630954384519485.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อแสงทองของเช้าวันใหม่สาดส่อง อสูรฆะได้ปวารณาตัวเป็นผู้ดูแลศาลาแห่งนี้ เพื่อคอยอารักขาเหล่านักเดินทางให้ปลอดภัย พรหมทัตต์และกัคคะออกเดินทางต่อด้วยใจที่เบิกบาน ทิ้งคำสอนเรื่องวาจามงคลไว้เป็นตำนานสืบไป</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_0_9626251094488849909.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="กัคคชาดก: วาจามงคลสยบยักษ์ร้าย" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">กัคคชาดก: วาจามงคลสยบยักษ์ร้าย</h1>
+        <p class="cover-author">โดย Story Live</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_1_3745982884878423842.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ในดินแดนชมพูทวีปอันกว้างใหญ่ พราหมณ์ผู้เฒ่าชื่อ พรหมทัตต์ เดินทางรอนแรมผ่านป่าลึกพร้อมกับลูกชายวัยหนุ่มผู้มีปัญญาเฉลียวฉลาดชื่อ กัคคะ ทั้งสองกำลังมุ่งหน้าไปยังเมืองพาราณสีเพื่อทำธุระสำคัญ ท่ามกลางแมกไม้หนาทึบและเสียงนกป่าที่เริ่มเงียบลงเมื่ออาทิตย์อัสดง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_2_360273243899026128.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อแสงแดดสุดท้ายลับขอบฟ้า ลมเย็นเริ่มพัดผ่าน ผืนป่าตกอยู่ในความมืดสลัว กัคคะมองเห็นศาลาหลังเก่าตั้งอยู่ริมทาง เขาจึงหันไปบอกพ่อว่า "ท่านพ่อครับ คืนนี้เราพักค้างแรมที่ศาลาแห่งนี้เถิด ป่าข้างหน้ายังอีกไกลนักและดูอันตรายเกินกว่าจะเดินทางต่อในยามวิกาล"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_3_2258266736753455674.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พรหมทัตต์พยักหน้าเห็นด้วย ทั้งสองก้าวเข้าไปภายในศาลาที่เงียบเชียบ พราหมณ์ผู้เฒ่านั่งลงบนพื้นไม้ที่เย็นเยียบด้วยความเหนื่อยล้าจากการเดินทางมาตลอดทั้งวัน "พ่อจะพักสายตาสักหน่อยนะกัคคะ" เขาเอ่ยพร้อมกับวางย่ามลงข้างกาย โดยไม่รู้เลยว่ามีสายตาคู่หนึ่งกำลังจับจ้องพวกเขามาจากเงามืดบนเพดาน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_4_16843058504731105718.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>บนขื่อคาของศาลาหลังนั้น เป็นที่อยู่ของยักษ์ตนหนึ่งชื่อ อสูรฆะ มันได้รับพรจากพญายมว่า "เจ้าสามารถจับใครก็ตามที่เข้ามาในศาลานี้กินเป็นอาหารได้ หากคนผู้นั้นไม่กล่าววาจาอันเป็นมงคลเมื่อมีการจามเกิดขึ้น" อสูรฆะนั่งนิ่ง จ้องมองพราหมณ์ทั้งสองด้วยความหิวโหย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_5_12145801872307064138.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อสูรฆะเฝ้ารออย่างอดทน มันรู้ดีว่าเมื่อความเย็นในยามดึกมาเยือน มนุษย์มักจะทนไม่ไหวและต้องจามออกมาในที่สุด มันเตรียมกรงเล็บอันแหลมคมไว้พร้อมที่จะกระโดดลงไปคร่าชีวิตเหยื่อ หากพวกเขาเผลอเรอและหลงลืมประเพณีอันดีงาม</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_6_12116501489356618063.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทันใดนั้น ลมเย็นวาบพัดผ่านช่องหน้าต่างศาลา พรหมทัตต์ที่กำลังเคลิ้มหลับก็รู้สึกคันจมูกอย่างรุนแรง เขาเงยหน้าขึ้นและจามออกมาเสียงดังสนั่น "ฮัดเช้ย!" เสียงนั้นก้องไปทั่วศาลาที่เงียบสงัด อสูรฆะเตรียมตัวพุ่งลงมาจากขื่อทันที</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_7_14857782584749088618.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>แต่ก่อนที่เท้าของยักษ์จะแตะพื้น กัคคะผู้มีสติมั่นคงและรู้ถึงลางสังหรณ์บางอย่าง ก็รีบประคองมือขึ้นและกล่าวคำอำนวยพรเสียงดังว่า "ขอให้ท่านพ่อมีอายุยืนยาวร้อยปี! ขอความทุกข์โศกและโรคภัยจงมลายหายไป ขอให้ท่านมีสุขภาพพลานามัยที่แข็งแรงตลอดกาลนานเทอญ!"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_8_14187878128888272473.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อสูรฆะชะงักงันกลางอากาศ มันร่อนลงพื้นอย่างแผ่วเบาต่อหน้ากัคคะ ร่างอันใหญ่โตของมันสั่นสะท้านด้วยอำนาจแห่งวาจามงคล กัคคะไม่ได้แสดงความหวาดกลัวแม้แต่น้อย เขายืนประจันหน้ากับยักษ์ร้ายด้วยดวงตาที่เต็มไปด้วยความกรุณา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_9_9086211923055829281.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"ท่านยักษ์" กัคคะเอ่ยด้วยน้ำเสียงนุ่มนวล "วาจาที่ข้ากล่าวนั้นคือมงคล เป็นการแสดงความกตัญญูและความปรารถนาดีต่อผู้มีพระคุณ ท่านผู้มีฤทธิ์เช่นท่าน ไยจึงต้องหล่อเลี้ยงชีพด้วยการเบียดเบียนผู้อื่นเล่า? ความโกรธและความหิวโหยจะมอดไหม้ใจท่านเอง"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_10_15366927258475954496.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>อสูรฆะฟังคำของกัคคะแล้วรู้สึกเหมือนมีน้ำเย็นมาชโลมใจที่รุ่มร้อน หัวใจที่แข็งกระด้างของมันเริ่มอ่อนโยนลง มันสำนึกได้ว่าคำพูดดี ๆ เพียงไม่กี่คำมีอำนาจยิ่งใหญ่กว่าพละกำลังที่มันมีเสียอีก มันก้มหน้าลงด้วยความละอายต่อบาปที่เคยทำมา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_11_3230064396104053656.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พรหมทัตต์ตื่นขึ้นมาด้วยความตกใจ แต่เมื่อเห็นเหตุการณ์เขาก็ยิ้มด้วยความปิติ กัคคะช่วยพยุงพ่อให้ลุกขึ้น ทั้งสองมองดูยักษ์ที่บัดนี้ละทิ้งความดุร้าย "เราจะไม่โกรธเคืองท่าน" พรหมทัตต์กล่าว "ขอให้ท่านรักษาศีลและเลิกเบียดเบียนชีวิตผู้อื่นเถิด"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./155 คัคคชาดก_files/storybook_page_12_7307630954384519485.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อแสงทองของเช้าวันใหม่สาดส่อง อสูรฆะได้ปวารณาตัวเป็นผู้ดูแลศาลาแห่งนี้ เพื่อคอยอารักขาเหล่านักเดินทางให้ปลอดภัย พรหมทัตต์และกัคคะออกเดินทางต่อด้วยใจที่เบิกบาน ทิ้งคำสอนเรื่องวาจามงคลไว้เป็นตำนานสืบไป</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ในดินแดนชมพูทวีปอันกว้างใหญ่ พราหมณ์ผู้เฒ่าชื่อ พรหมทัตต์ เดินทางรอนแรมผ่านป่าลึกพร้อมกับลูกชายวัยหนุ่มผู้มีปัญญาเฉลียวฉลาดชื่อ กัคคะ ทั้งสองกำลังมุ่งหน้าไปยังเมืองพาราณสีเพื่อทำธุระสำคัญ ท่ามกลางแมกไม้หนาทึบและเสียงนกป่าที่เริ่มเงียบลงเมื่ออาทิตย์อัสดง เมื่อแสงแดดสุดท้ายลับขอบฟ้า ลมเย็นเริ่มพัดผ่าน ผืนป่าตกอยู่ในความมืดสลัว กัคคะมองเห็นศาลาหลังเก่าตั้งอยู่ริมทาง เขาจึงหันไปบอกพ่อว่า \"ท่านพ่อครับ คืนนี้เราพักค้างแรมที่ศาลาแห่งนี้เถิด ป่าข้างหน้ายังอีกไกลนักและดูอันตรายเกินกว่าจะเดินทางต่อในยามวิกาล\" พรหมทัตต์พยักหน้าเห็นด้วย ทั้งสองก้าวเข้าไปภายในศาลาที่เงียบเชียบ พราหมณ์ผู้เฒ่านั่งลงบนพื้นไม้ที่เย็นเยียบด้วยความเหนื่อยล้าจากการเดินทางมาตลอดทั้งวัน \"พ่อจะพักสายตาสักหน่อยนะกัคคะ\" เขาเอ่ยพร้อมกับวางย่ามลงข้างกาย โดยไม่รู้เลยว่ามีสายตาคู่หนึ่งกำลังจับจ้องพวกเขามาจากเงามืดบนเพดาน บนขื่อคาของศาลาหลังนั้น เป็นที่อยู่ของยักษ์ตนหนึ่งชื่อ อสูรฆะ มันได้รับพรจากพญายมว่า \"เจ้าสามารถจับใครก็ตามที่เข้ามาในศาลานี้กินเป็นอาหารได้ หากคนผู้นั้นไม่กล่าววาจาอันเป็นมงคลเมื่อมีการจามเกิดขึ้น\" อสูรฆะนั่งนิ่ง จ้องมองพราหมณ์ทั้งสองด้วยความหิวโหย อสูรฆะเฝ้ารออย่างอดทน มันรู้ดีว่าเมื่อความเย็นในยามดึกมาเยือน มนุษย์มักจะทนไม่ไหวและต้องจามออกมาในที่สุด มันเตรียมกรงเล็บอันแหลมคมไว้พร้อมที่จะกระโดดลงไปคร่าชีวิตเหยื่อ หากพวกเขาเผลอเรอและหลงลืมประเพณีอันดีงาม ทันใดนั้น ลมเย็นวาบพัดผ่านช่องหน้าต่างศาลา พรหมทัตต์ที่กำลังเคลิ้มหลับก็รู้สึกคันจมูกอย่างรุนแรง เขาเงยหน้าขึ้นและจามออกมาเสียงดังสนั่น \"ฮัดเช้ย!\" เสียงนั้นก้องไปทั่วศาลาที่เงียบสงัด อสูรฆะเตรียมตัวพุ่งลงมาจากขื่อทันที แต่ก่อนที่เท้าของยักษ์จะแตะพื้น กัคคะผู้มีสติมั่นคงและรู้ถึงลางสังหรณ์บางอย่าง ก็รีบประคองมือขึ้นและกล่าวคำอำนวยพรเสียงดังว่า \"ขอให้ท่านพ่อมีอายุยืนยาวร้อยปี! ขอความทุกข์โศกและโรคภัยจงมลายหายไป ขอให้ท่านมีสุขภาพพลานามัยที่แข็งแรงตลอดกาลนานเทอญ!\" อสูรฆะชะงักงันกลางอากาศ มันร่อนลงพื้นอย่างแผ่วเบาต่อหน้ากัคคะ ร่างอันใหญ่โตของมันสั่นสะท้านด้วยอำนาจแห่งวาจามงคล กัคคะไม่ได้แสดงความหวาดกลัวแม้แต่น้อย เขายืนประจันหน้ากับยักษ์ร้ายด้วยดวงตาที่เต็มไปด้วยความกรุณา \"ท่านยักษ์\" กัคคะเอ่ยด้วยน้ำเสียงนุ่มนวล \"วาจาที่ข้ากล่าวนั้นคือมงคล เป็นการแสดงความกตัญญูและความปรารถนาดีต่อผู้มีพระคุณ ท่านผู้มีฤทธิ์เช่นท่าน ไยจึงต้องหล่อเลี้ยงชีพด้วยการเบียดเบียนผู้อื่นเล่า? ความโกรธและความหิวโหยจะมอดไหม้ใจท่านเอง\" อสูรฆะฟังคำของกัคคะแล้วรู้สึกเหมือนมีน้ำเย็นมาชโลมใจที่รุ่มร้อน หัวใจที่แข็งกระด้างของมันเริ่มอ่อนโยนลง มันสำนึกได้ว่าคำพูดดี ๆ เพียงไม่กี่คำมีอำนาจยิ่งใหญ่กว่าพละกำลังที่มันมีเสียอีก มันก้มหน้าลงด้วยความละอายต่อบาปที่เคยทำมา พรหมทัตต์ตื่นขึ้นมาด้วยความตกใจ แต่เมื่อเห็นเหตุการณ์เขาก็ยิ้มด้วยความปิติ กัคคะช่วยพยุงพ่อให้ลุกขึ้น ทั้งสองมองดูยักษ์ที่บัดนี้ละทิ้งความดุร้าย \"เราจะไม่โกรธเคืองท่าน\" พรหมทัตต์กล่าว \"ขอให้ท่านรักษาศีลและเลิกเบียดเบียนชีวิตผู้อื่นเถิด\" เมื่อแสงทองของเช้าวันใหม่สาดส่อง อสูรฆะได้ปวารณาตัวเป็นผู้ดูแลศาลาแห่งนี้ เพื่อคอยอารักขาเหล่านักเดินทางให้ปลอดภัย พรหมทัตต์และกัคคะออกเดินทางต่อด้วยใจที่เบิกบาน ทิ้งคำสอนเรื่องวาจามงคลไว้เป็นตำนานสืบไป";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/155-00-65bbf814.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/155-01-daad8737.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/155-02-ec4e4a5d.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/155-03-57c59e30.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/155-04-81678296.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/155-05-9e410e1f.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/155-06-95c7b047.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/155-07-827d75f7.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/155-08-6b6dd76d.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/155-09-324f9517.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/155-10-a99ecd17.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/155-11-0b14075f.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/155-12-a9af0382.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

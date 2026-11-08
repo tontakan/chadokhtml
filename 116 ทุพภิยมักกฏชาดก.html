@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_0_3545114862418033116.jpg" alt="ลิงอกตัญญูกับพราหมณ์ผู้ใจดี" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">ลิงอกตัญญูกับพราหมณ์ผู้ใจดี</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_1_13915262087876775810.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นานมาแล้ว ในป่าใหญ่ที่เขียวขจีและเงียบสงบ มีพราหมณ์ผู้หนึ่งนามว่า &quot;ภัทระ&quot; ท่านเป็นผู้มีจิตใจเมตตา มักจะออกเดินจงกรมและบำเพ็ญเพียรอยู่ท่ามกลางธรรมชาติ วันหนึ่งขณะที่ท่านกำลังเดินผ่านป่าลึก แสงแดดรำไรส่องกระทบใบไม้สีทอง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_2_12761932482125122769.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทันใดนั้น ภัทระก็ได้ยินเสียงร้องขอความช่วยเหลือเบาๆ ดังมาจากบ่อน้ำเก่าที่แห้งขอด ท่านจึงเดินเข้าไปใกล้ขอบบ่อ แล้วก้มลงมองดูด้วยความสงสัย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_3_12476391100484739962.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ที่ก้นบ่อนั้นเอง มีลิงตัวหนึ่งนามว่า &quot;กะปิ&quot; มันกำลังนั่งตัวสั่นด้วยความหิวโหยและอ่อนแรง เพราะตกลงไปในบ่อหลายวันแล้วและไม่สามารถปีนกลับขึ้นมาเองได้</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_4_16284685047925118949.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ภัทระเห็นแล้วก็เกิดความสงสารจับใจ ท่านจึงมองหาเถาวัลย์เหนียวๆ ในบริเวณนั้น แล้วค่อยๆ หย่อนลงไปในบ่อเพื่อให้ลิงได้เกาะขึ้นมา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_5_14687455288333999891.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ลิงกะปิรีบคว้าเถาวัลย์ไว้แน่นด้วยความดีใจ มันใช้พละกำลังที่เหลืออยู่ค่อยๆ ปีนป่ายขึ้นมาจากก้นบ่ออันมืดมิดมุ่งสู่แสงสว่างด้านบน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_6_11454996001009762832.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อขึ้นมาถึงขอบบ่อ ลิงกะปิก็กระโดดลงบนพื้นหญ้า พราหมณ์ภัทระยิ้มให้ด้วยความเอ็นดู และนำน้ำในน้ำเต้าของท่านออกมาให้ลิงได้ดื่มกินเพื่อคลายความกระหาย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_7_10725559378877983154.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ลิงกะปิรีบรับน้ำเต้าไปดื่มกินอย่างรวดเร็วด้วยความหิวโหย แต่น่าแปลกที่มันไม่แม้แต่จะมองหน้าพราหมณ์หรือแสดงท่าทางขอบคุณเลยสักนิด</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_8_14860459293941724664.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อดับกระหายแล้ว ลิงกะปิกลับแยกเขี้ยวและทำหน้าตาพิลึกพิลั่นใส่ภัทระ มันขู่ฟ่อและกระโดดไปมา รอบๆ ตัวพราหมณ์ผู้มีพระคุณ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_9_3537994980662546131.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ภัทระรู้สึกประหลาดใจยิ่งนัก ท่านจึงเอ่ยถามด้วยเสียงนุ่มนวลว่า &quot;เจ้าลิงเอ๋ย ข้าช่วยเจ้าขึ้นมาจากความตาย เหตุใดเจ้าจึงทำกิริยาไม่น่ารักเช่นนี้ใส่ข้าเล่า?&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_10_3408282608912092198.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ลิงกะปิหัวเราะร่าและกระโดดขึ้นไปบนกิ่งไม้สูง มันตะโกนลงมาว่า &quot;ข้าเป็นลิงนะพราหมณ์! ธรรมชาติของข้าคือความวุ่นวาย และข้าก็ไม่จำเป็นต้องขอบคุณใครทั้งนั้น!&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_11_13539939858524194171.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทันใดนั้น ลิงนิสัยเสียก็ถ่ายอุจจาระลงมาใส่ศีรษะของพราหมณ์ภัทระพอดี แล้วมันก็กระโดดหายไปในป่าลึกอย่างรวดเร็ว ทิ้งให้พราหมณ์ยืนตะลึงอยู่เพียงลำพัง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_12_17869815472420875131.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ภัทระจึงไปล้างตัวที่ลำธารและรำพึงว่า &quot;การทำคุณกับสัตว์ป่าหรือคนพาลที่ไร้ซึ่งความกตัญญู ย่อมนำความเดือดร้อนมาให้ตนเอง&quot; ท่านจึงได้บทเรียนว่าควรมีเมตตาควบคู่ไปกับปัญญาเสมอ</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_0_3545114862418033116.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="ลิงอกตัญญูกับพราหมณ์ผู้ใจดี" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">ลิงอกตัญญูกับพราหมณ์ผู้ใจดี</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_1_13915262087876775810.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นานมาแล้ว ในป่าใหญ่ที่เขียวขจีและเงียบสงบ มีพราหมณ์ผู้หนึ่งนามว่า "ภัทระ" ท่านเป็นผู้มีจิตใจเมตตา มักจะออกเดินจงกรมและบำเพ็ญเพียรอยู่ท่ามกลางธรรมชาติ วันหนึ่งขณะที่ท่านกำลังเดินผ่านป่าลึก แสงแดดรำไรส่องกระทบใบไม้สีทอง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_2_12761932482125122769.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทันใดนั้น ภัทระก็ได้ยินเสียงร้องขอความช่วยเหลือเบาๆ ดังมาจากบ่อน้ำเก่าที่แห้งขอด ท่านจึงเดินเข้าไปใกล้ขอบบ่อ แล้วก้มลงมองดูด้วยความสงสัย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_3_12476391100484739962.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ที่ก้นบ่อนั้นเอง มีลิงตัวหนึ่งนามว่า "กะปิ" มันกำลังนั่งตัวสั่นด้วยความหิวโหยและอ่อนแรง เพราะตกลงไปในบ่อหลายวันแล้วและไม่สามารถปีนกลับขึ้นมาเองได้</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_4_16284685047925118949.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ภัทระเห็นแล้วก็เกิดความสงสารจับใจ ท่านจึงมองหาเถาวัลย์เหนียวๆ ในบริเวณนั้น แล้วค่อยๆ หย่อนลงไปในบ่อเพื่อให้ลิงได้เกาะขึ้นมา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_5_14687455288333999891.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ลิงกะปิรีบคว้าเถาวัลย์ไว้แน่นด้วยความดีใจ มันใช้พละกำลังที่เหลืออยู่ค่อยๆ ปีนป่ายขึ้นมาจากก้นบ่ออันมืดมิดมุ่งสู่แสงสว่างด้านบน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_6_11454996001009762832.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อขึ้นมาถึงขอบบ่อ ลิงกะปิก็กระโดดลงบนพื้นหญ้า พราหมณ์ภัทระยิ้มให้ด้วยความเอ็นดู และนำน้ำในน้ำเต้าของท่านออกมาให้ลิงได้ดื่มกินเพื่อคลายความกระหาย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_7_10725559378877983154.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ลิงกะปิรีบรับน้ำเต้าไปดื่มกินอย่างรวดเร็วด้วยความหิวโหย แต่น่าแปลกที่มันไม่แม้แต่จะมองหน้าพราหมณ์หรือแสดงท่าทางขอบคุณเลยสักนิด</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_8_14860459293941724664.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อดับกระหายแล้ว ลิงกะปิกลับแยกเขี้ยวและทำหน้าตาพิลึกพิลั่นใส่ภัทระ มันขู่ฟ่อและกระโดดไปมา รอบๆ ตัวพราหมณ์ผู้มีพระคุณ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_9_3537994980662546131.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ภัทระรู้สึกประหลาดใจยิ่งนัก ท่านจึงเอ่ยถามด้วยเสียงนุ่มนวลว่า "เจ้าลิงเอ๋ย ข้าช่วยเจ้าขึ้นมาจากความตาย เหตุใดเจ้าจึงทำกิริยาไม่น่ารักเช่นนี้ใส่ข้าเล่า?"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_10_3408282608912092198.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ลิงกะปิหัวเราะร่าและกระโดดขึ้นไปบนกิ่งไม้สูง มันตะโกนลงมาว่า "ข้าเป็นลิงนะพราหมณ์! ธรรมชาติของข้าคือความวุ่นวาย และข้าก็ไม่จำเป็นต้องขอบคุณใครทั้งนั้น!"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_11_13539939858524194171.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทันใดนั้น ลิงนิสัยเสียก็ถ่ายอุจจาระลงมาใส่ศีรษะของพราหมณ์ภัทระพอดี แล้วมันก็กระโดดหายไปในป่าลึกอย่างรวดเร็ว ทิ้งให้พราหมณ์ยืนตะลึงอยู่เพียงลำพัง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./116 ทุพภิยมักกฏชาดก_files/storybook_page_12_17869815472420875131.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ภัทระจึงไปล้างตัวที่ลำธารและรำพึงว่า "การทำคุณกับสัตว์ป่าหรือคนพาลที่ไร้ซึ่งความกตัญญู ย่อมนำความเดือดร้อนมาให้ตนเอง" ท่านจึงได้บทเรียนว่าควรมีเมตตาควบคู่ไปกับปัญญาเสมอ</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "นานมาแล้ว ในป่าใหญ่ที่เขียวขจีและเงียบสงบ มีพราหมณ์ผู้หนึ่งนามว่า \"ภัทระ\" ท่านเป็นผู้มีจิตใจเมตตา มักจะออกเดินจงกรมและบำเพ็ญเพียรอยู่ท่ามกลางธรรมชาติ วันหนึ่งขณะที่ท่านกำลังเดินผ่านป่าลึก แสงแดดรำไรส่องกระทบใบไม้สีทอง ทันใดนั้น ภัทระก็ได้ยินเสียงร้องขอความช่วยเหลือเบาๆ ดังมาจากบ่อน้ำเก่าที่แห้งขอด ท่านจึงเดินเข้าไปใกล้ขอบบ่อ แล้วก้มลงมองดูด้วยความสงสัย ที่ก้นบ่อนั้นเอง มีลิงตัวหนึ่งนามว่า \"กะปิ\" มันกำลังนั่งตัวสั่นด้วยความหิวโหยและอ่อนแรง เพราะตกลงไปในบ่อหลายวันแล้วและไม่สามารถปีนกลับขึ้นมาเองได้ ภัทระเห็นแล้วก็เกิดความสงสารจับใจ ท่านจึงมองหาเถาวัลย์เหนียวๆ ในบริเวณนั้น แล้วค่อยๆ หย่อนลงไปในบ่อเพื่อให้ลิงได้เกาะขึ้นมา ลิงกะปิรีบคว้าเถาวัลย์ไว้แน่นด้วยความดีใจ มันใช้พละกำลังที่เหลืออยู่ค่อยๆ ปีนป่ายขึ้นมาจากก้นบ่ออันมืดมิดมุ่งสู่แสงสว่างด้านบน เมื่อขึ้นมาถึงขอบบ่อ ลิงกะปิก็กระโดดลงบนพื้นหญ้า พราหมณ์ภัทระยิ้มให้ด้วยความเอ็นดู และนำน้ำในน้ำเต้าของท่านออกมาให้ลิงได้ดื่มกินเพื่อคลายความกระหาย ลิงกะปิรีบรับน้ำเต้าไปดื่มกินอย่างรวดเร็วด้วยความหิวโหย แต่น่าแปลกที่มันไม่แม้แต่จะมองหน้าพราหมณ์หรือแสดงท่าทางขอบคุณเลยสักนิด เมื่อดับกระหายแล้ว ลิงกะปิกลับแยกเขี้ยวและทำหน้าตาพิลึกพิลั่นใส่ภัทระ มันขู่ฟ่อและกระโดดไปมา รอบๆ ตัวพราหมณ์ผู้มีพระคุณ ภัทระรู้สึกประหลาดใจยิ่งนัก ท่านจึงเอ่ยถามด้วยเสียงนุ่มนวลว่า \"เจ้าลิงเอ๋ย ข้าช่วยเจ้าขึ้นมาจากความตาย เหตุใดเจ้าจึงทำกิริยาไม่น่ารักเช่นนี้ใส่ข้าเล่า?\" ลิงกะปิหัวเราะร่าและกระโดดขึ้นไปบนกิ่งไม้สูง มันตะโกนลงมาว่า \"ข้าเป็นลิงนะพราหมณ์! ธรรมชาติของข้าคือความวุ่นวาย และข้าก็ไม่จำเป็นต้องขอบคุณใครทั้งนั้น!\" ทันใดนั้น ลิงนิสัยเสียก็ถ่ายอุจจาระลงมาใส่ศีรษะของพราหมณ์ภัทระพอดี แล้วมันก็กระโดดหายไปในป่าลึกอย่างรวดเร็ว ทิ้งให้พราหมณ์ยืนตะลึงอยู่เพียงลำพัง ภัทระจึงไปล้างตัวที่ลำธารและรำพึงว่า \"การทำคุณกับสัตว์ป่าหรือคนพาลที่ไร้ซึ่งความกตัญญู ย่อมนำความเดือดร้อนมาให้ตนเอง\" ท่านจึงได้บทเรียนว่าควรมีเมตตาควบคู่ไปกับปัญญาเสมอ";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/116-00-3dddf1a2.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/116-01-cc417cfb.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/116-02-442a8ed0.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/116-03-65d8d5ae.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/116-04-495577f1.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/116-05-7d456c42.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/116-06-56f8e408.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/116-07-bd50ad4a.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/116-08-615a6453.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/116-09-293d3ba2.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/116-10-420d2893.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/116-11-9d166a06.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/116-12-91e0b786.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

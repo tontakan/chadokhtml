@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_0_6682246573530980036.jpg" alt="อสิลักขณชาดก: บทเรียนแห่งพราหมณ์ดมดาบ" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">อสิลักขณชาดก: บทเรียนแห่งพราหมณ์ดมดาบ</h1>
-            <p class="cover-author">โดย music relax</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_1_11525375149050596583.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นานมาแล้ว ณ เมืองพาราณสี มีพระราชาผู้ครองเมืองอย่างสงบสุข พระองค์มีพราหมณ์ที่ปรึกษาคนหนึ่งชื่อว่า &quot;ภัทระ&quot; ภัทระมีหน้าที่สำคัญคือการตรวจคุณภาพดาบที่เหล่านายช่างนำมาถวาย เขามีความสามารถพิเศษในการบอกว่าดาบเล่มไหนดีหรือร้ายเพียงแค่ใช้จมูกสูดดมกลิ่นของเหล็ก</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_2_14337177516606234146.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>แต่ทว่า ภัทระมิใช่พราหมณ์ที่ซื่อสัตย์เสมอไป เขามักจะแอบรับสินบนจากช่างตีดาบที่ต้องการให้ดาบของตนได้รับคำชม หากช่างคนไหนยอมมอบเงินทองให้ ภัทระก็จะยกย่องว่าดาบนั้นเป็นมงคลยิ่งนัก แม้ว่าความจริงแล้วดาบเล่มนั้นจะทื่อหรือเปราะบางก็ตาม</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_3_7794638130132147284.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>จนกระทั่งวันหนึ่ง &quot;โลหะ&quot; ช่างตีดาบหนุ่มฝีมือดีผู้ซื่อตรง รู้สึกไม่พอใจที่ภัทระคอยเรียกรับผลประโยชน์ เขาจึงคิดจะดัดหลังพราหมณ์ขี้ฉ้อคนนี้ โลหะตั้งใจตีดาบที่คมกริบที่สุดขึ้นมาเล่มหนึ่ง แต่เขามีแผนการลับที่ไม่มีใครล่วงรู้</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_4_15312023301101026558.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในวังหลวงยังมี &quot;อาทิตยะ&quot; เจ้าชายต่างเมืองผู้มาพำนักเพื่อเล่าเรียนวิชา เจ้าชายแอบหลงรัก &quot;อินทิรา&quot; พระราชธิดาของพระราชา ทั้งสองมักจะแอบพบกันในสวนหลวง และกังวลว่าพระราชาจะทรงอนุญาตให้พวกเขาครองคู่กันหรือไม่</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_5_11196981592791598761.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ถึงวันนัดตรวจดาบ โลหะนำดาบเล่มงามไปถวาย แต่ก่อนจะถึงมือภัทระ เขาได้แอบโรยผงพริกไทยป่นละเอียดไว้ที่ฝักดาบและตัวดาบอย่างมิดชิด ผงพริกไทยนั้นฉุนรุนแรงจนใครที่ได้กลิ่นใกล้ๆ ก็ต้องระคายเคืองจมูก</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_6_15213211663739153249.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ภัทระรับดาบมาด้วยความมั่นไส้ เพราะโลหะไม่ยอมจ่ายสินบนให้เขา เขาตั้งใจจะแกล้งบอกว่าดาบเล่มนี้เป็นอัปมงคล เขาชักดาบออกจากฝักอย่างรวดเร็วแล้วยื่นจมูกเข้าไปสูดดมใกล้ๆ เพื่อทำทีเป็นตรวจหาคุณภาพตามความเคยชิน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_7_9136478378868180372.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทันใดนั้นเอง ผงพริกไทยก็เข้าจมูกของภัทระอย่างจัง ความฉุนรุนแรงทำให้เขาไม่อาจกลั้นไว้ได้ ภัทระจามออกมาอย่างสุดแรง &quot;ฮัดเช้ย!&quot; ร่างกายของเขากระตุกอย่างรุนแรงในขณะที่จมูกยังจ่อติดอยู่กับคมดาบที่โลหะลับมาอย่างดี</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_8_3417149705605295510.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>คมดาบที่แหลมคมปานโกนสไลด์ฉับเดียวตัดเอาปลายจมูกของภัทระขาดกระเด็นออกไปในทันที พราหมณ์เฒ่าร้องลั่นด้วยความเจ็บปวด เอามือกุมใบหน้าที่มีเลือดไหลซึมออกมา ท่ามกลางความตกตะลึงของทุกคนในท้องพระโรง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_9_16179781003471793225.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในจังหวะที่เกิดความโกลาหลนั้นเอง เจ้าชายอาทิตยะเห็นเป็นโอกาสดีที่จะพิสูจน์ความกล้าหาญและความมีไหวพริบ เขาเข้าไปประคองพราหมณ์และทูลแก่พระราชาว่า เหตุการณ์นี้มิใช่เรื่องบังเอิญ แต่เป็นผลจากการที่พราหมณ์ประมาทและขาดความซื่อสัตย์ในหน้าที่</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_10_17763982153229367984.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระราชาทรงสอบสวนความจริง จนกระทั่งช่างโลหะยอมรับว่าตนวางพริกไทยไว้เพื่อดัดหลังพราหมณ์ที่เรียกรับสินบน พระราชาทรงเห็นถึงปัญหาของความฉ้อฉลในวัง และทรงชื่นชมในความกล้าของช่างโลหะรวมถึงไหวพริบของเจ้าชายอาทิตยะ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_11_15804391385727759528.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระราชาจึงทรงตัดสินโทษพราหมณ์ภัทระให้พ้นจากตำแหน่ง และทรงอนุญาตให้เจ้าชายอาทิตยะอภิเษกสมรสกับเจ้าหญิงอินทิรา เนื่องจากทรงเห็นว่าเจ้าชายมีสติปัญญาเฉลียวฉลาดพอที่จะดูแลลูกสาวและบ้านเมืองได้ในอนาคต</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./126 อสิลักขณชาดก_files/storybook_page_12_10112944564007919577.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นิทานเรื่องนี้สอนให้รู้ว่า ความโลภและความประมาทนำมาซึ่งภัยพิบัติแก่ตนเอง เหมือนพราหมณ์ที่ต้องเสียจมูกเพราะความขี้ฉ้อ ส่วนความซื่อสัตย์และไหวพริบจะนำมาซึ่งความสุขและความสำเร็จในที่สุด</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_0_6682246573530980036.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="อสิลักขณชาดก: บทเรียนแห่งพราหมณ์ดมดาบ" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">อสิลักขณชาดก: บทเรียนแห่งพราหมณ์ดมดาบ</h1>
+        <p class="cover-author">โดย music relax</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_1_11525375149050596583.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นานมาแล้ว ณ เมืองพาราณสี มีพระราชาผู้ครองเมืองอย่างสงบสุข พระองค์มีพราหมณ์ที่ปรึกษาคนหนึ่งชื่อว่า "ภัทระ" ภัทระมีหน้าที่สำคัญคือการตรวจคุณภาพดาบที่เหล่านายช่างนำมาถวาย เขามีความสามารถพิเศษในการบอกว่าดาบเล่มไหนดีหรือร้ายเพียงแค่ใช้จมูกสูดดมกลิ่นของเหล็ก</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_2_14337177516606234146.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>แต่ทว่า ภัทระมิใช่พราหมณ์ที่ซื่อสัตย์เสมอไป เขามักจะแอบรับสินบนจากช่างตีดาบที่ต้องการให้ดาบของตนได้รับคำชม หากช่างคนไหนยอมมอบเงินทองให้ ภัทระก็จะยกย่องว่าดาบนั้นเป็นมงคลยิ่งนัก แม้ว่าความจริงแล้วดาบเล่มนั้นจะทื่อหรือเปราะบางก็ตาม</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_3_7794638130132147284.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>จนกระทั่งวันหนึ่ง "โลหะ" ช่างตีดาบหนุ่มฝีมือดีผู้ซื่อตรง รู้สึกไม่พอใจที่ภัทระคอยเรียกรับผลประโยชน์ เขาจึงคิดจะดัดหลังพราหมณ์ขี้ฉ้อคนนี้ โลหะตั้งใจตีดาบที่คมกริบที่สุดขึ้นมาเล่มหนึ่ง แต่เขามีแผนการลับที่ไม่มีใครล่วงรู้</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_4_15312023301101026558.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในวังหลวงยังมี "อาทิตยะ" เจ้าชายต่างเมืองผู้มาพำนักเพื่อเล่าเรียนวิชา เจ้าชายแอบหลงรัก "อินทิรา" พระราชธิดาของพระราชา ทั้งสองมักจะแอบพบกันในสวนหลวง และกังวลว่าพระราชาจะทรงอนุญาตให้พวกเขาครองคู่กันหรือไม่</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_5_11196981592791598761.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ถึงวันนัดตรวจดาบ โลหะนำดาบเล่มงามไปถวาย แต่ก่อนจะถึงมือภัทระ เขาได้แอบโรยผงพริกไทยป่นละเอียดไว้ที่ฝักดาบและตัวดาบอย่างมิดชิด ผงพริกไทยนั้นฉุนรุนแรงจนใครที่ได้กลิ่นใกล้ๆ ก็ต้องระคายเคืองจมูก</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_6_15213211663739153249.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ภัทระรับดาบมาด้วยความมั่นไส้ เพราะโลหะไม่ยอมจ่ายสินบนให้เขา เขาตั้งใจจะแกล้งบอกว่าดาบเล่มนี้เป็นอัปมงคล เขาชักดาบออกจากฝักอย่างรวดเร็วแล้วยื่นจมูกเข้าไปสูดดมใกล้ๆ เพื่อทำทีเป็นตรวจหาคุณภาพตามความเคยชิน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_7_9136478378868180372.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทันใดนั้นเอง ผงพริกไทยก็เข้าจมูกของภัทระอย่างจัง ความฉุนรุนแรงทำให้เขาไม่อาจกลั้นไว้ได้ ภัทระจามออกมาอย่างสุดแรง "ฮัดเช้ย!" ร่างกายของเขากระตุกอย่างรุนแรงในขณะที่จมูกยังจ่อติดอยู่กับคมดาบที่โลหะลับมาอย่างดี</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_8_3417149705605295510.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>คมดาบที่แหลมคมปานโกนสไลด์ฉับเดียวตัดเอาปลายจมูกของภัทระขาดกระเด็นออกไปในทันที พราหมณ์เฒ่าร้องลั่นด้วยความเจ็บปวด เอามือกุมใบหน้าที่มีเลือดไหลซึมออกมา ท่ามกลางความตกตะลึงของทุกคนในท้องพระโรง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_9_16179781003471793225.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในจังหวะที่เกิดความโกลาหลนั้นเอง เจ้าชายอาทิตยะเห็นเป็นโอกาสดีที่จะพิสูจน์ความกล้าหาญและความมีไหวพริบ เขาเข้าไปประคองพราหมณ์และทูลแก่พระราชาว่า เหตุการณ์นี้มิใช่เรื่องบังเอิญ แต่เป็นผลจากการที่พราหมณ์ประมาทและขาดความซื่อสัตย์ในหน้าที่</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_10_17763982153229367984.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระราชาทรงสอบสวนความจริง จนกระทั่งช่างโลหะยอมรับว่าตนวางพริกไทยไว้เพื่อดัดหลังพราหมณ์ที่เรียกรับสินบน พระราชาทรงเห็นถึงปัญหาของความฉ้อฉลในวัง และทรงชื่นชมในความกล้าของช่างโลหะรวมถึงไหวพริบของเจ้าชายอาทิตยะ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_11_15804391385727759528.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระราชาจึงทรงตัดสินโทษพราหมณ์ภัทระให้พ้นจากตำแหน่ง และทรงอนุญาตให้เจ้าชายอาทิตยะอภิเษกสมรสกับเจ้าหญิงอินทิรา เนื่องจากทรงเห็นว่าเจ้าชายมีสติปัญญาเฉลียวฉลาดพอที่จะดูแลลูกสาวและบ้านเมืองได้ในอนาคต</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./126 อสิลักขณชาดก_files/storybook_page_12_10112944564007919577.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นิทานเรื่องนี้สอนให้รู้ว่า ความโลภและความประมาทนำมาซึ่งภัยพิบัติแก่ตนเอง เหมือนพราหมณ์ที่ต้องเสียจมูกเพราะความขี้ฉ้อ ส่วนความซื่อสัตย์และไหวพริบจะนำมาซึ่งความสุขและความสำเร็จในที่สุด</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "นานมาแล้ว ณ เมืองพาราณสี มีพระราชาผู้ครองเมืองอย่างสงบสุข พระองค์มีพราหมณ์ที่ปรึกษาคนหนึ่งชื่อว่า \"ภัทระ\" ภัทระมีหน้าที่สำคัญคือการตรวจคุณภาพดาบที่เหล่านายช่างนำมาถวาย เขามีความสามารถพิเศษในการบอกว่าดาบเล่มไหนดีหรือร้ายเพียงแค่ใช้จมูกสูดดมกลิ่นของเหล็ก แต่ทว่า ภัทระมิใช่พราหมณ์ที่ซื่อสัตย์เสมอไป เขามักจะแอบรับสินบนจากช่างตีดาบที่ต้องการให้ดาบของตนได้รับคำชม หากช่างคนไหนยอมมอบเงินทองให้ ภัทระก็จะยกย่องว่าดาบนั้นเป็นมงคลยิ่งนัก แม้ว่าความจริงแล้วดาบเล่มนั้นจะทื่อหรือเปราะบางก็ตาม จนกระทั่งวันหนึ่ง \"โลหะ\" ช่างตีดาบหนุ่มฝีมือดีผู้ซื่อตรง รู้สึกไม่พอใจที่ภัทระคอยเรียกรับผลประโยชน์ เขาจึงคิดจะดัดหลังพราหมณ์ขี้ฉ้อคนนี้ โลหะตั้งใจตีดาบที่คมกริบที่สุดขึ้นมาเล่มหนึ่ง แต่เขามีแผนการลับที่ไม่มีใครล่วงรู้ ในวังหลวงยังมี \"อาทิตยะ\" เจ้าชายต่างเมืองผู้มาพำนักเพื่อเล่าเรียนวิชา เจ้าชายแอบหลงรัก \"อินทิรา\" พระราชธิดาของพระราชา ทั้งสองมักจะแอบพบกันในสวนหลวง และกังวลว่าพระราชาจะทรงอนุญาตให้พวกเขาครองคู่กันหรือไม่ ถึงวันนัดตรวจดาบ โลหะนำดาบเล่มงามไปถวาย แต่ก่อนจะถึงมือภัทระ เขาได้แอบโรยผงพริกไทยป่นละเอียดไว้ที่ฝักดาบและตัวดาบอย่างมิดชิด ผงพริกไทยนั้นฉุนรุนแรงจนใครที่ได้กลิ่นใกล้ๆ ก็ต้องระคายเคืองจมูก ภัทระรับดาบมาด้วยความมั่นไส้ เพราะโลหะไม่ยอมจ่ายสินบนให้เขา เขาตั้งใจจะแกล้งบอกว่าดาบเล่มนี้เป็นอัปมงคล เขาชักดาบออกจากฝักอย่างรวดเร็วแล้วยื่นจมูกเข้าไปสูดดมใกล้ๆ เพื่อทำทีเป็นตรวจหาคุณภาพตามความเคยชิน ทันใดนั้นเอง ผงพริกไทยก็เข้าจมูกของภัทระอย่างจัง ความฉุนรุนแรงทำให้เขาไม่อาจกลั้นไว้ได้ ภัทระจามออกมาอย่างสุดแรง \"ฮัดเช้ย!\" ร่างกายของเขากระตุกอย่างรุนแรงในขณะที่จมูกยังจ่อติดอยู่กับคมดาบที่โลหะลับมาอย่างดี คมดาบที่แหลมคมปานโกนสไลด์ฉับเดียวตัดเอาปลายจมูกของภัทระขาดกระเด็นออกไปในทันที พราหมณ์เฒ่าร้องลั่นด้วยความเจ็บปวด เอามือกุมใบหน้าที่มีเลือดไหลซึมออกมา ท่ามกลางความตกตะลึงของทุกคนในท้องพระโรง ในจังหวะที่เกิดความโกลาหลนั้นเอง เจ้าชายอาทิตยะเห็นเป็นโอกาสดีที่จะพิสูจน์ความกล้าหาญและความมีไหวพริบ เขาเข้าไปประคองพราหมณ์และทูลแก่พระราชาว่า เหตุการณ์นี้มิใช่เรื่องบังเอิญ แต่เป็นผลจากการที่พราหมณ์ประมาทและขาดความซื่อสัตย์ในหน้าที่ พระราชาทรงสอบสวนความจริง จนกระทั่งช่างโลหะยอมรับว่าตนวางพริกไทยไว้เพื่อดัดหลังพราหมณ์ที่เรียกรับสินบน พระราชาทรงเห็นถึงปัญหาของความฉ้อฉลในวัง และทรงชื่นชมในความกล้าของช่างโลหะรวมถึงไหวพริบของเจ้าชายอาทิตยะ พระราชาจึงทรงตัดสินโทษพราหมณ์ภัทระให้พ้นจากตำแหน่ง และทรงอนุญาตให้เจ้าชายอาทิตยะอภิเษกสมรสกับเจ้าหญิงอินทิรา เนื่องจากทรงเห็นว่าเจ้าชายมีสติปัญญาเฉลียวฉลาดพอที่จะดูแลลูกสาวและบ้านเมืองได้ในอนาคต นิทานเรื่องนี้สอนให้รู้ว่า ความโลภและความประมาทนำมาซึ่งภัยพิบัติแก่ตนเอง เหมือนพราหมณ์ที่ต้องเสียจมูกเพราะความขี้ฉ้อ ส่วนความซื่อสัตย์และไหวพริบจะนำมาซึ่งความสุขและความสำเร็จในที่สุด";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/126-00-69945603.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/126-01-d69314fd.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/126-02-cf78ec13.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/126-03-36219304.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/126-04-51dfa60a.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/126-05-f829fe98.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/126-06-fe032159.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/126-07-6b423f27.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/126-08-efb4b4cf.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/126-09-641adf38.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/126-10-a95e3537.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/126-11-8661555d.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/126-12-b561d76e.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>
