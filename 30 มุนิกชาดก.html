@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_0_7023821647118273012.jpg" alt="มุนิกชาดก: บทเรียนจากหมูผู้รื่นเริงและวัวผู้ตรากตรำ" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">มุนิกชาดก: บทเรียนจากหมูผู้รื่นเริงและวัวผู้ตรากตรำ</h1>
-            <p class="cover-author">โดย Story Live</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_1_17065245327427204165.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่ง ณ หมู่บ้านที่เงียบสงบในอินเดียโบราณ มุนิกะ หมูตัวอ้วนพีถูกมัดเท้าและลากผ่านพื้นดินที่ร้อนระอุไปสู่ความตาย เสียงร้องของเขาดังก้องไปทั่วฟาร์ม นันทิ วัวพี่ชายผู้แข็งแรงเฝ้ามองภาพนั้นด้วยสายตาที่เต็มไปด้วยความเมตตาและสลดใจต่อชะตากรรมของเพื่อนร่วมชายคา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_2_9846515216966712014.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ย้อนกลับมาในปัจจุบันกาล พระพุทธเจ้าประทับอยู่ท่ามกลางภิกษุสงฆ์ พระองค์ทรงทอดพระเนตรเห็นภิกษุรูปหนึ่งที่กำลังลุ่มหลงอยู่กับลาภสักการะและรสแห่งอาหารที่ญาติโยมนำมาถวาย พระองค์จึงทรงมีพระดำรัสเตือนสติถึงภัยที่แฝงมากับความสุขชั่วคราวอันหอมหวานนั้น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_3_6716303609296860171.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในอดีตชาติที่ฟาร์มแห่งเดิม ตรุณะ วัวผู้น้อง ยืนมองมุนิกะด้วยความอิจฉา เขารำพึงกับพี่ชายว่า &quot;พี่นันทิ ดูมุนิกะสิ เขาได้กินข้าวสุกคลุกรำอย่างดีทุกมื้อ นอนหลับสบายโดยไม่ต้องลากไถเหมือนพวกเรา ทำไมชีวิตเขาสุขสบายนัก&quot; มุนิกะกำลังเคี้ยวอาหารอย่างเอร็ดอร่อยโดยไม่รู้ตัวเลยว่าเขากำลังถูกขุนให้พุงพลุ้ย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_4_8805085800005994224.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นันทิส่ายหัวเบาๆ แล้วกล่าวเตือนน้องชายว่า &quot;ตรุณะเอ๋ย อย่าได้ริษยาในลาภปากของมุนิกะเลย อาหารที่เขาได้รับนั้นคืออาหารแห่งความตาย อีกไม่นานเมื่อถึงเวลาเฉลิมฉลอง เขาจะต้องจ่ายค่าอาหารเหล่านั้นด้วยชีวิตของเขาเอง&quot; ตรุณะรับฟังด้วยความสงสัยแต่ก็ยังไม่เข้าใจความหมายที่แท้จริง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_5_10042435135746161015.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันเวลาผ่านไป ลูกสาวของชาวนาผู้เป็นเจ้าของฟาร์มกำลังจะเข้าพิธีวิวาห์ งานมงคลถูกจัดเตรียมอย่างยิ่งใหญ่ ชนก ชาวนาผู้เป็นเจ้าของ เดินตรงไปที่คอกหมูพร้อมกับเชือกเส้นใหญ่ในมือ มุนิกะที่ยังอิ่มหนำสำราญไม่ได้เฉลียวใจเลยว่าวันสุดท้ายของตนมาถึงแล้ว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_6_1253793279222064580.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ความโกลาหลเกิดขึ้นเมื่อมุนิกะถูกลากตัวออกไป เขาพยายามขัดขืนและร้องโหยหวนด้วยความหวาดกลัวอย่างสุดกำลัง ชนกใช้พละกำลังทั้งหมดฉุดลากเขาไปสู่ลานสังเวยเพื่อนำเนื้อมาปรุงอาหารเลี้ยงแขกเหรื่อในงานแต่งงาน เสียงร้องนั้นบาดลึกเข้าไปในใจของผู้ที่ได้ยิน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_7_17228145174180577566.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ตรุณะเฝ้ามองเหตุการณ์นั้นจากระยะไกลด้วยความตระหนกตกใจ เขาเห็นมุนิกะถูกลากหายเข้าไปในที่ที่นองไปด้วยเลือด เสียงร้องเงียบหายไปเปลี่ยนเป็นเสียงดนตรีฉลองวิวาห์ นันทิเดินเข้ามาเคียงข้างน้องชายที่กำลังสั่นเทาด้วยความกลัว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_8_5555834027676020907.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;พี่นันทิ ข้าเข้าใจแล้ว&quot; ตรุณะกล่าวด้วยเสียงสั่นเครือ &quot;ความสุขที่แลกมาด้วยความตายนั้นน่ากลัวเหลือเกิน&quot; เขาหันกลับมามองกองฟางแห้งๆ ที่อยู่ตรงหน้า ซึ่งเป็นอาหารที่เขาต้องทำงานแลกมา แม้มันจะหยาบและรสชาติไม่อร่อยเท่าข้าวสุก แต่มันคืออาหารที่ปลอดภัยและบริสุทธิ์</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_9_3240012015346647430.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ตั้งแต่นั้นมา ตรุณะก็ไม่เคยบ่นเรื่องงานหนักหรืออาหารที่เรียบง่ายอีกเลย เขากับนันทิช่วยกันลากไถในทุ่งนาภายใต้แสงแดดที่แผดเผา แต่ในใจของเขานั้นกลับมีความสุขอย่างที่บอกไม่ถูก เพราะเขารู้ว่าทุกย่างก้าวที่เขาก้าวไปนั้นคือทางแห่งชีวิต ไม่ใช่ทางแห่งความตาย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_10_3600888322501909330.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วัวสองพี่น้องใช้ชีวิตผ่านไปปีแล้วปีเล่าอย่างสงบสุข พวกเขาแก่ตัวลงพร้อมกับความภูมิใจในหยาดเหงื่อของตนเอง ชนกชาวนาดูแลพวกเขาอย่างดีจนวาระสุดท้าย ชีวิตที่เรียบง่ายแต่ปลอดภัยของพวกเขาเป็นที่สรรเสริญของเหล่าสัตว์ในฟาร์ม</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_11_9029335532333623461.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระพุทธเจ้าทรงจบการเล่าเรื่องชาดกและตรัสสรุปว่า &quot;มุนิกะหมูในครั้งนั้น คือภิกษุผู้หลงผิดในตอนนี้ ตรุณะวัวผู้น้องคืออานนท์ และนันทิวัวผู้พี่คือเราตถาคตเอง&quot; ภิกษุสุภัททะเมื่อได้ฟังดังนั้นก็เกิดดวงตาเห็นธรรม เข้าใจถึงคุณค่าของการครองตนอย่างเรียบง่าย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./30 มุนิกชาดก_files/storybook_page_12_12871621252416389292.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สัจธรรมที่แท้จริงคือ อย่าได้หลงระเริงในความสุขที่เจือไปด้วยภัยมหันต์ เพราะลาภสักการะที่ได้มาโดยไม่ต้องออกแรงอาจเป็นบ่วงที่รัดคอให้ถึงแก่ความตาย ชีวิตที่เรียบง่าย ปลอดภัย และตั้งมั่นอยู่ในความเพียร ย่อมเป็นชีวิตที่ประเสริฐและยั่งยืนที่สุด</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_0_7023821647118273012.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="มุนิกชาดก: บทเรียนจากหมูผู้รื่นเริงและวัวผู้ตรากตรำ" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">มุนิกชาดก: บทเรียนจากหมูผู้รื่นเริงและวัวผู้ตรากตรำ</h1>
+        <p class="cover-author">โดย Story Live</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_1_17065245327427204165.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่ง ณ หมู่บ้านที่เงียบสงบในอินเดียโบราณ มุนิกะ หมูตัวอ้วนพีถูกมัดเท้าและลากผ่านพื้นดินที่ร้อนระอุไปสู่ความตาย เสียงร้องของเขาดังก้องไปทั่วฟาร์ม นันทิ วัวพี่ชายผู้แข็งแรงเฝ้ามองภาพนั้นด้วยสายตาที่เต็มไปด้วยความเมตตาและสลดใจต่อชะตากรรมของเพื่อนร่วมชายคา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_2_9846515216966712014.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ย้อนกลับมาในปัจจุบันกาล พระพุทธเจ้าประทับอยู่ท่ามกลางภิกษุสงฆ์ พระองค์ทรงทอดพระเนตรเห็นภิกษุรูปหนึ่งที่กำลังลุ่มหลงอยู่กับลาภสักการะและรสแห่งอาหารที่ญาติโยมนำมาถวาย พระองค์จึงทรงมีพระดำรัสเตือนสติถึงภัยที่แฝงมากับความสุขชั่วคราวอันหอมหวานนั้น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_3_6716303609296860171.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในอดีตชาติที่ฟาร์มแห่งเดิม ตรุณะ วัวผู้น้อง ยืนมองมุนิกะด้วยความอิจฉา เขารำพึงกับพี่ชายว่า "พี่นันทิ ดูมุนิกะสิ เขาได้กินข้าวสุกคลุกรำอย่างดีทุกมื้อ นอนหลับสบายโดยไม่ต้องลากไถเหมือนพวกเรา ทำไมชีวิตเขาสุขสบายนัก" มุนิกะกำลังเคี้ยวอาหารอย่างเอร็ดอร่อยโดยไม่รู้ตัวเลยว่าเขากำลังถูกขุนให้พุงพลุ้ย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_4_8805085800005994224.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นันทิส่ายหัวเบาๆ แล้วกล่าวเตือนน้องชายว่า "ตรุณะเอ๋ย อย่าได้ริษยาในลาภปากของมุนิกะเลย อาหารที่เขาได้รับนั้นคืออาหารแห่งความตาย อีกไม่นานเมื่อถึงเวลาเฉลิมฉลอง เขาจะต้องจ่ายค่าอาหารเหล่านั้นด้วยชีวิตของเขาเอง" ตรุณะรับฟังด้วยความสงสัยแต่ก็ยังไม่เข้าใจความหมายที่แท้จริง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_5_10042435135746161015.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันเวลาผ่านไป ลูกสาวของชาวนาผู้เป็นเจ้าของฟาร์มกำลังจะเข้าพิธีวิวาห์ งานมงคลถูกจัดเตรียมอย่างยิ่งใหญ่ ชนก ชาวนาผู้เป็นเจ้าของ เดินตรงไปที่คอกหมูพร้อมกับเชือกเส้นใหญ่ในมือ มุนิกะที่ยังอิ่มหนำสำราญไม่ได้เฉลียวใจเลยว่าวันสุดท้ายของตนมาถึงแล้ว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_6_1253793279222064580.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ความโกลาหลเกิดขึ้นเมื่อมุนิกะถูกลากตัวออกไป เขาพยายามขัดขืนและร้องโหยหวนด้วยความหวาดกลัวอย่างสุดกำลัง ชนกใช้พละกำลังทั้งหมดฉุดลากเขาไปสู่ลานสังเวยเพื่อนำเนื้อมาปรุงอาหารเลี้ยงแขกเหรื่อในงานแต่งงาน เสียงร้องนั้นบาดลึกเข้าไปในใจของผู้ที่ได้ยิน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_7_17228145174180577566.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ตรุณะเฝ้ามองเหตุการณ์นั้นจากระยะไกลด้วยความตระหนกตกใจ เขาเห็นมุนิกะถูกลากหายเข้าไปในที่ที่นองไปด้วยเลือด เสียงร้องเงียบหายไปเปลี่ยนเป็นเสียงดนตรีฉลองวิวาห์ นันทิเดินเข้ามาเคียงข้างน้องชายที่กำลังสั่นเทาด้วยความกลัว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_8_5555834027676020907.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"พี่นันทิ ข้าเข้าใจแล้ว" ตรุณะกล่าวด้วยเสียงสั่นเครือ "ความสุขที่แลกมาด้วยความตายนั้นน่ากลัวเหลือเกิน" เขาหันกลับมามองกองฟางแห้งๆ ที่อยู่ตรงหน้า ซึ่งเป็นอาหารที่เขาต้องทำงานแลกมา แม้มันจะหยาบและรสชาติไม่อร่อยเท่าข้าวสุก แต่มันคืออาหารที่ปลอดภัยและบริสุทธิ์</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_9_3240012015346647430.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ตั้งแต่นั้นมา ตรุณะก็ไม่เคยบ่นเรื่องงานหนักหรืออาหารที่เรียบง่ายอีกเลย เขากับนันทิช่วยกันลากไถในทุ่งนาภายใต้แสงแดดที่แผดเผา แต่ในใจของเขานั้นกลับมีความสุขอย่างที่บอกไม่ถูก เพราะเขารู้ว่าทุกย่างก้าวที่เขาก้าวไปนั้นคือทางแห่งชีวิต ไม่ใช่ทางแห่งความตาย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_10_3600888322501909330.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วัวสองพี่น้องใช้ชีวิตผ่านไปปีแล้วปีเล่าอย่างสงบสุข พวกเขาแก่ตัวลงพร้อมกับความภูมิใจในหยาดเหงื่อของตนเอง ชนกชาวนาดูแลพวกเขาอย่างดีจนวาระสุดท้าย ชีวิตที่เรียบง่ายแต่ปลอดภัยของพวกเขาเป็นที่สรรเสริญของเหล่าสัตว์ในฟาร์ม</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_11_9029335532333623461.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระพุทธเจ้าทรงจบการเล่าเรื่องชาดกและตรัสสรุปว่า "มุนิกะหมูในครั้งนั้น คือภิกษุผู้หลงผิดในตอนนี้ ตรุณะวัวผู้น้องคืออานนท์ และนันทิวัวผู้พี่คือเราตถาคตเอง" ภิกษุสุภัททะเมื่อได้ฟังดังนั้นก็เกิดดวงตาเห็นธรรม เข้าใจถึงคุณค่าของการครองตนอย่างเรียบง่าย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./30 มุนิกชาดก_files/storybook_page_12_12871621252416389292.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สัจธรรมที่แท้จริงคือ อย่าได้หลงระเริงในความสุขที่เจือไปด้วยภัยมหันต์ เพราะลาภสักการะที่ได้มาโดยไม่ต้องออกแรงอาจเป็นบ่วงที่รัดคอให้ถึงแก่ความตาย ชีวิตที่เรียบง่าย ปลอดภัย และตั้งมั่นอยู่ในความเพียร ย่อมเป็นชีวิตที่ประเสริฐและยั่งยืนที่สุด</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่ง ณ หมู่บ้านที่เงียบสงบในอินเดียโบราณ มุนิกะ หมูตัวอ้วนพีถูกมัดเท้าและลากผ่านพื้นดินที่ร้อนระอุไปสู่ความตาย เสียงร้องของเขาดังก้องไปทั่วฟาร์ม นันทิ วัวพี่ชายผู้แข็งแรงเฝ้ามองภาพนั้นด้วยสายตาที่เต็มไปด้วยความเมตตาและสลดใจต่อชะตากรรมของเพื่อนร่วมชายคา ย้อนกลับมาในปัจจุบันกาล พระพุทธเจ้าประทับอยู่ท่ามกลางภิกษุสงฆ์ พระองค์ทรงทอดพระเนตรเห็นภิกษุรูปหนึ่งที่กำลังลุ่มหลงอยู่กับลาภสักการะและรสแห่งอาหารที่ญาติโยมนำมาถวาย พระองค์จึงทรงมีพระดำรัสเตือนสติถึงภัยที่แฝงมากับความสุขชั่วคราวอันหอมหวานนั้น ในอดีตชาติที่ฟาร์มแห่งเดิม ตรุณะ วัวผู้น้อง ยืนมองมุนิกะด้วยความอิจฉา เขารำพึงกับพี่ชายว่า \"พี่นันทิ ดูมุนิกะสิ เขาได้กินข้าวสุกคลุกรำอย่างดีทุกมื้อ นอนหลับสบายโดยไม่ต้องลากไถเหมือนพวกเรา ทำไมชีวิตเขาสุขสบายนัก\" มุนิกะกำลังเคี้ยวอาหารอย่างเอร็ดอร่อยโดยไม่รู้ตัวเลยว่าเขากำลังถูกขุนให้พุงพลุ้ย นันทิส่ายหัวเบาๆ แล้วกล่าวเตือนน้องชายว่า \"ตรุณะเอ๋ย อย่าได้ริษยาในลาภปากของมุนิกะเลย อาหารที่เขาได้รับนั้นคืออาหารแห่งความตาย อีกไม่นานเมื่อถึงเวลาเฉลิมฉลอง เขาจะต้องจ่ายค่าอาหารเหล่านั้นด้วยชีวิตของเขาเอง\" ตรุณะรับฟังด้วยความสงสัยแต่ก็ยังไม่เข้าใจความหมายที่แท้จริง วันเวลาผ่านไป ลูกสาวของชาวนาผู้เป็นเจ้าของฟาร์มกำลังจะเข้าพิธีวิวาห์ งานมงคลถูกจัดเตรียมอย่างยิ่งใหญ่ ชนก ชาวนาผู้เป็นเจ้าของ เดินตรงไปที่คอกหมูพร้อมกับเชือกเส้นใหญ่ในมือ มุนิกะที่ยังอิ่มหนำสำราญไม่ได้เฉลียวใจเลยว่าวันสุดท้ายของตนมาถึงแล้ว ความโกลาหลเกิดขึ้นเมื่อมุนิกะถูกลากตัวออกไป เขาพยายามขัดขืนและร้องโหยหวนด้วยความหวาดกลัวอย่างสุดกำลัง ชนกใช้พละกำลังทั้งหมดฉุดลากเขาไปสู่ลานสังเวยเพื่อนำเนื้อมาปรุงอาหารเลี้ยงแขกเหรื่อในงานแต่งงาน เสียงร้องนั้นบาดลึกเข้าไปในใจของผู้ที่ได้ยิน ตรุณะเฝ้ามองเหตุการณ์นั้นจากระยะไกลด้วยความตระหนกตกใจ เขาเห็นมุนิกะถูกลากหายเข้าไปในที่ที่นองไปด้วยเลือด เสียงร้องเงียบหายไปเปลี่ยนเป็นเสียงดนตรีฉลองวิวาห์ นันทิเดินเข้ามาเคียงข้างน้องชายที่กำลังสั่นเทาด้วยความกลัว \"พี่นันทิ ข้าเข้าใจแล้ว\" ตรุณะกล่าวด้วยเสียงสั่นเครือ \"ความสุขที่แลกมาด้วยความตายนั้นน่ากลัวเหลือเกิน\" เขาหันกลับมามองกองฟางแห้งๆ ที่อยู่ตรงหน้า ซึ่งเป็นอาหารที่เขาต้องทำงานแลกมา แม้มันจะหยาบและรสชาติไม่อร่อยเท่าข้าวสุก แต่มันคืออาหารที่ปลอดภัยและบริสุทธิ์ ตั้งแต่นั้นมา ตรุณะก็ไม่เคยบ่นเรื่องงานหนักหรืออาหารที่เรียบง่ายอีกเลย เขากับนันทิช่วยกันลากไถในทุ่งนาภายใต้แสงแดดที่แผดเผา แต่ในใจของเขานั้นกลับมีความสุขอย่างที่บอกไม่ถูก เพราะเขารู้ว่าทุกย่างก้าวที่เขาก้าวไปนั้นคือทางแห่งชีวิต ไม่ใช่ทางแห่งความตาย วัวสองพี่น้องใช้ชีวิตผ่านไปปีแล้วปีเล่าอย่างสงบสุข พวกเขาแก่ตัวลงพร้อมกับความภูมิใจในหยาดเหงื่อของตนเอง ชนกชาวนาดูแลพวกเขาอย่างดีจนวาระสุดท้าย ชีวิตที่เรียบง่ายแต่ปลอดภัยของพวกเขาเป็นที่สรรเสริญของเหล่าสัตว์ในฟาร์ม พระพุทธเจ้าทรงจบการเล่าเรื่องชาดกและตรัสสรุปว่า \"มุนิกะหมูในครั้งนั้น คือภิกษุผู้หลงผิดในตอนนี้ ตรุณะวัวผู้น้องคืออานนท์ และนันทิวัวผู้พี่คือเราตถาคตเอง\" ภิกษุสุภัททะเมื่อได้ฟังดังนั้นก็เกิดดวงตาเห็นธรรม เข้าใจถึงคุณค่าของการครองตนอย่างเรียบง่าย สัจธรรมที่แท้จริงคือ อย่าได้หลงระเริงในความสุขที่เจือไปด้วยภัยมหันต์ เพราะลาภสักการะที่ได้มาโดยไม่ต้องออกแรงอาจเป็นบ่วงที่รัดคอให้ถึงแก่ความตาย ชีวิตที่เรียบง่าย ปลอดภัย และตั้งมั่นอยู่ในความเพียร ย่อมเป็นชีวิตที่ประเสริฐและยั่งยืนที่สุด";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/30-00-e062abb3.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/30-01-383d5300.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/30-02-39c25d59.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/30-03-e7b1fe1d.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/30-04-e80f0489.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/30-05-ad0e72f7.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/30-06-a2473977.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/30-07-5480e0d3.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/30-08-e706422f.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/30-09-b78f2d85.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/30-10-fd873a59.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/30-11-95cec429.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/30-12-46a00647.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

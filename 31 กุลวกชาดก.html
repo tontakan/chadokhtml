@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_0_4460426963778515824.jpg" alt="มฆมาณพกับพลังแห่งความดี: ต้นกำเนิดท้าวสักกะเทวราช" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">มฆมาณพกับพลังแห่งความดี: ต้นกำเนิดท้าวสักกะเทวราช</h1>
-            <p class="cover-author">โดย Story Live</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_1_3934040152840717366.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ท่ามกลางลานประหารที่เงียบสงัด ช้างตกมันตัวมหึมาที่ดุร้ายกลับหยุดชะงักลง มันค่อยๆ คุกเข่าหน้าลงกับพื้นดินอย่างนอบน้อม เบื้องหน้าของมันคือกลุ่มชายผู้มีจิตใจบริสุทธิ์ที่นอนแผ่เมตตาอยู่อย่างสงบ ช้างไม่ยอมเหยียบย่ำคนดีตามคำสั่ง เพราะสัมผัสได้ถึงกระแสแห่งความเมตตาที่อบอวลไปทั่วบริเวณ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_2_3446025946376663631.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ณ เชตวันมหาวิหาร พระพุทธเจ้าทรงทอดพระเนตรเห็นภิกษุทั้งหลายสนทนากันเรื่องความอัศจรรย์ของท้าวสักกะ พระองค์จึงทรงเมตตาตรัสเล่าเรื่องราวในอดีตชาติของพระอินทร์ ว่ากว่าจะมาเป็นจอมเทพผู้ยิ่งใหญ่นั้น ท่านได้สั่งสมบุญบารมีจากการเป็นผู้ให้และผู้เสียสละเพื่อส่วนรวมมาอย่างมากมายเพียงใด</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_3_1233152405617309707.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในอดีตกาล มีชายหนุ่มใจดีชื่อว่า มฆมาณพ เขามักจะใช้เวลาว่างจากการทำงานไปช่วยทำความสะอาดทางเดินและถากถางพงหนามให้ชาวเมืองเดินสะดวก ต่อมาเขาได้ชักชวนเพื่อนผู้มีใจเป็นกุศลอีก 33 คน มาร่วมกันสร้างศาลาพักร้อน ขุดบ่อน้ำ และสร้างถนน เพื่อให้คนเดินทางได้พักผ่อนอย่างมีความสุข</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_4_11067962446306092280.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>แต่ความดีที่พวกเขาทำกลับสร้างความอิจฉาให้แก่ผู้ใหญ่บ้านใจบาป เขาเกรงว่ามฆมาณพจะเด่นเกินหน้า จึงแอบไปทูลฟ้องพระราชาด้วยคำเท็จว่า &quot;กลุ่มของมฆมาณพคือโจรที่ซุ่มวางแผนปล้นเมือง&quot; พระราชาผู้หูเบาทรงกริ้วมาก และสั่งให้นำตัวคนทั้ง 34 คนไปนอนราบกลางลานเพื่อให้ช้างเหยียบให้ตาย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_5_7618730264180098259.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่ออยู่ต่อหน้าช้างที่กำลังคลุ้มคลั่ง มฆมาณพไม่ได้โกรธแค้นผู้ที่ใส่ร้ายเลย เขาบอกเพื่อนๆ ว่า &quot;จงอย่าโกรธใครเลย ให้พวกเราแผ่เมตตาให้แก่พระราชา ให้แก่ผู้ใหญ่บ้าน และให้แก่ช้างตัวนี้ด้วยใจที่บริสุทธิ์เถิด&quot; ทุกคนจึงร่วมกันส่งพลังแห่งความปรารถนาดีออกไป จนช้างสัมผัสได้และไม่ยอมทำร้ายพวกเขา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_6_13382944237009606852.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระราชาทรงแปลกพระทัยมากที่ช้างไม่ยอมเหยียบคนกลุ่มนี้ จึงเรียกมฆมาณพมาสอบถาม เมื่อทราบความจริงว่าพวกเขาเพียงต้องการทำประโยชน์เพื่อส่วนรวม พระราชาจึงทรงขอโทษและปูนบำเหน็จรางวัลให้ โดยการมอบหมู่บ้านนั้นให้มฆมาณพดูแล และสั่งให้ผู้ใหญ่บ้านกลายเป็นคนรับใช้ของพวกเขาแทน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_7_1953800859111851068.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>หลังจากใช้ชีวิตทำความดีจนสิ้นอายุขัย มฆมาณพได้ไปอุบัติเป็น &quot;ท้าวสักกะ&quot; หรือพระอินทร์ ผู้ปกครองสวรรค์ชั้นดาวดึงส์ พร้อมด้วยเพื่อนทั้ง 33 คนที่ไปเกิดเป็นเทพบุตรบริวาร แต่ในขณะนั้น สวรรค์ดาวดึงส์ยังถูกพวกอสูรยึดครองอยู่และคอยสร้างความวุ่นวาย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_8_6443653548428263741.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เกิดสงครามระหว่างเทพและอสูรขึ้น ท้าวสักกะทรงนำทัพเข้าสู้ด้วยความกล้าหาญ แต่ในขณะที่ทรงขับรถศึกหลบหนี พระองค์ทรงเห็นรังนกบนต้นไม้ที่กำลังจะถูกล้อรถทับ ท้าวสักกะทรงยอมหยุดรถและหันกลับไปเผชิญหน้ากับเหล่าอสูรเพียงเพื่อจะช่วยนกตัวเล็กๆ เหล่านั้น</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_9_17349743123603551201.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ความเสียสละแม้กระทั่งชีวิตเพื่อช่วยสัตว์ตัวเล็กๆ ทำให้เหล่าอสูรตกใจกลัว คิดว่าท้าวสักกะมีกองทัพลับมาซุ่มโจมตี จึงพากันหนีลงไปอยู่ที่ใต้เขาสิเนรุ ท้าวสักกะจึงได้ครอบครองสวรรค์ดาวดึงส์และปกครองด้วยธรรมะ ทำให้เหล่าเทพยดาทั้งหลายอยู่อย่างร่มเย็นเป็นสุข</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_10_2133741988417978589.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สวรรค์ชั้นดาวดึงส์กลายเป็นสถานที่ที่สวยงามที่สุดด้วยกุศลผลบุญจากการที่มฆมาณพและเพื่อนๆ เคยร่วมใจกันสร้างสาธารณประโยชน์ ทุกความดีที่พวกเขาเคยทำไว้ในโลกมนุษย์ ได้กลายเป็นวิมานทองและสวนสวรรค์ที่วิจิตรตระการตา เป็นรางวัลแด่ผู้เห็นแก่ประโยชน์ส่วนรวม</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_11_10125154343099630336.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อเล่าจบ พระพุทธเจ้าทรงประชุมชาดกว่า &quot;มฆมาณพในครั้งนั้น ได้กลับชาติมาเกิดเป็นตถาคตในบัดนี้&quot; พระองค์ทรงชี้ให้เห็นว่า แม้แต่ความเป็นจอมเทพก็สามารถบรรลุได้ด้วยการทำงานเพื่อสังคมและความไม่ประมาทในการทำความดี</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./31 กุลวกชาดก_files/storybook_page_12_17752709188946518188.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พระพุทธองค์ทรงสรุปด้วยพุทธพจน์ว่า &quot;อปฺปมาโท ปสํสิโต&quot; ซึ่งแปลว่า &quot;ความไม่ประมาท ย่อมได้รับการสรรเสริญ&quot; การหมั่นสร้างบุญบารมีและเห็นแก่ประโยชน์ของผู้อื่น คือหนทางที่นำไปสู่ความเจริญรุ่งเรืองทั้งในโลกนี้และโลกหน้าตลอดไป</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_0_4460426963778515824.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="มฆมาณพกับพลังแห่งความดี: ต้นกำเนิดท้าวสักกะเทวราช" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">มฆมาณพกับพลังแห่งความดี: ต้นกำเนิดท้าวสักกะเทวราช</h1>
+        <p class="cover-author">โดย Story Live</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_1_3934040152840717366.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ท่ามกลางลานประหารที่เงียบสงัด ช้างตกมันตัวมหึมาที่ดุร้ายกลับหยุดชะงักลง มันค่อยๆ คุกเข่าหน้าลงกับพื้นดินอย่างนอบน้อม เบื้องหน้าของมันคือกลุ่มชายผู้มีจิตใจบริสุทธิ์ที่นอนแผ่เมตตาอยู่อย่างสงบ ช้างไม่ยอมเหยียบย่ำคนดีตามคำสั่ง เพราะสัมผัสได้ถึงกระแสแห่งความเมตตาที่อบอวลไปทั่วบริเวณ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_2_3446025946376663631.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ณ เชตวันมหาวิหาร พระพุทธเจ้าทรงทอดพระเนตรเห็นภิกษุทั้งหลายสนทนากันเรื่องความอัศจรรย์ของท้าวสักกะ พระองค์จึงทรงเมตตาตรัสเล่าเรื่องราวในอดีตชาติของพระอินทร์ ว่ากว่าจะมาเป็นจอมเทพผู้ยิ่งใหญ่นั้น ท่านได้สั่งสมบุญบารมีจากการเป็นผู้ให้และผู้เสียสละเพื่อส่วนรวมมาอย่างมากมายเพียงใด</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_3_1233152405617309707.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในอดีตกาล มีชายหนุ่มใจดีชื่อว่า มฆมาณพ เขามักจะใช้เวลาว่างจากการทำงานไปช่วยทำความสะอาดทางเดินและถากถางพงหนามให้ชาวเมืองเดินสะดวก ต่อมาเขาได้ชักชวนเพื่อนผู้มีใจเป็นกุศลอีก 33 คน มาร่วมกันสร้างศาลาพักร้อน ขุดบ่อน้ำ และสร้างถนน เพื่อให้คนเดินทางได้พักผ่อนอย่างมีความสุข</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_4_11067962446306092280.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>แต่ความดีที่พวกเขาทำกลับสร้างความอิจฉาให้แก่ผู้ใหญ่บ้านใจบาป เขาเกรงว่ามฆมาณพจะเด่นเกินหน้า จึงแอบไปทูลฟ้องพระราชาด้วยคำเท็จว่า "กลุ่มของมฆมาณพคือโจรที่ซุ่มวางแผนปล้นเมือง" พระราชาผู้หูเบาทรงกริ้วมาก และสั่งให้นำตัวคนทั้ง 34 คนไปนอนราบกลางลานเพื่อให้ช้างเหยียบให้ตาย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_5_7618730264180098259.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่ออยู่ต่อหน้าช้างที่กำลังคลุ้มคลั่ง มฆมาณพไม่ได้โกรธแค้นผู้ที่ใส่ร้ายเลย เขาบอกเพื่อนๆ ว่า "จงอย่าโกรธใครเลย ให้พวกเราแผ่เมตตาให้แก่พระราชา ให้แก่ผู้ใหญ่บ้าน และให้แก่ช้างตัวนี้ด้วยใจที่บริสุทธิ์เถิด" ทุกคนจึงร่วมกันส่งพลังแห่งความปรารถนาดีออกไป จนช้างสัมผัสได้และไม่ยอมทำร้ายพวกเขา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_6_13382944237009606852.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระราชาทรงแปลกพระทัยมากที่ช้างไม่ยอมเหยียบคนกลุ่มนี้ จึงเรียกมฆมาณพมาสอบถาม เมื่อทราบความจริงว่าพวกเขาเพียงต้องการทำประโยชน์เพื่อส่วนรวม พระราชาจึงทรงขอโทษและปูนบำเหน็จรางวัลให้ โดยการมอบหมู่บ้านนั้นให้มฆมาณพดูแล และสั่งให้ผู้ใหญ่บ้านกลายเป็นคนรับใช้ของพวกเขาแทน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_7_1953800859111851068.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>หลังจากใช้ชีวิตทำความดีจนสิ้นอายุขัย มฆมาณพได้ไปอุบัติเป็น "ท้าวสักกะ" หรือพระอินทร์ ผู้ปกครองสวรรค์ชั้นดาวดึงส์ พร้อมด้วยเพื่อนทั้ง 33 คนที่ไปเกิดเป็นเทพบุตรบริวาร แต่ในขณะนั้น สวรรค์ดาวดึงส์ยังถูกพวกอสูรยึดครองอยู่และคอยสร้างความวุ่นวาย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_8_6443653548428263741.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เกิดสงครามระหว่างเทพและอสูรขึ้น ท้าวสักกะทรงนำทัพเข้าสู้ด้วยความกล้าหาญ แต่ในขณะที่ทรงขับรถศึกหลบหนี พระองค์ทรงเห็นรังนกบนต้นไม้ที่กำลังจะถูกล้อรถทับ ท้าวสักกะทรงยอมหยุดรถและหันกลับไปเผชิญหน้ากับเหล่าอสูรเพียงเพื่อจะช่วยนกตัวเล็กๆ เหล่านั้น</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_9_17349743123603551201.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ความเสียสละแม้กระทั่งชีวิตเพื่อช่วยสัตว์ตัวเล็กๆ ทำให้เหล่าอสูรตกใจกลัว คิดว่าท้าวสักกะมีกองทัพลับมาซุ่มโจมตี จึงพากันหนีลงไปอยู่ที่ใต้เขาสิเนรุ ท้าวสักกะจึงได้ครอบครองสวรรค์ดาวดึงส์และปกครองด้วยธรรมะ ทำให้เหล่าเทพยดาทั้งหลายอยู่อย่างร่มเย็นเป็นสุข</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_10_2133741988417978589.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สวรรค์ชั้นดาวดึงส์กลายเป็นสถานที่ที่สวยงามที่สุดด้วยกุศลผลบุญจากการที่มฆมาณพและเพื่อนๆ เคยร่วมใจกันสร้างสาธารณประโยชน์ ทุกความดีที่พวกเขาเคยทำไว้ในโลกมนุษย์ ได้กลายเป็นวิมานทองและสวนสวรรค์ที่วิจิตรตระการตา เป็นรางวัลแด่ผู้เห็นแก่ประโยชน์ส่วนรวม</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_11_10125154343099630336.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อเล่าจบ พระพุทธเจ้าทรงประชุมชาดกว่า "มฆมาณพในครั้งนั้น ได้กลับชาติมาเกิดเป็นตถาคตในบัดนี้" พระองค์ทรงชี้ให้เห็นว่า แม้แต่ความเป็นจอมเทพก็สามารถบรรลุได้ด้วยการทำงานเพื่อสังคมและความไม่ประมาทในการทำความดี</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./31 กุลวกชาดก_files/storybook_page_12_17752709188946518188.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระพุทธองค์ทรงสรุปด้วยพุทธพจน์ว่า "อปฺปมาโท ปสํสิโต" ซึ่งแปลว่า "ความไม่ประมาท ย่อมได้รับการสรรเสริญ" การหมั่นสร้างบุญบารมีและเห็นแก่ประโยชน์ของผู้อื่น คือหนทางที่นำไปสู่ความเจริญรุ่งเรืองทั้งในโลกนี้และโลกหน้าตลอดไป</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "ท่ามกลางลานประหารที่เงียบสงัด ช้างตกมันตัวมหึมาที่ดุร้ายกลับหยุดชะงักลง มันค่อยๆ คุกเข่าหน้าลงกับพื้นดินอย่างนอบน้อม เบื้องหน้าของมันคือกลุ่มชายผู้มีจิตใจบริสุทธิ์ที่นอนแผ่เมตตาอยู่อย่างสงบ ช้างไม่ยอมเหยียบย่ำคนดีตามคำสั่ง เพราะสัมผัสได้ถึงกระแสแห่งความเมตตาที่อบอวลไปทั่วบริเวณ ณ เชตวันมหาวิหาร พระพุทธเจ้าทรงทอดพระเนตรเห็นภิกษุทั้งหลายสนทนากันเรื่องความอัศจรรย์ของท้าวสักกะ พระองค์จึงทรงเมตตาตรัสเล่าเรื่องราวในอดีตชาติของพระอินทร์ ว่ากว่าจะมาเป็นจอมเทพผู้ยิ่งใหญ่นั้น ท่านได้สั่งสมบุญบารมีจากการเป็นผู้ให้และผู้เสียสละเพื่อส่วนรวมมาอย่างมากมายเพียงใด ในอดีตกาล มีชายหนุ่มใจดีชื่อว่า มฆมาณพ เขามักจะใช้เวลาว่างจากการทำงานไปช่วยทำความสะอาดทางเดินและถากถางพงหนามให้ชาวเมืองเดินสะดวก ต่อมาเขาได้ชักชวนเพื่อนผู้มีใจเป็นกุศลอีก 33 คน มาร่วมกันสร้างศาลาพักร้อน ขุดบ่อน้ำ และสร้างถนน เพื่อให้คนเดินทางได้พักผ่อนอย่างมีความสุข แต่ความดีที่พวกเขาทำกลับสร้างความอิจฉาให้แก่ผู้ใหญ่บ้านใจบาป เขาเกรงว่ามฆมาณพจะเด่นเกินหน้า จึงแอบไปทูลฟ้องพระราชาด้วยคำเท็จว่า \"กลุ่มของมฆมาณพคือโจรที่ซุ่มวางแผนปล้นเมือง\" พระราชาผู้หูเบาทรงกริ้วมาก และสั่งให้นำตัวคนทั้ง 34 คนไปนอนราบกลางลานเพื่อให้ช้างเหยียบให้ตาย เมื่ออยู่ต่อหน้าช้างที่กำลังคลุ้มคลั่ง มฆมาณพไม่ได้โกรธแค้นผู้ที่ใส่ร้ายเลย เขาบอกเพื่อนๆ ว่า \"จงอย่าโกรธใครเลย ให้พวกเราแผ่เมตตาให้แก่พระราชา ให้แก่ผู้ใหญ่บ้าน และให้แก่ช้างตัวนี้ด้วยใจที่บริสุทธิ์เถิด\" ทุกคนจึงร่วมกันส่งพลังแห่งความปรารถนาดีออกไป จนช้างสัมผัสได้และไม่ยอมทำร้ายพวกเขา พระราชาทรงแปลกพระทัยมากที่ช้างไม่ยอมเหยียบคนกลุ่มนี้ จึงเรียกมฆมาณพมาสอบถาม เมื่อทราบความจริงว่าพวกเขาเพียงต้องการทำประโยชน์เพื่อส่วนรวม พระราชาจึงทรงขอโทษและปูนบำเหน็จรางวัลให้ โดยการมอบหมู่บ้านนั้นให้มฆมาณพดูแล และสั่งให้ผู้ใหญ่บ้านกลายเป็นคนรับใช้ของพวกเขาแทน หลังจากใช้ชีวิตทำความดีจนสิ้นอายุขัย มฆมาณพได้ไปอุบัติเป็น \"ท้าวสักกะ\" หรือพระอินทร์ ผู้ปกครองสวรรค์ชั้นดาวดึงส์ พร้อมด้วยเพื่อนทั้ง 33 คนที่ไปเกิดเป็นเทพบุตรบริวาร แต่ในขณะนั้น สวรรค์ดาวดึงส์ยังถูกพวกอสูรยึดครองอยู่และคอยสร้างความวุ่นวาย เกิดสงครามระหว่างเทพและอสูรขึ้น ท้าวสักกะทรงนำทัพเข้าสู้ด้วยความกล้าหาญ แต่ในขณะที่ทรงขับรถศึกหลบหนี พระองค์ทรงเห็นรังนกบนต้นไม้ที่กำลังจะถูกล้อรถทับ ท้าวสักกะทรงยอมหยุดรถและหันกลับไปเผชิญหน้ากับเหล่าอสูรเพียงเพื่อจะช่วยนกตัวเล็กๆ เหล่านั้น ความเสียสละแม้กระทั่งชีวิตเพื่อช่วยสัตว์ตัวเล็กๆ ทำให้เหล่าอสูรตกใจกลัว คิดว่าท้าวสักกะมีกองทัพลับมาซุ่มโจมตี จึงพากันหนีลงไปอยู่ที่ใต้เขาสิเนรุ ท้าวสักกะจึงได้ครอบครองสวรรค์ดาวดึงส์และปกครองด้วยธรรมะ ทำให้เหล่าเทพยดาทั้งหลายอยู่อย่างร่มเย็นเป็นสุข สวรรค์ชั้นดาวดึงส์กลายเป็นสถานที่ที่สวยงามที่สุดด้วยกุศลผลบุญจากการที่มฆมาณพและเพื่อนๆ เคยร่วมใจกันสร้างสาธารณประโยชน์ ทุกความดีที่พวกเขาเคยทำไว้ในโลกมนุษย์ ได้กลายเป็นวิมานทองและสวนสวรรค์ที่วิจิตรตระการตา เป็นรางวัลแด่ผู้เห็นแก่ประโยชน์ส่วนรวม เมื่อเล่าจบ พระพุทธเจ้าทรงประชุมชาดกว่า \"มฆมาณพในครั้งนั้น ได้กลับชาติมาเกิดเป็นตถาคตในบัดนี้\" พระองค์ทรงชี้ให้เห็นว่า แม้แต่ความเป็นจอมเทพก็สามารถบรรลุได้ด้วยการทำงานเพื่อสังคมและความไม่ประมาทในการทำความดี พระพุทธองค์ทรงสรุปด้วยพุทธพจน์ว่า \"อปฺปมาโท ปสํสิโต\" ซึ่งแปลว่า \"ความไม่ประมาท ย่อมได้รับการสรรเสริญ\" การหมั่นสร้างบุญบารมีและเห็นแก่ประโยชน์ของผู้อื่น คือหนทางที่นำไปสู่ความเจริญรุ่งเรืองทั้งในโลกนี้และโลกหน้าตลอดไป";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/31-00-ce57d249.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/31-01-3b3ef130.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/31-02-861b20f3.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/31-03-649f7d99.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/31-04-4fd99b5c.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/31-05-f82148cc.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/31-06-f47009e3.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/31-07-504ad4a6.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/31-08-f63a3087.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/31-09-19337b85.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/31-10-2b5ef6dc.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/31-11-db20bd83.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/31-12-641babff.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

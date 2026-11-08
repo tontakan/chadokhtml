@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_0_18015536187049704506.jpg" alt="นฬปานชาดก: ปาฏิหาริย์ลำไม้อ้อวิเศษ" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">นฬปานชาดก: ปาฏิหาริย์ลำไม้อ้อวิเศษ</h1>
-            <p class="cover-author">โดย Story Live</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_1_6659023164391231316.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งในป่าลึกอันอุดมสมบูรณ์ ฝูงลิงนับร้อยต่างพากันนั่งอยู่ริมสระน้ำขนาดใหญ่ แทนที่จะก้มลงดื่มน้ำตามปกติ พวกมันกลับถือลำไม้อ้อสีทองยาวเหยียด แล้วใช้มันดูดน้ำจากสระขึ้นมาดื่มอย่างสำราญใจ นี่คือภาพความมหัศจรรย์ของไม้อ้อที่ไม่มีข้อปล้อง ซึ่งเล่าขานกันมานานแสนนานถึงปัญญาของพญาวานรผู้ชาญฉลาด</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_2_4620370515994669220.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ครั้งหนึ่ง ณ วัดเชตวันมหาวิหาร เหล่าภิกษุต่างสงสัยว่าเหตุใดไม้อ้อรอบสระน้ำแห่งหนึ่งจึงกลวงตลอดลำ ไม่เหมือนไม้อ้อทั่วไปที่มีข้อปล้องขวางกั้น พระพุทธเจ้าจึงทรงระลึกชาติด้วยปัญญาญาณ แล้วเริ่มตรัสเล่าเรื่องราวในอดีตชาติเพื่อไขปริศนาความลับของธรรมชาติที่เกิดจากอำนาจแห่งสัจอธิษฐานและสติปัญญา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_3_11799495731384973460.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในอดีตกาล พญาวานรนามว่า Sumati ผู้มีร่างกายกำยำและสติปัญญาหลักแหลม ได้นำพาบริวารลิงห้าร้อยตัวออกเดินทางไกลจนมาถึงสระน้ำที่แลดูสงบเงียบแห่งหนึ่ง ลิงทั้งหลายต่างหิวกระหายและเตรียมจะกระโจนลงไปดื่มน้ำให้ชื่นใจ แต่ Sumati กลับส่งสัญญาณให้ทุกคนหยุดรออยู่ก่อน</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_4_5344172609018153842.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>Sumati เดินสำรวจรอบริมสระน้ำอย่างละเอียด เขาชี้ให้ Anu ลิงน้อยดูรอยเท้าบนดินโคลน &quot;เจ้าดูนี่สิ รอยเท้าสัตว์มากมายเดินมุ่งหน้าลงไปในสระน้ำ แต่ไม่มีรอยเท้าแม้แต่รอยเดียวที่เดินย้อนกลับออกมาเลย&quot; สระน้ำที่ดูสวยงามนี้อาจซ่อนเร้นภัยอันตรายที่มองไม่เห็นไว้ใต้ผิวน้ำที่นิ่งสนิท</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_5_17960418789330573212.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทันใดนั้น ผิวน้ำที่เคยนิ่งสงบก็เริ่มสั่นสะพราวน์ ยักษ์ผีเสื้อน้ำนามว่า Ambupala โผล่พรวดขึ้นมา พรายน้ำสาดกระเซ็นไปทั่ว ร่างกายของเขาสูงใหญ่ราวกระโจมสีคล้ำ ดวงตาสีแดงก่ำประดุจถ่านไฟ เขากำลังจ้องมองฝูงลิงด้วยความหิวกระหาย หวังจะจับกินเป็นอาหารหากใครล่วงล้ำลงไปในเขตของเขา</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_6_12046100748479700086.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;พวกเจ้าไม่มีวันได้ดื่มน้ำโดยไม่ตกเป็นเหยื่อของข้า!&quot; Ambupala คำรามอย่างผู้ชนะ แต่ Sumati กลับยิ้มอย่างใจเย็น เขาหยิบไม้อ้อขึ้นมาหนึ่งลำแล้วประกาศว่า &quot;พวกเราจะดื่มน้ำในสระของเจ้า โดยที่เท้าไม่ต้องแตะน้ำ และตัวข้าไม่ต้องลงไปให้เจ้าจับแม้แต่ปลายก้อย&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_7_16737157516845394355.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พญาวานร Sumati ระลึกถึงบารมีที่ตนได้บำเพ็ญมา แล้วทรงตั้งสัจอธิษฐานด้วยจิตที่แน่วแน่ &quot;ด้วยอำนาจแห่งสติปัญญาและศีลบริสุทธิ์ ขอให้ลำไม้อ้อเหล่านี้จงกลวงตลอดลำ เพื่อเป็นเครื่องมือช่วยชีวิตบริวารของข้าด้วยเถิด&quot; ทันใดนั้น แสงสีทองสว่างวาบก็พุ่งออกจากปลายนิ้วของเขาไปสู่กอไม้อ้อรอบสระ</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_8_8441618298850155014.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ปาฏิหาริย์เกิดขึ้นจริง! ข้อปล้องภายในไม้อ้อทั้งหมดสลายไป กลายเป็นท่อกลวงยาวตั้งแต่โคนจนถึงยอด Sumati สาธิตการใช้ไม้อ้อดูดน้ำให้ Anu และบริวารดู เขานั่งลงริมตลิ่ง สอดปลายไม้อ้อลงไปในน้ำแล้วดูดน้ำขึ้นมาดื่มได้อย่างง่ายดายโดยไม่ต้องก้าวลงไปในสระเลยแม้แต่ก้าวเดียว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_9_8385661151091207130.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ลิงทั้งห้าร้อยตัวต่างเดินมาหยิบไม้อ้อคนละลำ แล้วกระจายตัวกันไปนั่งตามริมตลิ่งรอบสระน้ำ ทั้งลิงเด็กอย่าง Anu และลิงชราอย่าง Bala ต่างพากันดูดน้ำดื่มจนอิ่มแปล่ ความฉลาดและการสังเกตของพญาวานรช่วยให้ทุกคนรอดพ้นจากความกระหายน้ำโดยไม่มีใครได้รับอันตราย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_10_15608711141826695248.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ยักษ์ Ambupala ได้แต่มองดูด้วยความแค้นใจและสิ้นหวัง เหยื่ออันโอชะอยู่ตรงหน้าแท้ๆ แต่เขากลับไม่สามารถทำอะไรได้เลย เพราะไม่มีลิงตัวไหนล่วงล้ำลงไปในน้ำแม้แต่ปลายเล็บ ปัญญาของวานรนั้นช่างลึกล้ำยิ่งกว่าหลุมพรางที่เขาขุดไว้เสียอีก ยักษ์จำต้องมุดกลับลงสู่ก้นสระด้วยความพ่ายแพ้</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_11_469464516040257600.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อตรัสเล่าจบ พระพุทธเจ้าทรงสรุปเรื่องราวว่า พญาวานร Sumati ในครั้งนั้นได้กลับชาติมาเกิดเป็นพระองค์เอง ส่วนยักษ์ Ambupala ผู้ดุร้ายได้กลับชาติมาเกิดเป็นพระเทวทัต และฝูงลิงทั้งหลายก็คือพุทธบริษัทในปัจจุบันนั่นเอง การใช้สติปัญญาพิจารณาสิ่งต่างๆ อย่างถ่องแท้ คือหนทางแห่งความปลอดภัย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./20 นฬปานชาดก_files/storybook_page_12_3604166271966596952.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>นฬปานชาดกสอนให้เรารู้ว่า &quot;คนช่างสังเกตย่อมมองเห็นภัยที่ซ่อนอยู่ และคนมีปัญญาย่อมหาทางออกที่ดีที่สุดได้เสมอ&quot; เหมือนดังพญาวานรที่สังเกตรอยเท้าเพียงไม่กี่รอย แต่สามารถรักษาชีวิตบริวารนับร้อยไว้ได้ด้วยลำไม้อ้อเพียงลำเดียว จงใช้สติเป็นประทีปส่องทาง และใช้ปัญญาเป็นเครื่องนำทางชีวิต</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_0_18015536187049704506.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="นฬปานชาดก: ปาฏิหาริย์ลำไม้อ้อวิเศษ" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">นฬปานชาดก: ปาฏิหาริย์ลำไม้อ้อวิเศษ</h1>
+        <p class="cover-author">โดย Story Live</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_1_6659023164391231316.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งในป่าลึกอันอุดมสมบูรณ์ ฝูงลิงนับร้อยต่างพากันนั่งอยู่ริมสระน้ำขนาดใหญ่ แทนที่จะก้มลงดื่มน้ำตามปกติ พวกมันกลับถือลำไม้อ้อสีทองยาวเหยียด แล้วใช้มันดูดน้ำจากสระขึ้นมาดื่มอย่างสำราญใจ นี่คือภาพความมหัศจรรย์ของไม้อ้อที่ไม่มีข้อปล้อง ซึ่งเล่าขานกันมานานแสนนานถึงปัญญาของพญาวานรผู้ชาญฉลาด</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_2_4620370515994669220.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ครั้งหนึ่ง ณ วัดเชตวันมหาวิหาร เหล่าภิกษุต่างสงสัยว่าเหตุใดไม้อ้อรอบสระน้ำแห่งหนึ่งจึงกลวงตลอดลำ ไม่เหมือนไม้อ้อทั่วไปที่มีข้อปล้องขวางกั้น พระพุทธเจ้าจึงทรงระลึกชาติด้วยปัญญาญาณ แล้วเริ่มตรัสเล่าเรื่องราวในอดีตชาติเพื่อไขปริศนาความลับของธรรมชาติที่เกิดจากอำนาจแห่งสัจอธิษฐานและสติปัญญา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_3_11799495731384973460.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในอดีตกาล พญาวานรนามว่า Sumati ผู้มีร่างกายกำยำและสติปัญญาหลักแหลม ได้นำพาบริวารลิงห้าร้อยตัวออกเดินทางไกลจนมาถึงสระน้ำที่แลดูสงบเงียบแห่งหนึ่ง ลิงทั้งหลายต่างหิวกระหายและเตรียมจะกระโจนลงไปดื่มน้ำให้ชื่นใจ แต่ Sumati กลับส่งสัญญาณให้ทุกคนหยุดรออยู่ก่อน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_4_5344172609018153842.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>Sumati เดินสำรวจรอบริมสระน้ำอย่างละเอียด เขาชี้ให้ Anu ลิงน้อยดูรอยเท้าบนดินโคลน "เจ้าดูนี่สิ รอยเท้าสัตว์มากมายเดินมุ่งหน้าลงไปในสระน้ำ แต่ไม่มีรอยเท้าแม้แต่รอยเดียวที่เดินย้อนกลับออกมาเลย" สระน้ำที่ดูสวยงามนี้อาจซ่อนเร้นภัยอันตรายที่มองไม่เห็นไว้ใต้ผิวน้ำที่นิ่งสนิท</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_5_17960418789330573212.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทันใดนั้น ผิวน้ำที่เคยนิ่งสงบก็เริ่มสั่นสะพราวน์ ยักษ์ผีเสื้อน้ำนามว่า Ambupala โผล่พรวดขึ้นมา พรายน้ำสาดกระเซ็นไปทั่ว ร่างกายของเขาสูงใหญ่ราวกระโจมสีคล้ำ ดวงตาสีแดงก่ำประดุจถ่านไฟ เขากำลังจ้องมองฝูงลิงด้วยความหิวกระหาย หวังจะจับกินเป็นอาหารหากใครล่วงล้ำลงไปในเขตของเขา</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_6_12046100748479700086.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"พวกเจ้าไม่มีวันได้ดื่มน้ำโดยไม่ตกเป็นเหยื่อของข้า!" Ambupala คำรามอย่างผู้ชนะ แต่ Sumati กลับยิ้มอย่างใจเย็น เขาหยิบไม้อ้อขึ้นมาหนึ่งลำแล้วประกาศว่า "พวกเราจะดื่มน้ำในสระของเจ้า โดยที่เท้าไม่ต้องแตะน้ำ และตัวข้าไม่ต้องลงไปให้เจ้าจับแม้แต่ปลายก้อย"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_7_16737157516845394355.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พญาวานร Sumati ระลึกถึงบารมีที่ตนได้บำเพ็ญมา แล้วทรงตั้งสัจอธิษฐานด้วยจิตที่แน่วแน่ "ด้วยอำนาจแห่งสติปัญญาและศีลบริสุทธิ์ ขอให้ลำไม้อ้อเหล่านี้จงกลวงตลอดลำ เพื่อเป็นเครื่องมือช่วยชีวิตบริวารของข้าด้วยเถิด" ทันใดนั้น แสงสีทองสว่างวาบก็พุ่งออกจากปลายนิ้วของเขาไปสู่กอไม้อ้อรอบสระ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_8_8441618298850155014.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ปาฏิหาริย์เกิดขึ้นจริง! ข้อปล้องภายในไม้อ้อทั้งหมดสลายไป กลายเป็นท่อกลวงยาวตั้งแต่โคนจนถึงยอด Sumati สาธิตการใช้ไม้อ้อดูดน้ำให้ Anu และบริวารดู เขานั่งลงริมตลิ่ง สอดปลายไม้อ้อลงไปในน้ำแล้วดูดน้ำขึ้นมาดื่มได้อย่างง่ายดายโดยไม่ต้องก้าวลงไปในสระเลยแม้แต่ก้าวเดียว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_9_8385661151091207130.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ลิงทั้งห้าร้อยตัวต่างเดินมาหยิบไม้อ้อคนละลำ แล้วกระจายตัวกันไปนั่งตามริมตลิ่งรอบสระน้ำ ทั้งลิงเด็กอย่าง Anu และลิงชราอย่าง Bala ต่างพากันดูดน้ำดื่มจนอิ่มแปล่ ความฉลาดและการสังเกตของพญาวานรช่วยให้ทุกคนรอดพ้นจากความกระหายน้ำโดยไม่มีใครได้รับอันตราย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_10_15608711141826695248.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ยักษ์ Ambupala ได้แต่มองดูด้วยความแค้นใจและสิ้นหวัง เหยื่ออันโอชะอยู่ตรงหน้าแท้ๆ แต่เขากลับไม่สามารถทำอะไรได้เลย เพราะไม่มีลิงตัวไหนล่วงล้ำลงไปในน้ำแม้แต่ปลายเล็บ ปัญญาของวานรนั้นช่างลึกล้ำยิ่งกว่าหลุมพรางที่เขาขุดไว้เสียอีก ยักษ์จำต้องมุดกลับลงสู่ก้นสระด้วยความพ่ายแพ้</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_11_469464516040257600.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อตรัสเล่าจบ พระพุทธเจ้าทรงสรุปเรื่องราวว่า พญาวานร Sumati ในครั้งนั้นได้กลับชาติมาเกิดเป็นพระองค์เอง ส่วนยักษ์ Ambupala ผู้ดุร้ายได้กลับชาติมาเกิดเป็นพระเทวทัต และฝูงลิงทั้งหลายก็คือพุทธบริษัทในปัจจุบันนั่นเอง การใช้สติปัญญาพิจารณาสิ่งต่างๆ อย่างถ่องแท้ คือหนทางแห่งความปลอดภัย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./20 นฬปานชาดก_files/storybook_page_12_3604166271966596952.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>นฬปานชาดกสอนให้เรารู้ว่า "คนช่างสังเกตย่อมมองเห็นภัยที่ซ่อนอยู่ และคนมีปัญญาย่อมหาทางออกที่ดีที่สุดได้เสมอ" เหมือนดังพญาวานรที่สังเกตรอยเท้าเพียงไม่กี่รอย แต่สามารถรักษาชีวิตบริวารนับร้อยไว้ได้ด้วยลำไม้อ้อเพียงลำเดียว จงใช้สติเป็นประทีปส่องทาง และใช้ปัญญาเป็นเครื่องนำทางชีวิต</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งในป่าลึกอันอุดมสมบูรณ์ ฝูงลิงนับร้อยต่างพากันนั่งอยู่ริมสระน้ำขนาดใหญ่ แทนที่จะก้มลงดื่มน้ำตามปกติ พวกมันกลับถือลำไม้อ้อสีทองยาวเหยียด แล้วใช้มันดูดน้ำจากสระขึ้นมาดื่มอย่างสำราญใจ นี่คือภาพความมหัศจรรย์ของไม้อ้อที่ไม่มีข้อปล้อง ซึ่งเล่าขานกันมานานแสนนานถึงปัญญาของพญาวานรผู้ชาญฉลาด ครั้งหนึ่ง ณ วัดเชตวันมหาวิหาร เหล่าภิกษุต่างสงสัยว่าเหตุใดไม้อ้อรอบสระน้ำแห่งหนึ่งจึงกลวงตลอดลำ ไม่เหมือนไม้อ้อทั่วไปที่มีข้อปล้องขวางกั้น พระพุทธเจ้าจึงทรงระลึกชาติด้วยปัญญาญาณ แล้วเริ่มตรัสเล่าเรื่องราวในอดีตชาติเพื่อไขปริศนาความลับของธรรมชาติที่เกิดจากอำนาจแห่งสัจอธิษฐานและสติปัญญา ในอดีตกาล พญาวานรนามว่า Sumati ผู้มีร่างกายกำยำและสติปัญญาหลักแหลม ได้นำพาบริวารลิงห้าร้อยตัวออกเดินทางไกลจนมาถึงสระน้ำที่แลดูสงบเงียบแห่งหนึ่ง ลิงทั้งหลายต่างหิวกระหายและเตรียมจะกระโจนลงไปดื่มน้ำให้ชื่นใจ แต่ Sumati กลับส่งสัญญาณให้ทุกคนหยุดรออยู่ก่อน Sumati เดินสำรวจรอบริมสระน้ำอย่างละเอียด เขาชี้ให้ Anu ลิงน้อยดูรอยเท้าบนดินโคลน \"เจ้าดูนี่สิ รอยเท้าสัตว์มากมายเดินมุ่งหน้าลงไปในสระน้ำ แต่ไม่มีรอยเท้าแม้แต่รอยเดียวที่เดินย้อนกลับออกมาเลย\" สระน้ำที่ดูสวยงามนี้อาจซ่อนเร้นภัยอันตรายที่มองไม่เห็นไว้ใต้ผิวน้ำที่นิ่งสนิท ทันใดนั้น ผิวน้ำที่เคยนิ่งสงบก็เริ่มสั่นสะพราวน์ ยักษ์ผีเสื้อน้ำนามว่า Ambupala โผล่พรวดขึ้นมา พรายน้ำสาดกระเซ็นไปทั่ว ร่างกายของเขาสูงใหญ่ราวกระโจมสีคล้ำ ดวงตาสีแดงก่ำประดุจถ่านไฟ เขากำลังจ้องมองฝูงลิงด้วยความหิวกระหาย หวังจะจับกินเป็นอาหารหากใครล่วงล้ำลงไปในเขตของเขา \"พวกเจ้าไม่มีวันได้ดื่มน้ำโดยไม่ตกเป็นเหยื่อของข้า!\" Ambupala คำรามอย่างผู้ชนะ แต่ Sumati กลับยิ้มอย่างใจเย็น เขาหยิบไม้อ้อขึ้นมาหนึ่งลำแล้วประกาศว่า \"พวกเราจะดื่มน้ำในสระของเจ้า โดยที่เท้าไม่ต้องแตะน้ำ และตัวข้าไม่ต้องลงไปให้เจ้าจับแม้แต่ปลายก้อย\" พญาวานร Sumati ระลึกถึงบารมีที่ตนได้บำเพ็ญมา แล้วทรงตั้งสัจอธิษฐานด้วยจิตที่แน่วแน่ \"ด้วยอำนาจแห่งสติปัญญาและศีลบริสุทธิ์ ขอให้ลำไม้อ้อเหล่านี้จงกลวงตลอดลำ เพื่อเป็นเครื่องมือช่วยชีวิตบริวารของข้าด้วยเถิด\" ทันใดนั้น แสงสีทองสว่างวาบก็พุ่งออกจากปลายนิ้วของเขาไปสู่กอไม้อ้อรอบสระ ปาฏิหาริย์เกิดขึ้นจริง! ข้อปล้องภายในไม้อ้อทั้งหมดสลายไป กลายเป็นท่อกลวงยาวตั้งแต่โคนจนถึงยอด Sumati สาธิตการใช้ไม้อ้อดูดน้ำให้ Anu และบริวารดู เขานั่งลงริมตลิ่ง สอดปลายไม้อ้อลงไปในน้ำแล้วดูดน้ำขึ้นมาดื่มได้อย่างง่ายดายโดยไม่ต้องก้าวลงไปในสระเลยแม้แต่ก้าวเดียว ลิงทั้งห้าร้อยตัวต่างเดินมาหยิบไม้อ้อคนละลำ แล้วกระจายตัวกันไปนั่งตามริมตลิ่งรอบสระน้ำ ทั้งลิงเด็กอย่าง Anu และลิงชราอย่าง Bala ต่างพากันดูดน้ำดื่มจนอิ่มแปล่ ความฉลาดและการสังเกตของพญาวานรช่วยให้ทุกคนรอดพ้นจากความกระหายน้ำโดยไม่มีใครได้รับอันตราย ยักษ์ Ambupala ได้แต่มองดูด้วยความแค้นใจและสิ้นหวัง เหยื่ออันโอชะอยู่ตรงหน้าแท้ๆ แต่เขากลับไม่สามารถทำอะไรได้เลย เพราะไม่มีลิงตัวไหนล่วงล้ำลงไปในน้ำแม้แต่ปลายเล็บ ปัญญาของวานรนั้นช่างลึกล้ำยิ่งกว่าหลุมพรางที่เขาขุดไว้เสียอีก ยักษ์จำต้องมุดกลับลงสู่ก้นสระด้วยความพ่ายแพ้ เมื่อตรัสเล่าจบ พระพุทธเจ้าทรงสรุปเรื่องราวว่า พญาวานร Sumati ในครั้งนั้นได้กลับชาติมาเกิดเป็นพระองค์เอง ส่วนยักษ์ Ambupala ผู้ดุร้ายได้กลับชาติมาเกิดเป็นพระเทวทัต และฝูงลิงทั้งหลายก็คือพุทธบริษัทในปัจจุบันนั่นเอง การใช้สติปัญญาพิจารณาสิ่งต่างๆ อย่างถ่องแท้ คือหนทางแห่งความปลอดภัย นฬปานชาดกสอนให้เรารู้ว่า \"คนช่างสังเกตย่อมมองเห็นภัยที่ซ่อนอยู่ และคนมีปัญญาย่อมหาทางออกที่ดีที่สุดได้เสมอ\" เหมือนดังพญาวานรที่สังเกตรอยเท้าเพียงไม่กี่รอย แต่สามารถรักษาชีวิตบริวารนับร้อยไว้ได้ด้วยลำไม้อ้อเพียงลำเดียว จงใช้สติเป็นประทีปส่องทาง และใช้ปัญญาเป็นเครื่องนำทางชีวิต";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/20-00-94070635.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/20-01-09c12441.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/20-02-7a9a8292.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/20-03-41e3dba8.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/20-04-0c381575.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/20-05-1a5cffde.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/20-06-fd4517f2.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/20-07-d901c41a.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/20-08-ccd8e46e.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/20-09-ada15dc5.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/20-10-edab9265.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/20-11-bccc82c8.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/20-12-ea4071f8.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>

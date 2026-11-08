@@ -26,7 +26,6 @@
       align-items: center;
       padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
     }
-
     .mobile-header-bar {
       width: 100%;
       max-width: 430px;
@@ -39,7 +38,6 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
     }
-
     .listen-pill-container {
       display: inline-flex;
       align-items: center;
@@ -78,7 +76,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .listen-pill-container.is-playing {
       background: #38bdf8;
       box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
@@ -93,7 +90,6 @@
     .listen-pill-container.is-playing .listen-pill-knob {
       transform: translateX(10px);
     }
-
     .audio-mini-bar {
       width: 100%;
       max-width: 430px;
@@ -125,7 +121,6 @@
       border-radius: 9999px;
       width: 0%;
     }
-
     .mobile-reader {
       width: 100%;
       max-width: 430px;
@@ -208,16 +203,11 @@
       color: #1e293b;
       padding: 0 4px;
     }
-    .story-text p {
-      margin-bottom: 12px;
-    }
-    .story-text p:last-child {
-      margin-bottom: 0;
-    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
-
   <div class="mobile-header-bar">
     <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
       <span class="listen-pill-text">ฟัง</span>
@@ -226,232 +216,387 @@
       </div>
     </div>
   </div>
-
   <div id="audioMiniBar" class="audio-mini-bar">
     <span id="currentTimeText">0:00</span>
     <div id="audioProgress" class="audio-progress">
       <div id="audioProgressFill" class="audio-progress-fill"></div>
     </div>
-    <span id="durationText">กำลังอ่าน</span>
+    <span id="durationText">0:00</span>
   </div>
-
   <audio id="storyAudio" src="" preload="none"></audio>
-
   <main class="mobile-reader">
-    
-        <div class="page-card cover-card">
-          <div class="cover-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_0_15795781471146044355.jpg" alt="ลิงจอมขยันกับสวนที่พังพินาศ" class="cover-img" />
-          </div>
-          <div class="cover-overlay">
-            <h1 class="cover-title">ลิงจอมขยันกับสวนที่พังพินาศ</h1>
-            <p class="cover-author">โดย Story Live</p>
-          </div>
-        </div>
-      
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 1/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_1_6154029386085575211.jpg" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กาลครั้งหนึ่งนานมาแล้ว ณ กรุงพาราณสี มีพระราชาผู้รักธรรมชาติพระองค์หนึ่ง ทรงมีอุทยานที่งดงามเต็มไปด้วยต้นไม้เขียวขจีและดอกไม้นานาพันธุ์ โดยมี &quot;พละ&quot; ชายผู้ขยันขันแข็งเป็นคนดูแลสวนแห่งนี้ พละทุ่มเทแรงกายแรงใจรดน้ำพรวนดินจนสวนสวยงามเป็นที่เลื่องลือไปทั่ว</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 2/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_2_14888758510109372229.jpg" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วันหนึ่งที่เมืองมีเทศกาลรื่นเริง พละอยากไปร่วมงานฉลองใจจะขาด แต่เขาก็เป็นห่วงต้นไม้ในสวน ขณะที่เขากำลังกังวลอยู่นั้น &quot;กปิละ&quot; หัวหน้าฝูงลิงที่อาศัยอยู่ในสวนก็เดินเข้ามาหา พละจึงเกิดความคิดที่จะฝากฝังงานสำคัญนี้ไว้กับเหล่าลิง</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 3/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_3_2483236887439163740.jpg" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>&quot;กปิละเอ๋ย เจ้าและบริวารอาศัยกินผลไม้ในสวนนี้มานาน&quot; พละกล่าว &quot;ข้าจะไปเที่ยวงานเทศกาลสักสองสามวัน เจ้าช่วยดูแลรดน้ำต้นไม้แทนข้าได้หรือไม่?&quot; กปิละยืดอกตอบด้วยความมั่นใจว่า &quot;ไม่ต้องห่วงท่านพละ พวกเราจะดูแลสวนนี้ให้ดีที่สุดเอง&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 4/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_4_6913287936322080251.jpg" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>เมื่อพละจากไป กปิละก็สั่งให้เหล่าลิงไปนำอุปกรณ์รดน้ำมา &quot;พละ&quot; ลิงหนุ่มตัวน้อยรีบวิ่งไปหยิบกระบอกไม้ไผ่สำหรับตักน้ำมาอย่างกระตือรือร้น เหล่าลิงเริ่มตักน้ำจากสระน้ำใสสะอาดเพื่อเตรียมตัวรดน้ำต้นไม้ตามที่ได้รับปากไว้</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 5/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_5_4250818615902061725.jpg" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ขณะที่เริ่มรดน้ำ กปิละก็เกิดความคิดบางอย่างขึ้นมา เขาหยุดลิงตัวอื่นๆ แล้วประกาศว่า &quot;น้ำนั้นมีค่าและหายาก เราไม่ควรใช้ทิ้งขว้าง เราต้องรดน้ำให้พอดีกับความต้องการของต้นไม้แต่ละต้น&quot; ลิงทุกตัวหยุดฟังหัวหน้าของตนด้วยความเลื่อมใส</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 6/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_6_8538393550545745749.jpg" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>กปิละหันไปบอกพละ ลิงหนุ่มว่า &quot;ต้นไหนรากลึกก็รดน้ำมาก ต้นไหนรากตื้นก็รดน้ำน้อย แต่เราจะรู้ได้อย่างไรว่ารากแต่ละต้นลึกแค่ไหน? วิธีที่ง่ายที่สุดคือ... พวกเจ้าจงถอนต้นไม้ขึ้นมาดูรากก่อนแล้วค่อยรดน้ำลงไป!&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 7/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_7_7037654290994614061.jpg" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>พละ ลิงหนุ่มเริ่มทำตามคำสั่งทันที เขาใช้มือเล็กๆ ดึงต้นกล้าอ่อนขึ้นมาจากดินจนรากพ้นดินออกมา &quot;อ๋อ ต้นนี้รากสั้นจิดเดียวเอง&quot; เขาพึมพำกับตัวเองด้วยความซื่อโดยไม่รู้เลยว่าการกระทำนั้นกำลังทำให้ต้นไม้ตาย</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 8/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_8_15899316105012071561.jpg" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ทั่วทั้งอุทยานเต็มไปด้วยความวุ่นวาย ลิงทุกตัวต่างแข่งขันกันถอนต้นไม้ขึ้นมาดูรากแล้วรดน้ำลงไปก่อนจะปักกลับคืนที่เดิม ต้นไม้ที่เคยเขียวขจีเริ่มเหี่ยวเฉาและล้มระเนระนาดไปทั่วบริเวณสวนที่เคยสวยงาม</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 9/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_9_3938353414535328487.jpg" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>ในขณะนั้นเอง &quot;วิทูร&quot; บัณฑิตผู้มีปัญญาเดินผ่านมาเห็นเหตุการณ์พอดี เขาตกตะลึงกับภาพที่เห็น ต้นไม้ในอุทยานหลวงถูกทำลายจนเกลี้ยงด้วยน้ำมือของฝูงลิงที่คิดว่าตนเองกำลังทำความดี</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 10/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_10_2071602296796743127.jpg" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วิทูรเดินเข้าไปหากปิละแล้วถามว่า &quot;เหตุใดพวกเจ้าจึงทำเช่นนี้? ทำไมต้องถอนต้นไม้ขึ้นมาให้ตายเสียหมด?&quot; กปิละตอบด้วยความภาคภูมิใจว่า &quot;เราไม่อยากเปลืองน้ำท่านบัณฑิต เราจึงดูรากก่อนเพื่อให้มั่นใจว่ารดน้ำได้ถูกต้องตามขนาดของมัน&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 11/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_11_10899173628885612799.jpg" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>วิทูรทอดถอนใจแล้วกล่าวว่า &quot;เจ้าช่างโง่เขลานัก ความปรารถนาดีของคนพาลนั้นกลับกลายเป็นการทำลายล้าง ความพยายามของพวกเจ้าไม่ได้ช่วยให้สวนนี้งดงามเลย แต่มันกลับทำลายทุกอย่างให้พินาศสิ้น&quot;</p>
-          </div>
-        </div>
-        
-        <div class="page-card story-card">
-          <div class="page-header">หน้าที่ 12/12</div>
-          
-          <div class="story-image-wrapper">
-            <img src="./46 อารามทูสกชาดก_files/storybook_page_12_11289466174246404057.jpg" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
-          </div>
-          <div class="story-text">
-            <p>สมเด็จพระสัมมาสัมพุทธเจ้าทรงตรัสสรุปเรื่องนี้แก่ภิกษุทั้งหลายว่า &quot;น เว อนตฺถกุสเลน อตฺถจริยา สุขาวหา&quot; ความประพฤติที่เป็นประโยชน์โดยผู้ที่ไม่ฉลาดในประโยชน์ ย่อมไม่นำความสุขมาให้เลย เหมือนลิงผู้มุ่งหวังจะรักษาความงดงามของสวน แต่กลับทำลายสวนจนพินาศ</p>
-          </div>
-        </div>
-        
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_0_15795781471146044355.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="ลิงจอมขยันกับสวนที่พังพินาศ" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">ลิงจอมขยันกับสวนที่พังพินาศ</h1>
+        <p class="cover-author">โดย Story Live</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_1_6154029386085575211.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งนานมาแล้ว ณ กรุงพาราณสี มีพระราชาผู้รักธรรมชาติพระองค์หนึ่ง ทรงมีอุทยานที่งดงามเต็มไปด้วยต้นไม้เขียวขจีและดอกไม้นานาพันธุ์ โดยมี "พละ" ชายผู้ขยันขันแข็งเป็นคนดูแลสวนแห่งนี้ พละทุ่มเทแรงกายแรงใจรดน้ำพรวนดินจนสวนสวยงามเป็นที่เลื่องลือไปทั่ว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_2_14888758510109372229.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันหนึ่งที่เมืองมีเทศกาลรื่นเริง พละอยากไปร่วมงานฉลองใจจะขาด แต่เขาก็เป็นห่วงต้นไม้ในสวน ขณะที่เขากำลังกังวลอยู่นั้น "กปิละ" หัวหน้าฝูงลิงที่อาศัยอยู่ในสวนก็เดินเข้ามาหา พละจึงเกิดความคิดที่จะฝากฝังงานสำคัญนี้ไว้กับเหล่าลิง</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_3_2483236887439163740.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>"กปิละเอ๋ย เจ้าและบริวารอาศัยกินผลไม้ในสวนนี้มานาน" พละกล่าว "ข้าจะไปเที่ยวงานเทศกาลสักสองสามวัน เจ้าช่วยดูแลรดน้ำต้นไม้แทนข้าได้หรือไม่?" กปิละยืดอกตอบด้วยความมั่นใจว่า "ไม่ต้องห่วงท่านพละ พวกเราจะดูแลสวนนี้ให้ดีที่สุดเอง"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_4_6913287936322080251.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อพละจากไป กปิละก็สั่งให้เหล่าลิงไปนำอุปกรณ์รดน้ำมา "พละ" ลิงหนุ่มตัวน้อยรีบวิ่งไปหยิบกระบอกไม้ไผ่สำหรับตักน้ำมาอย่างกระตือรือร้น เหล่าลิงเริ่มตักน้ำจากสระน้ำใสสะอาดเพื่อเตรียมตัวรดน้ำต้นไม้ตามที่ได้รับปากไว้</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_5_4250818615902061725.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ขณะที่เริ่มรดน้ำ กปิละก็เกิดความคิดบางอย่างขึ้นมา เขาหยุดลิงตัวอื่นๆ แล้วประกาศว่า "น้ำนั้นมีค่าและหายาก เราไม่ควรใช้ทิ้งขว้าง เราต้องรดน้ำให้พอดีกับความต้องการของต้นไม้แต่ละต้น" ลิงทุกตัวหยุดฟังหัวหน้าของตนด้วยความเลื่อมใส</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_6_8538393550545745749.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กปิละหันไปบอกพละ ลิงหนุ่มว่า "ต้นไหนรากลึกก็รดน้ำมาก ต้นไหนรากตื้นก็รดน้ำน้อย แต่เราจะรู้ได้อย่างไรว่ารากแต่ละต้นลึกแค่ไหน? วิธีที่ง่ายที่สุดคือ... พวกเจ้าจงถอนต้นไม้ขึ้นมาดูรากก่อนแล้วค่อยรดน้ำลงไป!"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_7_7037654290994614061.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พละ ลิงหนุ่มเริ่มทำตามคำสั่งทันที เขาใช้มือเล็กๆ ดึงต้นกล้าอ่อนขึ้นมาจากดินจนรากพ้นดินออกมา "อ๋อ ต้นนี้รากสั้นจิดเดียวเอง" เขาพึมพำกับตัวเองด้วยความซื่อโดยไม่รู้เลยว่าการกระทำนั้นกำลังทำให้ต้นไม้ตาย</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_8_15899316105012071561.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ทั่วทั้งอุทยานเต็มไปด้วยความวุ่นวาย ลิงทุกตัวต่างแข่งขันกันถอนต้นไม้ขึ้นมาดูรากแล้วรดน้ำลงไปก่อนจะปักกลับคืนที่เดิม ต้นไม้ที่เคยเขียวขจีเริ่มเหี่ยวเฉาและล้มระเนระนาดไปทั่วบริเวณสวนที่เคยสวยงาม</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_9_3938353414535328487.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในขณะนั้นเอง "วิทูร" บัณฑิตผู้มีปัญญาเดินผ่านมาเห็นเหตุการณ์พอดี เขาตกตะลึงกับภาพที่เห็น ต้นไม้ในอุทยานหลวงถูกทำลายจนเกลี้ยงด้วยน้ำมือของฝูงลิงที่คิดว่าตนเองกำลังทำความดี</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_10_2071602296796743127.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วิทูรเดินเข้าไปหากปิละแล้วถามว่า "เหตุใดพวกเจ้าจึงทำเช่นนี้? ทำไมต้องถอนต้นไม้ขึ้นมาให้ตายเสียหมด?" กปิละตอบด้วยความภาคภูมิใจว่า "เราไม่อยากเปลืองน้ำท่านบัณฑิต เราจึงดูรากก่อนเพื่อให้มั่นใจว่ารดน้ำได้ถูกต้องตามขนาดของมัน"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_11_10899173628885612799.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วิทูรทอดถอนใจแล้วกล่าวว่า "เจ้าช่างโง่เขลานัก ความปรารถนาดีของคนพาลนั้นกลับกลายเป็นการทำลายล้าง ความพยายามของพวกเจ้าไม่ได้ช่วยให้สวนนี้งดงามเลย แต่มันกลับทำลายทุกอย่างให้พินาศสิ้น"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./46 อารามทูสกชาดก_files/storybook_page_12_11289466174246404057.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>สมเด็จพระสัมมาสัมพุทธเจ้าทรงตรัสสรุปเรื่องนี้แก่ภิกษุทั้งหลายว่า "น เว อนตฺถกุสเลน อตฺถจริยา สุขาวหา" ความประพฤติที่เป็นประโยชน์โดยผู้ที่ไม่ฉลาดในประโยชน์ ย่อมไม่นำความสุขมาให้เลย เหมือนลิงผู้มุ่งหวังจะรักษาความงดงามของสวน แต่กลับทำลายสวนจนพินาศ</p></div>
+    </div>
   </main>
 
-  <script>
-    // สคริปต์ระบบอ่านออกเสียงจำลองและปุ่มควบคุมแบบเดียวกับต้นแบบ
-    const listenPill = document.getElementById('listenPill');
-    const audioMiniBar = document.getElementById('audioMiniBar');
-    const storyAudio = document.getElementById('storyAudio');
-    const fullStoryText = "กาลครั้งหนึ่งนานมาแล้ว ณ กรุงพาราณสี มีพระราชาผู้รักธรรมชาติพระองค์หนึ่ง ทรงมีอุทยานที่งดงามเต็มไปด้วยต้นไม้เขียวขจีและดอกไม้นานาพันธุ์ โดยมี \"พละ\" ชายผู้ขยันขันแข็งเป็นคนดูแลสวนแห่งนี้ พละทุ่มเทแรงกายแรงใจรดน้ำพรวนดินจนสวนสวยงามเป็นที่เลื่องลือไปทั่ว วันหนึ่งที่เมืองมีเทศกาลรื่นเริง พละอยากไปร่วมงานฉลองใจจะขาด แต่เขาก็เป็นห่วงต้นไม้ในสวน ขณะที่เขากำลังกังวลอยู่นั้น \"กปิละ\" หัวหน้าฝูงลิงที่อาศัยอยู่ในสวนก็เดินเข้ามาหา พละจึงเกิดความคิดที่จะฝากฝังงานสำคัญนี้ไว้กับเหล่าลิง \"กปิละเอ๋ย เจ้าและบริวารอาศัยกินผลไม้ในสวนนี้มานาน\" พละกล่าว \"ข้าจะไปเที่ยวงานเทศกาลสักสองสามวัน เจ้าช่วยดูแลรดน้ำต้นไม้แทนข้าได้หรือไม่?\" กปิละยืดอกตอบด้วยความมั่นใจว่า \"ไม่ต้องห่วงท่านพละ พวกเราจะดูแลสวนนี้ให้ดีที่สุดเอง\" เมื่อพละจากไป กปิละก็สั่งให้เหล่าลิงไปนำอุปกรณ์รดน้ำมา \"พละ\" ลิงหนุ่มตัวน้อยรีบวิ่งไปหยิบกระบอกไม้ไผ่สำหรับตักน้ำมาอย่างกระตือรือร้น เหล่าลิงเริ่มตักน้ำจากสระน้ำใสสะอาดเพื่อเตรียมตัวรดน้ำต้นไม้ตามที่ได้รับปากไว้ ขณะที่เริ่มรดน้ำ กปิละก็เกิดความคิดบางอย่างขึ้นมา เขาหยุดลิงตัวอื่นๆ แล้วประกาศว่า \"น้ำนั้นมีค่าและหายาก เราไม่ควรใช้ทิ้งขว้าง เราต้องรดน้ำให้พอดีกับความต้องการของต้นไม้แต่ละต้น\" ลิงทุกตัวหยุดฟังหัวหน้าของตนด้วยความเลื่อมใส กปิละหันไปบอกพละ ลิงหนุ่มว่า \"ต้นไหนรากลึกก็รดน้ำมาก ต้นไหนรากตื้นก็รดน้ำน้อย แต่เราจะรู้ได้อย่างไรว่ารากแต่ละต้นลึกแค่ไหน? วิธีที่ง่ายที่สุดคือ... พวกเจ้าจงถอนต้นไม้ขึ้นมาดูรากก่อนแล้วค่อยรดน้ำลงไป!\" พละ ลิงหนุ่มเริ่มทำตามคำสั่งทันที เขาใช้มือเล็กๆ ดึงต้นกล้าอ่อนขึ้นมาจากดินจนรากพ้นดินออกมา \"อ๋อ ต้นนี้รากสั้นจิดเดียวเอง\" เขาพึมพำกับตัวเองด้วยความซื่อโดยไม่รู้เลยว่าการกระทำนั้นกำลังทำให้ต้นไม้ตาย ทั่วทั้งอุทยานเต็มไปด้วยความวุ่นวาย ลิงทุกตัวต่างแข่งขันกันถอนต้นไม้ขึ้นมาดูรากแล้วรดน้ำลงไปก่อนจะปักกลับคืนที่เดิม ต้นไม้ที่เคยเขียวขจีเริ่มเหี่ยวเฉาและล้มระเนระนาดไปทั่วบริเวณสวนที่เคยสวยงาม ในขณะนั้นเอง \"วิทูร\" บัณฑิตผู้มีปัญญาเดินผ่านมาเห็นเหตุการณ์พอดี เขาตกตะลึงกับภาพที่เห็น ต้นไม้ในอุทยานหลวงถูกทำลายจนเกลี้ยงด้วยน้ำมือของฝูงลิงที่คิดว่าตนเองกำลังทำความดี วิทูรเดินเข้าไปหากปิละแล้วถามว่า \"เหตุใดพวกเจ้าจึงทำเช่นนี้? ทำไมต้องถอนต้นไม้ขึ้นมาให้ตายเสียหมด?\" กปิละตอบด้วยความภาคภูมิใจว่า \"เราไม่อยากเปลืองน้ำท่านบัณฑิต เราจึงดูรากก่อนเพื่อให้มั่นใจว่ารดน้ำได้ถูกต้องตามขนาดของมัน\" วิทูรทอดถอนใจแล้วกล่าวว่า \"เจ้าช่างโง่เขลานัก ความปรารถนาดีของคนพาลนั้นกลับกลายเป็นการทำลายล้าง ความพยายามของพวกเจ้าไม่ได้ช่วยให้สวนนี้งดงามเลย แต่มันกลับทำลายทุกอย่างให้พินาศสิ้น\" สมเด็จพระสัมมาสัมพุทธเจ้าทรงตรัสสรุปเรื่องนี้แก่ภิกษุทั้งหลายว่า \"น เว อนตฺถกุสเลน อตฺถจริยา สุขาวหา\" ความประพฤติที่เป็นประโยชน์โดยผู้ที่ไม่ฉลาดในประโยชน์ ย่อมไม่นำความสุขมาให้เลย เหมือนลิงผู้มุ่งหวังจะรักษาความงดงามของสวน แต่กลับทำลายสวนจนพินาศ";
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/46-00-7b673cc3.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/46-01-06de155e.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/46-02-9505e835.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/46-03-3d7d0997.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/46-04-da4bf3ac.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/46-05-3f3856f0.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/46-06-6f986488.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/46-07-a0a76b65.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/46-08-2a6e5ba2.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/46-09-21150e11.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/46-10-38747176.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/46-11-d1082f92.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/46-12-82f5c2c0.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
 
-    let isSpeaking = false;
-    let synth = window.speechSynthesis;
-    let utterance = null;
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
 
     if (listenPill) {
-      listenPill.addEventListener('click', () => {
-        if (!isSpeaking) {
-          startSpeech();
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
         } else {
-          stopSpeech();
+          playTrackAtIndex(currentTrackIndex);
         }
       });
     }
 
-    function startSpeech() {
-      if (storyAudio && storyAudio.getAttribute('src')) {
-        storyAudio.play();
-        listenPill.classList.add('is-playing');
-        audioMiniBar.classList.add('active');
-        isSpeaking = true;
-        return;
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
       }
+    });
 
-      if ('speechSynthesis' in window && fullStoryText) {
-        synth.cancel();
-        utterance = new SpeechSynthesisUtterance(fullStoryText);
-        utterance.lang = 'th-TH';
-        utterance.rate = 0.95;
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
 
-        utterance.onstart = () => {
-          listenPill.classList.add('is-playing');
-          audioMiniBar.classList.add('active');
-          isSpeaking = true;
-        };
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
 
-        utterance.onend = () => {
-          stopSpeech();
-        };
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
 
-        utterance.onerror = () => {
-          stopSpeech();
-        };
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
 
-        synth.speak(utterance);
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
       } else {
-        listenPill.classList.toggle('is-playing');
-        audioMiniBar.classList.toggle('active');
-        isSpeaking = !isSpeaking;
+        playTrackAtIndex(-1);
       }
-    }
+    });
+  }
 
-    function stopSpeech() {
-      if (storyAudio && !storyAudio.paused) {
-        storyAudio.pause();
-      }
-      if (synth) {
-        synth.cancel();
-      }
-      listenPill.classList.remove('is-playing');
-      audioMiniBar.classList.remove('active');
-      isSpeaking = false;
-    }
-  <\/script>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
 </body>
 </html>
