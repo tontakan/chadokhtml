@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>สุหนุชาดก: มิตรภาพของม้าพยศ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Sarabun', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px env(safe-area-inset-bottom, 16px) 8px;
+    }
+    .mobile-header-bar {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 6px 4px 10px 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-color) 80%, rgba(248, 250, 252, 0) 100%);
+    }
+    .listen-pill-container {
+      display: inline-flex;
+      align-items: center;
+      background: #cbe7fc;
+      border-radius: 9999px;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .listen-pill-container:active { transform: scale(0.97); }
+    .listen-pill-text {
+      padding: 3px 12px 3px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .listen-pill-toggle {
+      width: 32px;
+      height: 22px;
+      background: #bae6fd;
+      border-radius: 9999px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+    .listen-pill-knob {
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .listen-pill-container.is-playing {
+      background: #38bdf8;
+      box-shadow: 0 3px 10px rgba(56, 189, 248, 0.35);
+    }
+    .listen-pill-container.is-playing .listen-pill-text {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .listen-pill-container.is-playing .listen-pill-toggle {
+      background: #0284c7;
+    }
+    .listen-pill-container.is-playing .listen-pill-knob {
+      transform: translateX(10px);
+    }
+    .audio-mini-bar {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      color: #f8fafc;
+      border-radius: 12px;
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .audio-mini-bar.active { display: flex; }
+    .audio-progress {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 9999px;
+      margin: 0 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 9999px;
+      width: 0%;
+    }
+    .mobile-reader {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .cover-card {
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .cover-image-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cover-overlay {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 60%, transparent 100%);
+      padding: 28px 16px 20px;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .cover-author {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .story-card {
+      padding: 14px;
+    }
+    .page-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .story-image-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background-color: #f1f5f9;
+    }
+    .story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .story-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 4px;
+    }
+    .story-text p { margin-bottom: 12px; }
+    .story-text p:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <div class="mobile-header-bar">
+    <div id="listenPill" class="listen-pill-container" title="กดเพื่อฟังเสียง">
+      <span class="listen-pill-text">ฟัง</span>
+      <div class="listen-pill-toggle">
+        <div class="listen-pill-knob"></div>
+      </div>
+    </div>
+  </div>
+  <div id="audioMiniBar" class="audio-mini-bar">
+    <span id="currentTimeText">0:00</span>
+    <div id="audioProgress" class="audio-progress">
+      <div id="audioProgressFill" class="audio-progress-fill"></div>
+    </div>
+    <span id="durationText">0:00</span>
+  </div>
+  <audio id="storyAudio" src="" preload="none"></audio>
+  <main class="mobile-reader">
+    <div class="page-card cover-card">
+      <div class="cover-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_0_4632681055016966922.jpg" onerror="this.src='https://placehold.co/600x800/0f172a/38bdf8?text=Cover'" alt="สุหนุชาดก: มิตรภาพของม้าพยศ" class="cover-img" />
+      </div>
+      <div class="cover-overlay">
+        <h1 class="cover-title">สุหนุชาดก: มิตรภาพของม้าพยศ</h1>
+        <p class="cover-author">โดย Story Live</p>
+      </div>
+    </div>
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 1/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_1_16922855186342160855.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%201%2F12'" alt="หน้าที่ 1/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>กาลครั้งหนึ่งในนครพาราณสี พระเจ้าพรหมทัตทรงมีม้าคู่ใจตัวหนึ่งชื่อว่า "สุหนุ" สุหนุเป็นม้าที่สง่างามและทรงพลังมาก แต่มันมีนิสัยดุร้ายและพยศจนไม่มีใครกล้าเข้าใกล้ ยกเว้นเหล่าทหารผู้เลี้ยงม้าที่ฝึกฝนมาอย่างดี</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 2/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_2_9358143561296519463.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%202%2F12'" alt="หน้าที่ 2/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ความดุร้ายของสุหนุนั้นเป็นที่เลื่องลือ เมื่อใดที่มีคนแปลกหน้าเข้าใกล้ มันจะส่งเสียงร้องคำรามและชูขาหน้าขึ้นฟ้า ราวกับจะประกาศศักดาว่าไม่มีใครสามารถสยบมันได้ แม้แต่คนเลี้ยงม้ายังต้องระมัดระวังทุกฝีก้าว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 3/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_3_10742073385563442318.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%203%2F12'" alt="หน้าที่ 3/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ในขณะเดียวกัน มีพ่อค้าคนหนึ่งเดินทางมาจากต่างเมืองพร้อมกับม้าอีกตัวที่ชื่อว่า "มหานุ" มหานุก็เป็นม้าที่ขึ้นชื่อเรื่องความดุร้ายไม่แพ้สุหนุ มันไม่ยอมให้ใครขี่และมักจะทำร้ายคนแปลกหน้าที่พยายามจะเข้าใกล้เสมอ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 4/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_4_6157469962872194676.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%204%2F12'" alt="หน้าที่ 4/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>มหานุสะบัดตัวอย่างแรงจนพ่อค้าแทบจะคุมไม่อยู่ พละกำลังของมันมหาศาลและเต็มไปด้วยความดื้อรั้น พ่อค้ากังวลใจนักว่าเขาจะจัดการกับม้าตัวนี้อย่างไรในระหว่างที่พักอยู่ในเมืองนี้</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 5/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_5_16850459242035466086.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%205%2F12'" alt="หน้าที่ 5/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>เมื่อความดุร้ายของม้าทั้งสองรู้ถึงพระกรรณ พระเจ้าพรหมทัตจึงทรงเรียก "วิชิต" อำมาตย์ผู้ปรีชามาปรึกษา พระองค์ทรงกังวลว่าม้าดุสองตัวนี้หากพบกันอาจจะกัดกันจนถึงแก่ชีวิต วิชิตอำมาตย์ยิ้มรับด้วยความสงบ</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 6/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_6_17306338356706792380.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%206%2F12'" alt="หน้าที่ 6/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วิชิตอำมาตย์ทูลว่า "ข้าแต่มหาราช ม้าดุมักจะยอมลดพยศเมื่อเจอผู้ที่มีลักษณะเหมือนกัน ขอพระองค์ลองให้พวกมันได้พบกันดูเถิด" พระเจ้าพรหมทัตทรงเชื่อในสติปัญญาของอำมาตย์จึงอนุญาต</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 7/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_7_3870849168269718200.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%207%2F12'" alt="หน้าที่ 7/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วันต่อมา ม้าสุหนุและม้ามหานุถูกนำมาพบกันที่ลานกว้างหน้าพระราชวัง ผู้คนต่างพากันมามุงดูด้วยความระทึกใจ เพราะคิดว่าจะต้องเกิดการต่อสู้ครั้งใหญ่ระหว่างม้าพยศทั้งสองตัวนี้แน่นอน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 8/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_8_1241748853772286438.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%208%2F12'" alt="หน้าที่ 8/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>แต่สิ่งที่ทุกคนคาดไม่ถึงก็เกิดขึ้น เมื่อสุหนุเดินเข้าไปใกล้มหานุ แทนที่จะเข้ากัดกัน ม้าทั้งสองกลับใช้จมูกดมกันเบาๆ และส่งเสียงร้องในลำคอราวกับเป็นการทักทายเพื่อนเก่าที่พลัดพรากกันไปนาน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 9/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_9_1116097052897813857.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%209%2F12'" alt="หน้าที่ 9/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>จากนั้นม้าทั้งสองก็เริ่มเลียคอและไหล่ให้กันและกัน เป็นการแสดงความรักและการยอมรับซึ่งกันและกัน ความดุร้ายที่เคยมีหายไปสิ้น เหลือเพียงมิตรภาพอันงดงามที่ผูกพันม้าผู้ยิ่งใหญ่ทั้งสองตัวไว้ด้วยกัน</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 10/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_10_2558905372504939611.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2010%2F12'" alt="หน้าที่ 10/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>พระเจ้าพรหมทัตและพ่อค้าต่างตกตะลึงในภาพที่เห็น พวกเขาไม่เคยคิดมาก่อนว่าม้าที่ดุร้ายที่สุดจะสามารถกลายเป็นเพื่อนที่แสนดีต่อกันได้เพียงแค่การพบกันครั้งเดียว</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 11/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_11_12395980532030460072.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2011%2F12'" alt="หน้าที่ 11/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>วิชิตอำมาตย์เดินเข้าไปหาพระราชาและกล่าวว่า "พระองค์เห็นไหมพะยะค่ะ สิ่งที่เหมือนกันย่อมดึงดูดเข้าหากัน ม้าทั้งสองเห็นความกล้าหาญและความโดดเดี่ยวในตัวของกันและกัน พวกมันจึงเลือกที่จะเป็นมิตรแทนการศัตรู"</p></div>
+    </div>
+
+    <div class="page-card story-card">
+      <div class="page-header">หน้าที่ 12/12</div>
+      <div class="story-image-wrapper">
+        <img src="./158 สุหนุชาดก_files/storybook_page_12_7684392522643497322.jpg" onerror="this.src='https://placehold.co/600x400/1e293b/f8fafc?text=%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%2012%2F12'" alt="หน้าที่ 12/12" class="story-img" loading="lazy" />
+      </div>
+      <div class="story-text"><p>ตั้งแต่นั้นมา สุหนุและมหานุก็กลายเป็นเพื่อนรักที่แยกจากกันไม่ได้ พวกมันกลายเป็นม้าที่เชื่องและแสนรู้ ช่วยงานราชการและนำพาความสุขมาสู่พระนครพาราณสี สอนให้ผู้คนรู้ว่าแม้จะดุร้ายเพียงใด แต่หัวใจก็ย่อมแพ้พ่ายต่อมิตรภาพเสมอ</p></div>
+    </div>
+  </main>
+
+<!-- STORY_TTS_INJECT_START -->
+<style>
+  .page-card.tts-active-card {
+    outline: 3px solid #0284c7 !important;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25) !important;
+    transition: all 0.35s ease;
+  }
+  .tts-speed-badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tts-speed-badge:hover {
+    background: rgba(56, 189, 248, 0.35);
+  }
+  .tts-page-indicator {
+    color: #bae6fd;
+    font-size: 10px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+</style>
+<script>
+(function() {
+  const STORY_TRACKS = [{"selectorType":"cover","cardIndex":0,"label":"หน้าปก","audioSrc":"audio/158-00-62e9ed12.mp3"},{"selectorType":"story","cardIndex":0,"label":"หน้าที่ 1/12","audioSrc":"audio/158-01-aca0f433.mp3"},{"selectorType":"story","cardIndex":1,"label":"หน้าที่ 2/12","audioSrc":"audio/158-02-f1a7798f.mp3"},{"selectorType":"story","cardIndex":2,"label":"หน้าที่ 3/12","audioSrc":"audio/158-03-4877e140.mp3"},{"selectorType":"story","cardIndex":3,"label":"หน้าที่ 4/12","audioSrc":"audio/158-04-fcc46653.mp3"},{"selectorType":"story","cardIndex":4,"label":"หน้าที่ 5/12","audioSrc":"audio/158-05-6b7a041d.mp3"},{"selectorType":"story","cardIndex":5,"label":"หน้าที่ 6/12","audioSrc":"audio/158-06-9beed62e.mp3"},{"selectorType":"story","cardIndex":6,"label":"หน้าที่ 7/12","audioSrc":"audio/158-07-dd12f381.mp3"},{"selectorType":"story","cardIndex":7,"label":"หน้าที่ 8/12","audioSrc":"audio/158-08-86d23013.mp3"},{"selectorType":"story","cardIndex":8,"label":"หน้าที่ 9/12","audioSrc":"audio/158-09-8e5cf3f5.mp3"},{"selectorType":"story","cardIndex":9,"label":"หน้าที่ 10/12","audioSrc":"audio/158-10-1da509c1.mp3"},{"selectorType":"story","cardIndex":10,"label":"หน้าที่ 11/12","audioSrc":"audio/158-11-a4c8a1bf.mp3"},{"selectorType":"story","cardIndex":11,"label":"หน้าที่ 12/12","audioSrc":"audio/158-12-f17c6040.mp3"}];
+  let playbackSpeed = 1.05;
+  let currentTrackIndex = 0;
+  let isPlayingStory = false;
+
+  function initStoryTTSPlayer() {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch(e) {}
+    }
+
+    const oldPill = document.getElementById('listenPill');
+    let listenPill = oldPill;
+    if (oldPill && oldPill.parentNode) {
+      listenPill = oldPill.cloneNode(true);
+      oldPill.parentNode.replaceChild(listenPill, oldPill);
+    }
+
+    const listenPillText = listenPill ? listenPill.querySelector('.listen-pill-text') : null;
+    const audioMiniBar = document.getElementById('audioMiniBar');
+    const storyAudio = document.getElementById('storyAudio') || new Audio();
+    const currentTimeText = document.getElementById('currentTimeText');
+    const durationText = document.getElementById('durationText');
+    const audioProgress = document.getElementById('audioProgress');
+    const audioProgressFill = document.getElementById('audioProgressFill');
+
+    if (!STORY_TRACKS || STORY_TRACKS.length === 0) return;
+
+    const isSingleFullTrack = (STORY_TRACKS.length === 1 && STORY_TRACKS[0].selectorType === 'full_story');
+
+    storyAudio.src = STORY_TRACKS[0].audioSrc;
+    storyAudio.playbackRate = playbackSpeed;
+
+    let pageIndicatorEl = null;
+    let speedBtnEl = null;
+    if (audioMiniBar) {
+      const oldInd = audioMiniBar.querySelector('.tts-page-indicator');
+      if (oldInd) oldInd.remove();
+      const oldSpd = audioMiniBar.querySelector('.tts-speed-badge');
+      if (oldSpd) oldSpd.remove();
+
+      pageIndicatorEl = document.createElement('span');
+      pageIndicatorEl.className = 'tts-page-indicator';
+      pageIndicatorEl.textContent = STORY_TRACKS[0].label || 'หน้า 1';
+      audioMiniBar.insertBefore(pageIndicatorEl, audioMiniBar.firstChild);
+
+      speedBtnEl = document.createElement('button');
+      speedBtnEl.type = 'button';
+      speedBtnEl.className = 'tts-speed-badge';
+      speedBtnEl.textContent = playbackSpeed + 'x';
+      speedBtnEl.title = 'คลิกเพื่อปรับความเร็วเสียงพากย์';
+      speedBtnEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const speeds = [0.75, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+        const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+        playbackSpeed = speeds[nextIdx];
+        storyAudio.playbackRate = playbackSpeed;
+        speedBtnEl.textContent = playbackSpeed + 'x';
+      });
+      audioMiniBar.appendChild(speedBtnEl);
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function getAllPageCards() {
+      const list = [];
+      const cover = document.querySelector('.cover-card');
+      if (cover) list.push({ el: cover, label: 'หน้าปก' });
+      document.querySelectorAll('.story-card').forEach(function(c, idx) {
+        const h = c.querySelector('.page-header');
+        list.push({ el: c, label: h ? h.textContent.trim() : ('หน้าที่ ' + (idx + 1)) });
+      });
+      return list;
+    }
+
+    function getCardElementForTrack(track) {
+      if (!track) return null;
+      if (track.selectorType === 'cover') {
+        return document.querySelector('.cover-card');
+      } else if (track.selectorType === 'story') {
+        const cards = document.querySelectorAll('.story-card');
+        return cards[track.cardIndex] || null;
+      }
+      return null;
+    }
+
+    let lastHighlightedEl = null;
+    function highlightCardElement(cardEl, labelText) {
+      if (lastHighlightedEl !== cardEl) {
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        if (cardEl) {
+          cardEl.classList.add('tts-active-card');
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        lastHighlightedEl = cardEl;
+      }
+      if (pageIndicatorEl && labelText) {
+        pageIndicatorEl.textContent = labelText;
+      }
+    }
+
+    function updateUIPlayingState(playing) {
+      isPlayingStory = playing;
+      if (listenPill) {
+        if (playing) {
+          listenPill.classList.add('is-playing');
+          if (listenPillText) listenPillText.textContent = 'หยุด';
+        } else {
+          listenPill.classList.remove('is-playing');
+          if (listenPillText) listenPillText.textContent = 'ฟัง';
+        }
+      }
+      if (audioMiniBar) {
+        audioMiniBar.classList.add('active');
+      }
+    }
+
+    function playTrackAtIndex(index) {
+      if (index < 0 || index >= STORY_TRACKS.length) {
+        updateUIPlayingState(false);
+        document.querySelectorAll('.page-card.tts-active-card').forEach(function(el) {
+          el.classList.remove('tts-active-card');
+        });
+        lastHighlightedEl = null;
+        currentTrackIndex = 0;
+        storyAudio.src = STORY_TRACKS[0].audioSrc;
+        storyAudio.playbackRate = playbackSpeed;
+        if (audioProgressFill) audioProgressFill.style.width = '0%';
+        return;
+      }
+
+      currentTrackIndex = index;
+      const track = STORY_TRACKS[currentTrackIndex];
+      if (storyAudio.src !== new URL(track.audioSrc, document.baseURI).href) {
+        storyAudio.src = track.audioSrc;
+      }
+      storyAudio.playbackRate = playbackSpeed;
+      if (!isSingleFullTrack) {
+        const cardEl = getCardElementForTrack(track);
+        highlightCardElement(cardEl, track.label);
+      }
+      storyAudio.play().then(function() {
+        updateUIPlayingState(true);
+      }).catch(function(err) {
+        console.error('Playback error:', err);
+        updateUIPlayingState(false);
+      });
+    }
+
+    if (listenPill) {
+      listenPill.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlayingStory) {
+          storyAudio.pause();
+          updateUIPlayingState(false);
+        } else {
+          playTrackAtIndex(currentTrackIndex);
+        }
+      });
+    }
+
+    const allCards = getAllPageCards();
+    allCards.forEach(function(item, idx) {
+      const headerEl = item.el.querySelector('.page-header, .cover-overlay');
+      if (headerEl) {
+        headerEl.style.cursor = 'pointer';
+        headerEl.title = 'คลิกเพื่อฟังเสียงพากย์หน้านี้';
+        headerEl.addEventListener('click', function() {
+          if (isSingleFullTrack && storyAudio.duration > 0) {
+            const ratio = idx / allCards.length;
+            storyAudio.currentTime = ratio * storyAudio.duration;
+            storyAudio.play().then(function() { updateUIPlayingState(true); });
+          } else if (idx < STORY_TRACKS.length) {
+            playTrackAtIndex(idx);
+          }
+        });
+      }
+    });
+
+    storyAudio.addEventListener('timeupdate', function() {
+      const cur = storyAudio.currentTime || 0;
+      const dur = storyAudio.duration || 0;
+      if (currentTimeText) currentTimeText.textContent = formatTime(cur);
+      if (durationText) durationText.textContent = formatTime(dur);
+      if (audioProgressFill && dur > 0) {
+        const pct = Math.min(100, (cur / dur) * 100);
+        audioProgressFill.style.width = pct + '%';
+
+        if (isSingleFullTrack && allCards.length > 0) {
+          const cardIdx = Math.min(allCards.length - 1, Math.floor((cur / dur) * allCards.length));
+          highlightCardElement(allCards[cardIdx].el, allCards[cardIdx].label);
+        }
+      }
+    });
+
+    storyAudio.addEventListener('loadedmetadata', function() {
+      storyAudio.playbackRate = playbackSpeed;
+      if (durationText) durationText.textContent = formatTime(storyAudio.duration || 0);
+    });
+
+    if (audioProgress) {
+      audioProgress.addEventListener('click', function(e) {
+        const rect = audioProgress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        if (storyAudio.duration) {
+          storyAudio.currentTime = ratio * storyAudio.duration;
+        }
+      });
+    }
+
+    storyAudio.addEventListener('ended', function() {
+      if (!isSingleFullTrack && currentTrackIndex + 1 < STORY_TRACKS.length) {
+        playTrackAtIndex(currentTrackIndex + 1);
+      } else {
+        playTrackAtIndex(-1);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStoryTTSPlayer);
+  } else {
+    initStoryTTSPlayer();
+  }
+})();
+</script>
+<!-- STORY_TTS_INJECT_END -->
+</body>
+</html>
